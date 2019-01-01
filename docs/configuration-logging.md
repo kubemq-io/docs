@@ -1,11 +1,6 @@
----
-title: "Logging"
-draft: false
-weight: 45
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
-KubeMQ supports in addition to docker stdout logging sending logs to local files and to [Logly](https://www.loggly.com/) external service.
+# Logging
+
+KubeMQ supports in addition to docker stdout logging sending logs to `local files` and to [Logly](https://www.loggly.com/) external service.
 
 | Environment Variable     | Type   | Default    | Description                                                                      |
 |:-------------------------|:-------|:-----------|:---------------------------------------------------------------------------------|

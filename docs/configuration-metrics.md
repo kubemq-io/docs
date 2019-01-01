@@ -1,10 +1,4 @@
----
-title: "Observability"
-draft: false
-weight: 46
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
+# Observability
 KubeMQ exports both metrics and tracing observability information by embedding [OpenCensus](https://opencensus.io/) library.
 
 ## General

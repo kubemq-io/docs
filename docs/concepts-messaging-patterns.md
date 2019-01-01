@@ -1,18 +1,11 @@
----
-title: "Messaging Patterns"
-draft: false
-weight: 22
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
-headless: true
----
+# Messaging Patterns
 KubeMQ supports 4 messaging patterns
 - Events
 - Events Store
 - Commands
 - Queries
 
-### Events
+## Events
 Events is an asynchronous real-time Pub/Sub pattern.
 In Events multiple senders can send real-time messages to multiple receivers only if they are currently connected to KubeMQ. No message persistence available in this pattern.
 
@@ -20,7 +13,7 @@ In Events multiple senders can send real-time messages to multiple receivers onl
 
 Events pattern is suitable for uses cases such publishing streaming data, logs, notifications etc.
 
-### Events Store
+## Events Store
 Events Store is an asynchronous Pub/Sub pattern with persistence.
 In Events Store multiple senders can send messages to multiple receivers even if they are not currently. Any receiver can connect to KubeMQ and replay one , any or all the messages stored for specific channel.
 
@@ -53,7 +46,7 @@ If a Receiver wish to receive again the messages on `foo.bar` he should subscrib
 
 Events Store pattern is suitable for uses cases which events are important such workers pool, chats and inbox related applications.
 
-### Commands
+## Commands
 
 Commands is a synchronous two ways Pub/Sub (Request and Response) pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
 
@@ -70,7 +63,7 @@ This pattern implements the Command part of [CQRS](https://martinfowler.com/blik
 Commands pattern is suitable for uses cases such sending updates to a DB, WebHooks or any request without the need of response in specific time.
 
 
-### Queries
+## Queries
 
 Queries is a synchronous two ways Pub/Sub (Request and Response) pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
 
@@ -96,7 +89,7 @@ KubeMQ supports caching of query results as follows:
 
 Queries pattern is suitable for uses cases mainly for database queries.
 
-### Commands vs. Queries
+## Commands vs. Queries
 Commands and Queries are very similar patterns, however, there are two differences:
 
 1. Commands Response returns only if the Request is successful or not, while Query returns with data in the Response.

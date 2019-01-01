@@ -1,10 +1,4 @@
----
-title: "General"
-draft: false
-weight: 41
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
+# General
 KubeMQ general configuration can be set as below:
 
 | Environment Variable | Type   | Default             | Description                                                                                                                                    |

@@ -10,7 +10,15 @@ module.exports = {
         headerTopOffset: 120
     }],
     markdown: {
-
+        config: md => {
+            md.set({
+                breaks: true,
+                html: true,
+                linkify: true,
+                typographer: true,
+            });
+            md.use(require('markdown-it'))
+        },
         lineNumbers: true,
     },
     themeConfig: {
@@ -19,6 +27,7 @@ module.exports = {
         logo: `/kubemq-logo.png`,
         docsDir: 'docs',
         sidebar: [
+            `/home`,
             {
                 title: 'Installation',
                 collapsable: true,
@@ -44,15 +53,14 @@ module.exports = {
                     '/configuration-general',
                     `/configuration-cluster`,
                     `/configuration-persistence`,
-                    `/configuration-grpc`,
-                    `/configuration-rest`,
+                    `/configuration-interfaces`,
                     `/configuration-logging`,
                     `/configuration-metrics`,
 
                 ]
             },
             {
-                title: 'API',
+                title: 'Reference',
                 collapsable: true,
                 children: [
                     '/rest',

@@ -1,12 +1,5 @@
----
-title: "Terminology"
-draft: false
-weight: 21
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
-headless: true
----
-### Senders and Receivers
+# Terminology
+## Senders and Receivers
 The core functionality of KubeMQ messaging are sending and receiving messages.
 
 **Senders** (publishers) can send one or many messages (stream) to a specific one destination (Channel).
@@ -16,7 +9,7 @@ Sending message not require to set up any pre-define destination.
 Before a Receiver can receive amy messages, a Subscription function is needed to register his interest to receive messages from senders designations.
 
 
-### Channel
+## Channels
 KubeMQ Channel (Topic/Subject/Address/Destination) is a string base representation of an endpoint or a target of a message.
 KubeMQ supports [NATS.IO](https://nats.io/documentation/writing_applications/subjects/) Subject-based Messaging patterns for hierarchies, wildcards and tokens.
 #### Format
@@ -63,10 +56,10 @@ Here some examples for channel subscription patterns and which types of messages
 | `foo.*`         | `foo.bar`,`foo.ZOO` | `foo`,`foo.bar.zoo` |
 | `foo.>`         | `foo.bar.zoo`       | `foo`               |
 | `foo.*.*.bar`   | `foo.a.b.bar`       | `foo.bar.zoo`       |
-| `foo*.>`        | `foo.bar`,foo1.bar` | `foo`               |
+| `foo*.>`        | `foo.bar`,`foo1.bar` | `foo`               |
 | `>`             | any message         | none                |
 
-### Group (Load Balancing)
+## Groups (Queue/Load Balancing)
 
 KubeMQ supports grouping receivers with the same subscription channel patterns to form a load balancing group. Group pattern is useful pattern for sharing messages loads handling between services and for redundancy functionality as well.
 

@@ -1,26 +1,25 @@
----
-title: "REST"
-draft: false
-weight: 51
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
+
+# REST API
 KubeMQ server API provides simple interface for all messaging patterns.
 
 RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.
+::: tip Postman
+You can view REST documentation in [Postman](https://postman.kubemq.io)
 
+Or run it on your local Postman app:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c3f4630fbbd5b9684049#?env%5Bkubemq-playground%5D=W3sia2V5IjoiaG9zdCIsInZhbHVlIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLmt1YmVtcS5pbyIsImRlc2NyaXB0aW9uIjoiIiwiZW5hYmxlZCI6dHJ1ZX1d)
+:::
 
-**IMPORTANT:**
-
+::: danger IMPORTANT
 Please make sure to include KubeMQ Token/Key in any request to public playground. You can find your Token/Key in your KubeMQ account profile [here](https://account.kubemq.io/home/profile).
+:::
 
 ## Send Event Message
 
 Send Event RPC call send an event message for both Events and Events Store patterns.
 
-Send Event endpoint is a `POST` function to `{{host}}/send/event` where `host` is the KubeMQ REST interface address.
+Send Event endpoint is a `POST` function to `host/send/event` where `host` is the KubeMQ REST interface address.
 
 `POST` Event message JSON structure:
 ```
@@ -62,9 +61,11 @@ As a Response from `POST` message:
 
 Send Events Stream allows opening a bo-directional websocket connection and stream Event messages and receive Response messages.
 
-Send Event endpoint is a `GET` function with websocket upgrade to `{{host}}/send/stream` where `host` is the KubeMQ REST interface address.
+Send Event endpoint is a `GET` function with websocket upgrade to `host/send/stream` where `host` is the KubeMQ REST interface address.
 
-**NOTE:**  Since Postman does not support websocket upgrade function, only the GET function is provided.
+::: warning NOTE
+Since Postman does not support websocket upgrade function, only the GET function is provided.
+:::
 
 After websocket upgrade, sending Event messages and receiving responses will use websocket Text format.
 
@@ -113,7 +114,7 @@ Subscribe To Events allows opening a uni-directional websocket connection and re
 
 Subscribe Events endpoint is a `GET` function with websocket upgrade to:
 
- `{{host}}/subscribe/events?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=events`
+ `host/subscribe/events?client_id=`client_id`&channel=`channel_name`&group=`group_name`&subscribe_type=events`
 
  Where request call parameters are:
 
@@ -150,7 +151,7 @@ Where:
 
 Subscribe Events endpoint is a `GET` function with websocket upgrade to:
 
- `{{host}}/subscribe/events?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=events_store&events_store_type_data={{subscription_type}}&events_store_type_value={{subscription_value}}`
+ `host/subscribe/events?client_id=`client_id`&channel=`channel_name`&group=`group_name`&subscribe_type=events_store&events_store_type_data=`subscription_type`&events_store_type_value=`subscription_value``
 
  Where request call parameters are:
 
@@ -179,7 +180,7 @@ Where Events Store Type and Data here Events Store Values:
 
 
 Events Store Receive messages format:
-```
+``` js(4)
  {   
     "EventID": "1234-5678-90",
     "Channel": "events-channel",
@@ -201,10 +202,9 @@ Where:
 | Timestamp | int64         | Unix time format of message                                                                             |
 | Sequence  | int           | Events Store message sequence number                                                                    |
 
-
-**NOTE:**
-
-Since Postman does not supports websocket upgrade function, only the GET function is provided.
+::: warning NOTE
+Since Postman does not support websocket upgrade function, only the GET function is provided.
+:::
 
 
 
@@ -212,7 +212,7 @@ Since Postman does not supports websocket upgrade function, only the GET functio
 
 Send Command RPC call send a command request in Commands pattern.
 
-Send Command endpoint is a `POST` function to `{{host}}/send/request` where `host` is the KubeMQ REST interface address.
+Send Command endpoint is a `POST` function to `host/send/request` where `host` is the KubeMQ REST interface address.
 
 `POST` Command request JSON structure:
 ```
@@ -280,7 +280,7 @@ A timeout error on unsuccessful Command Response from `POST` request:
 
 Send Query RPC call send a query request in Query pattern.
 
-Send Query endpoint is a `POST` function to `{{host}}/send/request` where `host` is the KubeMQ REST interface address.
+Send Query endpoint is a `POST` function to `host/send/request` where `host` is the KubeMQ REST interface address.
 
 `POST` Query request JSON structure:
 ```
@@ -359,8 +359,9 @@ A timeout error on unsuccessful Command Response from `POST` request:
 
 Subscribe to Commands endpoint is a `GET` function with websocket upgrade to:
 
- `{{host}}/subscribe/requests?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=commands`
-
+```
+host/subscribe/requests?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=commands
+```
  Where request call parameters are:
 
 | Field          | Type   | Required | Description                   |
@@ -401,7 +402,9 @@ Where:
 
 Subscribe to Queries endpoint is a `GET` function with websocket upgrade to:
 
- `{{host}}/subscribe/requests?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=queries`
+ ```
+ host/subscribe/requests?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=queries
+ ```
 
  Where request call parameters are:
 
@@ -443,7 +446,7 @@ Where:
 
 Send Response RPC call send a Response to command/query requests in Command and Query patterns.
 
-Send Response endpoint is a `POST` function to `{{host}}/send/response` where `host` is the KubeMQ REST interface address.
+Send Response endpoint is a `POST` function to `host/send/response` where `host` is the KubeMQ REST interface address.
 
 `POST` Response request JSON structure:
 ```

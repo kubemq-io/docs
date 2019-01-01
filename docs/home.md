@@ -1,6 +1,6 @@
 # Introduction
 
-## What is KubeMQ
+## What is KubeMQ ?
 KubeMQ is a Cloud Native, enterprise grade message broker for distributed services architecture. 
 
 KubeMQ is delivered as a small, lightweight Docker container, designed for any type of workload and architecture running in Kubernetes or any other containers orchestration system which support Docker.
