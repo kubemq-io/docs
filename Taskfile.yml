@@ -8,6 +8,7 @@ vars:
 tasks:
   default:
     cmds:
+      - vuepress build docs
       - task: docker
   docker:
     env:

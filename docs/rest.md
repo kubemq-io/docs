@@ -114,7 +114,10 @@ Subscribe To Events allows opening a uni-directional websocket connection and re
 
 Subscribe Events endpoint is a `GET` function with websocket upgrade to:
 
- `host/subscribe/events?client_id=`client_id`&channel=`channel_name`&group=`group_name`&subscribe_type=events`
+```
+host/subscribe/events?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=events
+```
+ 
 
  Where request call parameters are:
 
@@ -151,8 +154,9 @@ Where:
 
 Subscribe Events endpoint is a `GET` function with websocket upgrade to:
 
- `host/subscribe/events?client_id=`client_id`&channel=`channel_name`&group=`group_name`&subscribe_type=events_store&events_store_type_data=`subscription_type`&events_store_type_value=`subscription_value``
-
+ ```
+host/subscribe/events?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=events_store&events_store_type_data="subscription_type"&events_store_type_value="subscription_value"
+```
  Where request call parameters are:
 
 | Field                   | Type   | Required | Description                       |
