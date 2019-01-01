@@ -9,7 +9,7 @@ lastmod: 2018-12-05T15:26:15Z
  
 ## Register to KubeMQ
 KubeMQ server is free to use anytime.
-Registration is needed to obtain KubeMQ token is needed and can be done in [Register KubeMQ](https://account.kubemq.io/login/register).
+Registration is needed to obtain KubeMQ token ,[Register KubeMQ](https://account.kubemq.io/login/register).
 
 
 ## Get KubeMQ

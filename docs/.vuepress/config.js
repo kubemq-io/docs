@@ -10,15 +10,7 @@ module.exports = {
         headerTopOffset: 120
     }],
     markdown: {
-        config: md => {
-            md.set({
-                breaks: true,
-                html: true,
-                linkify: true,
-                typographer: true,
-            });
-            md.use(require('markdown-it'))
-        },
+        anchor: { permalink: false },
         lineNumbers: true,
     },
     themeConfig: {
@@ -26,6 +18,9 @@ module.exports = {
         displayAllHeaders: true,
         logo: `/kubemq-logo.png`,
         docsDir: 'docs',
+        nav: [
+            { text: 'KubeMQ.io', link: 'https://kubemq.io' },
+        ],
         sidebar: [
             `/home`,
             {
