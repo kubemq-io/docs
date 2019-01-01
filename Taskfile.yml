@@ -1,0 +1,29 @@
+# github.com/go-task/task
+version: '2'
+
+vars:
+  VERSION: v1.0.0
+
+
+tasks:
+  default:
+    cmds:
+      - task: docker
+  docker:
+    env:
+      GOOS: linux
+      GOARCH: amd64
+    cmds:
+      -  docker build . -t kubemq/docs:{{.VERSION}}
+  rundocker:
+    cmds:
+      - docker run -it --rm -p 2015:2015  kubemq/docs:{{.VERSION}}
+  push:
+    cmds:
+      - docker push kubemq/docs:{{.VERSION}}
+  release:
+    cmds:
+      - task: docker
+      - task: push
+      - git tag -a {{.VERSION}} -m {{.VERSION}}
+      - git push origin master --tags
