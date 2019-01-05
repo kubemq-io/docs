@@ -1,18 +1,12 @@
----
-title: "Cluster"
-draft: false
-weight: 32
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
+# Cluster Setup
 
 KubeMQ cluster can be deployed to a Kubernetes cluster as stateful set or in Docker environment using docker-compose.
 
-### Kubernetes Deployment
+## Deploy to Kubernetes
 
 Setting up KubeMQ cluster can be done by simple yaml configuration file.
 
-#### Kubernetes Configuration Generator
+### Kubernetes Configuration Generator
 A simple yaml configuration generator can used by login to your KubeMQ account are [here](https://account.kubemq.io/home/get-kubemq/kubernetes).
 
 
@@ -105,7 +99,7 @@ items:
 
 ```
 
-### docker-compose Deployment
+## Deploy to Docker
 
 KubeMQ cluster can be deployed by docker-compose ymal file as describe below:
 

@@ -28,6 +28,7 @@ module.exports = {
                 collapsable: true,
                 children: [
                     '/installation-get',
+                    `/installation-helm`,
                     `/installation-single`,
                     `/installation-cluster`
                 ]

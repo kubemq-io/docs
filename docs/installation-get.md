@@ -1,10 +1,3 @@
----
-title: "Get KubeMQ"
-draft: false
-weight: 30
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
 # Getting Started
  
 ## Register to KubeMQ
@@ -30,8 +23,8 @@ $ sudo docker pull docker.io/kubemq/kubemq
 **GitHub tar file:**
 
 Option 1:
-1. Download kubemq.tar from [GitHub](https://github.com/kubemq-io/kubemq/releases)
-2. Run
+Download kubemq.tar from [GitHub](https://github.com/kubemq-io/kubemq/releases)
+
 ```
 $ sudo docker import kubemq.tar
 ```

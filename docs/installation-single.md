@@ -1,12 +1,4 @@
----
-title: "Single Instance"
-draft: false
-weight: 31
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-05T15:26:15Z
----
-
-## Deploy Single KubeMQ Instance
+# Single KubeMQ Instance
 
 Deploying a single KubeMQ container can be done in two easy steps:
 
