@@ -22,7 +22,13 @@ module.exports = {
             { text: 'KubeMQ.io', link: 'https://kubemq.io' },
         ],
         sidebar: [
-            `/home`,
+            {
+                title: 'Home',
+                collapsable: true,
+                children: [
+                    '/home',
+                ]
+            },
             {
                 title: 'Installation',
                 collapsable: true,
@@ -56,12 +62,20 @@ module.exports = {
                 ]
             },
             {
+                title: 'Playground',
+                collapsable: true,
+                children: [
+                    '/playground',
+                ]
+            },
+            {
                 title: 'Reference',
                 collapsable: true,
                 children: [
                     '/rest',
                 ]
             },
+
 
         ]
     }
