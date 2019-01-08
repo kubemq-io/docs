@@ -4,4 +4,4 @@ pipeline:
     commands:
       - npm install
     when:
-      event: [ push, tag ]
+      event: [ push]
