@@ -1,96 +1,96 @@
 # Messaging Patterns
-KubeMQ supports 4 messaging patterns
+KubeMQ supports four messaging patterns
 - Events
 - Events Store
 - Commands
 - Queries
 
 ## Events
-Events is an asynchronous real-time Pub/Sub pattern.
-In Events multiple senders can send real-time messages to multiple receivers only if they are currently connected to KubeMQ. No message persistence available in this pattern.
+‘Events’ is an asynchronous real-time Pub/Sub pattern.
+In Events, multiple senders can send real-time messages to multiple receivers, however, only if they are currently connected to KubeMQ; there is no message persistence available in this pattern.
 
 **Use Cases**
 
-Events pattern is suitable for uses cases such publishing streaming data, logs, notifications etc.
+‘Events’ pattern is suitable for cases such as publishing streaming data, logs, notifications etc.
 
 ## Events Store
-Events Store is an asynchronous Pub/Sub pattern with persistence.
-In Events Store multiple senders can send messages to multiple receivers even if they are not currently. Any receiver can connect to KubeMQ and replay one , any or all the messages stored for specific channel.
+‘Events Store’ is an asynchronous Pub/Sub pattern with persistence.
+In Events Store, multiple senders can send messages to multiple receivers even if they are not currently. Any receiver can connect to KubeMQ and replay one, any, or all of the messages stored for specific channel.
 
-KubeMQ supports 6 types of Events Store subscriptions:
+KubeMQ supports six types of Events Store subscriptions:
 
 | Type            | Description                                                                                                  |
 |:----------------|:-------------------------------------------------------------------------------------------------------------|
 | New Events      | KubeMQ will send only new events                                                                             |
-| First Event     | KubeMQ will replay all events from the first stored events and will send new events                          |
+| First Event     | KubeMQ will replay all events from the first stored events, as well as send new events                          |
 | Last Event      | KubeMQ will replay the last event and continue to send new events                                            |
-| From Sequence   | KubeMQ will replay events from specific sequence and continue to send new events                             |
+| From Sequence   | KubeMQ will replay events from a specific sequence and continue to send new events                             |
 | From Time       | KubeMQ will replay events from specific time in the past and continue to send new events                     |
 | From Time Delta | KubeMQ will replay events from specific delta of time back (i.e. 5 min back) and continue to send new events |
 
  **Unique Client ID**
 
- The uniqueness of client ID is important when using Events Store.
- In any given time, only one receiver can connect with unique Client ID. if two receivers will try to connect to KubeMQ with the same Client ID, one of them will be rejected.
+The uniqueness of a client ID is important when using Events Store.  At any given time, only one receiver can connect with a unique Client ID. If two receivers try to connect to KubeMQ with the same Client ID, one of them will be rejected.
 
- **Client ID and Subscription types Relations**
+ **Client ID and Subscription Types Relations**
 
-KubeMQ save for each unique Client ID the subscription type which he connected with and can replay messages only once per Client ID and Subscription type.
+For each unique Client ID, KubeMQ saves the subscription type in which the client connected; messages can only be replayed once per Client ID and Subscription type.
 
-For example, Receiver with Client ID `client-foo-1` subscribe to a channel `foo.bar` in `First Event` mode, will get all the messages stored in KubeMQ for `foo.bar` channel from the first message and continue to get new events as they come.
+For example, Receiver with Client ID `client-foo-1` subscribes to a channel `foo.bar` in `First Event` mode. They will get all the messages stored in KubeMQ for `foo.bar` channel from the first message, and then continue to get new events as they come.
 If this receiver will disconnect from KubeMQ and re-connect again with any subscription type, only new events in `foo.bar` will delivered for this specific receiver with Client ID `client-foo-1`.
 
-If a Receiver wish to receive again the messages on `foo.bar` he should subscribe again with different Client ID than `client-foo-1` such `client-foo-1-retry`.
+If a Receiver wishes to receive messages on `foo.bar` again, they should subscribe again with a different Client ID than `client-foo-1` such `client-foo-1-retry`.
 
 **Use Cases**
 
-Events Store pattern is suitable for uses cases which events are important such workers pool, chats and inbox related applications.
+Events Store pattern is suitable for cases in which events are important, such as worker’s pool, chats and inbox related applications.
 
 ## Commands
 
-Commands is a synchronous two ways Pub/Sub (Request and Response) pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
+‘Commands’ is a synchronous two ways Pub/Sub (Request and Response) pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
 
-This pattern implements the Command part of [CQRS](https://martinfowler.com/bliki/CQRS.html) as follows:
+This pattern implements the ‘Command’ part of [CQRS](https://martinfowler.com/bliki/CQRS.html) as follows:
 
-1. A Sender will send a Request to a channel with specific set timeout for getting a Response.
-2. A Receiver will subscribe to a Channel (and Group if needed), will receive the Sender request together with unique ReplyTo channel address. This address is generated by KubeMQ.
-3. A Responder (Can be either the Receiver service or a different service) will process the request and respond only if the Request was successful or not. in case of un-successful response, the responder can add an Error description into Response message.
+1. A Sender will submit a request to a channel with a specific Timeout for getting a Response.
+2. A Receiver will subscribe to a Channel (and Group if needed), will receive the Sender request together with unique ‘ReplyTo’ channel address. This address is generated by KubeMQ.
+3. A Responder, which can be either the Receiver service or a different service, will process the request and respond only if the Request was successful or not. in case of unsuccessful response, the responder can add an ‘Error’ description into the response message.
 4. The Sender will get the response from the Responder.
-5. If no response will be received within the timeout that was set by the the Request, an error will be return, Timeout.
+5. If no response will be received within the Timeout that was set by the the Request, an error message will be returned (‘Timeout’).
 
 **Use Cases**
 
-Commands pattern is suitable for uses cases such sending updates to a DB, WebHooks or any request without the need of response in specific time.
+Commands pattern is suitable for use cases, such as sending updates to a DB, WebHooks or any request without the need of response by a specific time.
 
 
 ## Queries
 
-Queries is a synchronous two ways Pub/Sub (Request and Response) pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
+‘Queries’ is a synchronous two ways Pub/Sub (Request and Response) pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
 
 This pattern implements the Query part of [CQRS](https://martinfowler.com/bliki/CQRS.html) as follows:
 
 1. A Sender will send a Request to a channel with specific set timeout for getting a Response.
-2. A Receiver will subscribe to a Channel (and Group if needed), will receive the Sender request together with unique ReplyTo channel address. This address is generated by KubeMQ.
-3. A Responder (Can be either the Receiver service or a different service) will process the request and respond with the query results (data) together with execution result and appropriate Error string in case of unsuccessful query processing.
+2. A Receiver will subscribe to a Channel (and Group if needed), will receive the Sender request together with unique ‘ReplyTo’ channel address. This address is generated by KubeMQ.
+3. A Responder, which can be either the Receiver service or a different service, will process the request and respond with the query results (data), along with the execution result and appropriate Error string in the event of unsuccessful query processing.
 4. The Sender will get the response from the Responder.
-5. If no response will be received within the timeout that was set by the the Request, an error will be return, Timeout.
+5. If no response will be received within the timeout that was set by the the Request, an error will be returned (‘Timeout’).
 
 **Caching**
 KubeMQ supports caching of query results as follows:
 
-1. A Sender will send a Request to a channel with specific set timeout, Cache key (string) and Cache TTL (Time To Live) value (in seconds) for getting a Response.
-2. KubeMQ will try to get the response results from Cache base on the Cache key.
-3. If Response is stored in Cache then the sender get the response from the Cache.
-4. If Response is NOT stored in Cache, KubeMQ will send the Request to available Receiver (as above)
-5. Once a valid response will be received from a Responder, KubeMQ will store the Response in the Cache (with the Cache key provided by the Sender) for the time set by Cache TTL.
-6. A new Request within the Cache TTL time-frame and with the same Cache key will get the same Response as stored in KubeMQ from the previous Sender Request.
-7. 
+1. A Sender will send a Request to a channel with specific set timeout, Cache key (string) and Cache TTL (Time To Live) value in seconds for getting a Response.
+2. KubeMQ will attempt to get the response results from Cache base on the Cache key.
+3. If a Response is stored in Cache, then the sender will get the response from the Cache.
+4. If a Response is NOT stored in Cache, KubeMQ will send the Request to an available Receiver (as above).
+5. Once a valid response is received from a Responder, KubeMQ will store the Response in the Cache, along with the Cache key provided by the Sender, for the time set by Cache TTL.
+6. A new Request within the Cache TTL time-frame, and with the same Cache key, will get the same Response as stored in KubeMQ from the previous Sender Request.
+
+
 **Use Cases**
 
-Queries pattern is suitable for uses cases mainly for database queries.
+Queries pattern is suitable for use cases, primarily for database queries.
 
 ## Commands vs. Queries
 Commands and Queries are very similar patterns, however, there are two differences:
 
 1. Commands Response returns only if the Request is successful or not, while Query returns with data in the Response.
-2. Queries support Caching while Commands is not.
+2. Queries support Caching, while Commands does not.
