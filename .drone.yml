@@ -8,5 +8,6 @@ steps:
     image: node
     commands:
       - npm install
+      - vuepress build docs
     when:
       event: [ push, tag ]
