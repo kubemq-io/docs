@@ -1,7 +1,12 @@
-pipeline:
-  build:
+kind: pipeline
+name: default
+workspace:
+  base: /tmp
+  path: "."
+steps:
+  - name: build
     image: node
     commands:
-      - npm install
+      - npm -v
     when:
       event: [ push, tag ]
