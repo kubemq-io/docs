@@ -16,14 +16,22 @@ steps:
     image: docker:dind
     volumes:
       - name: dockersock
-        path: /var/run/docker.sock
+        path: /var/run
     commands:
-      - docker build . -t kubemq/docs:latest
+      - sleep 5 # give docker enough time to start
+      - docker ps -a
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
 
 volumes:
   - name: dockersock
-    host:
-      path: /var/run/docker.sock
+    temp: {}
 #kind: pipeline
 #name: default
 #workspace:
