@@ -36,13 +36,13 @@ steps:
       - name: dockersock
         path: /var/run
 
-services:
-  - name: docker
-    image: docker:dind
-    privileged: true
-    volumes:
-      - name: dockersock
-        path: /var/run
+#services:
+#  - name: docker
+#    image: docker:dind
+#    privileged: true
+#    volumes:
+#      - name: dockersock
+#        path: /var/run
 
 volumes:
   - name: dockersock
