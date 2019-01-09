@@ -26,7 +26,9 @@
 #      path: /var/run/docker.sock
 kind: pipeline
 name: default
-
+workspace:
+  base: /tmp
+  path: "."
 steps:
   - name: test
     image: docker:dind
