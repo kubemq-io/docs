@@ -12,14 +12,14 @@ steps:
       - vuepress build docs
     when:
       event: [ push, tag ]
-  - name: docker-build
-    image: docker:dind
-    volumes:
-      - name: dockersock
-        path: /var/run
-    commands:
-      - sleep 5 # give docker enough time to start
-      - docker build . -t kubemq/docs:latest
+#  - name: docker-build
+#    image: docker:dind
+#    volumes:
+#      - name: dockersock
+#        path: /var/run
+#    commands:
+#      - sleep 5 # give docker enough time to start
+#      - docker build . -t kubemq/docs:latest
   - name: docker-plugin
     image: plugins/docker
     settings:
@@ -31,6 +31,9 @@ steps:
     commands:
         - sleep 5 # give docker enough time to start
         - docker build . -t kubemq/docs:latest
+    volumes:
+      - name: dockersock
+        path: /var/run
 
 services:
   - name: docker
