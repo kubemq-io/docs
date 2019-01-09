@@ -1,52 +1,52 @@
-#kind: pipeline
-#name: default
-#workspace:
-#  base: /tmp
-#  path: "."
-#steps:
-#  - name: build
-#    image: node
-#    commands:
-#      - npm install
-#      - npm install -g vuepress
-#      - vuepress build docs
-#    when:
-#      event: [ push, tag ]
-#  - name: docker
-#    image: docker
-#    volumes:
-#      - name: dockersock
-#        path: /var/run/docker.sock
-#    commands:
-#      - docker build . -t kubemq/docs:latest
-#
-#volumes:
-#  - name: dockersock
-#    host:
-#      path: /var/run/docker.sock
 kind: pipeline
 name: default
 workspace:
   base: /tmp
   path: "."
 steps:
-  - name: test
-    image: docker:dind
-    volumes:
-      - name: dockersock
-        path: /var/run
+  - name: build
+    image: node
     commands:
-      - sleep 6 # give docker enough time to start
-      - docker ps -a
-
-services:
+      - npm install
+      - npm install -g vuepress
+      - vuepress build docs
+    when:
+      event: [ push, tag ]
   - name: docker
-    image: docker:dind
-    privileged: true
+    image: docker
     volumes:
       - name: dockersock
-        path: /var/run
+        path: /var/run/docker.sock
+    commands:
+      - docker build . -t kubemq/docs:latest
 
 volumes:
   - name: dockersock
-    temp: {}
+    host:
+      path: /var/run/docker.sock
+#kind: pipeline
+#name: default
+#workspace:
+#  base: /tmp
+#  path: "."
+#steps:
+#  - name: test
+#    image: docker:dind
+#    volumes:
+#      - name: dockersock
+#        path: /var/run
+#    commands:
+#      - sleep 6 # give docker enough time to start
+#      - docker ps -a
+#
+#services:
+#  - name: docker
+#    image: docker:dind
+#    privileged: true
+#    volumes:
+#      - name: dockersock
+#        path: /var/run
+#
+#volumes:
+#  - name: dockersock
+#    temp: {}
