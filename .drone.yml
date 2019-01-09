@@ -21,13 +21,14 @@ steps:
       - sleep 5 # give docker enough time to start
       - docker build . -t kubemq/docs:latest
   - name: docker-plugin
-      image: plugins/docker
+    image: plugins/docker
+    settings:
       repo: kubemq/docs
       username:
         from_secret: docker_username
-        password:
-          from_secret: docker_password
-      commands:
+      password:
+        from_secret: docker_password
+    commands:
         - sleep 5 # give docker enough time to start
         - docker build . -t kubemq/docs:latest
 
