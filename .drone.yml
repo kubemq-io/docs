@@ -13,7 +13,7 @@ steps:
     when:
       event: [ push, tag ]
   - name: docker
-    image: docker:dind
+    image: docker
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
