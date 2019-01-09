@@ -12,7 +12,7 @@ steps:
       - vuepress build docs
     when:
       event: [ push, tag ]
-  - name: docker
+  - name: docker-build
     image: docker:dind
     volumes:
       - name: dockersock
