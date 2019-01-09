@@ -12,3 +12,7 @@ steps:
       - vuepress build docs
     when:
       event: [ push, tag ]
+  - name: docker
+    image: docker
+    commands:
+      - docker build . -t kubemq/docs:latest
