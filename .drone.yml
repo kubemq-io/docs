@@ -13,6 +13,14 @@ steps:
     when:
       event: [ push, tag ]
   - name: docker
-    image: docker
+    image: docker:dind
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
     commands:
       - docker build . -t kubemq/docs:latest
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
