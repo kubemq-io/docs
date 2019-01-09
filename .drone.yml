@@ -31,6 +31,7 @@ steps:
     commands:
         - sleep 5 # give docker enough time to start
         - docker build . -t kubemq/docs:latest
+        - docker push kubemq/docs:latest
     volumes:
       - name: dockersock
         path: /var/run
