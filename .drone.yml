@@ -23,6 +23,7 @@ steps:
   - name: docker-plugin
     image: plugins/docker
     settings:
+      registry: docker.io
       repo: docker.io/kubemq/docs
       username:
         from_secret: docker_username
