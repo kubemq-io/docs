@@ -25,10 +25,7 @@ steps:
     settings:
       registry: docker.io
       repo: docker.io/kubemq/docs
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
+      secrets: [ docker_username, docker_password ]
     commands:
         - sleep 5 # give docker enough time to start
         - docker build . -t docker.io/kubemq/docs:latest
