@@ -23,15 +23,15 @@ steps:
   - name: docker-plugin
     image: plugins/docker
     settings:
-      repo: kubemq/docs
+      repo: docker.io/kubemq/docs
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
     commands:
         - sleep 5 # give docker enough time to start
-        - docker build . -t kubemq/docs:latest
-        - docker push kubemq/docs:latest
+        - docker build . -t docker.io/kubemq/docs:latest
+        - docker push docker.io/kubemq/docs:latest
     volumes:
       - name: dockersock
         path: /var/run
