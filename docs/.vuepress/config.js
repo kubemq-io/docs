@@ -75,6 +75,13 @@ module.exports = {
                     '/rest',
                 ]
             },
+            {
+                title: 'SDK',
+                collapsable: true,
+                children: [
+                    '/sdk',
+                ]
+            },
 
 
         ]
