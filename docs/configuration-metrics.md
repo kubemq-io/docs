@@ -1,15 +1,18 @@
-# Observability
-KubeMQ exports both metrics and tracing observability information by embedding [OpenCensus](https://opencensus.io/) library.
 
-## General
-General observability configuration can be set as below:
+## Observability Configuration
+
+KubeMQ exports both metrics and tracing observability information by embedding the [OpenCensus](https://opencensus.io/) library.
+
+
+The general observability configuration can be set as below:
+
 
 | Environment Variable   | Type  | Default | Description                                                        |
 |:-----------------------|:------|:--------|:-------------------------------------------------------------------|
-| METRICS_DISABLE        | bool  | `false` | Sets KubeMQ disable observability metrics exporting                |
-| METRICS_TRACING_SAMPLE | float | `0.1`   | Sets KubeMQ tracing sample probability in percentage, i.e 0.1 =10% |
+| METRICS_DISABLE        | bool  | `false` | Sets KubeMQ and disables observability metrics exporting                |
+| METRICS_TRACING_SAMPLE | float | `0.1`   | Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10% |
 
-## Supported Backends
+
 The following backend systems are supported:
 
 | Backend                                                     | Stats | Tracing |
@@ -22,14 +25,14 @@ The following backend systems are supported:
 | [StackDriver](https://console.cloud.google.com/monitoring) | Yes   | Yes     |
 | [Zimpkin](https://zipkin.io/)                               | No    | Yes     |
 
-## Prometheus
+### Prometheus Configuration
 
 | Environment Variable        | Type          | Default           | Description                                                                                                                  |
 |:----------------------------|:--------------|:------------------|:-----------------------------------------------------------------------------------------------------------------------------|
 | METRICS_PROMETHEUS_ENABLE   | bool          | `true`            | Enable/Disable Prometheus exporting                                                                                          |
-| METRICS_PROMETHEUS_PATH     | string        | `/metrics`        | Sets Prometheus scraping end point (on KubeMQ service API address)                                                           |
+| METRICS_PROMETHEUS_PATH     | string        | `/metrics`        | Sets Prometheus scraping end point (on the KubeMQ service API address)                                                           |
 
-## Honeycomb
+### Honeycomb Configuration
 
 | Environment Variable      | Type   | Default | Description                        |
 |:--------------------------|:-------|:--------|:-----------------------------------|
@@ -39,7 +42,7 @@ The following backend systems are supported:
 
 
 
-## AWS X-Ray
+### AWS X-Ray Configuration
 
 | Environment Variable          | Type   | Default | Description                                     |
 |:------------------------------|:-------|:--------|:------------------------------------------------|
@@ -49,7 +52,7 @@ The following backend systems are supported:
 | METRICS_AWS_DEFAULT_REGION    | string | ``      | Sets AWS default region environment variable    |
 
 
-## Datadog
+### Datadog Configuration
 
 | Environment Variable          | Type   | Default | Description                      |
 |:------------------------------|:-------|:--------|:---------------------------------|
@@ -58,7 +61,7 @@ The following backend systems are supported:
 | METRICS_DATADOG_STATS_ADDRESS | string | ``      | Sets Datadog's stats address     |
 
 
-## Jeager
+### Jeager Configuration
 
 | Environment Variable             | Type   | Default | Description                     |
 |:---------------------------------|:-------|:--------|:--------------------------------|
@@ -67,21 +70,22 @@ The following backend systems are supported:
 | METRICS_JEAGER_AGENT_ADDRESS     | string | ``      | Sets Jeager agent address       |
 
 
-## StackDriver
+### StackDriver Configuration
 
 | Environment Variable              | Type   | Default | Description                                               |
 |:----------------------------------|:-------|:--------|:----------------------------------------------------------|
 | METRICS_STACKDRIVER_ENABLE        | bool   | `false` | Enable/Disable Stack Driver exporting                     |
 | METRICS_STACKDRIVER_PROJECT_ID    | string | ``      | Sets StackDriver project id                               |
-| METRICS_STACKDRIVER_MONITOR_CRDES | string | ``      | Sets StackDriver monitor(stats) credentials file location |
+| METRICS_STACKDRIVER_MONITOR_CRDES | string | ``      | Sets StackDriver monitor(stats)credentials file location |
 | METRICS_STACKDRIVER_TRACE_CREDS   | string | ``      | Sets StackDriver traces credentials file location         |
 
 
-## Zipkin
+### Zipkin Configuration
 
 | Environment Variable             | Type   | Default    | Description                     |
 |:---------------------------------|:-------|:-----------|:--------------------------------|
 | METRICS_ZIPKIN_ENABLE            | bool   | `true`     | Enable/Disable Zipkin exporting |
 | METRICS_ZIPKEIN_REPORTER_ADDRESS | string | `/metrics` | Sets Zipkin's reporter address  |
+
 
 

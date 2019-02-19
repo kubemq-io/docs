@@ -12,4 +12,4 @@ KubeMQ Go SDK can be found here: [https://github.com/kubemq-io/kubemq-go](https:
 
 ## Python
 
-KubeMQ Python SDK can be found here: [https://github.com/kubemq-io/kubemq-Python](https://github.com/kubemq-io/kubemq-go)
+KubeMQ Python SDK can be found here: [https://github.com/kubemq-io/kubemq-Python](https://github.com/kubemq-io/kubemq-Python)

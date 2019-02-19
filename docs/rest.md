@@ -1,8 +1,10 @@
 
-# REST API
-KubeMQ server API provides simple interface for all messaging patterns.
+## KubeMQ REST Interface
 
-RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.
+ The KubeMQ server API provides a simple interface for all messaging patterns.
+
+ RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.
+
 ::: tip Postman
 You can view REST documentation in [Postman](https://postman.kubemq.io)
 
@@ -14,12 +16,11 @@ Or run it on your local Postman app:
 ::: danger IMPORTANT
 Please make sure to include KubeMQ Token/Key in any request to public playground. You can find your Token/Key in your KubeMQ account profile [here](https://account.kubemq.io/home/profile).
 :::
-
 ## Send Event Message
 
-Send Event RPC call send an event message for both Events and Events Store patterns.
+Send an Event RPC call and send an event message for both Events and Events Store patterns.
 
-Send Event endpoint is a `POST` function to `host/send/event` where `host` is the KubeMQ REST interface address.
+Send Event endpoint is a `POST` function to `{{host}}/send/event` where `host` is the KubeMQ REST interface address.
 
 `POST` Event message JSON structure:
 ```
@@ -59,15 +60,13 @@ As a Response from `POST` message:
 
 ## Send Events Stream
 
-Send Events Stream allows opening a bo-directional websocket connection and stream Event messages and receive Response messages.
+The Send Events Stream allows the opening of a bi-directional websocket connection and the streaming of Event messages and receipt of Response messages.
 
-Send Event endpoint is a `GET` function with websocket upgrade to `host/send/stream` where `host` is the KubeMQ REST interface address.
+The Send Event endpoint is a `GET` function with a websocket upgrade to `{{host}}/send/stream` where `host` is the KubeMQ REST interface address.
 
-::: warning NOTE
-Since Postman does not support websocket upgrade function, only the GET function is provided.
-:::
+**NOTE:**  Since Postman does not support the websocket upgrade function, only the GET function is provided.
 
-After websocket upgrade, sending Event messages and receiving responses will use websocket Text format.
+After the websocket upgrade, sending Event messages and receiving responses will use the websocket Text format.
 
 Event message JSON structure:
 ```
@@ -85,7 +84,7 @@ Where:
 
 | Field    | Type          | Required | Description                                                                                             |
 |:---------|:--------------|:---------|:--------------------------------------------------------------------------------------------------------|
-| EventID  | string        | No       | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID  | string        | No       | the event id can be set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | ClientID | string        | Yes      | Sender Client ID                                                                                        |
 | Channel  | string        | Yes      | Channel sender address                                                                                  |
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
@@ -107,17 +106,14 @@ The websocket will receive Response messages with this structure:
 
 ## Subscribe To Events
 
-Subscribe To Events allows opening a uni-directional websocket connection and receive both Events and Events Store messages.
+Subscribe To Events allows the opening of a uni-directional websocket connection and allows receipt of both Events and Events Store messages.
 
 
 ### Subscribe to Events
 
-Subscribe Events endpoint is a `GET` function with websocket upgrade to:
+Subscribe Events endpoint is a `GET` function with a websocket upgrade to:
 
-```
-host/subscribe/events?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=events
-```
- 
+ `{{host}}/subscribe/events?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=events`
 
  Where request call parameters are:
 
@@ -131,7 +127,7 @@ host/subscribe/events?client_id="client_id"&channel="channel_name"&group="group_
 
 Event Receive messages format:
 ```
- {   
+ {
     "EventID": "1234-5678-90",
     "Channel": "events-channel",
     "Metadata": "some-metadata",
@@ -152,11 +148,10 @@ Where:
 
 ### Subscribe to Events Store
 
-Subscribe Events endpoint is a `GET` function with websocket upgrade to:
+The Subscribe Events endpoint is a `GET` function with a websocket upgrade to:
 
- ```
-host/subscribe/events?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=events_store&events_store_type_data="subscription_type"&events_store_type_value="subscription_value"
-```
+ `{{host}}/subscribe/events?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=events_store&events_store_type_data={{subscription_type}}&events_store_type_value={{subscription_value}}`
+
  Where request call parameters are:
 
 | Field                   | Type   | Required | Description                       |
@@ -184,8 +179,8 @@ Where Events Store Type and Data here Events Store Values:
 
 
 Events Store Receive messages format:
-``` js(4)
- {   
+```
+ {
     "EventID": "1234-5678-90",
     "Channel": "events-channel",
     "Metadata": "some-metadata",
@@ -199,30 +194,31 @@ Where:
 
 | Field     | Type          | Description                                                                                             |
 |:----------|:--------------|:--------------------------------------------------------------------------------------------------------|
-| EventID   | string        | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID   | string        | the event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | Channel   | string        | Channel sender address                                                                                  |
 | Metadata  | string        | Sender metadata data                                                                                    |
 | Body      | string/base64 | Sender body data                                                                                        |
 | Timestamp | int64         | Unix time format of message                                                                             |
 | Sequence  | int           | Events Store message sequence number                                                                    |
 
-::: warning NOTE
-Since Postman does not support websocket upgrade function, only the GET function is provided.
-:::
+
+**NOTE:**
+
+Since Postman does not support a websocket upgrade function, only the GET function is provided.
 
 
 
 ## Send Command Request
 
-Send Command RPC call send a command request in Commands pattern.
+Send Command RPC call, and send a command request in Commands pattern.
 
-Send Command endpoint is a `POST` function to `host/send/request` where `host` is the KubeMQ REST interface address.
+The Send Command endpoint is a `POST` function to `{{host}}/send/request` where `host` is the KubeMQ REST interface address.
 
 `POST` Command request JSON structure:
 ```
  {
    	"RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
-   	"RequestTypeData":1, 
+   	"RequestTypeData":1,
    	"ClientID": "command-client-id",
    	"Channel": "command-channel",
    	"Metadata" :"command-metadata",
@@ -235,7 +231,7 @@ Where:
 
 | Field           | Type          | Required | Description                                                                                                   |
 |:----------------|:--------------|:---------|:--------------------------------------------------------------------------------------------------------------|
-| RequestID       | string        | Yes      | request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
+| RequestID       | string        | Yes      | the request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
 | RequestTypeData | int           | Yes      | Command=1                                                                                                     |
 | ClientID        | string        | Yes      | Sender Client ID                                                                                              |
 | Channel         | string        | Yes      | Channel sender address                                                                                        |
@@ -270,7 +266,7 @@ Where returned data object :
 | Error     | string | if Executed=false, Error message                             |
 
 
-A timeout error on unsuccessful Command Response from `POST` request:
+A timeout error on an unsuccessful Command Response from a `POST` request:
 
 ```
 {
@@ -282,15 +278,15 @@ A timeout error on unsuccessful Command Response from `POST` request:
 
 ## Send Query Request
 
-Send Query RPC call send a query request in Query pattern.
+Send Query RPC call, send a query request in the Query pattern.
 
-Send Query endpoint is a `POST` function to `host/send/request` where `host` is the KubeMQ REST interface address.
+Send Query endpoint is a `POST` function to `{{host}}/send/request` where `host` is the KubeMQ REST interface address.
 
 `POST` Query request JSON structure:
 ```
 {
    	"RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
-   	"RequestTypeData":2, 
+   	"RequestTypeData":2,
    	"ClientID": "query-client-id",
    	"Channel": "query-channel",
    	"Metadata" :"query-metadata",
@@ -305,7 +301,7 @@ Where:
 
 | Field           | Type          | Required               | Description                                                                                                   |
 |:----------------|:--------------|:-----------------------|:--------------------------------------------------------------------------------------------------------------|
-| RequestID       | string        | Yes                    | request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
+| RequestID       | string        | Yes                    | the request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
 | RequestTypeData | int           | Yes                    | Query = 2                                                                                                     |
 | ClientID        | string        | Yes                    | Sender Client ID                                                                                              |
 | Channel         | string        | Yes                    | Channel sender address                                                                                        |
@@ -361,11 +357,10 @@ A timeout error on unsuccessful Command Response from `POST` request:
 
 ## Subscribe to Commands
 
-Subscribe to Commands endpoint is a `GET` function with websocket upgrade to:
+The Subscribe to Commands endpoint is a `GET` function with a websocket upgrade to:
 
-```
-host/subscribe/requests?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=commands
-```
+ `{{host}}/subscribe/requests?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=commands`
+
  Where request call parameters are:
 
 | Field          | Type   | Required | Description                   |
@@ -378,7 +373,7 @@ host/subscribe/requests?client_id="client_id"&channel="channel_name"&group="grou
 
 Commands Requests format:
 ```
- {  
+ {
     "RequestID":"d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
     "RequestTypeData":1,
     "ClientID":"command-client-id",
@@ -404,11 +399,9 @@ Where:
 
 ## Subscribe to Queries
 
-Subscribe to Queries endpoint is a `GET` function with websocket upgrade to:
+The Subscribe to Queries endpoint is a `GET` function with a websocket upgrade to:
 
- ```
- host/subscribe/requests?client_id="client_id"&channel="channel_name"&group="group_name"&subscribe_type=queries
- ```
+ `{{host}}/subscribe/requests?client_id={{client_id}}&channel={{channel_name}}&group={{group_name}}&subscribe_type=queries`
 
  Where request call parameters are:
 
@@ -422,7 +415,7 @@ Subscribe to Queries endpoint is a `GET` function with websocket upgrade to:
 
 Query Requests format:
 ```
- {  
+ {
     "RequestID":"d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
     "RequestTypeData":2,
     "ClientID":"query-client-id",
@@ -448,9 +441,9 @@ Where:
 
 ## Send Response
 
-Send Response RPC call send a Response to command/query requests in Command and Query patterns.
+The Send Response RPC call sends a Response to command/query requests in Command and Query patterns.
 
-Send Response endpoint is a `POST` function to `host/send/response` where `host` is the KubeMQ REST interface address.
+The Send Response endpoint is a `POST` function to `{{host}}/send/response` where `host` is the KubeMQ REST interface address.
 
 `POST` Response request JSON structure:
 ```
@@ -476,5 +469,6 @@ Where:
 | Body         | string/base64 | No       | Sender-defined event body data (Query only)                 |
 | Executed     | bool          | Yes      | Set Command / Query request execution result                |
 | Error        | string        | No       | Set error message in case of failed Command / Query request |
+
 
 

@@ -1,4 +1,4 @@
-# Single KubeMQ Instance
+## Deploying a Single KubeMQ Instance
 
 Deploying a single KubeMQ container can be done in two easy steps:
 
@@ -6,7 +6,7 @@ Deploying a single KubeMQ container can be done in two easy steps:
 
 Prepare a Linux host and install Docker onto it. Use any Linux flavor supported by Docker.
 
-For instructions on how to install Docker, see the instructions on [Docker](https://docs.docker.com/install/) website
+For instructions on how to install Docker, see the instructions in [Docker](https://docs.docker.com/install/) website
 
 **Step Two: Start KubeMQ**
 
