@@ -4,6 +4,7 @@ module.exports = {
     description: 'Message broker  for containers and Kubernetes',
     head:
         ['link' , {rel :  'icon' , href :  '/icon.png' }],
+    ga: 'UA-128055473-1',
     plugins: ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
         headerAnchorSelector: '.header-anchor',
