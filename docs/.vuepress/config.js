@@ -63,6 +63,13 @@ module.exports = {
                 ]
             },
             {
+                title: 'KubeTools',
+                collapsable: true,
+                children: [
+                    '/kubetools',
+                ]
+            },
+            {
                 title: 'Playground',
                 collapsable: true,
                 children: [
