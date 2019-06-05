@@ -2,8 +2,7 @@ module.exports = {
     base: '/',
     title: 'KubeMQ Documentation',
     description: 'Message broker  for containers and Kubernetes',
-    head:
-        ['link' , {rel :  'icon' , href :  '/icon.png' }],
+    head: ['link', { rel: 'icon', href: '/icon.png' }],
     ga: 'UA-128055473-1',
     plugins: ['@vuepress/active-header-links', {
         sidebarLinkSelector: '.sidebar-link',
@@ -22,8 +21,7 @@ module.exports = {
         nav: [
             { text: 'KubeMQ.io', link: 'https://kubemq.io' },
         ],
-        sidebar: [
-            {
+        sidebar: [{
                 title: 'Home',
                 collapsable: true,
                 children: [
@@ -88,6 +86,13 @@ module.exports = {
                 collapsable: true,
                 children: [
                     '/sdk',
+                ]
+            },
+            {
+                title: 'Code Examples',
+                collapsable: true,
+                children: [
+                    '/examples',
                 ]
             },
 
