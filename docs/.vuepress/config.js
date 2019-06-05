@@ -29,6 +29,13 @@ module.exports = {
                 ]
             },
             {
+                title: 'Get Started',
+                collapsable: true,
+                children: [
+                    '/get-started',
+                ]
+            },
+            {
                 title: 'Installation',
                 collapsable: true,
                 children: [
