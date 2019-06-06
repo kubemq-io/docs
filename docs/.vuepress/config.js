@@ -28,13 +28,13 @@ module.exports = {
                     '/home',
                 ]
             },
-            {
-                title: 'Get Started',
-                collapsable: true,
-                children: [
-                    '/get-started',
-                ]
-            },
+            // {
+            //     title: 'Get Started',
+            //     collapsable: true,
+            //     children: [
+            //         '/get-started',
+            //     ]
+            // },
             {
                 title: 'Installation',
                 collapsable: true,

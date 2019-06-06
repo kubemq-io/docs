@@ -1,5 +1,5 @@
 # KubeTools
-Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition Kubetools provides several utilities such monitoring channel traffic, send messages and subscribe to channels.
+Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition KubeTools provides several utilities such monitoring channel traffic, send messages and subscribe to channels.
 
 ## Download / Installation
 KubeTools executable can be downloaded from bin folder for 4 operating systems:
@@ -7,6 +7,9 @@ KubeTools executable can be downloaded from bin folder for 4 operating systems:
 2. Mac OS 64bit
 3. Linux 64bit
 4. Linux 32bit
+
+KubeTools binaries can be download from [here](https://github.com/kubemq-io/kubetools/tree/master/bin)
+
 
 ## Usage
 Run `Kubetools` will prompt the following:
