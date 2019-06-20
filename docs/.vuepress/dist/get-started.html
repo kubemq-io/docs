@@ -8,7 +8,7 @@
     <link>
   <undefined></undefined>
     
-    <link rel="preload" href="/assets/css/0.styles.4f59bb1b.css" as="style"><link rel="preload" href="/assets/js/app.d314ca50.js" as="script"><link rel="preload" href="/assets/js/14.0f15f5c3.js" as="script"><link rel="prefetch" href="/assets/js/10.9278a2da.js"><link rel="prefetch" href="/assets/js/11.8a45635c.js"><link rel="prefetch" href="/assets/js/12.36a7201f.js"><link rel="prefetch" href="/assets/js/13.17a2c893.js"><link rel="prefetch" href="/assets/js/15.bc4e172c.js"><link rel="prefetch" href="/assets/js/16.10faa2b8.js"><link rel="prefetch" href="/assets/js/17.8cca37a8.js"><link rel="prefetch" href="/assets/js/18.ef144743.js"><link rel="prefetch" href="/assets/js/19.4887466d.js"><link rel="prefetch" href="/assets/js/2.102c67b8.js"><link rel="prefetch" href="/assets/js/20.cef1241a.js"><link rel="prefetch" href="/assets/js/21.13bdc53b.js"><link rel="prefetch" href="/assets/js/22.0d59d5ba.js"><link rel="prefetch" href="/assets/js/23.b050b19c.js"><link rel="prefetch" href="/assets/js/3.5930a1b1.js"><link rel="prefetch" href="/assets/js/4.95403ea9.js"><link rel="prefetch" href="/assets/js/5.5dd74b51.js"><link rel="prefetch" href="/assets/js/6.4a645a9f.js"><link rel="prefetch" href="/assets/js/7.8d2f591c.js"><link rel="prefetch" href="/assets/js/8.a95765b8.js"><link rel="prefetch" href="/assets/js/9.b7004bd1.js">
+    <link rel="preload" href="/assets/css/0.styles.4f59bb1b.css" as="style"><link rel="preload" href="/assets/js/app.9bf7ac1d.js" as="script"><link rel="preload" href="/assets/js/14.32d3f060.js" as="script"><link rel="prefetch" href="/assets/js/10.9278a2da.js"><link rel="prefetch" href="/assets/js/11.8a45635c.js"><link rel="prefetch" href="/assets/js/12.36a7201f.js"><link rel="prefetch" href="/assets/js/13.17a2c893.js"><link rel="prefetch" href="/assets/js/15.bc4e172c.js"><link rel="prefetch" href="/assets/js/16.10faa2b8.js"><link rel="prefetch" href="/assets/js/17.8cca37a8.js"><link rel="prefetch" href="/assets/js/18.ef144743.js"><link rel="prefetch" href="/assets/js/19.4887466d.js"><link rel="prefetch" href="/assets/js/2.102c67b8.js"><link rel="prefetch" href="/assets/js/20.cef1241a.js"><link rel="prefetch" href="/assets/js/21.13bdc53b.js"><link rel="prefetch" href="/assets/js/22.0d59d5ba.js"><link rel="prefetch" href="/assets/js/23.b050b19c.js"><link rel="prefetch" href="/assets/js/3.5930a1b1.js"><link rel="prefetch" href="/assets/js/4.95403ea9.js"><link rel="prefetch" href="/assets/js/5.5dd74b51.js"><link rel="prefetch" href="/assets/js/6.4a645a9f.js"><link rel="prefetch" href="/assets/js/7.8d2f591c.js"><link rel="prefetch" href="/assets/js/8.a95765b8.js"><link rel="prefetch" href="/assets/js/9.b7004bd1.js">
     <link rel="stylesheet" href="/assets/css/0.styles.4f59bb1b.css">
   </head>
   <body>
@@ -108,7 +108,7 @@ items:
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="docker-compose">Docker-Compose</h3> <p>Run <code>docker-compose -d up</code> with the following yaml file:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>version: '3.7'
 services:
   kubemq:
-    image: kubemq/kubemq:v1.5.1
+    image: kubemq/kubemq
     container_name: kubemq
     ports:
       - &quot;8080:8080&quot;
@@ -572,7 +572,7 @@ if __name__ == &quot;__main__&quot;:
     )
     sender.send_event(event)
     
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/6/2019, 3:44:44 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/20/2019, 12:49:45 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/home.html" class="prev">
           Introduction
@@ -581,6 +581,6 @@ if __name__ == &quot;__main__&quot;:
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/assets/js/app.d314ca50.js" defer></script><script src="/assets/js/14.0f15f5c3.js" defer></script>
+    <script src="/assets/js/app.9bf7ac1d.js" defer></script><script src="/assets/js/14.32d3f060.js" defer></script>
   </body>
 </html>

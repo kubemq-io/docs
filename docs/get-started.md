@@ -168,7 +168,7 @@ Run `docker-compose -d up` with the following yaml file:
 version: '3.7'
 services:
   kubemq:
-    image: kubemq/kubemq:v1.5.1
+    image: kubemq/kubemq
     container_name: kubemq
     ports:
       - "8080:8080"
