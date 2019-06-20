@@ -1,5 +1,4 @@
-
-## KubeMQ REST Interface
+# REST
 
  The KubeMQ server API provides a simple interface for all messaging patterns.
 

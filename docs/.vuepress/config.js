@@ -15,11 +15,13 @@ module.exports = {
     },
     themeConfig: {
         editLinks: false,
-        displayAllHeaders: true,
+        displayAllHeaders: false,
         logo: `/kubemq-logo.png`,
         docsDir: 'docs',
+        lastUpdated: 'Last Updated',
         nav: [
             { text: 'KubeMQ.io', link: 'https://kubemq.io' },
+            { text: 'Register', link: 'https://account.kubemq.io/login/register'},
         ],
         sidebar: [{
                 title: 'Home',
@@ -28,21 +30,12 @@ module.exports = {
                     '/home',
                 ]
             },
-            // {
-            //     title: 'Get Started',
-            //     collapsable: true,
-            //     children: [
-            //         '/get-started',
-            //     ]
-            // },
             {
                 title: 'Installation',
                 collapsable: true,
                 children: [
-                    '/installation-get',
-                    `/installation-helm`,
-                    `/installation-single`,
-                    `/installation-cluster`
+                    '/get-started',
+                    `/installation-kubetools`,
                 ]
             },
             {
@@ -67,43 +60,18 @@ module.exports = {
 
                 ]
             },
-            {
-                title: 'KubeTools',
-                collapsable: true,
-                children: [
-                    '/kubetools',
-                ]
-            },
-            {
-                title: 'Playground',
-                collapsable: true,
-                children: [
-                    '/playground',
-                ]
-            },
-            {
+             {
                 title: 'Reference',
                 collapsable: true,
                 children: [
+                    '/sdk-net',
+                    '/sdk-java',
+                    '/sdk-go',
+                    '/sdk-python',
                     '/rest',
+                    '/examples'
                 ]
             },
-            {
-                title: 'SDK',
-                collapsable: true,
-                children: [
-                    '/sdk',
-                ]
-            },
-            {
-                title: 'Code Examples',
-                collapsable: true,
-                children: [
-                    '/examples',
-                ]
-            },
-
-
         ]
     }
 };

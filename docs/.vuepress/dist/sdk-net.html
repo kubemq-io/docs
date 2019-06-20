@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>.NET | KubeMQ Documentation</title>
+    <meta name="description" content="Message broker  for containers and Kubernetes">
+    <link>
+  <undefined></undefined>
+    
+    <link rel="preload" href="/assets/css/0.styles.4f59bb1b.css" as="style"><link rel="preload" href="/assets/js/app.d314ca50.js" as="script"><link rel="preload" href="/assets/js/21.13bdc53b.js" as="script"><link rel="prefetch" href="/assets/js/10.9278a2da.js"><link rel="prefetch" href="/assets/js/11.8a45635c.js"><link rel="prefetch" href="/assets/js/12.36a7201f.js"><link rel="prefetch" href="/assets/js/13.17a2c893.js"><link rel="prefetch" href="/assets/js/14.0f15f5c3.js"><link rel="prefetch" href="/assets/js/15.bc4e172c.js"><link rel="prefetch" href="/assets/js/16.10faa2b8.js"><link rel="prefetch" href="/assets/js/17.8cca37a8.js"><link rel="prefetch" href="/assets/js/18.ef144743.js"><link rel="prefetch" href="/assets/js/19.4887466d.js"><link rel="prefetch" href="/assets/js/2.102c67b8.js"><link rel="prefetch" href="/assets/js/20.cef1241a.js"><link rel="prefetch" href="/assets/js/22.0d59d5ba.js"><link rel="prefetch" href="/assets/js/23.b050b19c.js"><link rel="prefetch" href="/assets/js/3.5930a1b1.js"><link rel="prefetch" href="/assets/js/4.95403ea9.js"><link rel="prefetch" href="/assets/js/5.5dd74b51.js"><link rel="prefetch" href="/assets/js/6.4a645a9f.js"><link rel="prefetch" href="/assets/js/7.8d2f591c.js"><link rel="prefetch" href="/assets/js/8.a95765b8.js"><link rel="prefetch" href="/assets/js/9.b7004bd1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4f59bb1b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/kubemq-logo.png" alt="KubeMQ Documentation" class="logo"> <span class="site-name can-hide">KubeMQ Documentation</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>Home</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Installation</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Concepts</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Configuration</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Reference</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/sdk-net.html" class="active sidebar-link">.NET</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/sdk-net.html#general-sdk-description" class="sidebar-link">General SDK description</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#install-via-nuget" class="sidebar-link">Install via Nuget:</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#configurations" class="sidebar-link">Configurations</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#usage-main-concepts" class="sidebar-link">Usage: Main concepts</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#usage-event-eventstore" class="sidebar-link">Usage: Event\EventStore</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#usage-command-query" class="sidebar-link">Usage: Command\Query</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#usage-channel" class="sidebar-link">Usage Channel</a></li><li class="sidebar-sub-header"><a href="/sdk-net.html#tools" class="sidebar-link">Tools</a></li></ul></li><li><a href="/sdk-java.html" class="sidebar-link">Java</a></li><li><a href="/sdk-go.html" class="sidebar-link">Go</a></li><li><a href="/sdk-python.html" class="sidebar-link">Python</a></li><li><a href="/rest.html" class="sidebar-link">REST</a></li><li><a href="/examples.html" class="sidebar-link">Examples</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="net">.NET</h1> <p>.NET client SDK for KubeMQ. Simple interface to work with the KubeMQ server.</p> <h2 id="general-sdk-description">General SDK description</h2> <p>The SDK implements all communication patterns available through the KubeMQ server:</p> <ul><li>Events</li> <li>EventStore</li> <li>Command</li> <li>Query</li></ul> <h2 id="install-via-nuget">Install via Nuget:</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>  Install-Package KubeMQ.SDK.csharp -Version 1.0.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="supports">Supports:</h3> <ul><li>.NET Framework 4.6.1</li> <li>.NET Framework 4.7.1</li> <li>.NET Standard 2.0</li></ul> <h2 id="configurations">Configurations</h2> <p>The only required configuration setting is the KubeMQ server address.</p> <p>Configuration can be set by using one of the following:</p> <ul><li>Environment Variable</li> <li><code>appsettings.json</code> file</li> <li><code>app.Config</code> or <code>Web.config</code> file</li> <li>Within the code</li></ul> <h3 id="configuration-via-environment-variable">Configuration via Environment Variable</h3> <p>Set <code>KubeMQServerAddress</code> to the KubeMQ Server Address</p> <h3 id="configuration-via-appsettings-json">Configuration via appsettings.json</h3> <p>Simply add the following to your appsettings.json:</p> <div class="language-JSON line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;KubeMQ&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;serverAddress&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{YourServerAddress}:{YourServerPort}&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="configuration-via-app-config">Configuration via app.Config</h3> <p>Simply add the following to your app.config:</p> <div class="language-xml line-numbers-mode"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>  
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configSections</span><span class="token punctuation">&gt;</span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>KubeMQ<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>System.Configuration.NameValueSectionHandler<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>      
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configSections</span><span class="token punctuation">&gt;</span></span>  
+    
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>KubeMQ</span><span class="token punctuation">&gt;</span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>serverAddress<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{YourServerAddress}:{YourServerPort}<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>KubeMQ</span><span class="token punctuation">&gt;</span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="configuration-via-code">Configuration via code</h3> <p>When setting the KubeMQ server address within the code, simply pass the address as a parameter to the various constructors.
+See exactly how in the code examples in this document.</p> <h2 id="usage-main-concepts">Usage: Main concepts</h2> <ul><li><strong>Channel:</strong> Represents the endpoint target. One-to-one or one-to-many. Real-Time Multicast.</li> <li><strong>Group:</strong> Optional parameter when subscribing to a channel. A set of subscribers can define the same group so that only one of the subscribers within the group will receive a specific event. Used mainly for load balancing. Subscribing without the group parameter ensures receiving all the channel messages.(When using Grouping all the programs that are assigned to the group need to have to same channel name)</li> <li><strong>Metadata:</strong> The metadata allows to pass additional information with the event. Can be in any form that can be presented as a string, i.e. struct, JSON, XML and many more.</li> <li><strong>Body:</strong> The actual content of the event. Can be in any form that is serializable into byte array, i.e. string, struct, JSON, XML, Collection, binary file and many more.</li> <li><strong>ClientID:</strong>  Displayed in logs, tracing and KubeMQ dashboard(When using EventStore it must be unique).</li> <li><strong>Event Store:</strong> The Event Store represent a persistence storge, should be used when need to store data on a volume.</li></ul> <h3 id="the-subscriberequest-object">The SubscribeRequest Object:</h3> <p>A struct that is used to initialize SubscribeToEvents/SubscribeToRequest,
+the SubscribeRequest contains the following:</p> <ul><li>SubscribeType - Mandatory -  Enum that represent the subscription type:
+<ul><li>Events - if there is no need for Persistence.</li> <li>EventsStore - If you want to receive Events from persistence <a href="#usage-main-concepts">See Main concepts</a>.</li> <li>Command - Should be used when a response is not needed.</li> <li>Query - Should be used when a response is needed.</li></ul></li> <li>ClientID - Mandatory - <a href="#usage-main-concepts">See Main concepts</a></li> <li>Channel - Mandatory - <a href="#usage-main-concepts">See Main concepts</a></li> <li>Group - Optional - <a href="#usage-main-concepts">See Main concepts</a></li> <li>EventsStoreType - Mandatory - set the type event store to subscribe to <a href="#usage-main-concepts">Main concepts</a>.</li></ul> <h2 id="usage-event-eventstore">Usage: Event\EventStore</h2> <p>Employing several variations of point to point Event communication style patterns.
+Allows to connect a sender to one or a group of subscribers</p> <ul><li>Subscribe to events</li> <li>Send stream</li> <li>Send single event</li></ul> <h3 id="the-kubemq-sdk-csharp-events-lowlevel-event-object">The <code>KubeMQ.SDK.csharp.Events.LowLevel.Event</code> object:</h3> <p>Struct used to send and receive Events using the Event pattern. Contains the following fields (See <a href="#usage-main-concepts">Main concepts</a> for more details on each field):</p> <ul><li>Channel</li> <li>Metadata</li> <li>Body</li> <li>EventID - set internally</li> <li>Store - Boolean , set if the event should be send to store.</li> <li>ClientID</li></ul> <h3 id="the-eventsstoretype-object">The 'EventsStoreType' object:</h3> <p>To receive events from persistence the subscriber need to assign one of seven EventsStoreType and the value for EventsStoreTypeValue.</p> <ul><li>EventsStoreTypeUndefined - 0 - Should be set when there is no need for eventsStore.(when using this type there is no need to            set EventsStoreTypeValue)</li> <li>StartNewOnly - 1 - The subscriber will only receive new events (from the time he subscribed).(when using this type there is              no need to set EventsStoreTypeValue)</li> <li>StartFromFirst - 2 - The subscriber will receive all events from the start of the queue and all future events as well.(when              using this type there is no need to set EventsStoreTypeValue)</li> <li>StartFromLast - 3 - The subscriber will receive the last event in queue and all future events as well.(when using this type              there is no need to set EventsStoreTypeValue)</li> <li>StartAtSequence - 4 - The subscriber will receive events from the choosen Sequence and all future events as well.(need to                provide with long thata of the wanted eventID)</li> <li>StartAtTime - 5 - The subscriber will receive events that were &quot;Stored&quot; from a certin datetime and all future events as well.            (need to provide with choosen time)</li> <li>StartAtTimeDelta - 6 - The subscriber will receive events that were &quot;Stored&quot; from the difference between dateTime.Now minus              the delta choosen.(need to provide with a long that reperesent the time delta to check with in milliseconds)</li></ul> <h3 id="method-subscribe">Method: Subscribe</h3> <p>This method allows to subscribe to events. Both single and stream of events.
+Simply pass a delegate (callback) that will handle the incoming event(s).
+The implementation uses <code>await</code> and does not block the continuation of the code execution.</p> <p><strong>Parameters</strong>:</p> <ul><li>SubscribeRequest - Mandatory-<a href="#the-subscriberequest-object">See SubscribeRequest</a>.</li> <li>Handler - Mandatory. Delegate (callback) that will handle the incoming events.</li></ul> <p>Initialize <code>Subscriber</code> with server address from code:</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>string serverAddress = &quot;localhost:50000&quot;;
+Subscriber subscriber = new Subscriber(serverAddress);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>Initialize <code>Subscriber</code> with server address set in configuration:</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>Subscriber subscriber = new Subscriber();
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Subscribe:</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>string channel = &quot;Sample.test1&quot;;
+// Set a SubscribeRequest without Store and with Group.
+SubscribeRequest subscribeRequest = new SubscribeRequest(SubscribeType.Events, &quot;MyClientID&quot;, channel, EventsStoreType.Undefined, 0, &quot;MyGroup&quot;);
+subscriber.SubscribeToEvents(subscribeRequest,HandleIncomingEvents);
+
+// delegate to handle the incoming events
+private void HandleIncomingEvents(EventReceive @event)
+{
+...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="method-send-single">Method: send single</h3> <p>This method allows to send a single event.</p> <p><strong>parameters</strong>:</p> <ul><li>KubeMQ.SDK.csharp.Events.LowLevel.Event - Mandatory. The actual Event that will be sent.</li></ul> <p>Initialize <code>Sender</code> with server address from code (also can be initialized using config file):</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code> string serverAddress = &quot;localhost:50000&quot;;
+ KubeMQ.SDK.csharp.Events.LowLevel.Sender sender = new KubeMQ.SDK.csharp.Events.LowLevel.Sender(serverAddress);
+ 
+// Create the Event
+KubeMQ.SDK.csharp.Events.LowLevel.Event @event = new KubeMQ.SDK.csharp.Events.LowLevel.Event()
+{
+    Channel = &quot;Sample.test1&quot;,
+    Metadata = &quot;A sample string Metadata&quot;,
+    Body = Tools.Converter.ToByteArray(&quot;Pubsub test Event&quot;),
+    ClientID=&quot;MyID&quot;,
+    Store=false
+};
+// SendEvent
+sender.SendEvent(@event);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="method-send-stream">Method: send stream</h3> <p>This method allows to send stream of events.
+Use cases: sending file in multiple packets, high frequent rate of events.</p> <p>Initialize <code>Sender</code> with server address from code (also can be initialized using config file):</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>string serverAddress = &quot;localhost:50000&quot;;
+Sender sender = new Sender(serverAddress);
+
+KubeMQ.SDK.csharp.Events.LowLevel.Event @event;
+
+for (int i = 1; i &lt; 11; i++)
+{
+    event = CreateSimpleStringEvent(i);
+    
+    sender.StreamEvent(@event);
+
+    Thread.Sleep(1000);
+}
+sender.ClosesEventStreamAsync();
+
+ 
+private KubeMQ.SDK.csharp.Events.LowLevel.Event CreateSimpleStringEvent(int i = 0)
+{
+    return new KubeMQ.SDK.csharp.Events.LowLevel.Event()
+    {
+        Channel = &quot;Sample.test1&quot;,
+        Metadata = &quot;A sample string Metadata&quot;,
+        Body = Tools.Converter.ToByteArray(&quot;Pubsub test event &quot;+ i)
+        ClientID=&quot;MyID&quot;,
+        Store=false
+    };
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h2 id="usage-command-query">Usage: Command\Query</h2> <p>Request\Reply communication pattern. Allows to cache the response at the KubeMQ server.</p> <ul><li>Subscribe to requests</li> <li>Send request</li></ul> <h3 id="cache-mechanism">Cache mechanism</h3> <p>KubeMQ server allows to store each response in a dedicated cache system. Each request can specify whether or not to use the cache.
+In case the cache is used, the KubeMQ server will try to return the response directly from cache and reduce latency.</p> <p>To use the cache mechanism, add the following parameters to each <code>Request</code>:</p> <ul><li>CacheKey - Unique key to store the response in the KubeMQ cache mechanism.</li> <li>CacheTTL - Cahce data Time to live in milliseconds per CacheKey.</li></ul> <p>In the <code>Response</code> object you will receive an indication whether it was returned from cache:</p> <ul><li>CacheHit - Indication if the response was returned from KubeMQ cache.</li></ul> <h3 id="the-kubemq-sdk-csharp-commandquery-lowlevel-request-object">The <code>KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request</code> object:</h3> <p>Struct used to send the request under the Request\Reply pattern. Contains the following fields (See Main concepts for more details on some field):</p> <ul><li>RequestID - Optional. Used to match Request to Response. If omitted it will be set internally.</li> <li>RequestType - Mandatory. Used to set if a response is expected or not.</li> <li>ClientID - Mandatory. Displayed in logs, tracing and KubeMQ dashboard.</li> <li>Channel - Mandatory. The channel that the <code>Responder</code> subscribed on.</li> <li>Metadata - Mandatory.</li> <li>ReplyChannel - Read only, set internally.</li> <li>Timeout - Mandatory. Max time for the response to return. Set per request. If exceeded an exception is thrown.</li> <li>CacheKey - Optional.</li> <li>CacheTTL - Optional.</li></ul> <h3 id="the-response-object">The <code>Response</code> object:</h3> <p>Struct used to send the response under the Request\Reply pattern.</p> <p>The <code>Response</code> Constructors requires the corresponding 'Request' object.</p> <p>Contains the following fields (See Main concepts for more details on some field):</p> <ul><li>ClientID - Mandatory. Represents the sender ID the response was sent from.</li> <li>RequestID - Set internally, used to match Request to Response.</li> <li>CacheHit - Set internally, indication if the response was returned from KubeMQ cache.</li> <li>ReplyChannel - Set internally, indication the channel to send him the response.</li> <li>Metadata - Mandatory.</li> <li>Body - Mandatory.</li> <li>Timestamp -Set Internally, indication of the time the response was created.</li> <li>Executed - Boolean that represent of the task the Responder was performed.</li> <li>Error - Mandatory - Represents if an error occurred while processing the request.</li></ul> <h3 id="method-subscribe-to-requests">Method: Subscribe to requests</h3> <p>This method allows to subscribe to receive requests.</p> <p><strong>parameters</strong>:</p> <ul><li>SubscribeRequest - Mandatory-<a href="#the-subscriberequest-object">See SubscribeRequest</a>.</li> <li>Handler - Mandatory. Delegate (callback) that will handle the incoming requests.</li></ul> <p>Initialize <code>Responder</code> with server address from code:</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>string serverAddress = &quot;localhost:50000&quot;;
+Responder responder = new Responder(serverAddress);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>Initialize <code>Responder</code> with server address set in configuration:</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>Responder responder = new Responder();
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Subscribe</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>string channel = &quot;MyChannel.SimpleRequest&quot;;
+
+//Subscribe to request expecting to send response(Queries) and no group.
+SubscribeRequest subscribeRequest = new SubscribeRequest(SubscribeType.Queries, &quot;MyClientID&quot;, channel, EventsStoreType.Undefined, 0);
+responder.SubscribeToRequests(subscribeRequest,HandleIncomingRequests);
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Handle requests and return responses</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>// delegate to handle the incoming requests
+private Response HandleIncomingRequests(Request request)
+{
+    // Convert the request Body to a string
+    string strBody = Tools.Converter.FromByteArray(request.Body).ToString();
+    logger.LogDebug($&quot;Respond to Request. ID:'{request.ID}', Channel:'{request.Channel}', Body:'{strBody}'&quot;);
+    
+    // Create the Response object
+    Response response = new Response(request)
+    {
+          Body = Converter.ToByteArray(&quot;OK&quot;),
+          Error = &quot;None&quot;,
+          ClientID = this.ClientID,
+          Executed = true,
+          Metadata = &quot;OK&quot;,
+     };
+     return response;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="send-request-methods">Send request methods</h3> <p>The KubeMQ SDK comes with two similar methods to send a <code>Request</code> and wait for the <code>Response</code></p> <ul><li><code>SendRequestAsync</code> returns the <code>Response</code> in a Task</li> <li><code>SendRequest</code> returns the <code>Response</code> to the Delegate (callback) supplied as a parameter</li></ul> <h3 id="method-send-request-async">Method: send request Async</h3> <p>This method allows to send a request to the <code>Responder</code>, it awaits for the <code>Response</code> and returns it in a Task</p> <p><strong>parameters</strong>:</p> <ul><li>KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request - Mandatory. The <code>Request</code> object to send.</li></ul> <p>Initialize <code>Initiator</code> with server address from code (also can be initialized using config file):</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>string serverAddress = &quot;localhost:50000&quot;;
+Initiator initiator = new Initiator(serverAddress);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>Send Request and await for Response</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request request = KubeMQ.SDK.csharp.CommandQuery.LowLevel.new Request()
+            {
+                Channel = &quot;MyChannel.SimpleRequest&quot;,
+                Metadata = &quot;MyMetadata&quot;,
+                Body = Tools.Converter.ToByteArray(&quot;A Simple Request.&quot;),
+                Timeout = 5000,
+                CacheKey = &quot;Simple.CacheKey&quot;,
+                CacheTTL = 5000,
+                RequestType=RequestType.Query,
+                ClientID=&quot;MyClientID&quot;
+            };
+            
+Response response = initiator.SendRequest(request);
+
+
+//Async
+Response response = await initiator.SendRequestAsync(request);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="method-send-request">Method: send request</h3> <p>This method allows to send a request to the <code>Responder</code>, and returns the <code>Response</code> to the Delegate (callback) supplied as a parameter</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>initiator.SendRequest(HandleResponse, request);
+
+// Method to handle the responses
+public void HandleResponse(Response response)
+{
+    ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="usage-channel">Usage Channel</h2> <p>Creating a Sender\Initiator with a set of predefined parameters to prevent repetitive code.</p> <p>*Replaces the channel parameter in the &quot;low level&quot; Event/Request.</p> <h3 id="kubemq-sdk-csharp-events-channel">KubeMQ.SDK.csharp.Events.Channel</h3> <p>Represents a Sender with a set of predefined parameters.</p> <p><strong>parameters</strong>:</p> <ul><li>KubeMQ.SDK.csharp.Events.ChannelParameters - Mandatory.</li></ul> <h3 id="the-kubemq-sdk-csharp-events-channelparameters-object">The 'KubeMQ.SDK.csharp.Events.ChannelParameters' object:</h3> <p>A struct that is used to initialize a new Channel object.
+<strong>parameters</strong>:</p> <ul><li>ChannelName - Mandatory. The channel that the <code>Responder</code> subscribed on.</li> <li>ClientID - Mandatory. Displayed in logs, tracing and KubeMQ dashboard.</li> <li>Store - Mandatory. Boolean , set if the event should be send to store.</li> <li>kubeMQAddress - Mandatory. KubeMQ server address.</li> <li>ILogger - Optional. 'Microsoft.Extensions.Logging.ILogger', if passed will write logs under that ILogger.</li></ul> <h3 id="method-send-single-2">Method: send single</h3> <p>This method allows to send a single event.</p> <p><strong>parameters</strong>:</p> <ul><li>KubeMQ.SDK.csharp.Events.Event - Mandatory. The actual Event that will be sent.</li></ul> <h3 id="the-kubemq-sdk-csharp-events-event-object">The 'KubeMQ.SDK.csharp.Events.Event' object:</h3> <p>Represents a Event with a set of predefined parameters
+Struct used to send and receive events with a minimal set of parameters needed to be filled &quot;manually&quot;
+<strong>parameters</strong>:</p> <ul><li>EventID - Will be set internally.</li> <li>Metadata - Mandatory.</li> <li>Body - Mandatory.</li></ul> <h3 id="create-channel">Create Channel.</h3> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>KubeMQ.SDK.csharp.Events.ChannelParameters eventChannelParameters = new KubeMQ.SDK.csharp.Events.ChannelParameters()
+{
+     ChannelName = this.ChannelName,
+     ClientID = &quot;EventChannelID&quot;,
+     Store = false,
+     Logger = this.logger
+};
+KubeMQ.SDK.csharp.Events.Channel sender = new KubeMQ.SDK.csharp.Events.Channel(eventChannelParameters);
+ 
+KubeMQ.SDK.csharp.Events.Event @event = new KubeMQ.SDK.csharp.Events.Event()
+{
+    Body = Converter.ToByteArray(&quot;Event&quot;),
+    Metadata = &quot;EventChannel&quot;
+};
+
+sender.SendEvent(@event);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="method-send-stream-2">Method: send stream</h3> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>Event @event;
+
+KubeMQ.SDK.csharp.Events.ChannelParameters eventChannelParameters = new KubeMQ.SDK.csharp.Events.ChannelParameters()
+{
+     ChannelName = this.ChannelName,
+     ClientID = &quot;EventChannelID&quot;,
+     Store = false,
+     Logger = this.logger
+};
+KubeMQ.SDK.csharp.Events.Channel sender = new KubeMQ.SDK.csharp.Events.Channel(eventChannelParameters);
+
+for (int i = 1; i &lt; 11; i++)
+{
+    @event = CreateSimpleStringEvent(i);
+    
+    sender.StreamEvent(@event);
+
+    Thread.Sleep(1000);
+}
+sender.ClosesEventStreamAsync();
+
+ 
+private KubeMQ.SDK.csharp.Events.Event CreateSimpleStringEvent(int i = 0)
+{
+    return new KubeMQ.SDK.csharp.Events.Event()
+    {
+        Metadata = &quot;A sample channel Metadata&quot;,
+        Body = Tools.Converter.ToByteArray(&quot;Pubsub test event &quot;+ i)
+    };
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h3 id="kubemq-sdk-csharp-commandquery-channel">KubeMQ.SDK.csharp.CommandQuery.Channel</h3> <p>Represents a Initiator with a set of predefined parameters.</p> <p><strong>parameters</strong>:</p> <ul><li>KubeMQ.SDK.csharp.CommandQuery.ChannelParameters - Mandatory .</li></ul> <h3 id="the-kubemq-sdk-csharp-commandquery-channelparameters-object">The 'KubeMQ.SDK.csharp.CommandQuery.ChannelParameters' object:</h3> <p>A struct that is used to initialize a new Channel object.</p> <p><strong>parameters</strong>:</p> <ul><li>ChannelName - Mandatory. The channel that the <code>Initiator</code> subscribed on.</li> <li>ClientID - Mandatory. Displayed in logs, tracing and KubeMQ dashboard.</li> <li>Timeout - Mandatory. Max time for the response to return. Set per request. If exceeded an exception is thrown.</li> <li>CacheKey - Optional.</li> <li>CacheTTL - Optional.</li> <li>kubeMQAddress - Mandatory. KubeMQ server address.</li> <li>ILogger - Optional. 'Microsoft.Extensions.Logging.ILogger', if passed will write logs under that ILogger.</li></ul> <h3 id="method-send-single-3">Method: send single</h3> <p>This method allows to send a single request.</p> <p><strong>parameters</strong>:</p> <ul><li>KubeMQ.SDK.csharp.CommandQuery.Request - Mandatory. The actual request that will be sent.</li></ul> <h3 id="the-kubemq-sdk-csharp-commandquery-request-object">The 'KubeMQ.SDK.csharp.CommandQuery.Request' object:</h3> <p>Struct used to send requests with a minimal set of parameters needed to be filled &quot;manually&quot;</p> <p><strong>parameters</strong>:</p> <ul><li>RequestID - Will be set internally.</li> <li>Metadata - Mandatory.</li> <li>Body - Mandatory.</li></ul> <h3 id="method-create-channel">Method: Create Channel.</h3> <p>Send Request and await for Response</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>ChannelParameters channelParameters = new ChannelParameters()
+{
+    ChannelName = this.ChannelName,
+    ClientID = this.ClientID,
+    Timeout = this.Timeout,
+    Logger = logger,
+    RequestsType = RequestType.Query
+};
+
+Channel requestChannel = new Channel(requestChannelParameters);
+
+Request request = new Request()
+{
+    Metadata = &quot;CommandQueryChannel&quot;,
+    Body = Converter.ToByteArray(&quot;Request&quot;)
+};
+
+Response response = requestChannel.SendRequest(request);
+
+
+//Async
+Response response = await requestChannel.SendRequestAsync(request);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>This method allows to send a request to the <code>Responder</code>, and returns the <code>Response</code> to the Delegate (callback) supplied as a parameter</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>requestChannel.SendRequest(HandleResponse, request);
+
+// Method to handle the responses
+public void HandleResponse(Response response)
+{
+    ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="tools">Tools</h2> <p>The KubeMQ SDK supplies methods to convert from and to the <code>body</code> that is in byte array format.</p> <div class="language-C# line-numbers-mode"><pre class="language-text"><code>// Convert the request Body to a string
+string strBody = Tools.Converter.FromByteArray(request.Body).ToString();
+    
+// Convert a string to the request Body
+Body = Tools.Converter.ToByteArray(&quot;A Simple Request.&quot;),
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/configuration-metrics.html" class="prev">
+          Observability Configuration
+        </a></span> <span class="next"><a href="/sdk-java.html">
+          Java
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.d314ca50.js" defer></script><script src="/assets/js/21.13bdc53b.js" defer></script>
+  </body>
+</html>

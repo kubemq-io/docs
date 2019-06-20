@@ -1,7 +1,7 @@
 
-# Code Examples
+# Examples
 
-Checkout our github repositories for code exmaples and snipptes.
+Checkout our github repositories for code examples and snippets.
 
 | Technology| Link          |
 |:---------|:--------------|
