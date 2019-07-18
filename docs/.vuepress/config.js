@@ -43,7 +43,9 @@ module.exports = {
                 collapsable: true,
                 children: [
                     '/concepts-terminology',
-                    `/concepts-messaging-patterns`,
+                    `/concepts-queue`,
+                    `/concepts-rpc`,
+                    `/concepts-pubsub`,
                     `/concepts-endpoints`,
                 ]
             },
@@ -54,6 +56,7 @@ module.exports = {
                     '/configuration-general',
                     `/configuration-cluster`,
                     `/configuration-persistence`,
+                    `/configuration-queue`,
                     `/configuration-interfaces`,
                     `/configuration-logging`,
                     `/configuration-metrics`,
