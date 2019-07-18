@@ -5,24 +5,33 @@ The publish-subscribe pattern (or pub/sub, for short) is a messaging pattern whe
 
 Similarly, subscribers express interest in one or more events, and only receive messages that are of interest, without any knowledge of any publishers.
 
-
 ![image info](./images/pubsub.png)
 
-KubeMQ supports two Publish / Subscribe messaging patterns
-- Events
-- Events Store
+
+## Core Features
+KubeMQ supports Publish Subscribe messages patterns with the following core features:
+
+
+- **Event** -  An asynchronous real-time Pub/Sub pattern.
+- **Event Store** -An asynchronous Pub/Sub pattern with persistence.
+- **Grouping** - Load balancing of events between subscribers
+
 
 ## Events
-Events’ is an asynchronous real-time Pub/Sub pattern.
+Events is an asynchronous real-time Pub/Sub pattern.
 In Events, multiple senders can send real-time messages to multiple receivers, however, only if they are currently connected to KubeMQ; there is no message persistence available in this pattern.
+
+![image info](./images/event.png)
 
 **Use Cases**
 
 ‘Events’ pattern is suitable for cases such as publishing streaming data, logs, notifications etc.
 
 ## Events Store
-‘Events Store’ is an asynchronous Pub/Sub pattern with persistence.
+Events Store’ is an asynchronous Pub/Sub pattern with persistence.
 In Events Store, multiple senders can send messages to multiple receivers even if they are not currently. Any receiver can connect to KubeMQ and replay one, any, or all of the messages stored for specific channel.
+
+![image info](./images/event-store.png)
 
 KubeMQ supports six types of Events Store subscriptions:
 

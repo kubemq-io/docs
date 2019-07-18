@@ -7,9 +7,15 @@ A procedure call is also sometimes known as a function call or a subroutine call
 
 ![image info](./images/rpc.png)
 
-KubeMQ supports two RPC messaging patterns
-- Commands
-- Queries
+## Core Features
+KubeMQ supports [CQRS](https://martinfowler.com/bliki/CQRS.html) based flows with the following core features:
+
+- **Commands** -  A synchronous two ways Command pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
+- **Query** - A synchronous two ways Query pattern for [CQRS](https://martinfowler.com/bliki/CQRS.html) types of system architecture.
+- **Response** - An answer for a Query type RPC call
+- **Timeout** - Timeout interval is set for each RPC call. Once no response is received within the Timeout interval, RPC call return an error
+- **Grouping** - Load balancing of RPC calls between receivers
+- **Caching** - RPC response can be cached for future requests without the need to processed again by a receiver
 
 ## Commands
 
@@ -44,8 +50,15 @@ This pattern implements the Query part of [CQRS](https://martinfowler.com/bliki/
 4. The Sender will get the response from the Responder.
 5. If no response will be received within the timeout that was set by the the Request, an error will be returned (‘Timeout’).
 
-**Caching**
+
+**Use Cases**
+
+Queries pattern is suitable for use cases, primarily for database queries.
+
+## Caching
 KubeMQ supports caching of query results as follows:
+
+![image info](./images/query-caching.png)
 
 1. A Sender will send a Request to a channel with specific set timeout, Cache key (string) and Cache TTL (Time To Live) value in seconds for getting a Response.
 2. KubeMQ will attempt to get the response results from Cache base on the Cache key.
@@ -54,10 +67,6 @@ KubeMQ supports caching of query results as follows:
 5. Once a valid response is received from a Responder, KubeMQ will store the Response in the Cache, along with the Cache key provided by the Sender, for the time set by Cache TTL.
 6. A new Request within the Cache TTL time-frame, and with the same Cache key, will get the same Response as stored in KubeMQ from the previous Sender Request.
 
-
-**Use Cases**
-
-Queries pattern is suitable for use cases, primarily for database queries.
 
 ## Commands vs. Queries
 Commands and Queries are very similar patterns, however, there are two differences:

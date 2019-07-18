@@ -42,10 +42,11 @@ module.exports = {
                 title: 'Concepts',
                 collapsable: true,
                 children: [
-                    '/concepts-terminology',
+
                     `/concepts-queue`,
-                    `/concepts-rpc`,
                     `/concepts-pubsub`,
+                    `/concepts-rpc`,
+                    '/concepts-terminology',
                     `/concepts-endpoints`,
                 ]
             },
