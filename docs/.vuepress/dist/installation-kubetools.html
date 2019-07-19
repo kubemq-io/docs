@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KubeTools | KubeMQ Documentation</title>
+    <meta name="description" content="Message broker  for containers and Kubernetes">
+    <link>
+  <undefined></undefined>
+    
+    <link rel="preload" href="/assets/css/0.styles.4f59bb1b.css" as="style"><link rel="preload" href="/assets/js/app.34de3e97.js" as="script"><link rel="preload" href="/assets/js/20.89dfe418.js" as="script"><link rel="prefetch" href="/assets/js/10.159c3d19.js"><link rel="prefetch" href="/assets/js/11.8239dd5c.js"><link rel="prefetch" href="/assets/js/12.ae43f1c6.js"><link rel="prefetch" href="/assets/js/13.774a47e2.js"><link rel="prefetch" href="/assets/js/14.1bd04e7e.js"><link rel="prefetch" href="/assets/js/15.2fc2407c.js"><link rel="prefetch" href="/assets/js/16.30c0db43.js"><link rel="prefetch" href="/assets/js/17.b248b924.js"><link rel="prefetch" href="/assets/js/18.fde1af79.js"><link rel="prefetch" href="/assets/js/19.a5b466d4.js"><link rel="prefetch" href="/assets/js/2.f0d50452.js"><link rel="prefetch" href="/assets/js/21.7df42b1c.js"><link rel="prefetch" href="/assets/js/22.337c044f.js"><link rel="prefetch" href="/assets/js/23.12f4b3ef.js"><link rel="prefetch" href="/assets/js/24.8d23f9ae.js"><link rel="prefetch" href="/assets/js/25.6929f6de.js"><link rel="prefetch" href="/assets/js/26.efda4412.js"><link rel="prefetch" href="/assets/js/3.1e0834f6.js"><link rel="prefetch" href="/assets/js/4.a2fc1267.js"><link rel="prefetch" href="/assets/js/5.553c8e02.js"><link rel="prefetch" href="/assets/js/6.08350092.js"><link rel="prefetch" href="/assets/js/7.e7446928.js"><link rel="prefetch" href="/assets/js/8.fdbf7b30.js"><link rel="prefetch" href="/assets/js/9.c4299bde.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4f59bb1b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/kubemq-logo.png" alt="KubeMQ Documentation" class="logo"> <span class="site-name can-hide">KubeMQ Documentation</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>Home</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Installation</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/get-started.html" class="sidebar-link">Get Started</a></li><li><a href="/installation-kubetools.html" class="active sidebar-link">KubeTools</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/installation-kubetools.html#download-installation" class="sidebar-link">Download / Installation</a></li><li class="sidebar-sub-header"><a href="/installation-kubetools.html#usage" class="sidebar-link">Usage</a></li><li class="sidebar-sub-header"><a href="/installation-kubetools.html#configuration" class="sidebar-link">Configuration</a></li></ul></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Concepts</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Configuration</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Reference</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="kubetools">KubeTools</h1> <p>Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition, Kubetools provides several utilities such as monitoring channel traffic, send messages, and subscribe to channels.</p> <h2 id="download-installation">Download / Installation</h2> <p>KubeTools executable can be downloaded from bin folder for 4 operating systems:</p> <ol><li>Windows 64bit</li> <li>Mac OS 64bit</li> <li>Linux 64bit</li> <li>Linux 32bit</li></ol> <h2 id="usage">Usage</h2> <p>Run <code>Kubetools</code> will prompt the following:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools [command]
+
+Available Commands:
+  health      Call kubemq health endpoint
+  help        Help about any command
+  metrics     Call kubemq metrics endpoint
+  mon         monitor messages/requests channels
+  pubsub      send and receive pub/sub real-time and persistent events
+  queue       send and receive queue messages
+  rpc         send and receive rpc commands and queries
+  test        test your kubemq installation
+  version     print kubemq version
+
+
+Flags:
+  -h, --help   help for kubetools
+
+Use &quot;kubetools [command] --help&quot; for more information about a command.
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h3 id="test">Test</h3> <p>Run <code>kubetools test</code> or <code>kubetools t</code> for running various tests, checking KubeMQ installation and proper configuration.</p> <h3 id="monitor">Monitor</h3> <p>Run <code>kubetools mon</code> or <code>kubetools m</code> to enter into a monitoring channels mode.</p> <p>Available sub commands:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools mon [command]
+
+Aliases:
+  mon, m
+
+Available Commands:
+  commands     monitor commands channels
+  events       monitor events channels
+  events_store monitor events store channels
+  queries      monitor query channels
+  queue        monitor queue channels
+
+Flags:
+  -h, --help   help for mon
+
+Use &quot;kubetools mon [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h4 id="monitor-events-channel">Monitor Events Channel</h4> <p>Run <code>kubetools mon events &lt;ChannelName&gt;</code> or <code>kubetools m e &lt;ChannelName&gt;</code> will monitor and show all traffic in <code>&lt;ChannelName&gt;</code> Events channel.</p> <h4 id="monitor-events-store-channel">Monitor Events Store Channel</h4> <p>Run <code>kubetools mon events_store &lt;ChannelName&gt;</code> or <code>kubetools m es &lt;ChannelName&gt;</code> will monitor and show all traffic in <code>&lt;ChannelName&gt;</code> Events Store channel.</p> <h4 id="monitor-commands-channel">Monitor Commands Channel</h4> <p>Run <code>kubetools mon commands &lt;ChannelName&gt;</code> or <code>kubetools m c &lt;ChannelName&gt;</code> will monitor and show all traffic in <code>&lt;ChannelName&gt;</code> Commands channel.</p> <h4 id="monitor-query-channel">Monitor Query Channel</h4> <p>Run <code>kubetools mon queries &lt;ChannelName&gt;</code> or <code>kubetools m q &lt;ChannelName&gt;</code> will monitor and show all traffic in <code>&lt;ChannelName&gt;</code> Queries channel.</p> <h4 id="monitor-queue-channel">Monitor Queue Channel</h4> <p>Run <code>kubetools mon queue &lt;ChannelName&gt;</code> or <code>kubetools m qu &lt;ChannelName&gt;</code> will monitor and show all traffic in <code>&lt;ChannelName&gt;</code> Queue channel.</p> <h3 id="pubsub">PubSub</h3> <p>Run <code>kubetools pubsub</code> or <code>kubetools p</code> for publish and subscribe real-time and persistent events.</p> <p>Available PubSub commands:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools pubsub [command]
+
+Aliases:
+  pubsub, p, ps
+
+Available Commands:
+  receive     receive pub/sub real-time and persistent events
+  send        send pub/sub real-time and persistent events
+
+Flags:
+  -h, --help                     help for pubsub
+  -t, --pubsubTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools pubsub [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="pubsub-send">PubSub Send</h3> <p>Run <code>kubetools pubsub send</code> or <code>kubetools p s</code> to publish real-time and persistent events.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools pubsub send [command]
+
+Aliases:
+  send, s
+
+Available Commands:
+  events       send real-time event to a channel
+  events_store send persistent event to a channel
+
+Flags:
+  -h, --help   help for send
+
+Global Flags:
+  -t, --pubsubTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools pubsub send [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h5 id="send-message-to-an-events-channel">Send Message to an Events Channel</h5> <p>Run <code>kubetools pubsub send event &lt;ChannelName&gt; &lt;YourMessage&gt;</code> or <code>kubetools p s e &lt;ChannelName&gt; &lt;YourMessage&gt;</code> for sending <code>&lt;YourMessage&gt;</code> to Events channel <code>&lt;ChannelName&gt;</code></p> <h5 id="send-message-to-an-events-store-channel">Send Message to an Events Store Channel</h5> <p>Run <code>kubetools pubsub send events_store &lt;ChannelName&gt; &lt;YourMessage&gt;</code> or <code>kubetools p s es &lt;ChannelName&gt; &lt;YourMessage&gt;</code> for sending <code>&lt;YourMessage&gt;</code> to Events Store channel <code>&lt;ChannelName&gt;</code></p> <h3 id="pubsub-receive">PubSub Receive</h3> <p>Run <code>kubetools pubsub receive</code> or <code>kubetools p r</code> for receiving real-time and persistent events.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools pubsub receive [command]
+
+Aliases:
+  receive, rec, r
+
+Available Commands:
+  events       subscribe to receive real-time events from a channel
+  events_store subscribe to receive persistent events from a channel
+
+Flags:
+  -h, --help   help for receive
+
+Global Flags:
+  -t, --pubsubTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools pubsub receive [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h5 id="receive-pubsub-events-from-channel">Receive PubSub Events From Channel</h5> <p>Run <code>Kubetools pubsub receive event &lt;ChannelName&gt;</code> or <code>Kubetools p r e &lt;ChannelName&gt;</code> for receiving messages in Events channel <code>&lt;ChannelName&gt;</code>.</p> <h5 id="receive-pubsub-events-store-from-channel">Receive PubSub Events Store From Channel</h5> <p>Run <code>Kubetools pubsub receive events_store &lt;ChannelName&gt;</code> or <code>Kubetools p r es &lt;ChannelName&gt;</code> for receiving messages in Events Store channel <code>&lt;ChannelName&gt;</code>.</p> <h3 id="rpc">RPC</h3> <p>Run <code>kubetools rpc</code> or <code>kubetools r</code> for sending and receiving RPC calls of commands and queries.</p> <p>Available RPC commands:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools rpc [command]
+
+Aliases:
+  rpc, r
+
+Available Commands:
+  receive     receive commands or queries
+  send        send commands and queries
+
+Flags:
+  -h, --help                  help for rpc
+  -t, --rpcTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools rpc [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="rpc-send">RPC Send</h3> <p>Run <code>kubetools rpc send</code> or <code>kubetools r s</code> for sending command and query rpc calls.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools rpc send [command]
+
+Aliases:
+  send, s
+
+Available Commands:
+  command     send command to a channel
+  query       send query to a channel
+
+Flags:
+  -h, --help   help for send
+
+Global Flags:
+  -t, --rpcTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools rpc send [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h5 id="send-rpc-commands-to-channel">Send RPC Commands To Channel</h5> <p>Run <code>kubetools rpc send command &lt;ChannelName&gt; &lt;YourMessage&gt;</code> or <code>kubetools r s c &lt;ChannelName&gt; &lt;YourMessage&gt;</code> for sending <code>&lt;YourMessage&gt;</code> to Commands channel <code>&lt;ChannelName&gt;</code></p> <p>Additional configuration available:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools rpc send command [flags]
+
+Aliases:
+  command, c
+
+Flags:
+  -h, --help                help for command
+  -o, --rpcSendTimout int   set command timeout in msec (default 10000)
+
+Global Flags:
+  -t, --rpcTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h5 id="send-rpc-query-to-channel">Send RPC Query To Channel</h5> <p>Run <code>kubetools rpc send query &lt;ChannelName&gt; &lt;YourMessage&gt;</code> or <code>kubetools r s q &lt;ChannelName&gt; &lt;YourMessage&gt;</code> for sending <code>&lt;YourMessage&gt;</code> to Queries channel <code>&lt;ChannelName&gt;</code></p> <p>Additional configuration available:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools rpc send query [flags]
+
+Aliases:
+  query, q
+
+Flags:
+  -h, --help                help for query
+  -o, --rpcSendTimout int   set query timeout in msec (default 10000)
+
+Global Flags:
+  -t, --rpcTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h4 id="rpc-receive">RPC RECEIVE</h4> <p>Run <code>kubetools rpc receive</code> or <code>kubetools r r</code> for receiving commands and queries calls.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools rpc receive [command]
+
+Aliases:
+  receive, rec, r
+
+Available Commands:
+  command     subscribe to receive commands from a channel
+  query       subscribe to receive queries from a channel
+
+Flags:
+  -h, --help   help for receive
+
+Global Flags:
+  -t, --rpcTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools rpc receive [command] --help&quot; for more information about a command.
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h5 id="receive-rpc-commands-from-channel">Receive RPC Commands From Channel</h5> <p>Run <code>Kubetools rpc receive command &lt;ChannelName&gt;</code> or <code>Kubetools r r c &lt;ChannelName&gt;</code> for receiving messages in Commands channel <code>&lt;ChannelName&gt;</code> and send an acknowledge back to the sender.</p> <h5 id="receive-rpc-queries-from-channel">Receive RPC Queries From Channel</h5> <p>Run <code>Kubetools rpc receive query &lt;ChannelName&gt;</code> or <code>Kubetools r r q &lt;ChannelName&gt;</code> for receiving messages in Queries channel <code>&lt;ChannelName&gt;</code> and echo back the same message to the sender.</p> <h3 id="queue">Queue</h3> <p>Run <code>kubetools queue</code> or <code>kubetools q</code> for sending and receiving queue messages.</p> <p>Available Queue commands:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools queue [command]
+
+Aliases:
+  queue, q
+
+Available Commands:
+  ack         acl all messages in a queue
+  peak        peak messages from a queue
+  receive     receive messages from a queue
+  send        send message to a queue
+
+Flags:
+  -h, --help                    help for queue
+  -t, --queueTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+Use &quot;kubetools queue [command] --help&quot; for more information about a command.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h4 id="send-to-a-queue">Send To a Queue</h4> <p>Run <code>kubetools queue send</code> or <code>kubetools q s</code> for sending queue messages.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools queue send [flags]
+
+Aliases:
+  send, s
+
+Flags:
+  -h, --help                 help for send
+  -d, --sendDelay int        set queue message send delay seconds
+  -e, --sendExpiration int   set queue message expiration seconds
+
+Global Flags:
+  -t, --queueTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h4 id="receive-from-a-queue">Receive From a Queue</h4> <p>Run <code>kubetools queue receive</code> or <code>kubetools q r</code> for receiving queue messages.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools queue receive [flags]
+
+Aliases:
+  receive, r
+
+Flags:
+  -h, --help                  help for receive
+  -i, --receiveMessages int   set how many messages we want to get from queue (default 1)
+  -w, --receiveWait int       set how many seconds to wait for queue messages (default 2)
+
+Global Flags:
+  -t, --queueTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="peak-into-a-queue">Peak into a Queue</h4> <p>Run <code>kubetools queue peak</code> or <code>kubetools q p</code> for peaking queue messages.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools queue peak [flags]
+
+Aliases:
+  peak, p
+
+Flags:
+  -h, --help                  help for peak
+  -i, --receiveMessages int   set how many messages we peak to get from queue (default 1)
+  -w, --receiveWait int       set how many seconds to peak for queue messages (default 2)
+
+Global Flags:
+  -t, --queueTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h4 id="ack-all-messages-in-a-queue">Ack All Messages in a Queue</h4> <p>Run <code>kubetools queue ack</code> or <code>kubetools q a</code> for ack all queue messages.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Usage:
+  kubetools queue ack [flags]
+
+Aliases:
+  ack, a
+
+Flags:
+  -h, --help              help for ack
+  -w, --receiveWait int   set how many seconds wait to ack all messages in queue (default 2)
+
+Global Flags:
+  -t, --queueTransport string   set transport type, grpc or rest (default &quot;grpc&quot;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="health">Health</h3> <p>Run <code>kubetools health</code> or <code>kubetools h</code></p> <h3 id="metrics">Metrics</h3> <p>Run <code>kubetools metrics</code> or <code>kubetools m</code></p> <h2 id="configuration">Configuration</h2> <p>KubeTools require <code>.config.yaml</code> File for connections variables. Default configuration:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>healthAddress: &quot;http://localhost:8080/health&quot; # the address of Health endpoint , you can replace the localhost:8080 with your address
+metricsAddress: &quot;http://localhost:8080/metrics&quot; #the address of Health endpoint, you can replace the localhost:8080 with your address
+monitorAddress: &quot;ws://localhost:8080/v1/stats&quot; #the address of Monitor endpoint, you can replace the localhost:8080 with your address
+connections:
+  - kind: 1 # 1 - grpc 2- rest
+    host: &quot;localhost&quot; # host destination
+    port: 50000 # port destination
+    isSecured: false # set using https
+    certFile: &quot;&quot; # set location of cert file
+  - kind: 2 # 1 - grpc 2- rest
+    host: &quot;localhost&quot; # host destination
+    port: 9090  # port destination
+    isSecured: false  # set using https
+    certFile: &quot;&quot; # set location of cert file - not in use for Rest
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">7/18/2019, 9:08:44 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/get-started.html" class="prev">
+          Get Started
+        </a></span> <span class="next"><a href="/concepts-queue.html">
+          Queue
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.34de3e97.js" defer></script><script src="/assets/js/20.89dfe418.js" defer></script>
+  </body>
+</html>

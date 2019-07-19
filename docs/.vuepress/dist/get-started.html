@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Get Started | KubeMQ Documentation</title>
+    <meta name="description" content="Message broker  for containers and Kubernetes">
+    <link>
+  <undefined></undefined>
+    
+    <link rel="preload" href="/assets/css/0.styles.4f59bb1b.css" as="style"><link rel="preload" href="/assets/js/app.34de3e97.js" as="script"><link rel="preload" href="/assets/js/18.fde1af79.js" as="script"><link rel="prefetch" href="/assets/js/10.159c3d19.js"><link rel="prefetch" href="/assets/js/11.8239dd5c.js"><link rel="prefetch" href="/assets/js/12.ae43f1c6.js"><link rel="prefetch" href="/assets/js/13.774a47e2.js"><link rel="prefetch" href="/assets/js/14.1bd04e7e.js"><link rel="prefetch" href="/assets/js/15.2fc2407c.js"><link rel="prefetch" href="/assets/js/16.30c0db43.js"><link rel="prefetch" href="/assets/js/17.b248b924.js"><link rel="prefetch" href="/assets/js/19.a5b466d4.js"><link rel="prefetch" href="/assets/js/2.f0d50452.js"><link rel="prefetch" href="/assets/js/20.89dfe418.js"><link rel="prefetch" href="/assets/js/21.7df42b1c.js"><link rel="prefetch" href="/assets/js/22.337c044f.js"><link rel="prefetch" href="/assets/js/23.12f4b3ef.js"><link rel="prefetch" href="/assets/js/24.8d23f9ae.js"><link rel="prefetch" href="/assets/js/25.6929f6de.js"><link rel="prefetch" href="/assets/js/26.efda4412.js"><link rel="prefetch" href="/assets/js/3.1e0834f6.js"><link rel="prefetch" href="/assets/js/4.a2fc1267.js"><link rel="prefetch" href="/assets/js/5.553c8e02.js"><link rel="prefetch" href="/assets/js/6.08350092.js"><link rel="prefetch" href="/assets/js/7.e7446928.js"><link rel="prefetch" href="/assets/js/8.fdbf7b30.js"><link rel="prefetch" href="/assets/js/9.c4299bde.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4f59bb1b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/kubemq-logo.png" alt="KubeMQ Documentation" class="logo"> <span class="site-name can-hide">KubeMQ Documentation</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>Home</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Installation</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/get-started.html" class="active sidebar-link">Get Started</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/get-started.html#install" class="sidebar-link">Install</a></li><li class="sidebar-sub-header"><a href="/get-started.html#subscribe" class="sidebar-link">Subscribe</a></li><li class="sidebar-sub-header"><a href="/get-started.html#send" class="sidebar-link">Send</a></li></ul></li><li><a href="/installation-kubetools.html" class="sidebar-link">KubeTools</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Concepts</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Configuration</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Reference</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="get-started">Get Started</h1> <h2 id="install">Install</h2> <p>To start using KubeMQ, we first need to run a KubeMQ docker container either locally or on a remote node.</p> <p>You can select one of the methods below.</p> <div class="tip custom-block"><p class="custom-block-title">KubeMQ Token</p> <p>Every installation method requires a KubeMQ token.
+Please <a href="https://account.kubemq.io/login/register?destination=docker" target="_blank" rel="noopener noreferrer">register<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> to obtain your KubeMQ token.</p></div> <h3 id="docker">Docker</h3> <p>Pull and run KubeMQ Docker container:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 -v kubemq-vol:/store -e KUBEMQ_TOKEN=&lt;YOUR_KUBEMQ_TOKEN&gt; kubemq/kubemq
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="kubernetes-cluster">Kubernetes Cluster</h3> <p>Copy and deploy the following yaml file:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>apiVersion: v1
+kind: List
+items:
+  - apiVersion: apps/v1beta2
+    kind: StatefulSet
+    metadata:
+      name: kubemq-cluster
+    spec:
+      selector:
+        matchLabels:
+          app: kubemq-cluster
+      replicas: 3
+      serviceName: kubemq-cluster
+      template:
+        metadata:
+          labels:
+            app: kubemq-cluster
+        spec:
+          containers:
+            - env:
+                - name: KUBEMQ_TOKEN
+                  value: &lt;YOUR_KUBEMQ_TOKEN&gt;
+                - name: CLUSTER_ROUTES
+                  value: 'kubemq-cluster:5228'
+                - name: CLUSTER_PORT
+                  value: '5228'
+                - name: CLUSTER_ENABLE
+                  value: 'true'
+                - name: GRPC_PORT
+                  value: '50000'
+                - name: REST_PORT
+                  value: '9090'
+                - name: KUBEMQ_PORT
+                  value: '8080'
+              image: 'kubemq/kubemq:latest'
+              imagePullPolicy: IfNotPresent
+              name: kubemq-cluster
+              ports:
+                - containerPort: 50000
+                  name: grpc-port
+                  protocol: TCP
+                - containerPort: 8080
+                  name: metrics-port
+                  protocol: TCP
+                - containerPort: 9090
+                  name: rest-port
+                  protocol: TCP
+                - containerPort: 5228
+                  name: cluster-port
+                  protocol: TCP
+          restartPolicy: Always
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: kubemq-cluster
+    spec:
+      ports:
+        - name: metrics-port
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+        - name: grpc-port
+          port: 50000
+          protocol: TCP
+          targetPort: 50000
+        - name: cluster-port
+          port: 5228
+          protocol: TCP
+          targetPort: 5228
+        - name: rest-port
+          port: 9090
+          protocol: TCP
+          targetPort: 9090
+      sessionAffinity: None
+      type: NodePort
+      selector:
+        app: kubemq-cluster
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br></div></div><h3 id="helm-chart">Helm Chart</h3> <p>Add KubeMQ Helm Repository:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ helm repo add kubemq-charts https://kubemq-io.github.io/charts
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Verify KubeMQ helm repository charts is correctly configured by:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ helm repo list
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Install KubeMQ Chart:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ helm install --name kubemq-cluster --set token=&lt;YOUR_KUBEMQ_TOKEN&gt; kubemq-charts/kubemq
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="configuration">Configuration</h4> <p>The following table lists the configurable parameters of the KubeMQ chart and their default values.</p> <table><thead><tr><th style="text-align:left">Parameter</th> <th style="text-align:left">Default</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">nameOverride</td> <td style="text-align:left"><code>kubemq-cluster</code></td> <td style="text-align:left">Sets deployment name</td></tr> <tr><td style="text-align:left">token</td> <td style="text-align:left">``</td> <td style="text-align:left">Sets KubeMQ token</td></tr> <tr><td style="text-align:left">replicaCount</td> <td style="text-align:left"><code>3</code></td> <td style="text-align:left">Number of KubeMQ nodes</td></tr> <tr><td style="text-align:left">cluster.enable</td> <td style="text-align:left"><code>true</code></td> <td style="text-align:left">Enable/Disable cluster mode</td></tr> <tr><td style="text-align:left">image.repository</td> <td style="text-align:left"><code>kubemq/kubemq</code></td> <td style="text-align:left">KubeMQ image name</td></tr> <tr><td style="text-align:left">image.tag</td> <td style="text-align:left"><code>latest</code></td> <td style="text-align:left">KubeMQ image tag</td></tr> <tr><td style="text-align:left">image.pullPolicy</td> <td style="text-align:left"><code>Always</code></td> <td style="text-align:left">Image pull policy</td></tr> <tr><td style="text-align:left">service.type</td> <td style="text-align:left"><code>ClusterIP</code></td> <td style="text-align:left">Sets KubeMQ service type</td></tr> <tr><td style="text-align:left">service.apiPort</td> <td style="text-align:left"><code>8080</code></td> <td style="text-align:left">Sets KubeMQ service Api Port</td></tr> <tr><td style="text-align:left">service.restPort</td> <td style="text-align:left"><code>9090</code></td> <td style="text-align:left">Sets KubeMQ service Rest Port</td></tr> <tr><td style="text-align:left">service.grpcPort</td> <td style="text-align:left"><code>5000</code></td> <td style="text-align:left">Sets KubeMQ service gRPC Port</td></tr> <tr><td style="text-align:left">service.clusterPort</td> <td style="text-align:left"><code>5228</code></td> <td style="text-align:left">Sets KubeMQ service Cluster Port</td></tr> <tr><td style="text-align:left">livenessProbe.enabled</td> <td style="text-align:left"><code>true</code></td> <td style="text-align:left">Enable/Disable liveness prob</td></tr> <tr><td style="text-align:left">livenessProbe.initialDelaySeconds</td> <td style="text-align:left"><code>4</code></td> <td style="text-align:left">Delay before liveness probe is initiated</td></tr> <tr><td style="text-align:left">livenessProbe.periodSeconds</td> <td style="text-align:left"><code>10</code></td> <td style="text-align:left">How often to perform the probe</td></tr> <tr><td style="text-align:left">livenessProbe.timeoutSeconds</td> <td style="text-align:left"><code>5</code></td> <td style="text-align:left">When the probe times out</td></tr> <tr><td style="text-align:left">livenessProbe.failureThreshold</td> <td style="text-align:left"><code>6</code></td> <td style="text-align:left">Minimum consecutive successes for the probe to be considered successful after having failed</td></tr> <tr><td style="text-align:left">livenessProbe.successThreshold</td> <td style="text-align:left"><code>1</code></td> <td style="text-align:left">Minimum consecutive failures for the probe to be considered failed after having succeeded</td></tr> <tr><td style="text-align:left">readinessProbe.enabled</td> <td style="text-align:left"><code>true</code></td> <td style="text-align:left">Enable/Disable readiness prob</td></tr> <tr><td style="text-align:left">readinessProbe.initialDelaySeconds</td> <td style="text-align:left"><code>1</code></td> <td style="text-align:left">Delay before readiness probe is initiated</td></tr> <tr><td style="text-align:left">readinessProbe.periodSeconds</td> <td style="text-align:left"><code>10</code></td> <td style="text-align:left">How often to perform the probe</td></tr> <tr><td style="text-align:left">readinessProbe.timeoutSeconds</td> <td style="text-align:left"><code>5</code></td> <td style="text-align:left">When the probe times out</td></tr> <tr><td style="text-align:left">readinessProbe.failureThreshold</td> <td style="text-align:left"><code>6</code></td> <td style="text-align:left">Minimum consecutive failures for the probe to be considered failed after having succeeded</td></tr> <tr><td style="text-align:left">readinessProbe.successThreshold</td> <td style="text-align:left"><code>1</code></td> <td style="text-align:left">Minimum consecutive successes for the probe to be considered successful after having failed</td></tr> <tr><td style="text-align:left">statefulset.updateStrategy</td> <td style="text-align:left"><code>RollingUpdate</code></td> <td style="text-align:left">Statefulsets Update strategy</td></tr> <tr><td style="text-align:left">volume.enabled</td> <td style="text-align:left"><code>false</code></td> <td style="text-align:left">Enable/Disable Persistence Volume Claim template</td></tr> <tr><td style="text-align:left">volume.size</td> <td style="text-align:left"><code>1Gi</code></td> <td style="text-align:left">Set volume size</td></tr> <tr><td style="text-align:left">volume.mountPath</td> <td style="text-align:left"><code>&quot;/store&quot;</code></td> <td style="text-align:left">Sets container mounting point</td></tr> <tr><td style="text-align:left">volume.accessMode</td> <td style="text-align:left"><code>&quot;ReadWriteOnce&quot;</code></td> <td style="text-align:left">Sets Persistence access mode</td></tr></tbody></table> <p>Specify each parameter using the <code>--set key=value[,key=value]</code> argument to helm install. For example,</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>helm install --name kubemq-release --set token={your kubemq token},nameOverride=my-kubemq-cluster kubemq-charts/kubemq 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="docker-compose">Docker-Compose</h3> <p>Run <code>docker-compose -d up</code> with the following yaml file:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>version: '3.7'
+services:
+  kubemq:
+    image: kubemq/kubemq
+    container_name: kubemq
+    ports:
+      - &quot;8080:8080&quot;
+      - &quot;9090:9090&quot;
+      - &quot;50000:50000&quot;
+    environment:
+      - KUBEMQ_HOST=kubemq
+      - KUBEMQ_TOKEN=&lt;YOUR_KUBEMQ_TOKEN&gt;
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - kubemq_vol:/store
+networks:
+  backend:
+volumes:
+  kubemq_vol:
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="subscribe">Subscribe</h2> <p>Now that you have KubeMQ installed and running subscribe to Events channel and log every message over that channel on the console.</p> <h3 id="cli">CLI</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ ./kubetools subscribe event hello-world
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="tip custom-block"><p class="custom-block-title">KubeTools</p> <p>KubeTools is KubeMQ CLI tool.
+You can download KubeTools binaries <a href="https://github.com/kubemq-io/kubetools/tree/master/bin" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <h3 id="net">.Net</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+using KubeMQ.SDK.csharp.Events;
+using KubeMQ.SDK.csharp.Subscription;
+using System;
+
+namespace kubemqreceiverExm
+{
+    class Program
+    {
+        private static Subscriber subscriber;
+        static void Main(string[] args)
+        {
+            SubcribeToEventsWithoutStore();
+        }
+
+        private static void SubcribeToEventsWithoutStore()
+        {
+            subscriber = new Subscriber(&quot;localhost:50000&quot;);
+            SubscribeRequest subscribeRequest = CreateSubscribeRequest(SubscribeType.Events);
+            try
+            {
+                subscriber.SubscribeToEvents(subscribeRequest, HandleIncomingEvents);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($&quot;failed to sub on ex :{ex.Message}&quot;);
+            }
+            Console.ReadLine();
+
+        }
+
+        private static SubscribeRequest CreateSubscribeRequest(SubscribeType subscriptionType = SubscribeType.SubscribeTypeUndefined,
+        EventsStoreType eventsStoreType = EventsStoreType.Undefined,
+        int TypeValue = 0, string group = &quot;&quot;)
+        {
+            Random random = new Random();
+            SubscribeRequest subscribeRequest = new SubscribeRequest()
+            {
+                Channel = &quot;myChannel&quot;,
+                ClientID = &quot;mySubID&quot;,
+                EventsStoreType = eventsStoreType,
+                EventsStoreTypeValue = TypeValue,
+                Group = group,
+                SubscribeType = subscriptionType
+            };
+            return subscribeRequest;
+        }
+
+        private static void HandleIncomingEvents(EventReceive @event)
+        {
+            if (@event != null)
+            {
+                string strMsg = string.Empty;
+                object body = KubeMQ.SDK.csharp.Tools.Converter.FromByteArray(@event.Body);
+
+                Console.WriteLine($&quot;Subscriber Received Event: Metadata:'{@event.Metadata}', Channel:'{@event.Channel}', Body:'{strMsg}'&quot;);
+            }
+        }
+    }
+}
+
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><h3 id="java">Java</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
+import io.kubemq.sdk.event.lowlevel.Event;
+import io.kubemq.sdk.event.lowlevel.Sender;
+
+import javax.net.ssl.SSLException;
+
+class EventSubscriber extends BaseExample {
+
+    private Subscriber subscriber;
+
+    EventSubscriber() throws ServerAddressNotSuppliedException, SSLException {
+        super(&quot;EventSubscriber&quot;);
+        Subscriber subscriber = new Subscriber(&quot;localhost:50000&quot;);
+        SubcribeToEventsWithoutStore();
+        SubcribeToEventsWithStore();
+
+    }
+
+    private void SubcribeToEventsWithStore() throws ServerAddressNotSuppliedException, SSLException {
+        subscriber = new Subscriber();
+        SubscribeRequest subscribeRequest = CreateSubscribeRequest(SubscribeType.EventsStore, EventsStoreType.StartAtSequence, 2);
+        EventReceive eventReceive = subscriber.SubscribeToEvents(subscribeRequest);
+        HandleIncomingEvents(eventReceive);
+    }
+
+    private void SubcribeToEventsWithoutStore() throws ServerAddressNotSuppliedException, SSLException {
+        subscriber = new Subscriber();
+        SubscribeRequest subscribeRequest = CreateSubscribeRequest(SubscribeType.Events);
+        EventReceive eventReceive = subscriber.SubscribeToEvents(subscribeRequest);
+        HandleIncomingEvents(eventReceive);
+    }
+
+    private void HandleIncomingEvents(EventReceive message) {
+        String body = new String(message.getBody());
+
+        System.out.println(MessageFormat.format(
+                &quot;Subscriber Received Event: Metadata:''{0}'', Channel:''{1}'', Body:''{2}''&quot;,
+                message.getMetadata(),
+                message.getChannel(),
+                body
+        ));
+    }
+}
+
+public class BaseExample {
+      protected Logger logger;
+      private String channelName;
+      private String clientID;
+      private int timeout;
+
+      public BaseExample(String _ClientId) {
+         clientID = _ClientId;
+         timeout = 111000;
+         channelName = &quot;MyTestChannelName&quot;;
+         logger = LoggerFactory.getLogger(BaseExample.class);
+      }
+       protected SubscribeRequest CreateSubscribeRequest(
+            SubscribeType subscriptionType,
+            EventsStoreType eventsStoreType,
+            int TypeValue,
+            String group
+      )
+
+      {
+        SubscribeRequest subscribeRequest = new SubscribeRequest();
+
+        subscribeRequest.setChannel(channelName);
+        subscribeRequest.setClientID(generateRandomClientID());
+        subscribeRequest.setEventsStoreType(eventsStoreType);
+        subscribeRequest.setEventsStoreTypeValue(TypeValue);
+        subscribeRequest.setGroup(group);
+        subscribeRequest.setSubscribeType(subscriptionType);
+
+        return subscribeRequest;
+    }
+
+    protected SubscribeRequest CreateSubscribeRequest(SubscribeType subscriptionType) {
+        return CreateSubscribeRequest(subscriptionType, EventsStoreType.Undefined, 0, &quot;&quot;);
+    }
+
+    protected SubscribeRequest CreateSubscribeRequest(SubscribeType subscriptionType, EventsStoreType eventsStoreType, int TypeValue) {
+        return CreateSubscribeRequest(subscriptionType, eventsStoreType, TypeValue, &quot;&quot;);
+    }
+
+    private String generateRandomClientID() {
+        Random random = new Random();
+        int low = 9;
+        int high = 19999;
+        return Integer.toString(random.nextInt(high - low) + low);
+    }
+
+    protected int getTimeout() {
+        return timeout;
+    }
+
+    protected void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    protected String getChannelName() {
+        return channelName;
+    }
+
+    protected void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
+
+    protected String getClientID() {
+        return clientID;
+    }
+
+    protected void setClientID(String clientID) {
+        this.clientID = clientID;
+    }
+}
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br></div></div><h3 id="go">Go</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>package main
+
+import (
+   &quot;context&quot;
+   &quot;fmt&quot;
+   &quot;github.com/kubemq-io/kubemq-go&quot;
+   &quot;log&quot;
+)
+
+func main() {
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress(&quot;localhost&quot;, 50000),
+      kubemq.WithClientId(&quot;hello-world-subscriber&quot;),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channelName := &quot;hello-world&quot;
+   errCh := make(chan error)
+   eventsCh, err := client.SubscribeToEvents(ctx, channelName, &quot;&quot;, errCh)
+   if err != nil {
+      log.Fatal(err)
+      return
+
+   }
+   for {
+      select {
+      case err := &lt;-errCh:
+         log.Fatal(err)
+         return
+      case event, more := &lt;-eventsCh:
+         if !more {
+            fmt.Println(&quot;Event Received, done&quot;)
+            return
+         }
+         log.Printf(&quot;Event Received:\nEventID: %s\nChannel: %s\nMetadata: %s\nBody: %s\n&quot;, event.Id, event.Channel, event.Metadata, event.Body)
+      case &lt;-ctx.Done():
+         return
+      }
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><h3 id="python">Python</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>from builtins import input
+
+from kubemq.events.subscriber import Subscriber
+from kubemq.subscription.events_store_type import EventsStoreType
+from kubemq.subscription.subscribe_request import SubscribeRequest
+from kubemq.subscription.subscribe_type import SubscribeType
+
+
+def create_subscribe_request(
+        subscribe_type=SubscribeType.SubscribeTypeUndefined,
+        events_store_type=EventsStoreType.Undefined,
+        events_store_type_value=0):
+    return SubscribeRequest(
+        channel=&quot;TestChannelName&quot;,
+        client_id=&quot;someID&quot;,
+        events_store_type=events_store_type,
+        events_store_type_value=events_store_type_value,
+        group=&quot;&quot;,
+        subscribe_type=subscribe_type
+    )
+
+
+def handle_incoming_events(event):
+    if event:
+        print(&quot;Subscriber Received Event: Metadata:'%s', Channel:'%s', Body:'%s'&quot; % (
+            event.metadata,
+            event.channel,
+            event.body
+        ))
+
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;Subscribing to event on channel example&quot;)
+
+    # Subscribe to events without store
+    subscriber = Subscriber(&quot;localhost:50000&quot;)
+    subscribe_request = create_subscribe_request(SubscribeType.Events)
+    subscriber.subscribe_to_events(subscribe_request, handle_incoming_events)
+
+    input(&quot;Press 'Enter' to stop the application...
+&quot;)
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><h2 id="send">Send</h2> <p>After you have subscribed to a hello-world channel, you can send your message to it.</p> <h3 id="cli-2">CLI</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ ./kubetools send event hello-world &quot;Hi KubeMQ&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="tip custom-block"><p class="custom-block-title">KubeTools</p> <p>KubeTools is KubeMQ CLI tool.
+You can download KubeTools binaries <a href="https://github.com/kubemq-io/kubetools/tree/master/bin" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <h3 id="net-2">.Net</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+using KubeMQ.SDK.csharp.Events.LowLevel;
+using System;
+
+namespace kubemqsenderExm
+{
+    class Program
+    {
+        private static Sender sender;
+        static void Main(string[] args)
+        {
+            SendLowLevelEvents();
+        }
+        private static void SendLowLevelEvents()
+        {
+            sender = new Sender(&quot;localhost:50000&quot;);
+            Event @event = CreateLowLevelEventWithoutStore();
+            try
+            {
+                sender.SendEvent(@event);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($&quot;failed to send on ex :{ex.Message}&quot;);
+            }
+
+        }
+        private static Event CreateLowLevelEventWithoutStore()
+        {
+            Console.WriteLine(&quot;Start Creating Event&quot;);
+            KubeMQ.SDK.csharp.Events.LowLevel.Event @event = new KubeMQ.SDK.csharp.Events.LowLevel.Event()
+            {
+                Metadata = &quot;EventMetaData&quot;,
+                Body = KubeMQ.SDK.csharp.Tools.Converter.ToByteArray($&quot;hello world&quot;),
+                Store = false,
+                Channel = &quot;myChannel&quot;,
+                ClientID = &quot;myID&quot;,
+                ReturnResult = false
+            };
+            return @event;
+        }
+    }
+}
+
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><h3 id="java-2">Java</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
+import io.kubemq.sdk.event.lowlevel.Event;
+import io.kubemq.sdk.event.lowlevel.Sender;
+
+import javax.net.ssl.SSLException;
+
+class EventSender extends BaseExample {
+
+    EventSender() throws ServerAddressNotSuppliedException, SSLException {
+        super(&quot;EventSender&quot;);
+        SendLowLevelMessages();
+    }
+
+    private void SendLowLevelMessages() throws ServerAddressNotSuppliedException, SSLException {
+        Sender sender = new Sender(&quot;localhost:50000&quot;);
+        Event event = CreateLowLevelEventWithoutStore();
+        sender.SendEvent(event);
+    }
+}
+
+public class BaseExample {
+
+    protected Logger logger;
+    private String channelName;
+    private String clientID;
+    private int timeout;
+
+    public BaseExample(String _ClientId) {
+        clientID = _ClientId;
+        timeout = 111000;
+        channelName = &quot;MyTestChannelName&quot;;
+        logger = LoggerFactory.getLogger(BaseExample.class);
+    }
+
+    private Event CreateNewEvent() {
+        logger.debug(&quot;Start Creating Event&quot;);
+        Event message = new Event();
+        message.setMetadata(&quot;MessageMetaData&quot;);
+        message.setBody(MessageFormat.format(&quot;Event Created on time {0}&quot;, Instant.now()).getBytes());
+        return message;
+    }
+
+    protected Event CreateLowLevelEventWithoutStore() {
+        Event message = CreateNewEvent();
+        message.setStore(false);
+        message.setChannel(channelName);
+        message.setClientID(clientID);
+        message.setReturnResult(false);
+        return message;
+    }
+       private String generateRandomClientID() {
+        Random random = new Random();
+        int low = 9;
+        int high = 19999;
+        return Integer.toString(random.nextInt(high - low) + low);
+    }
+
+    protected int getTimeout() {
+        return timeout;
+    }
+
+    protected void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    protected String getChannelName() {
+        return channelName;
+    }
+
+    protected void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
+
+    protected String getClientID() {
+        return clientID;
+    }
+
+    protected void setClientID(String clientID) {
+        this.clientID = clientID;
+    }
+}
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br></div></div><h3 id="go-2">Go</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>package main
+
+import (
+   &quot;context&quot;
+   &quot;github.com/kubemq-io/kubemq-go&quot;
+   &quot;log&quot;
+)
+
+func main() {
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress(&quot;localhost&quot;, 50000),
+      kubemq.WithClientId(&quot;hello-world-sender&quot;),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channelName := &quot;testing_event_channel&quot;
+   err = client.E().
+      SetId(&quot;some-id&quot;).
+      SetChannel(channelName).
+      SetMetadata(&quot;some-metadata&quot;).
+      SetBody([]byte(&quot;hello kubemq - sending single event&quot;)).
+      Send(ctx)
+   if err != nil {
+      log.Fatal(err)
+   }
+
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h3 id="python-2">Python</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+from kubemq.events.lowlevel.event import Event
+from kubemq.events.lowlevel.sender import Sender
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;Sending event using sender example&quot;)
+
+    sender = Sender(&quot;localhost:50000&quot;)
+    event = Event(
+        metadata=&quot;some-meta-data&quot;,
+        body=(&quot;hello world&quot;).encode('UTF-8'),
+        store=False,
+        channel=&quot;TestChannelName&quot;,
+        client_id=&quot;EventSender&quot;,
+    )
+    sender.send_event(event)
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/20/2019, 12:55:10 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/home.html" class="prev">
+          Introduction
+        </a></span> <span class="next"><a href="/installation-kubetools.html">
+          KubeTools
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.34de3e97.js" defer></script><script src="/assets/js/18.fde1af79.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>REST | KubeMQ Documentation</title>
+    <meta name="description" content="Message broker  for containers and Kubernetes">
+    <link>
+  <undefined></undefined>
+    
+    <link rel="preload" href="/assets/css/0.styles.4f59bb1b.css" as="style"><link rel="preload" href="/assets/js/app.34de3e97.js" as="script"><link rel="preload" href="/assets/js/21.7df42b1c.js" as="script"><link rel="prefetch" href="/assets/js/10.159c3d19.js"><link rel="prefetch" href="/assets/js/11.8239dd5c.js"><link rel="prefetch" href="/assets/js/12.ae43f1c6.js"><link rel="prefetch" href="/assets/js/13.774a47e2.js"><link rel="prefetch" href="/assets/js/14.1bd04e7e.js"><link rel="prefetch" href="/assets/js/15.2fc2407c.js"><link rel="prefetch" href="/assets/js/16.30c0db43.js"><link rel="prefetch" href="/assets/js/17.b248b924.js"><link rel="prefetch" href="/assets/js/18.fde1af79.js"><link rel="prefetch" href="/assets/js/19.a5b466d4.js"><link rel="prefetch" href="/assets/js/2.f0d50452.js"><link rel="prefetch" href="/assets/js/20.89dfe418.js"><link rel="prefetch" href="/assets/js/22.337c044f.js"><link rel="prefetch" href="/assets/js/23.12f4b3ef.js"><link rel="prefetch" href="/assets/js/24.8d23f9ae.js"><link rel="prefetch" href="/assets/js/25.6929f6de.js"><link rel="prefetch" href="/assets/js/26.efda4412.js"><link rel="prefetch" href="/assets/js/3.1e0834f6.js"><link rel="prefetch" href="/assets/js/4.a2fc1267.js"><link rel="prefetch" href="/assets/js/5.553c8e02.js"><link rel="prefetch" href="/assets/js/6.08350092.js"><link rel="prefetch" href="/assets/js/7.e7446928.js"><link rel="prefetch" href="/assets/js/8.fdbf7b30.js"><link rel="prefetch" href="/assets/js/9.c4299bde.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4f59bb1b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/kubemq-logo.png" alt="KubeMQ Documentation" class="logo"> <span class="site-name can-hide">KubeMQ Documentation</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://kubemq.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  KubeMQ.io
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://account.kubemq.io/login/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Register
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>Home</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Installation</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Concepts</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Configuration</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Reference</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/sdk-net.html" class="sidebar-link">.NET</a></li><li><a href="/sdk-java.html" class="sidebar-link">Java</a></li><li><a href="/sdk-go.html" class="sidebar-link">Go</a></li><li><a href="/sdk-python.html" class="sidebar-link">Python</a></li><li><a href="/rest.html" class="active sidebar-link">REST</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/rest.html#queue-message-patterns" class="sidebar-link">Queue Message Patterns</a></li><li class="sidebar-sub-header"><a href="/rest.html#pubsub-message-patterns" class="sidebar-link">PubSub Message Patterns</a></li><li class="sidebar-sub-header"><a href="/rest.html#rpc-message-patterns" class="sidebar-link">RPC Message Patterns</a></li></ul></li><li><a href="/examples.html" class="sidebar-link">Examples</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="rest">REST</h1> <p>The KubeMQ server API provides a simple interface for all messaging patterns.</p> <p>RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.</p> <div class="tip custom-block"><p class="custom-block-title">Postman</p> <p>You can view REST documentation in <a href="https://postman.kubemq.io" target="_blank" rel="noopener noreferrer">Postman<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Or run it on your local Postman app:</p> <p><a href="https://app.getpostman.com/run-collection/c3f4630fbbd5b9684049#?env%5Bkubemq-playground%5D=W3sia2V5IjoiaG9zdCIsInZhbHVlIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLmt1YmVtcS5pbyIsImRlc2NyaXB0aW9uIjoiIiwiZW5hYmxlZCI6dHJ1ZX1d" target="_blank" rel="noopener noreferrer"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <div class="danger custom-block"><p class="custom-block-title">IMPORTANT</p> <p>Please make sure to include KubeMQ Token/Key in any request to public playground. You can find your Token/Key in your KubeMQ account profile <a href="https://account.kubemq.io/home/profile" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <h2 id="queue-message-patterns">Queue Message Patterns</h2> <h3 id="send-message">Send Message</h3> <p>Send a message to a queue.</p> <p>Send Message endpoint is a <code>POST</code> function to <code>/queue/send</code> where <code>host</code> is the KubeMQ REST interface address.
+<code>POST</code> Send message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+         &quot;Id&quot;:&quot;&quot;,
+         &quot;ClientId&quot;:&quot;send-message-client-id&quot;,
+         &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+         &quot;Metadata&quot;:&quot;&quot;,
+         &quot;Body&quot;:&quot;QmF0Y2ggTWVzc2FnZSAw&quot;,
+         &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         },
+         &quot;Attributes&quot;:null,
+         &quot;Policy&quot;:{
+            &quot;ExpirationSeconds&quot;:0,
+            &quot;DelaySeconds&quot;:0,
+            &quot;MaxReceiveCount&quot;:0,
+            &quot;MaxReceiveQueue&quot;:&quot;&quot;
+         }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">Id</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Message id can set by the sender, if no Id is set KubeMQ will generate a UUID type value for Message Id</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined message metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender-defined message body data</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set message Tags</td></tr> <tr><td style="text-align:left">Policy-&gt;ExpirationSeconds</td> <td style="text-align:left">integer</td> <td style="text-align:left">No</td> <td style="text-align:left">Set expiration seconds which after this time the message will not be available to consume</td></tr> <tr><td style="text-align:left">Policy-&gt;DelaySeconds</td> <td style="text-align:left">integer</td> <td style="text-align:left">No</td> <td style="text-align:left">Set delay seconds which before this time the message will not be available to consume</td></tr> <tr><td style="text-align:left">Policy-&gt;MaxReceiveCount</td> <td style="text-align:left">integer</td> <td style="text-align:left">No</td> <td style="text-align:left">Set max receiving count which set how many times the message will be consumed without ack before re-route to a dead-letter queue or discarded</td></tr> <tr><td style="text-align:left">Policy-&gt;MaxReceiveQueue</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set max receiving dead-letter queue name</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;is_error&quot;: false,
+   &quot;message&quot;: &quot;OK&quot;,
+   &quot;data&quot;: {
+      &quot;MessageID&quot;: &quot;eefd585e-3037-47d4-a59b-9655bd5e6d43&quot;,
+      &quot;SentAt&quot;: 1563372173632454300,
+      &quot;ExpirationAt&quot;: 1563372183632454300,
+      &quot;DelayedTo&quot;: 1563372178632454300
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>Note: all times in the return message are unix time nano seconds</p> <h3 id="send-batch-messages">Send Batch Messages</h3> <p>Send a batch of messages to a queue.</p> <p>Send Message endpoint is a <code>POST</code> function to <code>/queue/send_batch</code> where <code>host</code> is the KubeMQ REST interface address.
+<code>POST</code> Send message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;BatchID&quot;: &quot;some-batch-id&quot;,
+   &quot;Messages&quot;:[
+      {
+         &quot;Id&quot;:&quot;&quot;,
+         &quot;ClientId&quot;:&quot;send-batch-client-id&quot;,
+         &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+         &quot;Metadata&quot;:&quot;&quot;,
+         &quot;Body&quot;:&quot;QmF0Y2ggTWVzc2FnZSAw&quot;,
+         &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         },
+         &quot;Attributes&quot;:null,
+         &quot;Policy&quot;:{
+            &quot;ExpirationSeconds&quot;:0,
+            &quot;DelaySeconds&quot;:0,
+            &quot;MaxReceiveCount&quot;:0,
+            &quot;MaxReceiveQueue&quot;:&quot;&quot;
+         }
+      },
+      {
+         &quot;Id&quot;:&quot;&quot;,
+         &quot;ClientId&quot;:&quot;send-batch-client-id&quot;,
+         &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+         &quot;Metadata&quot;:&quot;&quot;,
+         &quot;Body&quot;:&quot;QmF0Y2ggTWVzc2FnZSAx&quot;,
+         &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;1&quot;
+         },
+         &quot;Attributes&quot;:null,
+         &quot;Policy&quot;:{
+            &quot;ExpirationSeconds&quot;:0,
+            &quot;DelaySeconds&quot;:0,
+            &quot;MaxReceiveCount&quot;:0,
+            &quot;MaxReceiveQueue&quot;:&quot;&quot;
+         }
+      },
+      {
+         &quot;Id&quot;:&quot;&quot;,
+         &quot;ClientId&quot;:&quot;send-batch-client-id&quot;,
+         &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+         &quot;Metadata&quot;:&quot;&quot;,
+         &quot;Body&quot;:&quot;QmF0Y2ggTWVzc2FnZSAy&quot;,
+         &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;2&quot;
+         },
+         &quot;Attributes&quot;:null,
+         &quot;Policy&quot;:{
+            &quot;ExpirationSeconds&quot;:0,
+            &quot;DelaySeconds&quot;:0,
+            &quot;MaxReceiveCount&quot;:0,
+            &quot;MaxReceiveQueue&quot;:&quot;&quot;
+         }
+      },
+      {
+         &quot;Id&quot;:&quot;&quot;,
+         &quot;ClientId&quot;:&quot;send-batch-client-id&quot;,
+         &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+         &quot;Metadata&quot;:&quot;&quot;,
+         &quot;Body&quot;:&quot;QmF0Y2ggTWVzc2FnZSAz&quot;,
+         &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;3&quot;
+         },
+         &quot;Attributes&quot;:null,
+         &quot;Policy&quot;:{
+            &quot;ExpirationSeconds&quot;:0,
+            &quot;DelaySeconds&quot;:0,
+            &quot;MaxReceiveCount&quot;:0,
+            &quot;MaxReceiveQueue&quot;:&quot;&quot;
+         }
+      },
+      {
+         &quot;Id&quot;:&quot;&quot;,
+         &quot;ClientId&quot;:&quot;send-batch-client-id&quot;,
+         &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+         &quot;Metadata&quot;:&quot;&quot;,
+         &quot;Body&quot;:&quot;QmF0Y2ggTWVzc2FnZSA0&quot;,
+         &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;4&quot;
+         },
+         &quot;Attributes&quot;:null,
+         &quot;Policy&quot;:{
+            &quot;ExpirationSeconds&quot;:0,
+            &quot;DelaySeconds&quot;:0,
+            &quot;MaxReceiveCount&quot;:0,
+            &quot;MaxReceiveQueue&quot;:&quot;&quot;
+         }
+      }
+   ]
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">BatchID</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Batch Message id can set by the sender, if no Id is set KubeMQ will generate a UUID type value for Message Id</td></tr> <tr><td style="text-align:left">Messages</td> <td style="text-align:left">array of queue messages</td> <td style="text-align:left">Yes</td> <td style="text-align:left">contains all the messages to be send</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;is_error&quot;: false,
+   &quot;message&quot;: &quot;OK&quot;,
+   &quot;data&quot;: {
+      &quot;BatchID&quot;: &quot;some-batch-id&quot;,
+      &quot;Results&quot;: [
+          {
+              &quot;MessageID&quot;: &quot;e9a5b4cd-0c75-456a-ae62-fe7195ddd86f&quot;,
+              &quot;SentAt&quot;: 1563372173632454300,
+              &quot;ExpirationAt&quot;: 1563372183632454300,
+              &quot;DelayedTo&quot;: 1563372178632454300
+          },
+          {
+              &quot;MessageID&quot;: &quot;eefd585e-3037-47d4-a59b-9655bd5e6d43&quot;,
+              &quot;SentAt&quot;: 1563372173632454300,
+              &quot;ExpirationAt&quot;: 1563372183632454300,
+              &quot;DelayedTo&quot;: 1563372178632454300
+          },
+          {
+              &quot;MessageID&quot;: &quot;d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580&quot;,
+              &quot;SentAt&quot;: 1563372173632454300,
+              &quot;ExpirationAt&quot;: 1563372183632454300,
+              &quot;DelayedTo&quot;: 1563372178632454300
+          },
+          {
+              &quot;MessageID&quot;: &quot;3542b63c-df40-4ff4-bc22-198d6208a147&quot;,
+              &quot;SentAt&quot;: 1563372173632454300,
+              &quot;ExpirationAt&quot;: 1563372183632454300,
+              &quot;DelayedTo&quot;: 1563372178632454300
+          },
+            {
+              &quot;MessageID&quot;: &quot;3e08a521-2814-44b1-bca0-d3af90deb315&quot;,
+              &quot;SentAt&quot;: 1563372173632454300,
+              &quot;ExpirationAt&quot;: 1563372183632454300,
+              &quot;DelayedTo&quot;: 1563372178632454300
+          }
+      ]                
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>Note: all times in the return message are unix time nano seconds</p> <h3 id="receive-messages">Receive Messages</h3> <p>Send a Receive Message request to retrieve batch of messages from a queue.</p> <p>Send Message endpoint is a <code>POST</code> function to <code>/queue/receive</code> where <code>host</code> is the KubeMQ REST interface address.
+<code>POST</code> Send message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;RequestID&quot;:&quot;some-request-id&quot;,
+   &quot;ClientID&quot;:&quot;receive-message-client-id&quot;,
+   &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+   &quot;MaxNumberOfMessages&quot;:10,
+   &quot;WaitTimeSeconds&quot;:5,
+   &quot;IsPeak&quot;:false
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">MaxNumberOfMessages</td> <td style="text-align:left">integer</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set how many messages to pull from the queue</td></tr> <tr><td style="text-align:left">WaitTimeSeconds</td> <td style="text-align:left">integer</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set  how many seconds to wait for the messages to be pulled</td></tr> <tr><td style="text-align:left">IsPeak</td> <td style="text-align:left">bool</td> <td style="text-align:left">No</td> <td style="text-align:left">Set to false as we pulling out the messages from the queue</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;is_error&quot;: false,
+   &quot;message&quot;: &quot;OK&quot;,
+   &quot;data&quot;: {
+      &quot;RequestID&quot;: &quot;some-request-id&quot;,
+      &quot;Messages&quot;: [
+         {
+            &quot;MessageID&quot;: &quot;3205da1e-4dbf-4f6f-9b77-79d9dd881017&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAw&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;0&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507251528700,
+               &quot;Sequence&quot;: 327,
+               &quot;MD5OfBody&quot;: &quot;bd5fbd8ea1ffc4271391db089e53319b&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         },
+         {
+            &quot;MessageID&quot;: &quot;e9a5b4cd-0c75-456a-ae62-fe7195ddd86f&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAx&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;1&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507255537800,
+               &quot;Sequence&quot;: 328,
+               &quot;MD5OfBody&quot;: &quot;98f68499eb379d773e0e8b5deeed6eb7&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         },
+         {
+            &quot;MessageID&quot;: &quot;cc5e8e76-6756-4872-ad73-e78dc439b8b9&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAy&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;2&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507257527500,
+               &quot;Sequence&quot;: 329,
+               &quot;MD5OfBody&quot;: &quot;467bd369acea7c452a6ef23d6d33b624&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         },
+         {
+            &quot;MessageID&quot;: &quot;d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAz&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;3&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507259528100,
+               &quot;Sequence&quot;: 330,
+               &quot;MD5OfBody&quot;: &quot;523ac3e2930cda656c78ffbeb6f07ca8&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         }
+      ],
+      &quot;MessagesReceived&quot;: 4,
+      &quot;MessagesExpired&quot;: 1,
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br></div></div><p>Where Data field</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Get the id of the request</td></tr> <tr><td style="text-align:left">Messages</td> <td style="text-align:left">array of queue messages</td> <td style="text-align:left">contains array of pulled messages</td></tr> <tr><td style="text-align:left">MessagesReceived</td> <td style="text-align:left">integer</td> <td style="text-align:left">how many valid messages pulled from the queue</td></tr> <tr><td style="text-align:left">MessagesExpired</td> <td style="text-align:left">integer</td> <td style="text-align:left">how many expired messages pulled from the queue</td></tr></tbody></table> <h3 id="peak-messages">Peak Messages</h3> <p>Send a Receive Message request to peak batch of messages into the queue.</p> <p>Send Message endpoint is a <code>POST</code> function to <code>/queue/receive</code> where <code>host</code> is the KubeMQ REST interface address.
+<code>POST</code> Send message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;RequestID&quot;:&quot;some-request-id&quot;,
+   &quot;ClientID&quot;:&quot;receive-message-client-id&quot;,
+   &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+   &quot;MaxNumberOfMessages&quot;:10,
+   &quot;WaitTimeSeconds&quot;:5,
+   &quot;IsPeak&quot;:true
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">MaxNumberOfMessages</td> <td style="text-align:left">integer</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set how many messages to peak from the queue</td></tr> <tr><td style="text-align:left">WaitTimeSeconds</td> <td style="text-align:left">integer</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set  how many seconds to wait for the messages to be peaked</td></tr> <tr><td style="text-align:left">IsPeak</td> <td style="text-align:left">bool</td> <td style="text-align:left">No</td> <td style="text-align:left">Set to true as we peaking the messages into the queue</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;is_error&quot;: false,
+   &quot;message&quot;: &quot;OK&quot;,
+   &quot;data&quot;: {
+      &quot;RequestID&quot;: &quot;some-request-id&quot;,
+      &quot;Messages&quot;: [
+         {
+            &quot;MessageID&quot;: &quot;3205da1e-4dbf-4f6f-9b77-79d9dd881017&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAw&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;0&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507251528700,
+               &quot;Sequence&quot;: 327,
+               &quot;MD5OfBody&quot;: &quot;bd5fbd8ea1ffc4271391db089e53319b&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         },
+         {
+            &quot;MessageID&quot;: &quot;e9a5b4cd-0c75-456a-ae62-fe7195ddd86f&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAx&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;1&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507255537800,
+               &quot;Sequence&quot;: 328,
+               &quot;MD5OfBody&quot;: &quot;98f68499eb379d773e0e8b5deeed6eb7&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         },
+         {
+            &quot;MessageID&quot;: &quot;cc5e8e76-6756-4872-ad73-e78dc439b8b9&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAy&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;2&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507257527500,
+               &quot;Sequence&quot;: 329,
+               &quot;MD5OfBody&quot;: &quot;467bd369acea7c452a6ef23d6d33b624&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         },
+         {
+            &quot;MessageID&quot;: &quot;d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580&quot;,
+            &quot;ClientID&quot;: &quot;send-batch-client-id&quot;,
+            &quot;Channel&quot;: &quot;testing_queue_channel&quot;,
+            &quot;Body&quot;: &quot;QmF0Y2ggTWVzc2FnZSAz&quot;,
+            &quot;Tags&quot;: {
+               &quot;message&quot;: &quot;3&quot;
+            },
+            &quot;Attributes&quot;: {
+               &quot;Timestamp&quot;: 1563372507259528100,
+               &quot;Sequence&quot;: 330,
+               &quot;MD5OfBody&quot;: &quot;523ac3e2930cda656c78ffbeb6f07ca8&quot;,
+               &quot;ReceiveCount&quot;: 1
+            },
+            &quot;Policy&quot;: {
+               &quot;MaxReceiveCount&quot;: 16
+            }
+         }
+      ],
+      &quot;MessagesReceived&quot;: 4,
+      &quot;MessagesExpired&quot;: 1,
+      &quot;IsPeak&quot;: true
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br></div></div><p>Where Data field</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Get the id of the request</td></tr> <tr><td style="text-align:left">Messages</td> <td style="text-align:left">array of queue messages</td> <td style="text-align:left">contains array of pulled messages</td></tr> <tr><td style="text-align:left">MessagesReceived</td> <td style="text-align:left">integer</td> <td style="text-align:left">how many valid messages pulled from the queue</td></tr> <tr><td style="text-align:left">MessagesExpired</td> <td style="text-align:left">integer</td> <td style="text-align:left">how many expired messages pulled from the queue</td></tr> <tr><td style="text-align:left">IsPeak</td> <td style="text-align:left">bool</td> <td style="text-align:left">indicate peak request</td></tr></tbody></table> <h3 id="ack-all-messages">Ack All Messages</h3> <p>Send a Ack All Messages request to mark all available messages as taken (ack) .</p> <p>Send Message endp</p> <h3 id="ack-all-messages-2">Ack All Messages</h3> <p>Send a Ack All Messages request to mark all available messages as taken (ack) .</p> <p>Send Message endpoint is a <code>POST</code> function to <code>/queue/ack_all</code> where <code>host</code> is the KubeMQ REST interface address.
+<code>POST</code> Send message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;RequestID&quot;:&quot;&quot;,
+   &quot;ClientID&quot;:&quot;ack-all-message-client-id&quot;,
+   &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+   &quot;WaitTimeSeconds&quot;:1
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">WaitTimeSeconds</td> <td style="text-align:left">integer</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set  how many seconds to wait for ack all the messages</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;is_error&quot;: false,
+   &quot;message&quot;: &quot;OK&quot;,
+   &quot;data&quot;: {
+      &quot;RequestID&quot;: &quot;f20480d6-10ae-480d-8102-ed74cb46ee24&quot;,
+      &quot;AffectedMessages&quot;: 11
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>Where Data field</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Get the id of the request</td></tr> <tr><td style="text-align:left">AffectedMessages</td> <td style="text-align:left">integer</td> <td style="text-align:left">how many messages were ack from the queue</td></tr></tbody></table> <p>oint is a <code>POST</code> function to <code>/queue/ack_all</code> where <code>host</code> is the KubeMQ REST interface address.
+<code>POST</code> Send message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;RequestID&quot;:&quot;&quot;,
+   &quot;ClientID&quot;:&quot;ack-all-message-client-id&quot;,
+   &quot;Channel&quot;:&quot;testing_queue_channel&quot;,
+   &quot;WaitTimeSeconds&quot;:1
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">WaitTimeSeconds</td> <td style="text-align:left">integer</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set  how many seconds to wait for ack all the messages</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;is_error&quot;: false,
+   &quot;message&quot;: &quot;OK&quot;,
+   &quot;data&quot;: {
+      &quot;RequestID&quot;: &quot;f20480d6-10ae-480d-8102-ed74cb46ee24&quot;,
+      &quot;AffectedMessages&quot;: 11
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>Where Data field</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Get the id of the request</td></tr> <tr><td style="text-align:left">AffectedMessages</td> <td style="text-align:left">integer</td> <td style="text-align:left">how many messages were ack from the queue</td></tr></tbody></table> <h2 id="pubsub-message-patterns">PubSub Message Patterns</h2> <h3 id="send-event-message">Send Event Message</h3> <p>Send Event call send an event message for Events pattern.</p> <p>Send Event endpoint is a <code>POST</code> function to <code>/send/event</code> where <code>host</code> is the KubeMQ REST interface address.</p> <p><code>POST</code> Event message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;ClientID&quot;: &quot;events-client-id&quot;,
+    &quot;Channel&quot;: &quot;events-channel&quot;,
+    &quot;Metadata&quot;: &quot;some-metadata&quot;,
+    &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;Store&quot;: false, 
+    &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">EventID</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender-defined event body data</td></tr> <tr><td style="text-align:left">Store</td> <td style="text-align:left">bool</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Store=false send to Event pattern, Store=true send to Event Store pattern</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Event Tags</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;is_error&quot;: false,
+  &quot;message&quot;: &quot;OK&quot;,
+  &quot;data&quot;: {
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;Sent&quot;: true
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="send-eventstore-message">Send EventStore Message</h3> <p>Send Event Store call send an event message for both Events and Events Store patterns.</p> <p>Send Event endpoint is a <code>POST</code> function to <code>/send/event</code> where <code>host</code> is the KubeMQ REST interface address.</p> <p><code>POST</code> Event message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;ClientID&quot;: &quot;events-client-id&quot;,
+    &quot;Channel&quot;: &quot;events-channel&quot;,
+    &quot;Metadata&quot;: &quot;some-metadata&quot;,
+    &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;Store&quot;: true,
+     &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">EventID</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender-defined event body data</td></tr> <tr><td style="text-align:left">Store</td> <td style="text-align:left">bool</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Store=false send to Event pattern, Store=true send to Event Store pattern</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Event Store Tags</td></tr></tbody></table> <p>As a Response from <code>POST</code> message:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;is_error&quot;: false,
+  &quot;message&quot;: &quot;OK&quot;,
+  &quot;data&quot;: {
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;Sent&quot;: true
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="send-events-stream">Send Events Stream</h3> <p>Send Events Stream allows opening a bo-directional websocket connection and stream Event messages and receive Response messages.</p> <p>Send Event endpoint is a <code>GET</code> function with websocket upgrade to <code>/send/stream</code> where <code>host</code> is the KubeMQ REST interface address.</p> <p><strong>NOTE:</strong>  Since Postman does not support websocket upgrade function, only the GET function is provided.</p> <p>After websocket upgrade, sending Event messages and receiving responses will use websocket Text format.</p> <p>Event message JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;ClientID&quot;: &quot;events-client-id&quot;,
+    &quot;Channel&quot;: &quot;events-channel&quot;,
+    &quot;Metadata&quot;: &quot;some-metadata&quot;,
+    &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;Store&quot;: false,
+     &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+    
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">EventID</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender-defined event body data</td></tr> <tr><td style="text-align:left">Store</td> <td style="text-align:left">bool</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Store=false send to Event pattern, Store=true send to Event Store pattern</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Event / Event Store Tags</td></tr></tbody></table> <p>The websocket will receive Response messages with this structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;is_error&quot;: false,
+  &quot;message&quot;: &quot;OK&quot;,
+  &quot;data&quot;: {
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;Sent&quot;: true
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="subscribe-to-events">Subscribe to Events</h3> <p>Subscribe Events endpoint is a <code>GET</code> function with websocket upgrade to:</p> <p><code>/subscribe/events?client_id=&amp;channel=&amp;group=&amp;subscribe_type=events</code></p> <p>Where request call parameters are:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">host</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">KubeMQ REST interface address</td></tr> <tr><td style="text-align:left">client_id</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Subscribed channel</td></tr> <tr><td style="text-align:left">group</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Subscribed group</td></tr> <tr><td style="text-align:left">subscribe_type</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left"><code>events</code></td></tr></tbody></table> <p>Event Receive messages format:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> {   
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;Channel&quot;: &quot;events-channel&quot;,
+    &quot;Metadata&quot;: &quot;some-metadata&quot;,
+    &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+ }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">EventID</td> <td style="text-align:left">string</td> <td style="text-align:left">event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">Sender metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Sender body data</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">Event Sender Tags</td></tr></tbody></table> <p><strong>NOTE:</strong></p> <p>Since Postman does not supports websocket upgrade function, only the GET function is provided.</p> <h3 id="subscribe-to-events-store">Subscribe to Events Store</h3> <p>Subscribe Events endpoint is a <code>GET</code> function with websocket upgrade to:</p> <p><code>/subscribe/events?client_id=&amp;channel=&amp;group=&amp;subscribe_type=events_store&amp;events_store_type_data=&amp;events_store_type_value=</code></p> <p>Where request call parameters are:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">host</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">KubeMQ REST interface address</td></tr> <tr><td style="text-align:left">client_id</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Subscribed channel</td></tr> <tr><td style="text-align:left">group</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Subscribed group</td></tr> <tr><td style="text-align:left">subscribe_type</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left"><code>events_store</code></td></tr> <tr><td style="text-align:left">events_store_type_data</td> <td style="text-align:left">int</td> <td style="text-align:left">Yes</td> <td style="text-align:left">type of Events Store subscription</td></tr> <tr><td style="text-align:left">events_store_type_value</td> <td style="text-align:left">int64</td> <td style="text-align:left">Yes/No</td> <td style="text-align:left">Events Store subscription value</td></tr></tbody></table> <p>Where Events Store Type and Data here Events Store Values:</p> <table><thead><tr><th style="text-align:left">Type Name</th> <th style="text-align:left">Data</th> <th style="text-align:left">Value</th></tr></thead> <tbody><tr><td style="text-align:left">StartNewOnly</td> <td style="text-align:left">1</td> <td style="text-align:left">N/A</td></tr> <tr><td style="text-align:left">StartFromFirst</td> <td style="text-align:left">2</td> <td style="text-align:left">N/A</td></tr> <tr><td style="text-align:left">StartFromLast</td> <td style="text-align:left">3</td> <td style="text-align:left">N/A</td></tr> <tr><td style="text-align:left">StartAtSequence</td> <td style="text-align:left">4</td> <td style="text-align:left">int&gt;0, indicate sequence number required</td></tr> <tr><td style="text-align:left">StartAtTime</td> <td style="text-align:left">5</td> <td style="text-align:left">int64 , unix time format</td></tr> <tr><td style="text-align:left">StartAtTimeDelta</td> <td style="text-align:left">6</td> <td style="text-align:left">int&gt;0, indicate seconds</td></tr></tbody></table> <p>Events Store Receive messages format:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> {   
+    &quot;EventID&quot;: &quot;1234-5678-90&quot;,
+    &quot;Channel&quot;: &quot;events-channel&quot;,
+    &quot;Metadata&quot;: &quot;some-metadata&quot;,
+    &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;Timestamp&quot;:1545990840555899600,
+    &quot;Sequence&quot;:1,
+     &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+ }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">EventID</td> <td style="text-align:left">string</td> <td style="text-align:left">event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">Sender metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Sender body data</td></tr> <tr><td style="text-align:left">Timestamp</td> <td style="text-align:left">int64</td> <td style="text-align:left">Unix time format of message</td></tr> <tr><td style="text-align:left">Sequence</td> <td style="text-align:left">int</td> <td style="text-align:left">Events Store message sequence number</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">Event Store sender Tags</td></tr></tbody></table> <p><strong>NOTE:</strong></p> <p>Since Postman does not supports websocket upgrade function, only the GET function is provided.</p> <h2 id="rpc-message-patterns">RPC Message Patterns</h2> <h3 id="send-command-request">Send Command Request</h3> <p>Send Command RPC call send a command request in Commands pattern.</p> <p>Send Command endpoint is a <code>POST</code> function to <code>/send/request</code> where <code>host</code> is the KubeMQ REST interface address.</p> <p><code>POST</code> Command request JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> {
+       &quot;RequestID&quot;: &quot;a0060e6b-3a9a-4e75-8a69-6a8b6cbae176&quot;,
+       &quot;RequestTypeData&quot;:1, 
+       &quot;ClientID&quot;: &quot;command-client-id&quot;,
+       &quot;Channel&quot;: &quot;command-channel&quot;,
+       &quot;Metadata&quot; :&quot;command-metadata&quot;,
+       &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+       &quot;Timeout&quot;: 1000, 
+       &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+ }
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID</td></tr> <tr><td style="text-align:left">RequestTypeData</td> <td style="text-align:left">int</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Command=1</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender-defined event body data</td></tr> <tr><td style="text-align:left">Timeout</td> <td style="text-align:left">int</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set Command timeout for response</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Command Tags</td></tr></tbody></table> <p>A successful Command Response from <code>POST</code> request:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;is_error&quot;: false,
+    &quot;message&quot;: &quot;OK&quot;,
+    &quot;data&quot;: {
+        &quot;ClientID&quot;: &quot;responder-client-id&quot;,
+        &quot;RequestID&quot;: &quot;a0060e6b-3a9a-4e75-8a69-6a8b6cbae176&quot;,
+        &quot;Timestamp&quot;: 1546084257,
+        &quot;Executed&quot;: true,
+        &quot;Error&quot;: &quot;&quot;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Where returned data object :</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Responder Client ID</td></tr> <tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Command sender Request ID</td></tr> <tr><td style="text-align:left">Timestamp</td> <td style="text-align:left">int64</td> <td style="text-align:left">Unix time of Response</td></tr> <tr><td style="text-align:left">Executed</td> <td style="text-align:left">bool</td> <td style="text-align:left">true=command executed, false= error during command execution</td></tr> <tr><td style="text-align:left">Error</td> <td style="text-align:left">string</td> <td style="text-align:left">if Executed=false, Error message</td></tr></tbody></table> <p>A timeout error on unsuccessful Command Response from <code>POST</code> request:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;is_error&quot;: true,
+    &quot;message&quot;: &quot;Error 301: timeout for request message&quot;,
+    &quot;data&quot;: null
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="send-query-request">Send Query Request</h3> <p>Send Query RPC call send a query request in Query pattern.</p> <p>Send Query endpoint is a <code>POST</code> function to <code>/send/request</code> where <code>host</code> is the KubeMQ REST interface address.</p> <p><code>POST</code> Query request JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+       &quot;RequestID&quot;: &quot;a0060e6b-3a9a-4e75-8a69-6a8b6cbae176&quot;,
+       &quot;RequestTypeData&quot;:2, 
+       &quot;ClientID&quot;: &quot;query-client-id&quot;,
+       &quot;Channel&quot;: &quot;query-channel&quot;,
+       &quot;Metadata&quot; :&quot;query-metadata&quot;,
+       &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+       &quot;Timeout&quot;: 1000,
+       &quot;CacheKey&quot;: &quot;query-cache-key&quot;,
+   &quot;CacheTTL&quot;:10000,
+   &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+ }
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID</td></tr> <tr><td style="text-align:left">RequestTypeData</td> <td style="text-align:left">int</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Query = 2</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">Channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Channel sender address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event metadata data</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender-defined event body data</td></tr> <tr><td style="text-align:left">Timeout</td> <td style="text-align:left">int</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set Query timeout for response</td></tr> <tr><td style="text-align:left">CacheKey</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Cache key to retrieve / store response</td></tr> <tr><td style="text-align:left">CacheTTL</td> <td style="text-align:left">int</td> <td style="text-align:left">Yes (if Cache_key set)</td> <td style="text-align:left">Set Cache time to live in seconds</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Query Tags</td></tr></tbody></table> <p>A successful Query Response from <code>POST</code> request:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;is_error&quot;: false,
+    &quot;message&quot;: &quot;OK&quot;,
+    &quot;data&quot;: {
+        &quot;ClientID&quot;: &quot;responder-client-id&quot;,
+        &quot;RequestID&quot;: &quot;a0060e6b-3a9a-4e75-8a69-6a8b6cbae176&quot;,
+        &quot;Metadata&quot; :&quot;response-query-metadata&quot;,
+        &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+        &quot;CacheHit&quot;: false,
+        &quot;Timestamp&quot;: 1546090739,
+        &quot;Executed&quot;: true,
+        &quot;Error&quot;: &quot;&quot;,
+        &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+        
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>Where returned data object :</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Responder Client ID</td></tr> <tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Query sender Request ID</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">Response metadata</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">Response body</td></tr> <tr><td style="text-align:left">CacheHit</td> <td style="text-align:left">bool</td> <td style="text-align:left">true= Response retrieved from cache, false= Response from a receiver or cache miss</td></tr> <tr><td style="text-align:left">Timestamp</td> <td style="text-align:left">int64</td> <td style="text-align:left">Unix time of Response</td></tr> <tr><td style="text-align:left">Executed</td> <td style="text-align:left">bool</td> <td style="text-align:left">true=query executed, false= error during query execution</td></tr> <tr><td style="text-align:left">Error</td> <td style="text-align:left">string</td> <td style="text-align:left">if Executed=false, Error message</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">Get Query Response Tags</td></tr></tbody></table> <p>A timeout error on unsuccessful Command Response from <code>POST</code> request:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    &quot;is_error&quot;: true,
+    &quot;message&quot;: &quot;Error 301: timeout for request message&quot;,
+    &quot;data&quot;: null
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="subscribe-to-commands">Subscribe to Commands</h3> <p>Subscribe Commands endpoint is a <code>GET</code> function with websocket upgrade to:</p> <p><code>/subscribe/requests?client_id=&amp;channel=&amp;group=&amp;subscribe_type=commands</code></p> <p>Where request call parameters are:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">host</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">KubeMQ REST interface address</td></tr> <tr><td style="text-align:left">client_id</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Subscribed channel</td></tr> <tr><td style="text-align:left">group</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Subscribed group</td></tr> <tr><td style="text-align:left">subscribe_type</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left"><code>commands</code></td></tr></tbody></table> <p>Commands Requests format:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> {  
+    &quot;RequestID&quot;:&quot;d43d3de0-4bfc-4cb8-9465-7359dc55cf31&quot;,
+    &quot;RequestTypeData&quot;:1,
+    &quot;ClientID&quot;:&quot;command-client-id&quot;,
+    &quot;Channel&quot;:&quot;command-channel&quot;,
+    &quot;Metadata&quot;:&quot;command-metadata&quot;,
+    &quot;Body&quot;:&quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;ReplyChannel&quot;:&quot;_INBOX.lmViYldo2SitpyU15UyK7M.lmViYldo2SitpyU15UyKFw&quot;,
+     &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+ }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Command sender RequestID</td></tr> <tr><td style="text-align:left">RequestTypeData</td> <td style="text-align:left">string</td> <td style="text-align:left">Request Type = Command</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Command Sender Client ID</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">Command Sender metadata</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string</td> <td style="text-align:left">Command Sender body</td></tr> <tr><td style="text-align:left">ReplyChannel</td> <td style="text-align:left">string</td> <td style="text-align:left">Response channel address</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">Command sender Tags</td></tr></tbody></table> <h3 id="subscribe-to-queries">Subscribe to Queries</h3> <p>Subscribe to Queries endpoint is a <code>GET</code> function with websocket upgrade to:</p> <p><code>/subscribe/requests?client_id=&amp;channel=&amp;group=&amp;subscribe_type=queries</code></p> <p>Where request call parameters are:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">host</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">KubeMQ REST interface address</td></tr> <tr><td style="text-align:left">client_id</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Sender Client ID</td></tr> <tr><td style="text-align:left">channel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Subscribed channel</td></tr> <tr><td style="text-align:left">group</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Subscribed group</td></tr> <tr><td style="text-align:left">subscribe_type</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left"><code>queries</code></td></tr></tbody></table> <p>Query Requests format:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> {  
+    &quot;RequestID&quot;:&quot;d43d3de0-4bfc-4cb8-9465-7359dc55cf31&quot;,
+    &quot;RequestTypeData&quot;:2,
+    &quot;ClientID&quot;:&quot;query-client-id&quot;,
+    &quot;Channel&quot;:&quot;query-channel&quot;,
+    &quot;Metadata&quot;:&quot;query-metadata&quot;,
+    &quot;Body&quot;:&quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+    &quot;ReplyChannel&quot;:&quot;_INBOX.lmViYldo2SitpyU15UyK7M.lmViYldo2SitpyU15UyKFw&quot;,
+     &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+ }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Query sender RequestID</td></tr> <tr><td style="text-align:left">RequestTypeData</td> <td style="text-align:left">string</td> <td style="text-align:left">Request Type = Command</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Query Sender Client ID</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">Query Sender metadata</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string</td> <td style="text-align:left">Query Sender body</td></tr> <tr><td style="text-align:left">ReplyChannel</td> <td style="text-align:left">string</td> <td style="text-align:left">Response channel address</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">Query sender Tags</td></tr></tbody></table> <h3 id="send-response">Send Response</h3> <p>Send Response RPC call send a Response to command/query requests in Command and Query patterns.</p> <p>Send Response endpoint is a <code>POST</code> function to <code>/send/response</code> where <code>host</code> is the KubeMQ REST interface address.</p> <p><code>POST</code> Response request JSON structure:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+   &quot;RequestID&quot;: &quot;d43d3de0-4bfc-4cb8-9465-7359dc55cf31&quot;,
+   &quot;ClientID&quot;:&quot;response-client-id&quot;,
+   &quot;ReplyChannel&quot;: &quot;_INBOX.x8bxFotxDNG4c3zTp8scBQ.x8bxFotxDNG4c3zTp8scMq&quot;,
+   &quot;Metadata&quot; :&quot;response-metadat&quot;,
+   &quot;Body&quot;: &quot;c29tZSBlbmNvZGVkIGJvZHk=&quot;,
+   &quot;Executed&quot;: true,
+   &quot;Error&quot;:&quot;&quot;,
+    &quot;Tags&quot;:{
+            &quot;message&quot;:&quot;0&quot;
+         }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>Where:</p> <table><thead><tr><th style="text-align:left">Field</th> <th style="text-align:left">Type</th> <th style="text-align:left">Required</th> <th style="text-align:left">Description</th></tr></thead> <tbody><tr><td style="text-align:left">RequestID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Request ID of the Command/Query request</td></tr> <tr><td style="text-align:left">ClientID</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Response Sender Client ID</td></tr> <tr><td style="text-align:left">ReplyChannel</td> <td style="text-align:left">string</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Response Channel address</td></tr> <tr><td style="text-align:left">Metadata</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event metadata data (Query only)</td></tr> <tr><td style="text-align:left">Body</td> <td style="text-align:left">string/base64</td> <td style="text-align:left">No</td> <td style="text-align:left">Sender-defined event body data (Query only)</td></tr> <tr><td style="text-align:left">Executed</td> <td style="text-align:left">bool</td> <td style="text-align:left">Yes</td> <td style="text-align:left">Set Command / Query request execution result</td></tr> <tr><td style="text-align:left">Error</td> <td style="text-align:left">string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set error message in case of failed Command / Query request</td></tr> <tr><td style="text-align:left">Tags</td> <td style="text-align:left">map string,string</td> <td style="text-align:left">No</td> <td style="text-align:left">Set Resonse Tags</td></tr></tbody></table></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">7/17/2019, 6:02:58 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/sdk-python.html" class="prev">
+          Python
+        </a></span> <span class="next"><a href="/examples.html">
+          Examples
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.34de3e97.js" defer></script><script src="/assets/js/21.7df42b1c.js" defer></script>
+  </body>
+</html>
