@@ -1,11 +1,11 @@
 # Get Started
 ## Install
-To start using KubeMQ, we first need to run a KubeMQ docker container either locally or on remote node.
+To start using KubeMQ, we first need to run a KubeMQ docker container either locally or on a remote node.
 
 You can select one of the methods below.
 
 ::: tip KubeMQ Token
-Every installation method requires an KubeMQ token.
+Every installation method requires a KubeMQ token.
 Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 :::
 
@@ -107,7 +107,7 @@ Add KubeMQ Helm Repository:
 $ helm repo add kubemq-charts https://kubemq-io.github.io/charts
 ```
 
-Verify kubemq helm repository charts is properly configured by:
+Verify KubeMQ helm repository charts is correctly configured by:
 ```
 $ helm repo list
 ```
@@ -190,7 +190,7 @@ volumes:
 
 ## Subscribe
 
-Now that you have KubeMQ installed and running, subscribe to Events channel and log every message over that channel on the console.
+Now that you have KubeMQ installed and running subscribe to Events channel and log every message over that channel on the console.
 
 ### CLI
 ```
@@ -316,25 +316,25 @@ class EventSubscriber extends BaseExample {
 }
 
 public class BaseExample {
-		protected Logger logger;
-		private String channelName;
-		private String clientID;
-		private int timeout;
+      protected Logger logger;
+      private String channelName;
+      private String clientID;
+      private int timeout;
 
-		public BaseExample(String _ClientId) {
-			clientID = _ClientId;
-			timeout = 111000;
-			channelName = "MyTestChannelName";
-			logger = LoggerFactory.getLogger(BaseExample.class);
-		}
-	    protected SubscribeRequest CreateSubscribeRequest(
+      public BaseExample(String _ClientId) {
+         clientID = _ClientId;
+         timeout = 111000;
+         channelName = "MyTestChannelName";
+         logger = LoggerFactory.getLogger(BaseExample.class);
+      }
+       protected SubscribeRequest CreateSubscribeRequest(
             SubscribeType subscriptionType,
             EventsStoreType eventsStoreType,
             int TypeValue,
             String group
-		)
+      )
 
-		{
+      {
         SubscribeRequest subscribeRequest = new SubscribeRequest();
 
         subscribeRequest.setChannel(channelName);
@@ -394,46 +394,46 @@ public class BaseExample {
 package main
 
 import (
-	"context"
-	"fmt"
-	"github.com/kubemq-io/kubemq-go"
-	"log"
+   "context"
+   "fmt"
+   "github.com/kubemq-io/kubemq-go"
+   "log"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	client, err := kubemq.NewClient(ctx,
-		kubemq.WithAddress("localhost", 50000),
-		kubemq.WithClientId("hello-world-subscriber"),
-		kubemq.WithTransportType(kubemq.TransportTypeGRPC))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-	channelName := "hello-world"
-	errCh := make(chan error)
-	eventsCh, err := client.SubscribeToEvents(ctx, channelName, "", errCh)
-	if err != nil {
-		log.Fatal(err)
-		return
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress("localhost", 50000),
+      kubemq.WithClientId("hello-world-subscriber"),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channelName := "hello-world"
+   errCh := make(chan error)
+   eventsCh, err := client.SubscribeToEvents(ctx, channelName, "", errCh)
+   if err != nil {
+      log.Fatal(err)
+      return
 
-	}
-	for {
-		select {
-		case err := <-errCh:
-			log.Fatal(err)
-			return
-		case event, more := <-eventsCh:
-			if !more {
-				fmt.Println("Event Received, done")
-				return
-			}
-			log.Printf("Event Received:\nEventID: %s\nChannel: %s\nMetadata: %s\nBody: %s\n", event.Id, event.Channel, event.Metadata, event.Body)
-		case <-ctx.Done():
-			return
-		}
-	}
+   }
+   for {
+      select {
+      case err := <-errCh:
+         log.Fatal(err)
+         return
+      case event, more := <-eventsCh:
+         if !more {
+            fmt.Println("Event Received, done")
+            return
+         }
+         log.Printf("Event Received:\nEventID: %s\nChannel: %s\nMetadata: %s\nBody: %s\n", event.Id, event.Channel, event.Metadata, event.Body)
+      case <-ctx.Done():
+         return
+      }
+   }
 }
 ```
 
@@ -487,7 +487,7 @@ if __name__ == "__main__":
 
 ## Send
 
-After you have subscribed to hello-world channel, you can send your own message to it.
+After you have subscribed to a hello-world channel, you can send your message to it.
 
 ### CLI
 ```
@@ -601,7 +601,7 @@ public class BaseExample {
         message.setReturnResult(false);
         return message;
     }
-	    private String generateRandomClientID() {
+       private String generateRandomClientID() {
         Random random = new Random();
         int low = 9;
         int high = 19999;
@@ -640,32 +640,32 @@ public class BaseExample {
 package main
 
 import (
-	"context"
-	"github.com/kubemq-io/kubemq-go"
-	"log"
+   "context"
+   "github.com/kubemq-io/kubemq-go"
+   "log"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	client, err := kubemq.NewClient(ctx,
-		kubemq.WithAddress("localhost", 50000),
-		kubemq.WithClientId("hello-world-sender"),
-		kubemq.WithTransportType(kubemq.TransportTypeGRPC))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-	channelName := "testing_event_channel"
-	err = client.E().
-		SetId("some-id").
-		SetChannel(channelName).
-		SetMetadata("some-metadata").
-		SetBody([]byte("hello kubemq - sending single event")).
-		Send(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress("localhost", 50000),
+      kubemq.WithClientId("hello-world-sender"),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channelName := "testing_event_channel"
+   err = client.E().
+      SetId("some-id").
+      SetChannel(channelName).
+      SetMetadata("some-metadata").
+      SetBody([]byte("hello kubemq - sending single event")).
+      Send(ctx)
+   if err != nil {
+      log.Fatal(err)
+   }
 
 }
 

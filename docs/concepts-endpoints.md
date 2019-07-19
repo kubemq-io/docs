@@ -26,7 +26,7 @@ The KubeMQ Rest/Websocket server is enabled by default and can be disabled by se
 
 The KubeMQ Rest/Websocket server exposes port 9090 by default and can be set via environment variable `REST_PORT`.
 
-The kubeMQ Rest/Websocket can secured by providing the TLS certification and key.
+The kubeMQ Rest/Websocket can be secured by providing the TLS certification and key.
 
 Setting the Rest/Websocket TLS secured server via the following environment variables:
 

@@ -10,29 +10,29 @@ Message queues have implicit or explicit limits on the size of data that may be 
 ## Core Features
 KubeMQ supports distributed durable FIFO based queues with the following core features:
 
-- **Exactly One Delivery** - Only one message guarantee will deliver to subscriber
-- **Single and Batch Messages Send and Receive** - Single and multiple message in one call
-- **RPC and Stream Flows** - RPC flow allows insert and pull messages in one call. Stream flow allows single message consuming in transactional way
-- **Message Policy** - Each message can be configure with expiration and delay timers. In addition, each message can specify a dead-letter queue for un-processed messages attempts
+- **Exactly One Delivery** - Only one message guarantee will deliver to the subscriber
+- **Single and Batch Messages Send and Receive** - Single and multiple messages in one call
+- **RPC and Stream Flows** - RPC flow allows an insert and pull messages in one call. Stream flow allows single message consuming in transactional way
+- **Message Policy** - Each message can be configured with expiration and delay timers. In addition, each message can specify a dead-letter queue for un-processed messages attempts
 - **Long Polling** - Consumers can wait until a message available in the queue to consume
 - **Peak Messages** - Consumers can peak into a queue without removing them from the queue
 - **Ack All Queue Messages** - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
-- **Visibility timers** - Consumers can pull message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
-- **Resend Messages** - Consumers can send back an the message they pulled to a new queue or send a modified message to the same queue for further processing.
+- **Visibility timers** - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
+- **Resend Messages** - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
 
 ## Message Expiration
-KubeMQ allows the producer to set each message with expiration time (in seconds). After this time the message will not be longer available to any consumer.
+KubeMQ allows the producer to set each message with an expiration time (in seconds). After this time, the message will not be longer available to any consumer.
 
 ![image info](./images/queue-expiration.png)
 
 ## Message Delay
-KubeMQ allows the producer to set each message with sending delay (in seconds) from the sending time. Until this time the message will not be available to and consumer.
+KubeMQ allows the producer to set each message with sending delay (in seconds) from the sending time. Until this time, the message will not be available to and consumer.
 
 ![image info](./images/queue-delay.png)
 
 
 ## Long Polling
-KubeMQ allows the consumer to connect to KubeMQ and wait for specified time until a message is available in the queue to consume.
+KubeMQ allows the consumer to connect to KubeMQ and wait for a specified time until a message is available in the queue to consume.
 
 ![image info](./images/queue-long-polling.png)
 
@@ -50,13 +50,13 @@ KubeMQ allows a consumer to ack all messages in the queue (clean-up) therefore e
  ![image info](./images/queue-ack-all.png)
 
 ## Dead-Letter Queue
-KubeMQ allows a producer to set per each message a dead-letter queue which the message will be moved in case of a consumer will fail to ack the message (such a poison message).
+KubeMQ allows a producer to set a dead-letter queue per each message a which the message will be moved onto in case of a consumer will fail to ack the message (such a poison message).
 
  ![image info](./images/queue-dead-letter.png)
 
 ## Message Visibility
 
- KubeMQ allows the consumer to set a visibility time which during this time the message will not be available to any other consumer. During the visibility time period the consumer can extend the visibility time window any time. Once the consumer completed the message processing, he sends ack notification to the queue. If the consumer failed to ack the message during the visibility time, the message will be available back in the queue to consume by others.
+ KubeMQ allows the consumer to set a visibility time, which during this time, the message will not be available to any other consumer. During the visibility period, the consumer can extend the visibility time window at any time. Once the consumer completed the message processing, he sends an ack notification to the queue. If the consumer failed to ack the message during the visibility time, the message will be available back in the queue to consume by others.
 
 ### Visibility With Ack
   ![image info](./images/queue-visibility-ack.png)
@@ -72,14 +72,14 @@ KubeMQ allows the consumer to resend the current pulled message to a new queue w
 
 ## Resend Modified Message
 
-KubeMQ allows the consumer to send back to the queue a modified message for further processing by other consumer.
+KubeMQ allows the consumer to send back to the queue a modified message for further processing by other consumers.
 
 ![image info](./images/queue-resend-new.png)
 
 
 ## Transactional Flow
 
-KubeMQ allows the consumer to connect in stream transactional mode where the consumer can control the flow of message life-cycle.
+KubeMQ allows the consumer to connect in a stream transactional model where the consumer can control the flow of message life-cycle.
 
 ### Successful Flow
 

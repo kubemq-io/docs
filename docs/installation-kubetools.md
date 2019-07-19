@@ -1,5 +1,5 @@
 # KubeTools
-Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition Kubetools provides several utilities such monitoring channel traffic, send messages and subscribe to channels.
+Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition, Kubetools provides several utilities such as monitoring channel traffic, send messages, and subscribe to channels.
 
 ## Download / Installation
 KubeTools executable can be downloaded from bin folder for 4 operating systems:
@@ -34,10 +34,10 @@ Use "kubetools [command] --help" for more information about a command.
 ```
 
 ### Test
-Run `kubetools test` or `kubetools t` for running various tests ,checking KubeMQ installation and proper configuration.
+Run `kubetools test` or `kubetools t` for running various tests, checking KubeMQ installation and proper configuration.
 
 ### Monitor
-Run `kubetools mon` or `kubetools m` to enter monitoring channels mode.
+Run `kubetools mon` or `kubetools m` to enter into a monitoring channels mode.
 
 Available sub commands:
 
@@ -102,7 +102,7 @@ Use "kubetools pubsub [command] --help" for more information about a command.
 
 
 ### PubSub Send
-Run `kubetools pubsub send` or `kubetools p s` for publish real-time and persistent events.
+Run `kubetools pubsub send` or `kubetools p s` to publish real-time and persistent events.
 
 ```
 Usage:
@@ -132,7 +132,7 @@ Run `kubetools pubsub send events_store <ChannelName> <YourMessage>` or `kubetoo
 
 
 ### PubSub Receive
-Run `kubetools pubsub receive` or `kubetools p r` for for receiving real-time and persistent events.
+Run `kubetools pubsub receive` or `kubetools p r` for receiving real-time and persistent events.
 
 ```
 Usage:
@@ -143,7 +143,7 @@ Aliases:
 
 Available Commands:
   events       subscribe to receive real-time events from a channel
-  events_store subscribe to receive persistent events from channel
+  events_store subscribe to receive persistent events from a channel
 
 Flags:
   -h, --help   help for receive
@@ -162,7 +162,7 @@ Run `Kubetools pubsub receive events_store <ChannelName>` or `Kubetools p r es <
 
 
 ### RPC
-Run `kubetools rpc` or `kubetools r` for sending and receiving rpc calls of commands and queries.
+Run `kubetools rpc` or `kubetools r` for sending and receiving RPC calls of commands and queries.
 
 Available RPC commands:
 
@@ -263,7 +263,7 @@ Aliases:
 
 Available Commands:
   command     subscribe to receive commands from a channel
-  query       subscribe to receive queries from channel
+  query       subscribe to receive queries from a channel
 
 Flags:
   -h, --help   help for receive
@@ -276,7 +276,7 @@ Use "kubetools rpc receive [command] --help" for more information about a comman
 ```
 
 ##### Receive RPC Commands From Channel
-Run `Kubetools rpc receive command <ChannelName>` or `Kubetools r r c <ChannelName>` for receiving messages in Commands channel `<ChannelName>` and send acknowledge back to the sender.
+Run `Kubetools rpc receive command <ChannelName>` or `Kubetools r r c <ChannelName>` for receiving messages in Commands channel `<ChannelName>` and send an acknowledge back to the sender.
 
 ##### Receive RPC Queries From Channel
 Run `Kubetools rpc receive query <ChannelName>` or `Kubetools r r q <ChannelName>` for receiving messages in Queries channel `<ChannelName>` and echo back the same message to the sender.
@@ -393,7 +393,7 @@ Run `kubetools metrics` or `kubetools m`
 
 
 ## Configuration
-KubeTools require `.config.yaml` file for connections variables. Default configuration:
+KubeTools require `.config.yaml` File for connections variables. Default configuration:
 
 ```
 healthAddress: "http://localhost:8080/health" # the address of Health endpoint , you can replace the localhost:8080 with your address

@@ -53,21 +53,21 @@ Where:
 | Tags                      | map string,string | No       | Set message Tags                                                                                                                             |
 | Policy->ExpirationSeconds | integer           | No       | Set expiration seconds which after this time the message will not be available to consume                                                    |
 | Policy->DelaySeconds      | integer           | No       | Set delay seconds which before this time the message will not be available to consume                                                        |
-| Policy->MaxReceiveCount   | integer           | No       | Set max receiving count which set how many times the message will be consume without ack before re-route to a dead-letter queue or discarded |
+| Policy->MaxReceiveCount   | integer           | No       | Set max receiving count which set how many times the message will be consumed without ack before re-route to a dead-letter queue or discarded |
 | Policy->MaxReceiveQueue   | string            | No       | Set max receiving dead-letter queue name |
 
 As a Response from `POST` message:
 
 ```
 {
-	"is_error": false,
-	"message": "OK",
-	"data": {
-		"MessageID": "eefd585e-3037-47d4-a59b-9655bd5e6d43",
-		"SentAt": 1563372173632454300,
-		"ExpirationAt": 1563372183632454300,
-		"DelayedTo": 1563372178632454300
-	}
+   "is_error": false,
+   "message": "OK",
+   "data": {
+      "MessageID": "eefd585e-3037-47d4-a59b-9655bd5e6d43",
+      "SentAt": 1563372173632454300,
+      "ExpirationAt": 1563372183632454300,
+      "DelayedTo": 1563372178632454300
+   }
 }
 ```
 Note: all times in the return message are unix time nano seconds
@@ -182,43 +182,43 @@ As a Response from `POST` message:
 
 ```
 {
-	"is_error": false,
-	"message": "OK",
-	"data": {
-		"BatchID": "some-batch-id",
-		"Results": [
-		    {
-		        "MessageID": "e9a5b4cd-0c75-456a-ae62-fe7195ddd86f",
-		        "SentAt": 1563372173632454300,
-		        "ExpirationAt": 1563372183632454300,
-		        "DelayedTo": 1563372178632454300
-		    },
-		    {
-		        "MessageID": "eefd585e-3037-47d4-a59b-9655bd5e6d43",
-		        "SentAt": 1563372173632454300,
-		        "ExpirationAt": 1563372183632454300,
-		        "DelayedTo": 1563372178632454300
-		    },
-		    {
-		        "MessageID": "d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580",
-		        "SentAt": 1563372173632454300,
-		        "ExpirationAt": 1563372183632454300,
-		        "DelayedTo": 1563372178632454300
-		    },
-		    {
-		        "MessageID": "3542b63c-df40-4ff4-bc22-198d6208a147",
-		        "SentAt": 1563372173632454300,
-		        "ExpirationAt": 1563372183632454300,
-		        "DelayedTo": 1563372178632454300
-		    },
+   "is_error": false,
+   "message": "OK",
+   "data": {
+      "BatchID": "some-batch-id",
+      "Results": [
+          {
+              "MessageID": "e9a5b4cd-0c75-456a-ae62-fe7195ddd86f",
+              "SentAt": 1563372173632454300,
+              "ExpirationAt": 1563372183632454300,
+              "DelayedTo": 1563372178632454300
+          },
+          {
+              "MessageID": "eefd585e-3037-47d4-a59b-9655bd5e6d43",
+              "SentAt": 1563372173632454300,
+              "ExpirationAt": 1563372183632454300,
+              "DelayedTo": 1563372178632454300
+          },
+          {
+              "MessageID": "d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580",
+              "SentAt": 1563372173632454300,
+              "ExpirationAt": 1563372183632454300,
+              "DelayedTo": 1563372178632454300
+          },
+          {
+              "MessageID": "3542b63c-df40-4ff4-bc22-198d6208a147",
+              "SentAt": 1563372173632454300,
+              "ExpirationAt": 1563372183632454300,
+              "DelayedTo": 1563372178632454300
+          },
             {
-		        "MessageID": "3e08a521-2814-44b1-bca0-d3af90deb315",
-		        "SentAt": 1563372173632454300,
-		        "ExpirationAt": 1563372183632454300,
-		        "DelayedTo": 1563372178632454300
-		    }
-		]		    	    
-	}
+              "MessageID": "3e08a521-2814-44b1-bca0-d3af90deb315",
+              "SentAt": 1563372173632454300,
+              "ExpirationAt": 1563372183632454300,
+              "DelayedTo": 1563372178632454300
+          }
+      ]                
+   }
 }
 ```
 Note: all times in the return message are unix time nano seconds
@@ -255,87 +255,87 @@ As a Response from `POST` message:
 
 ```
 {
-	"is_error": false,
-	"message": "OK",
-	"data": {
-		"RequestID": "some-request-id",
-		"Messages": [
-			{
-				"MessageID": "3205da1e-4dbf-4f6f-9b77-79d9dd881017",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAw",
-				"Tags": {
-					"message": "0"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507251528700,
-					"Sequence": 327,
-					"MD5OfBody": "bd5fbd8ea1ffc4271391db089e53319b",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			},
-			{
-				"MessageID": "e9a5b4cd-0c75-456a-ae62-fe7195ddd86f",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAx",
-				"Tags": {
-					"message": "1"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507255537800,
-					"Sequence": 328,
-					"MD5OfBody": "98f68499eb379d773e0e8b5deeed6eb7",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			},
-			{
-				"MessageID": "cc5e8e76-6756-4872-ad73-e78dc439b8b9",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAy",
-				"Tags": {
-					"message": "2"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507257527500,
-					"Sequence": 329,
-					"MD5OfBody": "467bd369acea7c452a6ef23d6d33b624",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			},
-			{
-				"MessageID": "d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAz",
-				"Tags": {
-					"message": "3"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507259528100,
-					"Sequence": 330,
-					"MD5OfBody": "523ac3e2930cda656c78ffbeb6f07ca8",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			}
-		],
-		"MessagesReceived": 4,
-		"MessagesExpired": 1,
-	}
+   "is_error": false,
+   "message": "OK",
+   "data": {
+      "RequestID": "some-request-id",
+      "Messages": [
+         {
+            "MessageID": "3205da1e-4dbf-4f6f-9b77-79d9dd881017",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAw",
+            "Tags": {
+               "message": "0"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507251528700,
+               "Sequence": 327,
+               "MD5OfBody": "bd5fbd8ea1ffc4271391db089e53319b",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         },
+         {
+            "MessageID": "e9a5b4cd-0c75-456a-ae62-fe7195ddd86f",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAx",
+            "Tags": {
+               "message": "1"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507255537800,
+               "Sequence": 328,
+               "MD5OfBody": "98f68499eb379d773e0e8b5deeed6eb7",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         },
+         {
+            "MessageID": "cc5e8e76-6756-4872-ad73-e78dc439b8b9",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAy",
+            "Tags": {
+               "message": "2"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507257527500,
+               "Sequence": 329,
+               "MD5OfBody": "467bd369acea7c452a6ef23d6d33b624",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         },
+         {
+            "MessageID": "d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAz",
+            "Tags": {
+               "message": "3"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507259528100,
+               "Sequence": 330,
+               "MD5OfBody": "523ac3e2930cda656c78ffbeb6f07ca8",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         }
+      ],
+      "MessagesReceived": 4,
+      "MessagesExpired": 1,
+   }
 }
 ```
 Where Data field
@@ -379,88 +379,88 @@ As a Response from `POST` message:
 
 ```
 {
-	"is_error": false,
-	"message": "OK",
-	"data": {
-		"RequestID": "some-request-id",
-		"Messages": [
-			{
-				"MessageID": "3205da1e-4dbf-4f6f-9b77-79d9dd881017",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAw",
-				"Tags": {
-					"message": "0"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507251528700,
-					"Sequence": 327,
-					"MD5OfBody": "bd5fbd8ea1ffc4271391db089e53319b",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			},
-			{
-				"MessageID": "e9a5b4cd-0c75-456a-ae62-fe7195ddd86f",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAx",
-				"Tags": {
-					"message": "1"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507255537800,
-					"Sequence": 328,
-					"MD5OfBody": "98f68499eb379d773e0e8b5deeed6eb7",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			},
-			{
-				"MessageID": "cc5e8e76-6756-4872-ad73-e78dc439b8b9",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAy",
-				"Tags": {
-					"message": "2"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507257527500,
-					"Sequence": 329,
-					"MD5OfBody": "467bd369acea7c452a6ef23d6d33b624",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			},
-			{
-				"MessageID": "d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580",
-				"ClientID": "send-batch-client-id",
-				"Channel": "testing_queue_channel",
-				"Body": "QmF0Y2ggTWVzc2FnZSAz",
-				"Tags": {
-					"message": "3"
-				},
-				"Attributes": {
-					"Timestamp": 1563372507259528100,
-					"Sequence": 330,
-					"MD5OfBody": "523ac3e2930cda656c78ffbeb6f07ca8",
-					"ReceiveCount": 1
-				},
-				"Policy": {
-					"MaxReceiveCount": 16
-				}
-			}
-		],
-		"MessagesReceived": 4,
-		"MessagesExpired": 1,
-		"IsPeak": true
-	}
+   "is_error": false,
+   "message": "OK",
+   "data": {
+      "RequestID": "some-request-id",
+      "Messages": [
+         {
+            "MessageID": "3205da1e-4dbf-4f6f-9b77-79d9dd881017",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAw",
+            "Tags": {
+               "message": "0"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507251528700,
+               "Sequence": 327,
+               "MD5OfBody": "bd5fbd8ea1ffc4271391db089e53319b",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         },
+         {
+            "MessageID": "e9a5b4cd-0c75-456a-ae62-fe7195ddd86f",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAx",
+            "Tags": {
+               "message": "1"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507255537800,
+               "Sequence": 328,
+               "MD5OfBody": "98f68499eb379d773e0e8b5deeed6eb7",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         },
+         {
+            "MessageID": "cc5e8e76-6756-4872-ad73-e78dc439b8b9",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAy",
+            "Tags": {
+               "message": "2"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507257527500,
+               "Sequence": 329,
+               "MD5OfBody": "467bd369acea7c452a6ef23d6d33b624",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         },
+         {
+            "MessageID": "d36e0ccd-58e2-4562-b7bb-2c4eb3ecb580",
+            "ClientID": "send-batch-client-id",
+            "Channel": "testing_queue_channel",
+            "Body": "QmF0Y2ggTWVzc2FnZSAz",
+            "Tags": {
+               "message": "3"
+            },
+            "Attributes": {
+               "Timestamp": 1563372507259528100,
+               "Sequence": 330,
+               "MD5OfBody": "523ac3e2930cda656c78ffbeb6f07ca8",
+               "ReceiveCount": 1
+            },
+            "Policy": {
+               "MaxReceiveCount": 16
+            }
+         }
+      ],
+      "MessagesReceived": 4,
+      "MessagesExpired": 1,
+      "IsPeak": true
+   }
 }
 ```
 Where Data field
@@ -506,12 +506,12 @@ As a Response from `POST` message:
 
 ```
 {
-	"is_error": false,
-	"message": "OK",
-	"data": {
-		"RequestID": "f20480d6-10ae-480d-8102-ed74cb46ee24",
-		"AffectedMessages": 11
-	}
+   "is_error": false,
+   "message": "OK",
+   "data": {
+      "RequestID": "f20480d6-10ae-480d-8102-ed74cb46ee24",
+      "AffectedMessages": 11
+   }
 }
 ```
 Where Data field
@@ -546,12 +546,12 @@ As a Response from `POST` message:
 
 ```
 {
-	"is_error": false,
-	"message": "OK",
-	"data": {
-		"RequestID": "f20480d6-10ae-480d-8102-ed74cb46ee24",
-		"AffectedMessages": 11
-	}
+   "is_error": false,
+   "message": "OK",
+   "data": {
+      "RequestID": "f20480d6-10ae-480d-8102-ed74cb46ee24",
+      "AffectedMessages": 11
+   }
 }
 ```
 Where Data field
@@ -592,7 +592,7 @@ Where:
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
 | Body     | string/base64 | Yes      | Sender-defined event body data                                                                          |
 | Store    | bool          | Yes      | Store=false send to Event pattern, Store=true send to Event Store pattern                               |
-| Tags      	  | map string,string| No      | Set Event Tags|
+| Tags           | map string,string| No      | Set Event Tags|
 
 As a Response from `POST` message:
 
@@ -636,7 +636,7 @@ Where:
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
 | Body     | string/base64 | Yes      | Sender-defined event body data                                                                          |
 | Store    | bool          | Yes      | Store=false send to Event pattern, Store=true send to Event Store pattern                               |
-| Tags      	  | map string,string| No      | Set Event Store Tags|
+| Tags           | map string,string| No      | Set Event Store Tags|
 
 As a Response from `POST` message:
 
@@ -686,7 +686,7 @@ Where:
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
 | Body     | string/base64 | Yes      | Sender-defined event body data                                                                          |
 | Store    | bool          | Yes      | Store=false send to Event pattern, Store=true send to Event Store pattern                               |
-| Tags      	  | map string,string| No      | Set Event / Event Store Tags|
+| Tags           | map string,string| No      | Set Event / Event Store Tags|
 
 The websocket will receive Response messages with this structure:
 
@@ -738,7 +738,7 @@ Where:
 | Channel  | string        | Channel sender address                                                                                  |
 | Metadata | string        | Sender metadata data                                                                                    |
 | Body     | string/base64 | Sender body data                                                                                        |
-| Tags      	  | map string,string|Event Sender Tags|
+| Tags           | map string,string|Event Sender Tags|
 
 
 **NOTE:**
@@ -802,7 +802,7 @@ Where:
 | Body      | string/base64 | Sender body data                                                                                        |
 | Timestamp | int64         | Unix time format of message                                                                             |
 | Sequence  | int           | Events Store message sequence number                                                                    |
-| Tags      	  | map string,string| Event Store sender Tags|
+| Tags           | map string,string| Event Store sender Tags|
 
 **NOTE:**
 
@@ -818,14 +818,14 @@ Send Command endpoint is a `POST` function to `{{host}}/send/request` where `hos
 `POST` Command request JSON structure:
 ```
  {
-   	"RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
-   	"RequestTypeData":1, 
-   	"ClientID": "command-client-id",
-   	"Channel": "command-channel",
-   	"Metadata" :"command-metadata",
-   	"Body": "c29tZSBlbmNvZGVkIGJvZHk=",
-   	"Timeout": 1000, 
-   	"Tags":{
+       "RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
+       "RequestTypeData":1, 
+       "ClientID": "command-client-id",
+       "Channel": "command-channel",
+       "Metadata" :"command-metadata",
+       "Body": "c29tZSBlbmNvZGVkIGJvZHk=",
+       "Timeout": 1000, 
+       "Tags":{
             "message":"0"
          }
  }
@@ -842,7 +842,7 @@ Where:
 | Metadata        | string        | No       | Sender-defined event metadata data                                                                            |
 | Body            | string/base64 | Yes      | Sender-defined event body data                                                                                |
 | Timeout         | int           | Yes      | Set Command timeout for response                                                                              |
-| Tags      	  | map string,string| No      | Set Command Tags|
+| Tags           | map string,string| No      | Set Command Tags|
 
 
 A successful Command Response from `POST` request:
@@ -888,16 +888,16 @@ Send Query endpoint is a `POST` function to `{{host}}/send/request` where `host`
 `POST` Query request JSON structure:
 ```
 {
-   	"RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
-   	"RequestTypeData":2, 
-   	"ClientID": "query-client-id",
-   	"Channel": "query-channel",
-   	"Metadata" :"query-metadata",
-   	"Body": "c29tZSBlbmNvZGVkIGJvZHk=",
-   	"Timeout": 1000,
-   	"CacheKey": "query-cache-key",
-	"CacheTTL":10000,
-	"Tags":{
+       "RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
+       "RequestTypeData":2, 
+       "ClientID": "query-client-id",
+       "Channel": "query-channel",
+       "Metadata" :"query-metadata",
+       "Body": "c29tZSBlbmNvZGVkIGJvZHk=",
+       "Timeout": 1000,
+       "CacheKey": "query-cache-key",
+   "CacheTTL":10000,
+   "Tags":{
             "message":"0"
          }
  }
@@ -916,7 +916,7 @@ Where:
 | Timeout         | int           | Yes                    | Set Query timeout for response                                                                              |
 | CacheKey        | string        | No                     | Set Cache key to retrieve / store response                                                                    |
 | CacheTTL        | int           | Yes (if Cache_key set) | Set Cache time to live in seconds                                                                             |
-| Tags      	  | map string,string| No      | Set Query Tags|
+| Tags           | map string,string| No      | Set Query Tags|
 
 
 A successful Query Response from `POST` request:
@@ -953,7 +953,7 @@ Where returned data object :
 | Timestamp | int64         | Unix time of Response                                                              |
 | Executed  | bool          | true=query executed, false= error during query execution                           |
 | Error     | string        | if Executed=false, Error message                                                   |
-| Tags      	  | map string,string|  Get Query Response Tags|
+| Tags           | map string,string|  Get Query Response Tags|
 
 
 A timeout error on unsuccessful Command Response from `POST` request:
@@ -1059,14 +1059,14 @@ Send Response endpoint is a `POST` function to `{{host}}/send/response` where `h
 `POST` Response request JSON structure:
 ```
 {
-	"RequestID": "d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
-	"ClientID":"response-client-id",
-	"ReplyChannel": "_INBOX.x8bxFotxDNG4c3zTp8scBQ.x8bxFotxDNG4c3zTp8scMq",
-	"Metadata" :"response-metadat",
-	"Body": "c29tZSBlbmNvZGVkIGJvZHk=",
-	"Executed": true,
-	"Error":"",
-	 "Tags":{
+   "RequestID": "d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
+   "ClientID":"response-client-id",
+   "ReplyChannel": "_INBOX.x8bxFotxDNG4c3zTp8scBQ.x8bxFotxDNG4c3zTp8scMq",
+   "Metadata" :"response-metadat",
+   "Body": "c29tZSBlbmNvZGVkIGJvZHk=",
+   "Executed": true,
+   "Error":"",
+    "Tags":{
             "message":"0"
          }
 }
@@ -1083,5 +1083,5 @@ Where:
 | Body         | string/base64 | No       | Sender-defined event body data (Query only)                 |
 | Executed     | bool          | Yes      | Set Command / Query request execution result                |
 | Error        | string        | No       | Set error message in case of failed Command / Query request |
-| Tags      	  | map string,string| No      | Set Resonse Tags|
+| Tags           | map string,string| No      | Set Resonse Tags|
 

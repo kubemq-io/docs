@@ -30,7 +30,7 @@ One level hierarchy:
 
 `foo`, `USA`, `org` are valid one level hierarchies.
 
-Two level hierarchies:
+Two-level hierarchies:
 
 `foo.bar`, `USA.NewYork`, `org.department` are valid two-level hierarchies.
 

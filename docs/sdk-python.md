@@ -47,7 +47,7 @@ $ pip install -e .
 The [examples](https://github.com/KubeMQ/Python_SDK/tree/v1.0.0/examples)
 are standalone projects that showcase the usage of the SDK.
 
-To run the examples you need to have a running instance of KubeMQ.
+To run the examples, you need to have a running instance of KubeMQ.
 
 The following example available under the `/examples` dir:
 
