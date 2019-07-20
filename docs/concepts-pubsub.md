@@ -1,4 +1,4 @@
-# Publish-Subscribebe
+# Publish-Subscribe
 
 ## Definition
 The publish-subscribe pattern (or pub/sub, for short) is a messaging pattern where senders of messages (publishers), do not program the messages to be sent directly to specific receivers (subscribers). Instead, the programmer “publishes” messages (events), without any knowledge of any subscribers there may be.
@@ -33,6 +33,8 @@ In Events Store, multiple senders can send messages to various receivers even if
 
 ![image info](./images/event-store.png)
 
+### Events Store Types
+
 KubeMQ supports six types of Events Store subscriptions:
 
 | Type            | Description                                                                                                  |
@@ -44,11 +46,42 @@ KubeMQ supports six types of Events Store subscriptions:
 | From Time       | KubeMQ will replay events from a specific time in the past and continue to send new events                     |
 | From Time Delta | KubeMQ will replay events from the specific delta of time back (i.e. 5 min back) and continue to send new events |
 
- **Unique Client ID**
+
+#### Start From New Events
+
+![image info](./images/event-store-from-new.png)
+
+
+#### Start From First Event
+
+![image info](./images/event-store-from-first.png)
+
+
+#### Start From Last Event
+
+![image info](./images/event-store-from-last.png)
+
+
+#### Start From Sequence
+
+![image info](./images/event-store-from-seq.png)
+
+
+#### Start From Time
+
+![image info](./images/event-store-from-time.png)
+
+
+#### Start From Time Delta
+
+![image info](./images/event-store-from-time-delta.png)
+
+
+### Unique Client ID
 
 The uniqueness of a client ID is essential when using Events Store.  At any given time, only one receiver can connect with a unique Client ID. If two receivers try to connect to KubeMQ with the same Client ID, one of them will be rejected.
 
- **Client ID and Subscription Types Relations**
+**Client ID and Subscription Types Relations**
 
 For each unique Client ID, KubeMQ saves the subscription type in which the client connected; messages can only be replayed once per Client ID and Subscription type.
 

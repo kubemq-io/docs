@@ -60,6 +60,10 @@ Here some examples of channel subscription patterns and which types of messages 
 | `foo*.>`        | `foo.bar`,foo1.bar` | `foo`               |
 | `>`             | any message         | none                |
 
+
+![image info](./images/channels.png)
+
+
 ### Group (Load Balancing)
 
 KubeMQ supports grouping receivers with the same subscription channel patterns to form a load balancing group. The group pattern is a useful pattern for sharing message load handling between services and for redundancy functionality too.
@@ -68,10 +72,13 @@ During a Subscription request, the receiver can set the group name to join or no
 - Any receiver without a group setting (group="", blank)
 - Only one receiver for each group he belongs to
 
+
+![image info](./images/grouping.png)
+
+
 Example:
 
 In the table below we have 8 receivers which subscribe to different channels and groups:
-
 
 | Receiver Name | Channel   | Group |
 |:--------------|:----------|:------|
@@ -86,11 +93,8 @@ In the table below we have 8 receivers which subscribe to different channels and
 
 In the table below, we explore several message channels and which receiver will get them:
 
-
 | Sending Message to Channel | Receivers|
 |:---------------------------|:---------|
 | `foo`                      | R6,R7|
 | `foo.bar`                  |R1, R2 or R3, R4 or R5, R6,R8|
 | `foo.bar.zoo`               |R1, R2 or R3, R6,R8|
-
-
