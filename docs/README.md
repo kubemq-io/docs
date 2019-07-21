@@ -10,7 +10,7 @@ features:
   details: KubeMQ provides a secured cluster, ready to serve massive real-world traffic with encryption, authentication, and authorization. Offers control and observability by Tracing, Instrumenting and logging. Supports advanced traffic control and shaping.
 - title: DevOps friendly
   details: A minimal configuration required to deploy a robust and scalable system in Kubernetes. Dynamic routing feature overcomes the hassle of DevOps to define exchanges, routes and predefined topics. Control, debug and review by using our advanced dashboard UI.
-footer: Copyright KubeMQ.io © 2018 - Present
+footer: Copyright KubeMQ.io © 2019 - Present
 ---
 ## What is KubeMQ?
 KubeMQ is a Cloud Native, enterprise-grade, message broker for distributed services architecture.

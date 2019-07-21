@@ -31,23 +31,31 @@ module.exports = {
                 ]
             },
             {
+                title: 'Get Started',
+                collapsable: true,
+                children: [
+                    '/get-started-pubsub',
+                ]
+            },
+            {
                 title: 'Installation',
                 collapsable: true,
                 children: [
-                    '/get-started',
+                    '/installation-kubernetes',
+                    '/installation-docker',
                     `/installation-kubetools`,
                 ]
             },
             {
-                title: 'Concepts',
+                title: 'Tutorials',
                 collapsable: true,
                 children: [
 
-                    `/concepts-queue`,
-                    `/concepts-pubsub`,
-                    `/concepts-rpc`,
-                    '/concepts-terminology',
-                    `/concepts-endpoints`,
+                    `/tutorials-queue`,
+                    `/tutorials-pubsub`,
+                    `/tutorials-rpc`,
+                    '/tutorials-channels',
+                    `/tutorials-endpoints`,
                 ]
             },
             {

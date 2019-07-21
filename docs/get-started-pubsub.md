@@ -1,198 +1,34 @@
-# Get Started
+---
+title: Pub/Sub
+lang: en-US
+---
 
-## Install
-To start using KubeMQ, we first need to run a KubeMQ docker container either locally or on a remote node.
+## General
+To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
 
 You can select one of the methods below:
 1. [Docker Container](./installation-docker.md)
 2. [Kubernetes CLuster](./installation-kubernetes.md)
 
+Now that you have KubeMQ installed and running, we will do the following steps:
 
-### Docker
-Pull and run KubeMQ Docker container:
-```
-docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 -v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+1. Subscribe a consumer to `hello-world` channel
+2. Publish "Hi KubeMQ" message in the the channel
+3. Display the received message in the console.
 
-```
+As showed in the following diagram:
 
-### Kubernetes Cluster
-Copy and deploy the following yaml file:
-```
-apiVersion: v1
-kind: List
-items:
-  - apiVersion: apps/v1beta2
-    kind: StatefulSet
-    metadata:
-      name: kubemq-cluster
-    spec:
-      selector:
-        matchLabels:
-          app: kubemq-cluster
-      replicas: 3
-      serviceName: kubemq-cluster
-      template:
-        metadata:
-          labels:
-            app: kubemq-cluster
-        spec:
-          containers:
-            - env:
-                - name: KUBEMQ_TOKEN
-                  value: <YOUR_KUBEMQ_TOKEN>
-                - name: CLUSTER_ROUTES
-                  value: 'kubemq-cluster:5228'
-                - name: CLUSTER_PORT
-                  value: '5228'
-                - name: CLUSTER_ENABLE
-                  value: 'true'
-                - name: GRPC_PORT
-                  value: '50000'
-                - name: REST_PORT
-                  value: '9090'
-                - name: KUBEMQ_PORT
-                  value: '8080'
-              image: 'kubemq/kubemq:latest'
-              imagePullPolicy: IfNotPresent
-              name: kubemq-cluster
-              ports:
-                - containerPort: 50000
-                  name: grpc-port
-                  protocol: TCP
-                - containerPort: 8080
-                  name: metrics-port
-                  protocol: TCP
-                - containerPort: 9090
-                  name: rest-port
-                  protocol: TCP
-                - containerPort: 5228
-                  name: cluster-port
-                  protocol: TCP
-          restartPolicy: Always
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      name: kubemq-cluster
-    spec:
-      ports:
-        - name: metrics-port
-          port: 8080
-          protocol: TCP
-          targetPort: 8080
-        - name: grpc-port
-          port: 50000
-          protocol: TCP
-          targetPort: 50000
-        - name: cluster-port
-          port: 5228
-          protocol: TCP
-          targetPort: 5228
-        - name: rest-port
-          port: 9090
-          protocol: TCP
-          targetPort: 9090
-      sessionAffinity: None
-      type: NodePort
-      selector:
-        app: kubemq-cluster
+![image info](./images/pub-sub-hello-world.png)
 
-```
-
-### Helm Chart
-
-Add KubeMQ Helm Repository:
-```
-$ helm repo add kubemq-charts https://kubemq-io.github.io/charts
-```
-
-Verify KubeMQ helm repository charts is correctly configured by:
-```
-$ helm repo list
-```
-
-Install KubeMQ Chart:
-```
-$ helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> kubemq-charts/kubemq
-```
-
-
-#### Configuration
-
-The following table lists the configurable parameters of the KubeMQ chart and their default values.
-
-
-| Parameter                           | Default           | Description                                                                                 |
-|:-----------------------------------|:------------------|:--------------------------------------------------------------------------------------------|
-| nameOverride                       | `kubemq-cluster`  | Sets deployment name                                                                        |
-| token                              | ``                | Sets KubeMQ token                                                                           |
-| replicaCount                       | `3`               | Number of KubeMQ nodes                                                                      |
-| cluster.enable                     | `true`            | Enable/Disable cluster mode                                                                 |
-| image.repository                   | `kubemq/kubemq`   | KubeMQ image name                                                                           |
-| image.tag                          | `latest`          | KubeMQ image tag                                                                            |
-| image.pullPolicy                   | `Always`          | Image pull policy                                                                           |
-| service.type                       | `ClusterIP`       | Sets KubeMQ service type                                                                    |
-| service.apiPort                    | `8080`            | Sets KubeMQ service Api Port                                                                |
-| service.restPort                   | `9090`            | Sets KubeMQ service Rest Port                                                               |
-| service.grpcPort                   | `5000`            | Sets KubeMQ service gRPC Port                                                               |
-| service.clusterPort                | `5228`            | Sets KubeMQ service Cluster Port                                                            |
-| livenessProbe.enabled              | `true`            | Enable/Disable liveness prob                                                                |
-| livenessProbe.initialDelaySeconds  | `4`               | Delay before liveness probe is initiated                                                    |
-| livenessProbe.periodSeconds        | `10`              | How often to perform the probe                                                              |
-| livenessProbe.timeoutSeconds       | `5`               | When the probe times out                                                                    |
-| livenessProbe.failureThreshold     | `6`               | Minimum consecutive successes for the probe to be considered successful after having failed |
-| livenessProbe.successThreshold     | `1`               | Minimum consecutive failures for the probe to be considered failed after having succeeded   |
-| readinessProbe.enabled             | `true`            | Enable/Disable readiness prob                                                               |
-| readinessProbe.initialDelaySeconds | `1`               | Delay before readiness probe is initiated                                                   |
-| readinessProbe.periodSeconds       | `10`              | How often to perform the probe                                                              |
-| readinessProbe.timeoutSeconds      | `5`               | When the probe times out                                                                    |
-| readinessProbe.failureThreshold    | `6`               | Minimum consecutive failures for the probe to be considered failed after having succeeded   |
-| readinessProbe.successThreshold    | `1`               | Minimum consecutive successes for the probe to be considered successful after having failed |
-| statefulset.updateStrategy         | `RollingUpdate`   | Statefulsets Update strategy                                                                |
-| volume.enabled                     | `false`           | Enable/Disable Persistence Volume Claim template                                            |
-| volume.size                        | `1Gi`             | Set volume size                                                                             |
-| volume.mountPath                   | ` "/store" `      | Sets container mounting point                                                               |
-| volume.accessMode                  | `"ReadWriteOnce"` | Sets Persistence access mode                                                                |
-
-Specify each parameter using the `--set key=value[,key=value]` argument to helm install. For example,
-```
-helm install --name kubemq-release --set token={your kubemq token},nameOverride=my-kubemq-cluster kubemq-charts/kubemq 
-```
-
-### Docker-Compose
-
-Run `docker-compose -d up` with the following yaml file:
-
-```
-version: '3.7'
-services:
-  kubemq:
-    image: kubemq/kubemq
-    container_name: kubemq
-    ports:
-      - "8080:8080"
-      - "9090:9090"
-      - "50000:50000"
-    environment:
-      - KUBEMQ_HOST=kubemq
-      - KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN>
-    networks:
-      - backend
-      - frontend
-    volumes:
-      - kubemq_vol:/store
-networks:
-  backend:
-volumes:
-  kubemq_vol:
-```
 
 ## Subscribe
 
-Now that you have KubeMQ installed and running subscribe to Events channel and log every message over that channel on the console.
+A consumer can subscribe to the "hello-world" channel with one of the following methods.
+
 
 ### CLI
 ```
-$ ./kubetools subscribe event hello-world
+$ ./kubetools pubsub rec event hello-world
 ```
 
 ::: tip KubeTools
@@ -483,13 +319,13 @@ if __name__ == "__main__":
 ```
 
 
-## Send
+## Publish
 
 After you have subscribed to a hello-world channel, you can send your message to it.
 
 ### CLI
 ```
-$ ./kubetools send event hello-world "Hi KubeMQ"
+$ ./kubetools pubsub send event hello-world "Hi KubeMQ"
 ```
 
 ::: tip KubeTools

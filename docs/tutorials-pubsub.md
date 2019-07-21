@@ -1,4 +1,8 @@
-# Publish-Subscribe
+---
+title: Pub/Sub
+lang: en-US
+---
+# Pub/Sub
 
 ## Definition
 The publish-subscribe pattern (or pub/sub, for short) is a messaging pattern where senders of messages (publishers), do not program the messages to be sent directly to specific receivers (subscribers). Instead, the programmer “publishes” messages (events), without any knowledge of any subscribers there may be.
