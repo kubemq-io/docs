@@ -1,444 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="v1.2.1&#10;Fix typos">
-      <change afterPath="$PROJECT_DIR$/docs/installation-configuration.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/tutorials-features-list-comparison.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/tutorials-kubetools.md" afterDir="false" />
+    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/concepts-messaging-patterns.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-cluster.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-general.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-interfaces.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-logging.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-metrics.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-persistence.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/configuration-queue.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/examples.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/examples.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/get-started.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/get-started.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/installation-kubetools.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/rest.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/rest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-go.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-go.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-java.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-net.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-net.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-python.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-python.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/override.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/styles/palette.styl" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/styles/palette.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/concepts-messaging-patterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/concepts-terminology.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-cluster.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-general.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-interfaces.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-logging.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-metrics.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-persistence.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration-queue.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/get-started-pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get-started-pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get-started.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get-started.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation-docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation-docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation-kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation-kubernetes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation-kubetools.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/rest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/rest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sdk-go.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sdk-go.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sdk-java.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sdk-java.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sdk-net.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sdk-net.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sdk-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sdk-python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials-channels.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials-concepts.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials-endpoints.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials-pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials-pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials-queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials-queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials-rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials-rpc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/markdown-it" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/markdown-it" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/05/09/5e826ef9620433b51859c7a89ae798af4351cc4cc86ce5ac06633ca54fba8299f05bea4b93a78358924ddb355519e65e07da54bc2f04083cde84f0d3fda2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/05/25/f54f79bd2c96b3dfb1f7c06d8332a452158537f9f83ae799f3d7bf598d7a06341ca8083887a34a943f37412c8921164bbe5cd30db77cfc108f83e629b843" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/05/f4/6f8393c044d338431923e7947fb7bd61e901b42992045d843b86973bab29800de7c4b4b55769caae9001b370ece6e25df936ee035f8347dca8f557c3d8a6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/06/f9/e71f8245abbbaf37a86f49cf24fa42e478b0b1ac8dce97e909864b4cf7ab676bbbb49c8dadb2c5d834a45d54863ef48ee24211881c52feb9b380abc7e949" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/08/20/0cee64f88932a160f324e6f773bea99e9eacbd55c2ca9bd99f65ab79a73b21287ed579858ea33af619dccb42f6e970c340e6dd724d029c032213a4310cc0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/09/3c/b88a517cf9ee4714018c6b3f466ab853bee50528f68692c266efc584c45764bd80d206a9dc9e1fb8d1e96834dec90ce5bb0c620dbeca35907fe7b097d4cb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0a/74/8688994c573148a0f921fd2b627a713d94a35eb214c3a123d93632a9c7f61f56d201a54b57ec10d0f99e353e7a1b6d0072954d15b5cfc7bf3eb1be6b1135" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0a/84/9c4f35e57708543bb056ba31f6ebae1d753b9dffced270bb92afa45fd09cc8a8fd5c126ba7b79d3c18da6abd5c38d939e3d6632c9eb62e3df0f16bf21cc0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0a/a9/90f4a10fa12476c7e96361658fc0a9ed1074a7099bf0bde8c897c08fad6d5cdcece937ad3990e7ed2c2e330585b476d745a96e7414307762b871d1ca3b19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0b/57/f85275db9128cadc56a816eeb875a3ebf72da97e40d1333c5011c5f218329cd16bd927a2c388615e8fbb1fb55436d915d5aba68606d37d87b4de724fcbaa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0d/0f/5223a0ce9ea9e14f82ef64fc19e085a1af47751b27c2499c600968a7e146151f476d4beaef25d88736b224353952cc2947293084c1e684c1694f6dbb67f8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/0e/5a/28609a635169fb093b1331b06134e5e87eae9370308abf34014499cbb28331b39ac8092fcd7f173b3b89b777da3c509c7b711fa72ad989c329cfbd538b66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/14/a6/072860e54c3fb97e7465801eda42136b425198cafba6c11afec4c064ee1dde5deba0c812a12e52571b23c464e82ae4e356a8198982e5575bf76c0f597e39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/15/17/c990a80682b4abde3c81f0af2d7a37060ecbdbf931e2944f7c4a48a7405afa2f10f249206f384db70c4afa9e1278b74efe4e80bf6158ce21214bd15c9a81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/16/d4/b7255630cc5e0b6fa772453a5236bd16e7fc612ee50fdaf3a5bf8445c86df2d23fc1122e3831ae60c60268c85526da5732565ae94e9d8e9d8d1e2cd9b709" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/19/cf/9619ec4be1f773014370f7fbc6af4508e583d3268234ba72e1866f8efb1d53780a97d239124a1ac32f530bf2a280fc0d14c9e8c9a48a720ffee394d64271" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/19/f8/4eeccf9be70282d2ec6326d7cc39ebf0199e65f93d10dfbb87c1506e9fc1d01580b06614d3d456ede16469f3bf0cc2fb6954172a45aa9e07a0c7ebf41a44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/1b/06/4e210b297e4906d5e5f94957a02923fa9bedfadfb0ea25dc04776e4ea80940c3ec5132023c51a928c284e88fd2b11204468df8f163fb2bc8c75ac5dc7e0c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/1d/18/cf5b6c9dcedbf4e4833efa2b567eb2552ecee482382bb99c676e9e9a6d4ea6b78ce679e714d5519a83c58fcf1e7d5f349b0247a4a59753030847219cf14a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/21/5a/f309aac2af9d534ac136df30e3e73e8c391dc00146a7b93f862e3eeab8636ed79e5e73a3a2176defaab3fc3231f27779d9fd46f5c4c9ade838d82a65e206" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/26/aa/b12ab25a9ed2e735d738ec7f9a7b726ad5678a8b067aa8e77f3f31e2ea122fc93f358af5415b426edc51eb4db915a1ae02aad7c142eb0e9f3f55754cc3f9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/29/55/7d4c267fe9975fc27f60124ad4c14754268c1e3d7f1a445850d3bc706eafbf0d643d265cdb57e5038c39d1e1920ae08801e1b9d03a5411a551b061802889" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/2c/1f/8613d7cb3bc5a4876a9a4c4d13d06cc155726914e5d8f03e20f214ced6f502a5f598c7f5c30abef7ddb06fdf4e853fc1098100d34196d9274b90495d4cb1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/2c/23/3a3b5b06c73fbada7f9dfb7466063ec1efc69b2bace13d3e131d4cff8ae5a55707a73cd5cec55f13abaf8752dc7f5f420235f5ca87aef8be2c8a0a62e6fa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/2d/57/7d5b75fd1735a62a496649b814f103fbf5d31dfdb742d87e599abaef125ad030f92fbf78f5fcd413a9c8a20f8445d1330d4c77c833ec6e899f6dc2cc31e9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/2d/e1/eed44b805b730b3298c3f5d61dd422020b42bceb6ca64f61ba82c690f347025843190d9884b1c65e3b8d12c365039279381dffb4b1b2e441f96727bfb0d8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/2e/c8/515d3ba8eb7a7f10b5b6fa42c9d1adf70a22111dde47cebf57ff828932fbf99d25619d4577be94f3e4043d95e2060627d9e298e580cda681d7cdcd6d8f8e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/2f/e0/1f7450f639bdb4152e7518c6496434b5e79a3d1de7d3fd1949ea3010f5e55a9929b40d7c543be8c6c59b8c0038d2dd6340a972e7e5f34d07ce21d6802b68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/34/0e/301fd619f0dbc6e9ecca4d3fc9a06c5206467a561ebe1a674e142781cf9668f0e585add7a4f4d8186195182d0c123a497d1518a9d61a4942348b39913922" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/34/d4/3b739fa9c63f1254401fb613cb1bb341375f40ea0b7d7c88733d57ab1f433d444d5e7076dd012bdafe4c24fe955624db866880d3768cd73db85cabf7b032" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/36/ed/3d291c698028c4f12649e9316e25ae5dd9d6754a7b99772024c6704b7cbc3ab569f069727d3ee29e8a5d4b7220d788324a055708d209cc1ff8902f33311b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/41/6f/b7c5123d87dd585a4abeade915cf7f56d5cfbaadee7a7fd725fa3455d65e388541a87074393179059fa65a22efb170c84e115943946d5c7159d9074d2a2a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/45/d3/3aeab7b16c58de45b0db7d75dab5cdddac257f16cb3c1b651a633e2180f3a9eeb70529923c455d4d450afd9ac425c4221b846a43f3a14e500e62d56db9c8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/4b/0a/83d7eb99752f6a0cb6c195675cf23d89b39c8b5206d691d89f0861f6953cef89ec0bfbb9b48f49fab35d15cb05ec32f5bbba4cf6e5643315247c0dc76b2f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/4e/b1/c3e5c174ddbc8d40d4b63732f36285e7739035061b593e0a7c3f94f66fa42f7bdf9a941d9a74497ff2e453deeb9f2f68bfb9f77f31e39139b1795093a6f9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/4f/df/6853af7bd7a25005263d7a33a9fa8768a205cd622626d9f4dddcbab83a31c0547ba406be27faf94fec48582eb85b60ddc8812cd1f0f0e563a4db37e948bb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/50/62/723eb11c054338c9c079b82ca151381d537d18d693120b19a985db50e32b45b82e822931000a465072b3d3789fe0256a911b2e1a9a9350d42220108ddedc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/50/db/942f048af2967815b6bb143bf9e9c94a5792a0c2740248c19e950e3b043d92f9c7e52456541899837f764cf8d815dda42176bd42254705d90b8312908fac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/50/f9/81cd1d7479cca47894c70773b70050df9fe0993deb0ebec4a6372bfe9472c15b5f3714732beb2dc77f4af1fc6cd99a20974266c5bbca0ca84258f30c693e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/51/dd/d970848ee6afe0b0b8ef23266756877be589491d3504f509d2e11f5d71e74152a4f846cefd093b6eed0f3c21cad18bc8ecaf6c61d974b61d3ae17ef3917e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/55/1d/32c5a9dde9a70a0136b1a7128d8af987b2b91bf0925db6bf371535020d212f93e3cb146b85b526de4a708327d24b7f0dd3a23206a0c96bc3d076fc59ba58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/59/2a/f0563d682c21f291c6544a10e3f811d110dd9a7492425b14746bda61a00067dd6ee689452256dedc0802ba3537007b185e93d11138c4e8f078be552f24e6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/5f/1c/e0b01ff5bbe784e011e4a285cc5d13d6054b64708a81ca18ff350c97a0f4cd54c8bf1a01c89c3ab0b7e4510b92972daec607aedab29cfe4890a3070b0a05" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/62/ba/3e2fb9bfed1240d584ee668ee2cd38999d3e47bd91402ae1398bf5c5721fbc69f6dc412ccb538710441cb3e1a413d5ee0c7025c63f9ea9ef8563bc02cef3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/64/0c/d53e9eb9ac1d992f648fdc7a9d383a77b359dc0c1e3f0efc95de5914771816a838a2660129645f81dad42176e8c5887ed3b25866be64ccbfc6c75631bb53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/64/41/9a0da7703a4bd5899328e75675b6d52d46789e386cae1c2f0aef917e1a86c3bc2c01c41a073ad95526b623df4e269dc8a41b296a3f21bece20b4318cc85a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/66/73/be1e9f60b6606c1ad28c660ed9ec1c4dc9164398423082e4f73bd86254660fcc4b81ed2449e5c396bfac36553546dd5438c0ad12bc88fbe4ca3923dc1284" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/67/86/9781c1ec006012df0e60fd35e59a67e16b19765a8ab12848ee6f76020600923f13c12428c28cb7af377b6da434585396db9249f2537724fee45a76d905af" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/68/af/6c02675368aeb8c23b9f81c26f77d1704221379e259a08d34f17a0ed31a0abc2762e8a9678cf5a6a1560425fa8945ac34c5c99739a261db5260ed7027b0c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/6a/5a/e912f36deadfd88c6d329b0e1836a8ec8e1eb5819efc5f751f7aa002dd5479942aac66512ee28520e2d6692d349eb8021eb5491439b73f6a334f72cec244" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/6a/c2/3aa334db114ec854eae4b87f5d9578faf924f1d4f93e5415f57e089bfa88eb59a6c71ed983205021042c2a4c560816e12f88b4bda196602142de3a5e8cc8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/6b/7c/d6e878878d24f01e1387267035f5caeee403d1d7d5c7fd5aff919d292f1ab406314c7a1baa91f339177f1dd71dc0b47edfeb37e2a7407fdccff058de9600" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/6c/b7/87b4d54a05dc80ebf4dcccbe91d9b523cbd393e56c2bf7cd9f1553e58eed23c6f4777b630b3646cfd2092982d952854ee2083552eac7f4514dcfef78eba5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/6e/42/16261768185ff542020f3b25aad7f66b500e3a42c63b28675aab20f9d01c3b6391cd7c21222310bc6f92daa8bd9510091720401d3671366a07de129cb5a1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/71/3e/93dcd2f2fff20dfe970adfb47672d7885e3604c3d4f21659e8c5aab46af881e3d0e45a7e0117ba16cd3da422e202ff84f59b52183750dd3319d22c0a0919" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/71/ab/d2ca886f69a469fc795043f74f5f36a54d588c80d231c5efe1d435a0ac1267fd645976ee6698b92be8f642db16bf449c8329f4d2204db4d055309f59938d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/77/23/dbf9bef09dd5ee79dbf6742e0bc5c826a2e427e64425b4b700e6ab2012d8b6c4a3cdaa6bd586ca49d60302e13d9c3bd435763648970a97a0eecd9e263bc8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/77/75/a6b152e2fbc6329044cec47bfb3a01a2dd9346d12d3d7756ed2b338663430dc6abe1e8c86ab355115871776ad8a9ea2d4b291575f242338de84eac46397f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/7b/d7/88cdc4cfad81b8d636f2692ce5040ffa26b09055acf60e0d40410b069f59fad96723ec1d354ace0082688ef507c0fdc9489044c09cad4957c238e406b47b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/7c/e3/0301b5a4de01cb66a9041239aea1765a7e976dd87dc2d429b9fdf99b27f42fa8b556fa10237a3cea392ba43e3172eb01f56dcdcb4dbf2981ea1ccd1f8453" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/7d/46/8ada394023f27829450197866bfc34381b1c93d1b2be9907b8196e94f8b60b51d4a1ca20af19283369190ede7965fe057ec673d43793728d6aa1b26bccbd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/7d/8e/a738ba12e61c8b57808bfa0caf09ab8acb8c4e1dcb912818a688bb385bd24abfb539dcebf6125dab1bc70c3ceab7fa8400f597bb0a92732b32b3c388a397" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/81/ea/10bdae1f1668f8340358f4dd699674a403feefaf36c76aa2e43ca40aefe5e40e485ae4321edfc54bbd20e0927004ff290047e1f90e19937752903e4ba66b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/86/92/3fbcbc42b6d2b72875452d965631a163d1d01b7466de930e2efd59b3936c05d7659276bca2550754ac8b6c546a0009ca3c2800f95f4efa1c4bf6f8bad2fa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/88/5c/e9b99380cf787ffa33b70c30bced428e6b5d835834c7a53389285fef834a11b8685e7b1b8786651c5430d25da72ebbf8055cc25a8e92cef594833e32ea1c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/89/42/3d9fb5f281b7188f06578bd303bab6946c68ded45a84cd0773890a76790c1418e2a57f8ee4ff550ae20954984b72a190cc66dbdb8cc0e7cd8784f66c1651" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/8a/9a/d6314d39799b6f0482ea31fd2521e0804bb2d9cf51259f7cbad6956a8cc60d137ecab272257acb22f7a7fba21cc7e3a2aa35af5d07a4714325df0b62f44b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/8f/49/7db7df901af49714b8fff1faee1e693fbbc9dad1f37a36a8ed418d66ca3799261e108d5968e9e5f8d11b800f8beeb62ba3bde3a4350b647576f783f951eb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/90/c4/2b1a5e97c51f69e8d508a0f56ff4a6f0f77aa1adbb768da6f95961d9a89d8fbd9d7decc900ef5854c18075b5352f81154cbd534d29847134904820f50eb0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/93/f4/a3d6837b819d4c3bcd1a674e6b162bd42629a366c8b56874c5660fdad9c729a67aaa68c4c1d27cff2ca04767d787d03c432d66226fa0cd588f7a075bc8ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/96/ea/bfc39aec7ae39dccbf8239653e74c0df2d609be3215dac3a216d9decaaccd443e8489d60af23dba95e7d1ebac8d7bca5baf2f9f08e1a30b53767705636f4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/99/1d/c45f536da6ccc89105695d2f70b5dc12366c1a82fb557ec7d6b9e16f1ba2ed2f40277619e1b8dc9bc9b0138610553e77194378b11a907fdd1c17a5a4b06d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/99/47/d4b1cf25588b7cf74641e0f34dc4983a09f51c36b3a1979f867f480413acedf59d32a60163a02d98f8543fc983237d8f43718beb1235da58086681fbd7b3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/9b/2b/3bb50f595a4834d55b4253f10992a070f1e89cf03b19643307f29634b95c439e74ce2fe0ebea7d48315ec9ad3f228d49cb8acb53ac4a67fbab3bfa4b4d59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/9b/5e/de3290d925ee16de52d3799852e120d010663f3225f524d65d6f81213b004007b67f6c5368ef28fbff50a2a75dd3e992e8153a16897127d88d5a5170d4f3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/9f/f1/d39e265cae82aaa79f1dcc3d94b6bd5426eeea4c99f5568811c69c36c64bb500573e5e8e0121c1b2e7658e627fc0fae9053080e73ee43474cc394ce8f7f8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/a0/2f/ddc08b60a780fe4b8e608c6a533c91674d2818ded70e3fd866aee083b4a834a98a5e9ecd640edce2c77dcd91f387edebba3d801e7a6aa62785cd4bea6432" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/a1/2d/0d15643fa8785e2537a59ee568e10d2bcf81f3cd43bd2711e0b177ce8fa0ec073cf053ae3d79f01fe2ad20e45481ddfc54c037caa5a84e52278dcbf9e28d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/a5/5f/a6c1a379ede6bf33403ed0ff1368b17dc860791a58047e06e195b609d892e4f1fc5cc7e5519bac5a33e1bd6a2c1db961548ad502e8578b5f5b490f50ce37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/a6/f0/0761646c6c1bc42db73a277940f3749412d49f9547729f0a79785bc61bb701dcd40404682809b054048437b738404aa334d99bbc0d22ef8390f0c01ecbf3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/ab/00/e26c16991baddf79df316493dda97d77c6cd1ff63336f1d78f1ab5aad43242d88fda37574b6d25fdbcec0a1196c274ab6e968c511e2897cf30550f0e5b54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/ab/60/411000003b9a19de364f287bec7f93c903d869f122d5ae28c062bbfafa783692c47adc58ad48309ed9c220075b2d861ece98e28a4ec639744696e3a3bd8f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/ae/da/ae07b999efba54042f9e02be2d973e8016ca79d6d714c2421f0031511fb4de834af30790d04c29088a87a791d076f01d0eec8f1f6da3e9a26570c4339258" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/b0/d0/66596f6d67a9b0c33dfccefdc757f0087a1bfa3fef1cf27137079cdb698b0c7d88eb848d83627e75511d082e4ca6f662c8f32e6c5cbe200a794fb32542dd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/b2/86/768dab318ed9767ea12e8765e10756fe5baff924fd51d2554639b953a27a1e97c2642458e3123ae4bbd36074ea0d6bfa56452632892b16438ab1461447d8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/b2/e8/f1d646e0e9b09796174cdeba5ba0f08eceebb4eaef2216d08f796362bdffa0f9ff31a8c9f18db02e0e9213922319cd4314821cb7ba86e9670bd08ba249e5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/b8/ed/50630c70fb0113480ae12207a9de8de9edf58ffda6f7d0f98e70a21a479ae56ee179df168db50836337da6e1ef71380413bca47ed7ae65d7cbeecb9cd5ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/bb/8d/e9ce33a3e6e5022e1f4cc7ce24add775731f9f9176e4e8544cc944aaaa5cffdfc9d1a1645f9cc8805e8ae99dd675c2b4d00adcd6ef3d1927e677ab09505a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/bd/2a/0a9bfd8d1bb46702658f918778793e8edf373f3607642db96da9fc36c1e80fb3df36154f799b69e09ba897dc987cb47a3150d62efeb3c2649170842e3a3e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/be/f2/8719f0364d7691cbfe7dcce8463d8a2a711f067476b5bb6fd3cfa86e5a45e37046b685c27dea5218d50bc85a045573d6c09cc100da8e4d8a6ac646b1b431" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/c1/d4/5f9e0e536424e82eecf6fb587e26c08aaf0e3ec80898e90aa6646c98c455c6163535d1d6ce44421a15348a342481e0ec946c8f1b6a9a15591fad7a597e7f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/c5/42/82c5c7fe0e67a243e285267c38ea9ac06c9c9246016b75ac8e254705c5ae046eea4a8302864fbc95b47a4e676039614e6bb757f9e2d59c419005e531d1f4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/c5/7c/916e8a9781cf92766c7eb1e2f10c153bd265b9bb4aed74954cc88d866b0a6dce78c4b5baa2ed8f28f0eb2377cf6377ca776c1a20f65f76c39de791412576" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/c7/6c/1114473a47c0ddf1c19d3cce289db6bb2bc590af7c55d4f4880a04fc2e2e63f98356c1dac9f46f35976cf56efdd1b97ae50a821d2ea69493c3708e866228" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/c7/8f/b46f68893a2e0fff17b116a757ad6d76af2fbe1c6ab320ee78c7fdcb0e73521e328b13c535246e58a8483989125452ea50657caa9e7dea280802b6163652" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/d0/ee/b6a75ba16a514889009513f34fb2fa64e1f3813fb0f02b3d8aa3734a29becbfea42675dda4e1a2473b3ec1eb1fdcc4852f70460e38c1d6d5ab6b1d76ccdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/d1/c4/1b6712e6452fe0c12d250f17ddafdcc0734595641d19bcb9cc22d84b2c4cb613fcb0237daba787664ad050f6ab6106565b9dc4b56b94a2bc5541159ae070" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/d6/eb/913bbb6aab470cf2e78ee029d35da17aa0b8075a46a699b6b1901511335ac498f884b15391e1aa8a6a39d6427cff1cab7d8834ea17a37af16c4c88d49248" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/d6/f9/dc8de9d14813e7125170ec4e8453c569b91c37d5fb6bcef8bb990a460298a385b3c019dc0207978b1b9a4263acc829ae21749be2c00bb623486943b69eca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/d7/cf/726c7ec061761252aa60d1eb60b00bbcadc9c970fc09d2497b42b2c6918df638d4c086080b035001287c3af06ead752db66cffbaefc3c42addd08ca80927" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/d9/c9/6f2a485e8b682d1ee8ba05599cc704ef99011f78612cd4d56ef697b05ba4aae75777f9f3fe5919622a0fea134b858f9130de45dc07f402343e400fef0929" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/dc/e5/22ccd84d39e63f486077c89cd0f3ef5bdf914306fc3a9040810261a30429b29ed63d11cd94fba7074a3611fba0ded9a55d03188f4e216c76b22d2448cc65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/dd/20/8d82654f02ccb127bbffe70e4095c9fee93572795cf41e88c3dd17bd14979433b5c39c8ebf34b1ad378a1e22538b134586373b3af6ade738d29268ca14bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/e0/b4/35f819683d2b9b54ac934dbce319727c312ef8fea5f01d9a9968f42da1e830a1f687cba8b43a053bd33f138903b7e919dad8dd10df71a4dba83e576f174d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/e3/a1/676ae4ce0f4a6280085911f09c1ea9ad15134a09a68134a76643ec15e6dfd5f532fd6f337a2dbb259d48fffa1d7c8746d64e198d40188a0a5f296f6db480" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/e5/75/f381c8100bc8ae3a23714dda3fcc3669792c39afa77bee78e5e0bc7b3d8588fcef38b413ba4341e0fc9de0761221423c29d65c1958b5e1522808cd3a64b0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/e6/25/5fab01d09f87c4f3205a2edb548744c36f7d14a08df2db89bd421a515bcfc338d978c81203ae2e5c799483c41bbbb4650929802b135e6df57fb99d81f948" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/eb/76/03ca4ed697fc94a5b3caf25df709cc4a43117cc4b7b5f3cb27952a9f12af5d42d86dd36ca2af7efc30619f476c3da748e29ae55693bbb5f86f4361881476" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/f1/96/49cc8fa4eb22c59a15e30c8d96f39639fdc78b1fb9ed8a29239371e2ee4a4356e5e7c24267d03a9f86098881c154e48aee7ed75fce7485e304c78d3d2a93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/f3/5c/4133441ae90a23f0adcc8f850cad17b0baaa30569ece47da01d818162db7aad71210fac2ed34a03d59168ba0803c04de832ad830985a61c7dbf97cd1a8e1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/f7/9b/43730f163e01d087558048ff78ac2b3c22cd36569d7d2c9bd3ce52466e1bb4e2626baf9551ff701d84cada7a9ddb909f21619c754c6c9d0e0adcbb78133e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/fa/2c/008d906d257b235aa009d8d827254b9eb362572549906d0ea4cbc808b70cf0d6c73ce3a370a1ea33be29fabd1330350ac500f08d23536fd9bf7ccc3c58bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/fa/3a/2141702d92211a275dda0cd700aaeb14e4b2f64848cc8487cd75710c01b767d666b0cadc82ff9e8a3cd780d01585ab79854c7a8d365fc8292bb03dcc7e51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/fa/64/3ee421b9f11e0f9828307fc9fb221127278d416de65e12d52d278ab8e0515203310f2cf217e42365c640a8b5cdee46e4ce8c5d7912f863bc98cd84e42409" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/fa/81/249a7af9a1bd735f9721e30b533610e4f420ca36612b23be55a6b62ad9fbc4bcacdcfed7914fefc1544b2826974582b659b44d40c3ae5b4a5056bd126cfd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/fe/20/f2b1160da7ad9ca13dbab95c7af9126178724cee44edfabdfc9a0f7b4055278d805530cc7db48a3ad5e5058cb7a21507565b01ea007dc1e11545e9514777" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/07/17/8c8b085a71e58752051e1021535ad7dbcd0b291ffaa50c4cb431b2513521" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/08/c5/5a7ded2c136ed6b8a77941f6d3784a34beda27c877ea571a77006d136f98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/0d/4d/dc71cf910372ec52f29398e931872862b3db27c80627cd5b4113d80e9d8c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/10/4a/31b5c5a5007fda9791c43be4bfa40b78bbe5cb7f0f1c0ef27847c49ef5af" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/10/d2/7e5c06e2a9bfd0d03e63a07c59abd4392952fa3d0febcf190719ad7db988" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/13/4a/625f1df8110b521c735f5843b2b5b0e7bb6b8b75d72f079d7332919f3e67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/14/60/f2dd99121397135a2d9181ed42a5d2e958ce03879310cf5f9367a7785113" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/16/10/5f122d80f579b2beea3010f49bdc1b47f973fcbdffc444bec5d7adf41f8d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/18/12/e73b49584e082a132f6ff7afef2bf8c9c5ed7900742c409692d3c5055d59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/1a/45/24676f7f038ae38ea1c7802a57c762ba70902ba76da77bf06cdc4c407de2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/1e/e6/8ebade461a3ac1537418d7ce834ea6b4470027402ed172142b96567c3979" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/1f/42/24fa91ad24edb1c7c62fc80c362bda613b1292d3f3bc8f340a837cdd4e70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/1f/f3/b0b695981780db27e37557f51cb1fadda19de3305de24599a3479786f536" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/20/1d/f26e1d9d96ac16471572654cbb9d95d464fa60936e92c8d9c76b0f04a841" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/22/3b/099189b667ec3b91e588b24fe07472fbb2eff64e5e51439a68e3a8e4a044" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/24/e2/2fb1455ce372b784c8f8c6cffcfe169adb306eaadeb1ecba39d93c25d5c3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/27/80/126e3960e4147f77d96cda4f4e50ced48c8bb8f0b34a1bf8835b30ea2d46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/2d/5d/690c77b3dddb0a25fb7a77f5f92614fa39d64211edd03fe32812f736feab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/2d/ac/3b4fdb647ef345a9321777d21487b9454990ceb1de859fe177d8db9761a9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/2e/2b/95bc195158426a82a919690f790503efb7d65bbd6d9df9602010ab4d3d69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/2f/9d/693b39ef33bad62b0b317490d713e16780cdc0dbc7efda0b8ea15d55d110" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/33/97/b49af21a7cbbaf133b346d1252ddd0ed578ea32562c8e4f32e5367fac45c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/34/e3/57faac23cbd00a100ae1900f77cbde35cecc5187c49013f978a5aed5c774" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/35/66/eef03bbe8df1b9a4ec61c7d4316709f26a7b579281ee065c61219f36ec6c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/35/ff/2a9573c6ed35846be08a8022e9f592319f2961b7b7fd623ab4810786ef99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/3d/90/01c39075acc2f2a88bdb15fbe8041c7385fb3acce20efbbb1f705b0f1f15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/42/9c/eadaeb103f30293909fc07c5d2e1d30f9784044bab3f5e2f343687a64bee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/44/47/d25d9d34d35b6fc75dee10b2cdb3ad70b82e40a21b3b89b8da89f38a0ec0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/45/71/7c90660bdac7df2235b983d5d21916ccaa959fce15433a30ad587661eaaa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/45/7b/32b156c3b4de2379738431e13063c7298c89a4b5d48057f964c3eabbae1e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/49/bd/0fb30e5f8ea2b389ca26eef09bfc812388bf2b5eb31018f0e6cdece47e6b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/4b/c8/526e40237597c660c5f8c7eadfef8a73e91644e95a8315e6f38e85e4b4ca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/4b/ce/ba40ffa32ee1cbfae955e1e01b58ee09339aaa3b3fc5d05380a5729b4b38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/4c/5c/574863c7fc839216f16b8d907e59d775844b6eacc3f9b43b1d3f72b3e656" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/55/8b/c8b3c901e40b6f216983db4047ed239fcd75a9727d42fb61da7a0a66f37c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/5e/13/7dbd4a657f9bd76187d38d4ace6e1231d0954f4b824d8ee075573681dc13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/60/31/7180643a7c5880e1198f73094e0d24b0e56949edbf25bda0860e7d9129f3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/62/9f/0a447a4776645f75fe496e8458ba7ac58f759d6a240bd897be2891f05e4e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/62/ea/cb00f5f97e33751388579e1f1752fe9db64d77fc76b628b8819761237b07" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/63/fa/a903bd30740bf0a1d303f5b89d84c26186f137576e77d5a86a8fbc0439ab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/65/7c/4f416c5880655a159cdd83f8476bc5b88802139cdcf7b536ceebb8e523cd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/65/b7/9a78c0efc97aeb3ad428f11cf74cb2ef4f59b9a97f669cbe7079eece50c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/67/0f/7ea5648696bac236f29b653f35c4df325001b814968e0af6569e2c1377ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/68/48/1b0e65997d4fff6437abced52049d78d4882eac2d22363d85b70c450fb6a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/6a/15/478b1aa8c0e7b95e07c7dc007f158ffa8e01d7c9e14b27aa5944b5363cbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/6b/93/b0c2fe272c6de910407137efe5f1fb38a51fa7a02c523fa493cd0f2dee59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/6e/ab/84c04b8dcf1f309eb285c97dcc8edc7f898589a16426bd49c8f953a0be91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/6f/2d/b7d1004287f0a1b1fdc31a9df7ad934a1ec724930407c6aadb26a1bcc56f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/73/2f/3df7cce7181b1eb4e5fb80bb85d268521a95bbbd0e3ccda02b543ffe50ff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/75/7f/468b98f990fbdde12205c20f71999418a8e8e52f5a693650927eb3fa472e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/75/b3/a9d7975d93b49a512bd207929dbe1f8f2d8b481aa6c04c69f3ee6b61f37d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/75/ff/1226c6ce26ee6435016b8601a8718c6b4563189d53ed85b79223a2c18349" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/79/7e/48756bbeed125d85384aea248df71d9ff882bc4e9c5f2ec548019520f6ed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/7b/eb/173922ab7f031ef9d0c87013a8b7e4e79ac952defaa1284de457b518d49d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/7c/1f/5a5b4252b6a93c2f9af6d113724debd417c3b784b062364095d105b9be3d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/7d/02/9caff26d8e84745e21047a60bfae9a929c4f5c3013a85903a547de85e6f1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/7d/1b/c0c8d303346b787416b990d2178b8880f9ad03ae992fc7643a1e73eed80a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/7e/84/de539bb4e845d92bfc42328a4bef8f0e7afc86111b25e53c309e737ce787" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/7f/ef/4897eefec50144b14782ed77a31c5078ef54b767df1c83a41927a0d40d87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/80/ae/da14857660e83231b639fb6fc1e42c423a56c6dc9c10c601b1ada210c7bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/82/58/af82a84f9b51e9924959f37f53ece3984204bcd93b63805726252f0332cd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/83/18/d5d4a309a1399b61e641c77f20dcdccd135afafd01af80d9c14415247288" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/86/f0/29d164f69a71dd2873a136666b539be0b047c9792548fc08d7f9d6e9b74f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/88/a1/f5f4492ae140247a4621afe946f770cf37f1f146170ee250e4f130224582" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/89/f5/7e882bc71e0ecef18b62dd89bbed980fec3eb3d86ef1ae7a71738a9031f9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/8a/de/e913e1c3ba9cb79f7fce2fa2f43ed9ea9193dad466224885215eaa173aba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/92/32/ea32893cc06e4d26fa06fa1f358e6fa90fc80f0d9431de7ea34eca63a5ae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/95/a8/1fd3be58b4779d71bb2d03f378a3abf9468958f8524619176d4d19a92d09" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/9f/b5/eb906b9f4188c7c12e4aa7ee87584473280bea053f9f1e10e59a49d350c4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/a1/4a/bea29b993ba60bf9604f149748e223137adcba5c622a08a6b95212ec23fd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/a2/90/1d2c20fad67fa4adf1166ce5b46b2b75a5f28750c7995481950f3732fc38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/a4/2e/17cfef143107ace68075e809ea3a5d090876326af2b28c9d24c043f2c624" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/a7/11/55906fb2b32fdef9bebac36e3a83db77b629979e579aa14956b29ebe6d0c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/a7/d5/8a34818c2e45f9c45ec2320454f1466e04f93e484b7cad0e4e3de9c6577e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/b4/f8/7a179ab899e4bdbaa4b5bffc5caa6fb6fb7dc2b1586275258ae18f96d445" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/b7/28/d04cbbc2e212079d87373f322646d21ee60a7ef1204827697fdce5e88e04" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/b9/c9/ec5afab3c1aaa459c2c042cb809fd0001ef72c02160686b287310d6c9a61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/ba/e6/90453591889e81ba664e3ea31f748fcb38ef15cd18aadbc969e5e4997ab3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/bc/4a/23ae3155be768c583853e2c3b4d0f13eec43dfbbd638427af56db8037431" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/bd/13/5fdca9bd5efdc423070d46ce8eb161fc8cebd42bae52ce571c4dab5633db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/c1/d0/274f6816916e71abf9a6b7e5e5e5d253ad68b074c4f7034b319317e24bc0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/c1/eb/697260328d4f4be7d5476739a7a88895f43524a5081a941968e25a03e068" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/c3/dd/0b6a594a00f5db76631845378c2e760a8c74d9b130c244c10c4d7cc599f7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/c5/67/11378b8a64b91c6be34f97fb6f9a4c9215a815b4c5c0b74749f40b94b05e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/c6/11/0c4efbad0d2fbbe4938a118846e9f1719d3d59670dd80c187b1f523a249c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/c9/80/c371567e1da4c1232c2269686d78833ca1f2739d328b428c606dbd2cfdfa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/cc/18/a5022cd8f40336b78a5f8bb11b2846b4cc3f36351a7493da727b1d1f625c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/cc/ba/12cd4a941ab3cf1586f3cc9fca83e8432ed5e4fcfbf6963f2054b5ca1676" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/cd/f1/89c94b4069b68053c79bf028aa38f51cd4e274a31b1c41da9a55c16b0e11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/d1/1f/c7fedfc45b84e66bc8ee0bdf4cfdd2a4bf37a0a57f5ff91ac7762fa3bc67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/d3/46/dbb5f8a911b98d4ca93728778e26c5b14381c59e1c3aa14cc486a7d1da89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/d3/99/bb577d672324dc9f032ac0fcddb848273e3bf676412b323bd980cf36f144" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/d7/6e/e2a42a9156cc13edb5debc1f2fe6867973bf1638eaf1f778c40a50a4bda5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/d8/b1/6c23aa7d809c18b2cec7a2a20c46ca0080a13c90e5ce1c38f011a15d6f30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/d8/cc/064ec4fe867838c87fcce6719e858bc5aea3b6a16464bac641d2ab8f8e81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/da/08/4166ca2079e0559857522bbec42b0c27ac42c66c10825068877942ce894f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/de/07/cdf4380b291473a00ea720223937e38fa3deb4ab37f56c1c8bb3f16c6cf7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/de/38/89e93614dfc0814384e21628c89f70b47ec93ec4dd2f5e14286e16a0b690" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/e3/e7/0f6e269952d7c4c206b1046a775621672fdbc8272c6aa0f43033811655e6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/e5/d1/a41fc63d79e8d92a7e5ee273901709580cd42c4a7065bd2f58586338c467" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/e6/06/4db6cc18be70bcf791c7bf938ea6dc90c845bac3a0b57899d85e4efc1e44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/e7/e2/cfe900eef694c3e305d7a8ab8b69e9f98f0f02ce82ae28bf5d4edc07cf50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/e8/57/3e3ed40f167b5bb20c8f169d0682db62c997b68c95652b0f5eba93bdb85b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/ea/8a/7377a01e0b28f62666b8f02d1b6d13df67c064bd64478f2d45eb33734da7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/ee/15/bd51c7cea3299dcb9cbe0be38cf0eb4da106ef881ab640a32022e2fbd50c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/ee/80/5d712b1dc39d86acba927254de0efacebeeefd2f052a980c22ebf326a266" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/ef/33/8c44fa7a1b217bcfd509e4d993029b1cec65491ca50e5f90ae9f87e1751c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/f0/cb/e94e838de385d1da692e06a1e1db1d4a27e063cd190fe039360101251906" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/f1/ea/808690a962f48574a2af8a175edefaf098901e82c773f7561f685e812bf3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/f2/1a/235f15711520817e6b348151fc996ee86744d134b8cfbfc2f20e9153ce96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/f7/82/8d551083978c3efd12b022d19698617ba5167e952edf77185923fd612f63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fb/78/1626aecb005d2467319a0659145bdfa10e865fc5431208f692f1d583567d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fb/db/c60bf1828a85d128c8662734f1bdfa612b3d14eba604517ab0ec151e2e70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fd/06/a006eba63b210ec818b7db07ff9d17611b39fdfcf2cdaf277d4e89e6cf02" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fd/09/fe6a72b287597d72aacbdaba2ef305830af8c8eceb6d92380c5403bb684a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fd/ce/4a36d77177129128a170a802920f3fb8d45c95c10d00a077a0de2259a2cf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fe/1a/a3ac8426f058105b4754ffcb5793df792f3ab225eb107a30f28c55ad21c4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fe/8d/87838293552b86960551147f5ddaeabff596a2fccf56583044504a3d5f0d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/terser-webpack-plugin/index-v5/fe/90/adb91cc021d05383595c3864e72aa378f16d0274a62fdc25b48b47f6c799" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/mixin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/mixin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-active-header-links/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/BackToTop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/BackToTop.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/client.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vuepress/plugin-back-to-top/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/append.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/append.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/append/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/append/constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/count.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/count.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/help.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/store/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/store/constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/store/false.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/store/false.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/store/true.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/store/true.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/subparsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/subparsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/action_container.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/action_container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/argparse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/argparse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/argument/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/argument/error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/argument/exclusive.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/argument/exclusive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/argument/group.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/argument/group.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/argument_parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/argument_parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/const.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/const.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/help/added_formatters.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/help/added_formatters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/help/formatter.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/help/formatter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/namespace.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/namespace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/lib/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/argparse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/argparse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/lib/decode.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/lib/decode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/lib/decode_codepoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/lib/decode_codepoint.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/lib/encode.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/lib/encode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/maps/xml.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/maps/xml.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/test/mocha.opts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/test/mocha.opts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/entities/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/entities/test/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/linkify-it/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/linkify-it/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/linkify-it/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/linkify-it/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/linkify-it/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/linkify-it/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/linkify-it/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/linkify-it/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/linkify-it/lib/re.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/linkify-it/lib/re.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/linkify-it/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/linkify-it/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.debounce/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.debounce/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.debounce/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.debounce/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.debounce/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.debounce/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.debounce/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.debounce/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.throttle/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.throttle/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.throttle/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.throttle/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.throttle/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.throttle/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash.throttle/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash.throttle/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/bin/markdown-it.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/bin/markdown-it.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/dist/markdown-it.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/dist/markdown-it.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/dist/markdown-it.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/dist/markdown-it.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/entities.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/entities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/html_blocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/html_blocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/html_re.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/html_re.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/common/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/parse_link_destination.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/parse_link_destination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/parse_link_label.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/parse_link_label.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/parse_link_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/helpers/parse_link_title.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/parser_block.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/parser_block.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/parser_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/parser_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/parser_inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/parser_inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/presets/commonmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/presets/commonmark.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/presets/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/presets/default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/presets/zero.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/presets/zero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/renderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/renderer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/ruler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/ruler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/blockquote.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/blockquote.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/code.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/fence.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/fence.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/heading.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/heading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/hr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/html_block.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/html_block.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/lheading.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/lheading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/paragraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/paragraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/reference.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/reference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/state_block.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/state_block.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_block/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/block.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/block.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/linkify.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/linkify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/normalize.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/normalize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/replacements.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/replacements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/smartquotes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/smartquotes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/state_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_core/state_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/autolink.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/autolink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/backticks.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/backticks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/balance_pairs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/balance_pairs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/emphasis.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/emphasis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/escape.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/escape.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/html_inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/html_inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/link.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/link.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/newline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/newline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/state_inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/state_inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/strikethrough.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/strikethrough.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/text.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/text_collapse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/rules_inline/text_collapse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/lib/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/lib/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/markdown-it/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/markdown-it/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/decode.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/decode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/encode.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/encode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/format.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/format.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mdurl/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mdurl/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/demo/angular.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/demo/angular.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/dist/angular-sprintf.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/dist/angular-sprintf.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/dist/sprintf.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/dist/sprintf.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/gruntfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/src/angular-sprintf.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/src/angular-sprintf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/src/sprintf.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/src/sprintf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sprintf-js/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sprintf-js/test/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/categories/Cf/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/categories/Cf/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/categories/P/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/categories/P/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/categories/Z/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/categories/Z/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uc.micro/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uc.micro/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get-started.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/home.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/home.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -450,13 +20,13 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="576">
-                  <caret line="24" selection-start-line="24" selection-end-line="24" />
+                <state relative-caret-position="1824">
+                  <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
                   <folding>
-                    <marker date="1563819928819" expanded="true" signature="556:811" ph="..." />
+                    <marker date="1563821090490" expanded="true" signature="556:811" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -485,11 +55,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="25" selection-start-line="25" selection-end-line="25" />
+                <state relative-caret-position="672">
+                  <caret line="28" selection-start-line="28" selection-end-line="28" />
                 </state>
               </provider>
             </entry>
@@ -558,8 +128,8 @@
             <entry file="file://$PROJECT_DIR$/docs/get-started-pubsub.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
                 <state split_layout="FIRST">
-                  <first_editor relative-caret-position="480">
-                    <caret line="357" selection-start-line="346" selection-end-line="357" />
+                  <first_editor relative-caret-position="96">
+                    <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
                     <folding>
                       <element signature="e#14#91#0" expanded="true" />
                       <element signature="e#14#82#0" expanded="true" />
@@ -573,6 +143,15 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Taskfile.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="96">
+                  <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.yml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="72">
@@ -581,12 +160,40 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/docs/tutorials-kubetools.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
                 <state split_layout="FIRST">
+                  <first_editor relative-caret-position="-3351">
+                    <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+                  </first_editor>
+                  <second_editor>
+                    <markdownNavigatorState />
+                  </second_editor>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/docs/home.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+                <state split_layout="SPLIT">
                   <first_editor relative-caret-position="24">
-                    <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+                    <caret line="1" selection-start-line="1" selection-end-line="19" />
+                  </first_editor>
+                  <second_editor>
+                    <markdownNavigatorState />
+                  </second_editor>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/docs/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="73">
+                    <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -614,6 +221,8 @@
       <find>$</find>
       <find>C#</find>
       <find>google</find>
+      <find>stretch</find>
+      <find>&quot;true&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>channel-name</replace>
@@ -649,8 +258,6 @@
         <option value="$PROJECT_DIR$/docs/concepts-rpc.md" />
         <option value="$PROJECT_DIR$/docs/concepts-terminology.md" />
         <option value="$PROJECT_DIR$/docs/concepts-endpoints.md" />
-        <option value="$PROJECT_DIR$/docs/home.md" />
-        <option value="$PROJECT_DIR$/docs/README.md" />
         <option value="$PROJECT_DIR$/docs/.vuepress/dist/index.html" />
         <option value="$PROJECT_DIR$/docs/get-started.md" />
         <option value="$PROJECT_DIR$/docs/concepts-pubsub.md" />
@@ -667,8 +274,6 @@
         <option value="$PROJECT_DIR$/docs/sdk-net.md" />
         <option value="$PROJECT_DIR$/docs/rest.md" />
         <option value="$PROJECT_DIR$/docs/sdk-python.md" />
-        <option value="$PROJECT_DIR$/Taskfile.yml" />
-        <option value="$PROJECT_DIR$/docs/get-started-pubsub.md" />
         <option value="$PROJECT_DIR$/docs/tutorials-channels.md" />
         <option value="$PROJECT_DIR$/docs/tutorials-concepts.md" />
         <option value="$PROJECT_DIR$/docs/tutorials-queue.md" />
@@ -679,8 +284,12 @@
         <option value="$PROJECT_DIR$/docs/.vuepress/styles/palette.styl" />
         <option value="$PROJECT_DIR$/docs/theme/styles/index.styl" />
         <option value="$PROJECT_DIR$/docs/installation-kubernetes.md" />
-        <option value="$PROJECT_DIR$/docs/.vuepress/config.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/docs/home.md" />
+        <option value="$PROJECT_DIR$/docs/README.md" />
+        <option value="$PROJECT_DIR$/docs/get-started-pubsub.md" />
+        <option value="$PROJECT_DIR$/Taskfile.yml" />
+        <option value="$PROJECT_DIR$/docs/.vuepress/config.js" />
       </list>
     </option>
   </component>
@@ -846,14 +455,20 @@
       <option name="project" value="LOCAL" />
       <updated>1563713751149</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="v1.2.5&#10;major upgrade">
+      <created>1563820157912</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1563820157912</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="3086" height="1702" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08856577" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08856577" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -867,7 +482,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49966845" weight="0.32936507" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49966845" visible="true" weight="0.18427835" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49966845" visible="true" weight="0.18427835" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003316" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -945,7 +560,8 @@
     <MESSAGE value="v1.2.1&#10;Fix typos" />
     <MESSAGE value="v1.2.1&#10;add dist" />
     <MESSAGE value="-v1.2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="-v1.2.4" />
+    <MESSAGE value="v1.2.5&#10;major upgrade" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2.5&#10;major upgrade" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/docs/installation-helm.md" />
@@ -1031,30 +647,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/kubernetes-yaml-configuration-generator.PNG">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="480">
-            <caret line="31" selection-start-line="31" selection-end-line="31" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/home.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="432">
-            <caret line="18" selection-start-line="18" selection-end-line="18" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/examples.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
@@ -1181,19 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/get-started.md">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="192">
-            <caret line="8" selection-start-line="8" selection-end-line="8" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/tutorials-features-list-comparison.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -1302,33 +881,10 @@
         <state relative-caret-position="-10656" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Taskfile.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-old.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/get-started-pubsub.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="480">
-            <caret line="357" selection-start-line="346" selection-end-line="357" />
-            <folding>
-              <element signature="e#14#91#0" expanded="true" />
-              <element signature="e#14#82#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
         </state>
       </provider>
     </entry>
@@ -1373,18 +929,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="24">
             <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-kubetools.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="24">
-            <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1437,20 +981,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-kubetools.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-3351">
+            <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/get-started.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-2112">
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/home.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="24">
+            <caret line="1" selection-start-line="1" selection-end-line="19" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/get-started-pubsub.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="96">
+            <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <folding>
+              <element signature="e#14#91#0" expanded="true" />
+              <element signature="e#14#82#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Taskfile.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <marker date="1563819928819" expanded="true" signature="556:811" ph="..." />
-          </folding>
+        <state relative-caret-position="96">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="73">
+            <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="672">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824">
+          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+          <folding>
+            <marker date="1563821090490" expanded="true" signature="556:811" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

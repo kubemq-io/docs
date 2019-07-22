@@ -2,7 +2,7 @@
 home: true
 heroImage: /illustration-ship-1.png
 actionText: Get Started →
-actionLink: /get-started.md
+actionLink: /get-started-pubsub.md
 features:
 - title: Multi-Cloud
   details: KubeMQ enables true freedom and control to run an application, workload, or data on any cloud – private or public – based on business or technical requirements. Supports any architecture, edge or bus topologies.
@@ -20,7 +20,7 @@ KubeMQ is provided as a small, lightweight Docker container, designed for any wo
 ## Main Features
 - All-batteries included Messaging Broker for Kubernetes environment
 - Blazing fast (written in Go), small and lightweight Docker container
-- Asynchronous and Synchronous messaging with support for `At Most Once Delivery` and `At Least Once Delivery` models
+- Asynchronous and Synchronous messaging with support for  `Exactly One Delivery`, `At Most Once Delivery` and `At Least Once Delivery` models
 - Supports durable FIFO based Queue, Publish-Subscribe Events, Publish-Subscribe with Persistence (Events Store), RPC Command and Query messaging patterns
 - Supports gRPC, Rest and WebSocket Transport protocols with TLS support (both RPC and Stream modes)
 - Runs in Single and cluster modes
@@ -29,3 +29,4 @@ KubeMQ is provided as a small, lightweight Docker container, designed for any wo
 - .Net, Java, Python, Go, and NodeJS(coming-soon) SDK
 - MSSQL and MSMQ Connectors (AMQP and JMS coming-soon)
 - Monitoring Dashboard
+

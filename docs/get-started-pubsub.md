@@ -2,7 +2,7 @@
 title: Pub/Sub
 lang: en-US
 ---
-# Pub/Sub
+# Get Started With Pub/Sub
 ## Table of Content
 [[toc]]
 ## Deploy a KubeMQ

@@ -47,14 +47,14 @@ module.exports = {
             },
             {
                 title: 'Get Started',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     '/get-started-pubsub',
                 ]
             },
             {
                 title: 'Installation',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     '/installation-kubernetes',
                     '/installation-docker',
@@ -63,7 +63,7 @@ module.exports = {
             },
             {
                 title: 'Tutorials',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     '/tutorials-concepts',
                     `/tutorials-queue`,
@@ -74,7 +74,7 @@ module.exports = {
             },
              {
                 title: 'Reference',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     '/sdk-net',
                     '/sdk-java',
