@@ -2,10 +2,13 @@
 title: Docker
 lang: en-US
 ---
-
-## General
+# Docker Deployment
 
 KubeMQ can be deployed as a single docker container or as a service in a docker-compose file.
+
+## Table of Content
+[[toc]]
+
 
 
 ::: tip KubeMQ Token
@@ -18,17 +21,23 @@ Please [register](https://account.kubemq.io/login/register?destination=docker) t
 ## Docker Command
 
 Pull and run KubeMQ Docker container:
-```
+``` bash
 docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 -v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
 
 ```
 
 
-## Docker-Compose
+## Docker Compose
 
-Run `docker-compose -d up` with the following yaml file:
+Run :
 
+``` bash
+docker-compose -d up
 ```
+
+With the following yaml file named docker-compose.yaml:
+
+``` yaml
 version: '3.7'
 services:
   kubemq:

@@ -1,14 +1,16 @@
+---
+title: Go
+lang: en-US
+---
+
 # Go
 KubeMQ is an enterprise-grade message broker for containers, designed for any workload and architecture running in Kubernetes.
 This library is Go implementation of KubeMQ client connection.
-### Installation
+## Table of Content
+[[toc]]
+## Installation
 `$ go get -u github.com/kubemq-io/kubemq-go
 `
-### Examples
-Please find usage examples on the examples folders.
-
-### KubeMQ server
-Please visit https://kubemq.io, create an account, get KubeMQ token, and follow the instructions to run the KubeMQ docker container in your environment.
 
 ## Core Concepts
 KubeMQ messaging broker has 4 messaging patterns:
@@ -43,7 +45,7 @@ A Client connection object is thread-safe and can be shared between all process 
 ## Connection
 
 Connecting to KubeMQ server can be done like that:
-```
+``` go
 ctx, cancel := context.WithCancel(context.Background())
 defer cancel()
 client, err := kubemq.NewClient(ctx,
@@ -68,7 +70,7 @@ List of connection options:
 ## Events
 ### Sending Events
 #### Single Event
-```
+``` go
 err := client.E().
       SetId("some-id").
       SetChannel(channel).
@@ -80,7 +82,7 @@ if err != nil {
 }
 ```
 #### Stream Events
-```
+``` go
 eventStreamCh := make(chan *kubemq.Event, 1)
 errStreamCh := make(chan error, 1)
 go client.StreamEvents(ctx, eventStreamCh, errStreamCh)
@@ -100,7 +102,7 @@ for {
 ```
 ### Receiving Events
 First you should subscribe to Events and get a channel:
-```
+``` go
 channelName := "testing_event_channel"
 errCh := make(chan error)
 eventsCh, err := client.SubscribeToEvents(ctx, channelName, "", errCh)
@@ -109,7 +111,7 @@ if err != nil {
 }
 ```
 Then you can loop over the channel of events:
-```
+``` go
 for {
    select {
    case err := <-errCh:
@@ -123,7 +125,7 @@ for {
 ## Events Store
 ### Sending Events Store
 #### Single Event to Store
-```
+``` go
 //sending 10 single events to store
 for i := 0; i < 10; i++ {
    result, err := client.ES().
@@ -139,7 +141,7 @@ for i := 0; i < 10; i++ {
 }
 ```
 #### Stream Events Store
-```
+``` go
 // sending addtional events to store
 eventsStoreStreamCh := make(chan *kubemq.EventStore, 1)
 eventsStoreSResultCh := make(chan *kubemq.EventStoreResult, 1)
@@ -163,7 +165,7 @@ for i := 0; i < 10; i++ {
 ```
 ### Receiving Events Store
 First you should subscribe to Events Store and get a channel:
-```
+``` go
 eventsCh, err := client.SubscribeToEventsStore(ctx, channelName, "", errCh, kubemq.StartFromFirstEvent())
 if err != nil {
    log.Fatal(err)
@@ -180,7 +182,7 @@ KubeMQ supports 6 types of subscriptions:
 - StartFromTimeDelta - replay events from specific current time - delta duration in seconds, continue stream new events from this point
 
 Then you can loop over the channel of events:
-```
+``` go
 for {
    select {
    case err := <-errCh:
@@ -199,7 +201,7 @@ The response can be successful or not. This is the responsibility of the respond
 
 ### Sending Command Requests
 In this example, the responder should send his response withing one second. Otherwise, an error will be return as timeout.
-```
+``` go
 response, err := client.C().
    SetId("some-command-id").
    SetChannel(channelName).
@@ -214,7 +216,7 @@ if err != nil {
 
 ### Receiving Commands Requests
 First get a channel of commands:
-```
+``` go
 errCh := make(chan error)
 commandsCh, err := client.SubscribeToCommands(ctx, channelName, "", errCh)
 if err != nil {
@@ -222,7 +224,7 @@ if err != nil {
     }
 ```
 Then a loop over the channel will get the requests from the senders.
-```
+``` go
 for {
    select {
    case err := <-errCh:
@@ -241,7 +243,7 @@ When sending a response, there are two essential things to remember:
 - Set the relevant requestId which you respond to
 - Set the ResponseTo string to the value of the request ResponseTo field
 
-```
+``` go
 err := client.R().
     SetRequestId(command.Id).
    SetResponseTo(command.ResponseTo).
@@ -260,7 +262,7 @@ The response must include metadata or body together with an indication of succes
 
 ### Sending Query Requests
 In this example, the responder should send his response withing one second. Otherwise, an error will be return as timeout.
-```
+``` go
 response, err := client.Q().
     SetId("some-query-id").
     SetChannel(channel).
@@ -275,7 +277,7 @@ if err != nil {
 
 ### Receiving Query Requests
 First get a channel of queries:
-```
+``` go
 errCh := make(chan error)
 queriesCh, err := client.SubscribeToQueries(ctx, channelName, "", errCh)
 if err != nil {
@@ -283,7 +285,7 @@ if err != nil {
 }
 ```
 Then a loop over the channel will get the requests from the senders.
-```
+``` go
 for {
    select {
    case err := <-errCh:
@@ -302,7 +304,7 @@ When sending a response, there are two essential things to remember:
 - Set the relevant requestId which you respond to
 - Set the ResponseTo string to the value of the request ResponseTo field
 
-```
+``` go
 err := client.R().
     SetRequestId(query.Id).
    SetResponseTo(query.ResponseTo).
@@ -315,3 +317,6 @@ if err != nil {
    log.Fatal(err)
 }
 ```
+
+## Examples
+Please find usage examples on the examples folders.

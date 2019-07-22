@@ -1,15 +1,16 @@
 ---
 title: Kubernetes
 lang: en-US
+
 ---
-
+# Kubernetes Deployment
+## Table of Content
+[[toc]]
 ## General
-
 KubeMQ can be deployed in a Kubernetes cluster as s StatefullSet either by a yaml config file or by helm chart.
 
 
 ![image info](./images/kubernetes-cluster.png)
-
 
 ::: tip KubeMQ Token
 Every installation method requires a KubeMQ token.
@@ -20,7 +21,8 @@ Please [register](https://account.kubemq.io/login/register?destination=docker) t
 
 ## YAML File
 Copy and deploy the following yaml file:
-```
+
+``` yaml
 apiVersion: v1
 kind: List
 items:
@@ -104,18 +106,20 @@ items:
 ## Helm Chart
 
 Add KubeMQ Helm Repository:
-```
-$ helm repo add kubemq-charts https://kubemq-io.github.io/charts
+
+``` bash
+helm repo add kubemq-charts https://kubemq-io.github.io/charts
 ```
 
 Verify KubeMQ helm repository charts is correctly configured by:
-```
-$ helm repo list
+``` bash
+helm repo list
 ```
 
 Install KubeMQ Chart:
-```
-$ helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> kubemq-charts/kubemq
+
+``` bash
+helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> kubemq-charts/kubemq
 ```
 
 
@@ -157,6 +161,6 @@ The following table lists the configurable parameters of the KubeMQ chart and th
 | volume.accessMode                  | `"ReadWriteOnce"` | Sets Persistence access mode                                                                |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to helm install. For example,
-```
+``` bash
 helm install --name kubemq-release --set token={your kubemq token},nameOverride=my-kubemq-cluster kubemq-charts/kubemq 
 ```

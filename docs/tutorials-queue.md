@@ -1,11 +1,15 @@
+---
+title: Queue Pattern
+lang: en-US
+---
 # Queue
-
-## Definition
 Message queues provide an asynchronous communications protocol, meaning that the sender and receiver of the message do not need to interact with the message queue at the same time. Messages placed onto the queue are stored until the recipient retrieves them.
 
 Message queues have implicit or explicit limits on the size of data that may be transmitted in a single message and the number of messages that may remain outstanding on the queue.
 
 ![image info](./images/queue.png)
+## Table of Content
+[[toc]]
 
 ## Core Features
 KubeMQ supports distributed durable FIFO based queues with the following core features:
@@ -20,13 +24,13 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 - **Visibility timers** - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
 - **Resend Messages** - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
 
-## Message Expiration
-KubeMQ allows the producer to set each message with an expiration time (in seconds). After this time, the message will not be longer available to any consumer.
+## Message Expiration (TTL)
+KubeMQ allows the producer to set each message with an expiration time (in seconds) also known as Time To Live (TTL). After this time, the message will not be longer available to any consumer.
 
 ![image info](./images/queue-expiration.png)
 
-## Message Delay
-KubeMQ allows the producer to set each message with sending delay (in seconds) from the sending time. Until this time, the message will not be available to and consumer.
+## Message Delay (Scheduled Messages)
+KubeMQ allows the producer to set each message with sending delay (in seconds) time also known as Scheduled Messages. Until this time, the message will not be available to and consumer.
 
 ![image info](./images/queue-delay.png)
 

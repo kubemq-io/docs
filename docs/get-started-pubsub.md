@@ -2,13 +2,22 @@
 title: Pub/Sub
 lang: en-US
 ---
-
-## General
+# Pub/Sub
+## Table of Content
+[[toc]]
+## Deploy a KubeMQ
 To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
 
 You can select one of the methods below:
 1. [Docker Container](./installation-docker.md)
 2. [Kubernetes CLuster](./installation-kubernetes.md)
+
+
+::: tip KubeMQ Token
+Every installation method requires a KubeMQ token.
+Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
+:::
+
 
 Now that you have KubeMQ installed and running, we will do the following steps:
 
@@ -21,24 +30,27 @@ As showed in the following diagram:
 ![image info](./images/pub-sub-hello-world.png)
 
 
-## Subscribe
-
-A consumer can subscribe to the "hello-world" channel with one of the following methods.
-
-
-### CLI
-```
-$ ./kubetools pubsub rec event hello-world
-```
-
 ::: tip KubeTools
 KubeTools is KubeMQ CLI tool.
 You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
 :::
 
-### .Net
+## Subscribe To Channel
+
+A consumer can subscribe to the "hello-world" channel with one of the following methods.
+
+<CodeSwitcher :languages="{bash:'kubetools',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`}" :isolated="true">
+<template v-slot:bash>
+
+``` bash
+$ ./kubetools pubsub rec event hello-world
 ```
 
+
+</template>
+<template v-slot:csharp>
+
+``` csharp
 using KubeMQ.SDK.csharp.Events;
 using KubeMQ.SDK.csharp.Subscription;
 using System;
@@ -102,8 +114,10 @@ namespace kubemqreceiverExm
     
 ```
 
-### Java
-```
+</template>
+<template v-slot:java>
+
+``` java
 
 import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
 import io.kubemq.sdk.event.lowlevel.Event;
@@ -223,8 +237,11 @@ public class BaseExample {
     
 ```
 
-### Go
-```
+
+</template>
+<template v-slot:go>
+
+``` go
 package main
 
 import (
@@ -271,9 +288,10 @@ func main() {
 }
 ```
 
+</template>
+<template v-slot:py>
 
-### Python
-```
+``` py
 from builtins import input
 
 from kubemq.events.subscriber import Subscriber
@@ -318,23 +336,27 @@ if __name__ == "__main__":
     
 ```
 
+</template>
+</CodeSwitcher>
 
-## Publish
+
+
+## Publish to Channel
 
 After you have subscribed to a hello-world channel, you can send your message to it.
 
-### CLI
-```
+
+<CodeSwitcher :languages="{bash:'kubetools',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`}" :isolated="true">
+<template v-slot:bash>
+
+``` bash
 $ ./kubetools pubsub send event hello-world "Hi KubeMQ"
 ```
 
-::: tip KubeTools
-KubeTools is KubeMQ CLI tool.
-You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
-:::
+</template>
+<template v-slot:csharp>
 
-### .Net
-```
+``` csharp
 
 using KubeMQ.SDK.csharp.Events.LowLevel;
 using System;
@@ -382,9 +404,10 @@ namespace kubemqsenderExm
     
 ```
 
-### Java
-```
+</template>
+<template v-slot:java>
 
+``` java
 import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
 import io.kubemq.sdk.event.lowlevel.Event;
 import io.kubemq.sdk.event.lowlevel.Sender;
@@ -469,8 +492,10 @@ public class BaseExample {
     
 ```
 
-### Go
-```
+</template>
+<template v-slot:go>
+
+``` go
 package main
 
 import (
@@ -505,10 +530,10 @@ func main() {
 
 ```
 
+</template>
+<template v-slot:py>
 
-### Python
-```
-
+``` py
 from kubemq.events.lowlevel.event import Event
 from kubemq.events.lowlevel.sender import Sender
 
@@ -526,3 +551,8 @@ if __name__ == "__main__":
     sender.send_event(event)
     
 ```
+
+
+</template>
+</CodeSwitcher>
+

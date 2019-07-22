@@ -1,6 +1,12 @@
-# Python
+---
+title: Python
+lang: en-US
+---
 
+# Python
 The **KubeMQ SDK for Python** enables Python developers to easily work with [KubeMQ](https://kubemq.io/).
+## Table of Content
+[[toc]]
 
 ## Getting Started
 
@@ -12,7 +18,7 @@ KubeMQ-SDK-Python works with **Python 2.7** or newer.
 
 The recommended way to use the SDK for Python in your project is to consume it from pip.
 
-```
+``` bash
 pip install kubemq
 ```
 
@@ -20,10 +26,10 @@ pip install kubemq
 
 Sphinx is used for documentation. Use the Makefile to build the docs, like so:
 
-```
-$ pip install -r requirements-docs.txt
-$ cd docs
-$ make html
+``` bash
+pip install -r requirements-docs.txt
+cd docs
+make html
 ```
 (`make latex` or `make linkcheck` supported)
 
@@ -31,15 +37,15 @@ $ make html
 
 Once you check out the code from GitHub, you can install the package locally with:
 
-```
-$ pip install .
+``` bash
+pip install .
 ```
 
 You can also install the package with a symlink,
 so that changes to the source files will be immediately available:
 
-```
-$ pip install -e .
+``` bash
+pip install -e .
 ```
 
 ## Running the examples

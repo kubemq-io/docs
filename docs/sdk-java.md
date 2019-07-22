@@ -1,7 +1,8 @@
 # Java
 
 The **KubeMQ SDK for Java** enables Java developers to easily work with [KubeMQ](https://kubemq.io/) server.
-
+## Table of Content
+[[toc]]
 ## General SDK description
 The SDK implements all communication patterns available through the KubeMQ server:
 - Events
@@ -17,7 +18,7 @@ KubeMQ-SDK-Java works with **JDK 8+**.
 
 The recommended way to use the SDK for Java in your project is to consume it from Maven.
 
-```
+``` java
 <dependency>
   <groupId>io.kubemq</groupId>
   <artifactId>kubemq-java-sdk-bom</artifactId>
@@ -29,7 +30,7 @@ The recommended way to use the SDK for Java in your project is to consume it fro
 
 To build with Gradle, add the dependency below to your build.gradle file.
 
-```
+``` java
 compile group: 'io.kubemq.sdk', name: 'kubemq-java-sdk', version: '1.0.1'
 ```
 
@@ -57,7 +58,7 @@ See exactly how in the code examples in this document.
 
 Javadoc is used for documentation. You can generate HTML locally with the following:
 
-```
+``` bash
 .gradlew javadoc
 ```
 
@@ -70,7 +71,7 @@ To run the examples, you need to have a running instance of KubeMQ.
 
 You can use the Gradle tasks to run the examples:
 
-```
+``` bash
 .gradlew commandQueryChannel
 .gradlew commandQueryInitiator
 .gradlew commandQueryResponder
@@ -84,7 +85,7 @@ You can use the Gradle tasks to run the examples:
 
 Once you check out the code from GitHub, you can build it using Gradle.
 
-```
+``` bash
 .gradlew build
 ```
 
@@ -92,6 +93,6 @@ Once you check out the code from GitHub, you can build it using Gradle.
 
 To run the automated tests for this system execute:
 
-```
+``` bash
 .gradlew test
 ```

@@ -1,9 +1,14 @@
+---
+title: REST
+lang: en-US
+---
 # REST
 
- The KubeMQ server API provides a simple interface for all messaging patterns.
+The KubeMQ server API provides a simple interface for all messaging patterns.
 
- RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.
-
+RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.
+## Table of Content
+[[toc]]
 ::: tip Postman
 You can view REST documentation in [Postman](https://postman.kubemq.io)
 
@@ -12,17 +17,14 @@ Or run it on your local Postman app:
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c3f4630fbbd5b9684049#?env%5Bkubemq-playground%5D=W3sia2V5IjoiaG9zdCIsInZhbHVlIjoiaHR0cHM6Ly9wbGF5Z3JvdW5kLmt1YmVtcS5pbyIsImRlc2NyaXB0aW9uIjoiIiwiZW5hYmxlZCI6dHJ1ZX1d)
 :::
 
-::: danger IMPORTANT
-Please make sure to include KubeMQ Token/Key in any request to public playground. You can find your Token/Key in your KubeMQ account profile [here](https://account.kubemq.io/home/profile).
-:::
-## Queue Message Patterns
+## Queue
 
 ### Send Message
 Send a message to a queue.
 
 Send Message endpoint is a `POST` function to `{{host}}/queue/send` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
-```
+``` json
 {
          "Id":"",
          "ClientId":"send-message-client-id",
@@ -58,7 +60,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
    "is_error": false,
    "message": "OK",
@@ -79,7 +81,7 @@ Send a batch of messages to a queue.
 
 Send Message endpoint is a `POST` function to `{{host}}/queue/send_batch` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
-```
+``` json
 {
    "BatchID": "some-batch-id",
    "Messages":[
@@ -180,7 +182,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
    "is_error": false,
    "message": "OK",
@@ -230,7 +232,7 @@ Send a Receive Message request to retrieve batch of messages from a queue.
 Send Message endpoint is a `POST` function to `{{host}}/queue/receive` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
 
-```
+``` json
 {
    "RequestID":"some-request-id",
    "ClientID":"receive-message-client-id",
@@ -253,7 +255,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
    "is_error": false,
    "message": "OK",
@@ -354,7 +356,7 @@ Send a Receive Message request to peak batch of messages into the queue.
 Send Message endpoint is a `POST` function to `{{host}}/queue/receive` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
 
-```
+``` json
 {
    "RequestID":"some-request-id",
    "ClientID":"receive-message-client-id",
@@ -377,7 +379,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
    "is_error": false,
    "message": "OK",
@@ -477,14 +479,10 @@ Where Data field
 ### Ack All Messages
 Send a Ack All Messages request to mark all available messages as taken (ack) .
 
-Send Message endp
-### Ack All Messages
-Send a Ack All Messages request to mark all available messages as taken (ack) .
-
 Send Message endpoint is a `POST` function to `{{host}}/queue/ack_all` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
 
-```
+``` json
 {
    "RequestID":"",
    "ClientID":"ack-all-message-client-id",
@@ -504,7 +502,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
    "is_error": false,
    "message": "OK",
@@ -524,7 +522,7 @@ Where Data field
 oint is a `POST` function to `{{host}}/queue/ack_all` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
 
-```
+``` json
 {
    "RequestID":"",
    "ClientID":"ack-all-message-client-id",
@@ -544,7 +542,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
    "is_error": false,
    "message": "OK",
@@ -562,14 +560,15 @@ Where Data field
 | AffectedMessages | integer | how many messages were ack from the queue |
 
 
-## PubSub Message Patterns
+## Pub/Sub
+
 ### Send Event Message
 Send Event call send an event message for Events pattern.
 
 Send Event endpoint is a `POST` function to `{{host}}/send/event` where `host` is the KubeMQ REST interface address.
 
 `POST` Event message JSON structure:
-```
+``` json
 {
     "EventID": "1234-5678-90",
     "ClientID": "events-client-id",
@@ -596,7 +595,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
   "is_error": false,
   "message": "OK",
@@ -613,7 +612,7 @@ Send Event Store call send an event message for both Events and Events Store pat
 Send Event endpoint is a `POST` function to `{{host}}/send/event` where `host` is the KubeMQ REST interface address.
 
 `POST` Event message JSON structure:
-```
+``` json
 {
     "EventID": "1234-5678-90",
     "ClientID": "events-client-id",
@@ -640,7 +639,7 @@ Where:
 
 As a Response from `POST` message:
 
-```
+``` json
 {
   "is_error": false,
   "message": "OK",
@@ -661,7 +660,7 @@ Send Event endpoint is a `GET` function with websocket upgrade to `{{host}}/send
 After websocket upgrade, sending Event messages and receiving responses will use websocket Text format.
 
 Event message JSON structure:
-```
+``` json
 {
     "EventID": "1234-5678-90",
     "ClientID": "events-client-id",
@@ -690,7 +689,7 @@ Where:
 
 The websocket will receive Response messages with this structure:
 
-```
+``` json
 {
   "is_error": false,
   "message": "OK",
@@ -718,7 +717,7 @@ Subscribe Events endpoint is a `GET` function with websocket upgrade to:
 | subscribe_type | string | Yes      | `events`                      |
 
 Event Receive messages format:
-```
+``` json
  {   
     "EventID": "1234-5678-90",
     "Channel": "events-channel",
@@ -778,7 +777,7 @@ Where Events Store Type and Data here Events Store Values:
 
 
 Events Store Receive messages format:
-```
+``` json
  {   
     "EventID": "1234-5678-90",
     "Channel": "events-channel",
@@ -808,7 +807,7 @@ Where:
 
 Since Postman does not supports websocket upgrade function, only the GET function is provided.
 
-## RPC Message Patterns
+## RPC
 
 ### Send Command Request
 Send Command RPC call send a command request in Commands pattern.
@@ -816,7 +815,7 @@ Send Command RPC call send a command request in Commands pattern.
 Send Command endpoint is a `POST` function to `{{host}}/send/request` where `host` is the KubeMQ REST interface address.
 
 `POST` Command request JSON structure:
-```
+``` json
  {
        "RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
        "RequestTypeData":1, 
@@ -847,7 +846,7 @@ Where:
 
 A successful Command Response from `POST` request:
 
-```
+``` json
 {
     "is_error": false,
     "message": "OK",
@@ -873,7 +872,7 @@ Where returned data object :
 
 A timeout error on unsuccessful Command Response from `POST` request:
 
-```
+``` json
 {
     "is_error": true,
     "message": "Error 301: timeout for request message",
@@ -886,7 +885,7 @@ Send Query RPC call send a query request in Query pattern.
 Send Query endpoint is a `POST` function to `{{host}}/send/request` where `host` is the KubeMQ REST interface address.
 
 `POST` Query request JSON structure:
-```
+``` json
 {
        "RequestID": "a0060e6b-3a9a-4e75-8a69-6a8b6cbae176",
        "RequestTypeData":2, 
@@ -921,7 +920,7 @@ Where:
 
 A successful Query Response from `POST` request:
 
-```
+``` json
 {
     "is_error": false,
     "message": "OK",
@@ -958,7 +957,7 @@ Where returned data object :
 
 A timeout error on unsuccessful Command Response from `POST` request:
 
-```
+``` json
 {
     "is_error": true,
     "message": "Error 301: timeout for request message",
@@ -981,7 +980,7 @@ Subscribe Commands endpoint is a `GET` function with websocket upgrade to:
 | subscribe_type | string | Yes      | `commands`                    |
 
 Commands Requests format:
-```
+``` json
  {  
     "RequestID":"d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
     "RequestTypeData":1,
@@ -1024,7 +1023,7 @@ Subscribe to Queries endpoint is a `GET` function with websocket upgrade to:
 | subscribe_type | string | Yes      | `queries`                     |
 
 Query Requests format:
-```
+``` json
  {  
     "RequestID":"d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
     "RequestTypeData":2,
@@ -1057,7 +1056,7 @@ Send Response RPC call send a Response to command/query requests in Command and 
 Send Response endpoint is a `POST` function to `{{host}}/send/response` where `host` is the KubeMQ REST interface address.
 
 `POST` Response request JSON structure:
-```
+``` json
 {
    "RequestID": "d43d3de0-4bfc-4cb8-9465-7359dc55cf31",
    "ClientID":"response-client-id",

@@ -1,5 +1,12 @@
+---
+title: .NET
+lang: en-US
+---
+
 # .NET
 .NET client SDK for KubeMQ. Simple interface to work with the KubeMQ server.
+## Table of Content
+[[toc]]
 
 ## General SDK description
 The SDK implements all communication patterns available through the KubeMQ server:
@@ -8,7 +15,7 @@ The SDK implements all communication patterns available through the KubeMQ serve
 - Command
 - Query
 
-## Install via Nuget:
+## Installation:
 ```
   Install-Package KubeMQ.SDK.csharp -Version 1.0.0
 ```
@@ -19,7 +26,7 @@ The SDK implements all communication patterns available through the KubeMQ serve
 - .NET Standard 2.0
 
 
-## Configurations
+## Configuration
 The only required configuration setting is the KubeMQ server address.
 
 Configuration can be set by using one of the following:
@@ -35,7 +42,7 @@ Set `KubeMQServerAddress` to the KubeMQ Server Address
 
 ### Configuration via appsettings.json
 Simply add the following to your appsettings.json:
-```JSON
+```json
 {
   "KubeMQ": {
     "serverAddress": "{YourServerAddress}:{YourServerPort}"
@@ -123,17 +130,17 @@ The implementation uses `await` and does not block the continuation of the code 
 - Handler - Mandatory. Delegate (callback) that will handle the incoming events.
 
 Initialize `Subscriber` with server address from code:
-```C#
+``` csharp
 string serverAddress = "localhost:50000";
 Subscriber subscriber = new Subscriber(serverAddress);
 ```
 Initialize `Subscriber` with server address set in configuration:
-```C#
+``` csharp
 Subscriber subscriber = new Subscriber();
 ```
 
 Subscribe:
-```C#
+``` csharp
 string channel = "Sample.test1";
 // Set a SubscribeRequest without Store and with Group.
 SubscribeRequest subscribeRequest = new SubscribeRequest(SubscribeType.Events, "MyClientID", channel, EventsStoreType.Undefined, 0, "MyGroup");
@@ -153,7 +160,7 @@ This method allows for sending a single event.
 - KubeMQ.SDK.csharp.Events.LowLevel.Event - Mandatory. The actual Event that will be sent.
 
 Initialize `Sender` with server address from code (also can be initialized using config file):
-```C#
+``` csharp
  string serverAddress = "localhost:50000";
  KubeMQ.SDK.csharp.Events.LowLevel.Sender sender = new KubeMQ.SDK.csharp.Events.LowLevel.Sender(serverAddress);
  
@@ -175,7 +182,7 @@ This method allows for sending a stream of events.
 Use cases: sending a file in multiple packets; frequent high rate of events.
 
 Initialize `Sender` with server address from code (also can be initialized using config file):
-```C#
+``` csharp
 string serverAddress = "localhost:50000";
 Sender sender = new Sender(serverAddress);
 
@@ -257,18 +264,18 @@ This method allows subscribing to receive requests.
 - Handler - Mandatory. Delegate (callback) that will handle the incoming requests.
 
 Initialize `Responder` with server address from code:
-```C#
+``` csharp
 string serverAddress = "localhost:50000";
 Responder responder = new Responder(serverAddress);
 ```
 
 Initialize `Responder` with server address set in configuration:
-```C#
+``` csharp
 Responder responder = new Responder();
 ```
 
 Subscribe
-```C#
+``` csharp
 string channel = "MyChannel.SimpleRequest";
 
 //Subscribe to request expecting to send a response(Queries) and no group.
@@ -277,7 +284,7 @@ responder.SubscribeToRequests(subscribeRequest,HandleIncomingRequests);
 
 ```
 Handle requests and return responses
-```C#
+``` csharp
 // delegate to handle the incoming requests
 private Response HandleIncomingRequests(Request request)
 {
@@ -310,13 +317,13 @@ This method allows to send a request to the `Responder,` it awaits for the `Resp
 - KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request - Mandatory. The `Request` object to send.
 
 Initialize `Initiator` with server address from code (also can be initialized using config file):
-```C#
+``` csharp
 string serverAddress = "localhost:50000";
 Initiator initiator = new Initiator(serverAddress);
 ```
 
 Send Request and await for Response
-```C#
+``` csharp
 KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request request = KubeMQ.SDK.csharp.CommandQuery.LowLevel.new Request()
             {
                 Channel = "MyChannel.SimpleRequest",
@@ -338,7 +345,7 @@ Response response = await initiator.SendRequestAsync(request);
 ### Method: send request
 This method allows to send a request to the `Responder`, and returns the `Response` to the Delegate (callback) supplied as a parameter
 
-```C#
+``` csharp
 initiator.SendRequest(HandleResponse, request);
 
 // Method to handle the responses
@@ -348,7 +355,7 @@ public void HandleResponse(Response response)
 }
 ```
 
-## Usage Channel
+## Usage: Channel
 Creating a Sender\Initiator with a set of predefined parameters to prevent repetitive code.
 
 *Replaces the channel parameter in the "low level" Event/Request.
@@ -357,170 +364,6 @@ Creating a Sender\Initiator with a set of predefined parameters to prevent repet
 Represents a Sender with a set of predefined parameters.
 
 **parameters**:
-- KubeMQ.SDK.csharp.Events.ChannelParameters - Mandatory.
+- KubeMQ.SDK.csharp.Events.ChannelParameters - Mandatory. # .NET
+.NET client SDK for KubeMQ. Simple interface to work with the KubeMQ server.
 
-
-### The 'KubeMQ.SDK.csharp.Events.ChannelParameters' object:
-A struct that is used to initialize a new Channel object.
-**parameters**:
-- ChannelName - Mandatory. The channel that the `Responder` subscribed on.
-- ClientID - Mandatory. Displayed in logs, tracing, and KubeMQ dashboard.
-- Store - Mandatory. Boolean, set if the event should be sent to store.
-- kubeMQAddress - Mandatory. KubeMQ server address.
-- ILogger - Optional. 'Microsoft.Extensions.Logging.ILogger', if passed, will write logs under that ILogger.
-
-
-### Method: send single
-This method allows sending a single event.
-
-**parameters**:
-- KubeMQ.SDK.csharp.Events.Event - Mandatory. The actual Event that will be sent.
-
-### The 'KubeMQ.SDK.csharp.Events.Event' object:
-Represents an Event with a set of predefined parameters
-Struct used to send and receive events with a minimal set of parameters needed to be filled "manually."
-**parameters**:
-- EventID - Will be set internally.
-- Metadata - Mandatory.
-- Body - Mandatory.
-
-### Create Channel.
-```C#
-KubeMQ.SDK.csharp.Events.ChannelParameters eventChannelParameters = new KubeMQ.SDK.csharp.Events.ChannelParameters()
-{
-     ChannelName = this.ChannelName,
-     ClientID = "EventChannelID",
-     Store = false,
-     Logger = this.logger
-};
-KubeMQ.SDK.csharp.Events.Channel sender = new KubeMQ.SDK.csharp.Events.Channel(eventChannelParameters);
- 
-KubeMQ.SDK.csharp.Events.Event @event = new KubeMQ.SDK.csharp.Events.Event()
-{
-    Body = Converter.ToByteArray("Event"),
-    Metadata = "EventChannel"
-};
-
-sender.SendEvent(@event);
-```
-
-### Method: send stream
-```C#
-Event @event;
-
-KubeMQ.SDK.csharp.Events.ChannelParameters eventChannelParameters = new KubeMQ.SDK.csharp.Events.ChannelParameters()
-{
-     ChannelName = this.ChannelName,
-     ClientID = "EventChannelID",
-     Store = false,
-     Logger = this.logger
-};
-KubeMQ.SDK.csharp.Events.Channel sender = new KubeMQ.SDK.csharp.Events.Channel(eventChannelParameters);
-
-for (int i = 1; i < 11; i++)
-{
-    @event = CreateSimpleStringEvent(i);
-    
-    sender.StreamEvent(@event);
-
-    Thread.Sleep(1000);
-}
-sender.ClosesEventStreamAsync();
-
- 
-private KubeMQ.SDK.csharp.Events.Event CreateSimpleStringEvent(int i = 0)
-{
-    return new KubeMQ.SDK.csharp.Events.Event()
-    {
-        Metadata = "A sample channel Metadata",
-        Body = Tools.Converter.ToByteArray("Pubsub test event "+ i)
-    };
-}
-```
-
-### KubeMQ.SDK.csharp.CommandQuery.Channel
-Represents a Initiator with a set of predefined parameters.
-
-**parameters**:
-
-- KubeMQ.SDK.csharp.CommandQuery.ChannelParameters - Mandatory .
-
-
-### The 'KubeMQ.SDK.csharp.CommandQuery.ChannelParameters' object:
-A struct that is used to initialize a new Channel object.
-
-**parameters**:
-- ChannelName - Mandatory. The channel that the `Initiator` subscribed on.
-- ClientID - Mandatory. Displayed in logs, tracing, and KubeMQ dashboard.
-- Timeout - Mandatory. Max time for the response to return. Set per request. If exceeded an exception is thrown.
-- CacheKey - Optional.
-- CacheTTL - Optional.
-- kubeMQAddress - Mandatory. KubeMQ server address.
-- ILogger - Optional. 'Microsoft.Extensions.Logging.ILogger', if passed, will write logs under that ILogger.
-
-
-### Method: send single
-This method allows sending a single request.
-
-**parameters**:
-
-- KubeMQ.SDK.csharp.CommandQuery.Request - Mandatory. The actual request that will be sent.
-
-### The 'KubeMQ.SDK.csharp.CommandQuery.Request' object:
-Struct used to send requests with a minimal set of parameters needed to be filled "manually."
-
-**parameters**:
-- RequestID - Will be set internally.
-- Metadata - Mandatory.
-- Body - Mandatory.
-
-
-### Method: Create Channel.
-
-Send Request and await for Response
-```C#
-ChannelParameters channelParameters = new ChannelParameters()
-{
-    ChannelName = this.ChannelName,
-    ClientID = this.ClientID,
-    Timeout = this.Timeout,
-    Logger = logger,
-    RequestsType = RequestType.Query
-};
-
-Channel requestChannel = new Channel(requestChannelParameters);
-
-Request request = new Request()
-{
-    Metadata = "CommandQueryChannel",
-    Body = Converter.ToByteArray("Request")
-};
-
-Response response = requestChannel.SendRequest(request);
-
-
-//Async
-Response response = await requestChannel.SendRequestAsync(request);
-```
-This method allows to send a request to the `Responder`, and returns the `Response` to the Delegate (callback) supplied as a parameter
-
-```C#
-requestChannel.SendRequest(HandleResponse, request);
-
-// Method to handle the responses
-public void HandleResponse(Response response)
-{
-    ...
-}
-```
-
-
-## Tools
-The KubeMQ SDK supplies methods to convert from and to the `body` that is in byte array format.
-```C#
-// Convert the request Body to a string
-string strBody = Tools.Converter.FromByteArray(request.Body).ToString();
-    
-// Convert a string to the request Body
-Body = Tools.Converter.ToByteArray("A Simple Request."),
-```

@@ -4,11 +4,25 @@
         "docs:build": "vuepress build docs"
     },
     "devDependencies": {
+        "@dovyp/vuepress-plugin-clipboard-copy": "^1.0.0-alpha.7",
         "@vuepress/plugin-active-header-links": "^1.0.0-alpha.0",
-        "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0"
+        "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+        "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+        "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
+        "@vuepress/plugin-nprogress": "^1.0.0-rc.1",
+        "vuepress-plugin-code-switcher": "^1.0.0",
+        "vuepress-plugin-element-tabs": "^0.1.8",
+        "vuepress": "^1.0.2"
     },
     "dependencies": {
-        "markdown-it": "^8.4.2",
-        "vuepress": "^1.0.2"
+        "@dovyp/vuepress-plugin-clipboard-copy": "^1.0.0-alpha.7",
+        "@vuepress/plugin-active-header-links": "^1.0.0-alpha.0",
+        "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+        "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+        "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
+        "@vuepress/plugin-nprogress": "^1.0.0-rc.1",
+        "vuepress": "^1.0.2",
+        "vuepress-plugin-code-switcher": "^1.0.0",
+        "vuepress-plugin-element-tabs": "^0.1.8"
     }
 }

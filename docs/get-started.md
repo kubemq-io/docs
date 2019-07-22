@@ -192,7 +192,7 @@ Now that you have KubeMQ installed and running subscribe to Events channel and l
 
 ### CLI
 ```
-$ ./kubetools subscribe event hello-world
+./kubetools subscribe event hello-world
 ```
 
 ::: tip KubeTools
@@ -489,7 +489,7 @@ After you have subscribed to a hello-world channel, you can send your message to
 
 ### CLI
 ```
-$ ./kubetools send event hello-world "Hi KubeMQ"
+./kubetools send event hello-world "Hi KubeMQ"
 ```
 
 ::: tip KubeTools
