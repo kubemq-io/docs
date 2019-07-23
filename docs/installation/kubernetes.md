@@ -17,8 +17,6 @@ Every installation method requires a KubeMQ token.
 Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 :::
 
-
-
 ## YAML File
 Copy and deploy the following yaml file:
 
