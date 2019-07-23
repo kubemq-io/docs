@@ -24,7 +24,8 @@ You can select one of the methods below:
 ### Docker
 Pull and run KubeMQ Docker container:
 ``` bash
-docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 -v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
+-v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
 
 ```
 
@@ -136,7 +137,8 @@ helm repo list
 Install KubeMQ Chart:
 
 ``` bash
-helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> kubemq-charts/kubemq
+helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> \
+kubemq-charts/kubemq
 ```
 
 </template>
@@ -180,6 +182,12 @@ volumes:
 </template>
 </CodeSwitcher>
 
+
+::: warning Are you behind a proxy ?
+If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
+In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+:::
+
 ## Verify Deployment
 
 Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
@@ -190,7 +198,7 @@ curl --location --request GET "http://localhost:8080/health" \
   --header "Content-Type: application/json"
 ```
 
-We Received:
+We received:
 
 ``` json
 [
