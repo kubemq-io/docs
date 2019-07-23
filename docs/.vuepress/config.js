@@ -22,6 +22,7 @@ module.exports = {
          ],
          ['@vuepress/medium-zoom'],
          ['@vuepress/nprogress'],
+        ['seo'],
     ],
 
     markdown: {
@@ -34,6 +35,7 @@ module.exports = {
         logo: `/kubemq-logo.png`,
         docsDir: 'docs',
         lastUpdated: 'Last Updated',
+        domain: 'https://docs.kubemq.io',
         nav: [
             { text: 'KubeMQ.io', link: 'https://kubemq.io' },
             { text: 'Register', link: 'https://account.kubemq.io/login/register'},

@@ -1,6 +1,8 @@
 ---
 title: Go
 lang: en-US
+description: 'Golang KubeMQ SDK reference'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','go']
 ---
 
 # Go

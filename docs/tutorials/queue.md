@@ -1,6 +1,8 @@
 ---
 title: Queue Pattern
 lang: en-US
+description: 'KubeMQ queue tutorial'
+tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial','queue']
 ---
 # Queue
 Message queues provide an asynchronous communications protocol, meaning that the sender and receiver of the message do not need to interact with the message queue at the same time. Messages placed onto the queue are stored until the recipient retrieves them.

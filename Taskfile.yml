@@ -2,7 +2,7 @@
 version: '2'
 
 vars:
-  VERSION: v1.2.7
+  VERSION: v1.2.8
 
 
 tasks:

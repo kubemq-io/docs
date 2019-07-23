@@ -1,6 +1,8 @@
 ---
 title: Concepts
 lang: en-US
+description: 'KubeMQ core concepts'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
 ---
 # Concepts
 ## Table of Content

@@ -1,7 +1,9 @@
 ---
 title: Kubernetes
 lang: en-US
-
+type: 'article'
+description: 'KubeMQ Kubernetes cluster deployment'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
 ---
 # Kubernetes Deployment
 ## Table of Content

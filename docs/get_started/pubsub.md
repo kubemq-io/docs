@@ -1,6 +1,9 @@
 ---
-title: Pub/Sub
+title: 'Pub/Sub'
 lang: en-US
+type: 'article'
+description: 'Get started with KubeMQ and Pub/Sub pattern'
+tags: ['pub/sub','message broker','KubeMQ']
 ---
 # Get Started With Pub/Sub
 

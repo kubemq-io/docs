@@ -1,6 +1,9 @@
 ---
 title: Configuration
 lang: en-US
+type: 'article'
+description: 'KubeMQ configuration manual'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
 ---
 # KubeMQ Configuration
 KubeMQ server can be configured via environment variables set during container loading.

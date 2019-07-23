@@ -1,6 +1,8 @@
 ---
 title: KubeTools (KubeMQ CLI)
 lang: en-US
+description: 'KubeMQ Command Line Interface reference'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','cli']
 ---
 # KubeTools
 Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition, Kubetools provides several utilities such as monitoring channel traffic, send messages, and subscribe to channels.

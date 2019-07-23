@@ -1,6 +1,9 @@
 ---
 title: Docker
 lang: en-US
+type: 'article'
+description: 'KubeMQ docker installation'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
 ---
 # Docker Deployment
 

@@ -1,3 +1,10 @@
+---
+title: Java
+lang: en-US
+description: 'Java KubeMQ SDK reference'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','java']
+---
+
 # Java
 
 The **KubeMQ SDK for Java** enables Java developers to easily work with [KubeMQ](https://kubemq.io/) server.

@@ -1,6 +1,8 @@
 ---
 title: REST
 lang: en-US
+description: 'REST Python SDK reference'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','rest']
 ---
 # REST
 

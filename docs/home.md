@@ -1,6 +1,12 @@
+---
+title: Home
+lang: en-US
+description: 'KubeMQ is Enterprise-grade message queue broker native for Docker and Kubernetes. Delivered in a production-ready cluster, and designed for any type of workload.'
+tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial','CQRS']
+---
 # Introduction
 ## What is KubeMQ?
-KubeMQ is a Cloud Native, enterprise-grade, message broker for distributed services architecture.
+Enterprise-grade message queue broker native for Docker and Kubernetes. Delivered in a production-ready cluster, and designed for any type of workload.
 
 KubeMQ is provided as a small, lightweight Docker container, designed for any workload and architecture running in Kubernetes or any other container orchestration system which support Docker.
 

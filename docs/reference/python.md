@@ -1,6 +1,8 @@
 ---
 title: Python
 lang: en-US
+description: 'Java Python SDK reference'
+tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','python','py']
 ---
 
 # Python
