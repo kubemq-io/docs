@@ -71,7 +71,7 @@ Here some examples of channel subscription patterns and which types of messages 
 | `>`             | any message         | none                |
 
 
-![image info](images/channels.png)
+![image info](./images/channels.png)
 
 
 ## Grouping (Load Balancing)
@@ -83,7 +83,7 @@ During a Subscription request, the receiver can set the group name to join or no
 - Only one receiver for each group he belongs to
 
 
-![image info](images/grouping.png)
+![image info](./images/grouping.png)
 
 
 Example:

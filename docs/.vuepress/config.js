@@ -49,39 +49,39 @@ module.exports = {
                 title: 'Get Started',
                 collapsable: false,
                 children: [
-                    '/get-started-pubsub',
+                    '/get_started/pubsub',
                 ]
             },
             {
                 title: 'Installation',
                 collapsable: false,
                 children: [
-                    '/installation-kubernetes',
-                    '/installation-docker',
-                    '/installation-configuration',
+                    '/installation/kubernetes',
+                    '/installation/docker',
+                    '/installation/configuration',
                 ]
             },
             {
                 title: 'Tutorials',
                 collapsable: false,
                 children: [
-                    '/tutorials-concepts',
-                    `/tutorials-queue`,
-                    `/tutorials-pubsub`,
-                    `/tutorials-rpc`,
-                    `/tutorials-kubetools`,
+                    '/tutorials/concepts',
+                    `/tutorials/queue`,
+                    `/tutorials/pubsub`,
+                    `/tutorials/rpc`,
+                    `/tutorials/kubetools`,
                 ]
             },
              {
                 title: 'Reference',
                 collapsable: false,
                 children: [
-                    '/sdk-net',
-                    '/sdk-java',
-                    '/sdk-go',
-                    '/sdk-python',
-                    '/rest',
-                    '/examples'
+                    '/reference/net',
+                    '/reference/java',
+                    '/reference/go',
+                    '/reference/python',
+                    '/reference/rest',
+                    '/reference/examples'
                 ]
             },
         ]
