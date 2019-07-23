@@ -3,21 +3,276 @@ title: Pub/Sub
 lang: en-US
 ---
 # Get Started With Pub/Sub
+
 ## Table of Content
 [[toc]]
+
 ## Deploy a KubeMQ
 To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
 
-You can select one of the methods below:
-1. [Docker Container](./installation-docker.md)
-2. [Kubernetes CLuster](./installation-kubernetes.md)
-
-
-::: tip KubeMQ Token
-Every installation method requires a KubeMQ token.
-Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
+::: tip KubeTools
+KubeTools is KubeMQ CLI tool.
+You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
 :::
 
+You can select one of the methods below:
+
+<CodeSwitcher :languages="{docker:'docker',kubernetes:'kubernetes',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+
+<template v-slot:docker>
+
+### Docker
+Pull and run KubeMQ Docker container:
+``` bash
+docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 -v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+
+```
+
+</template>
+
+<template v-slot:kubernetes>
+
+### Kubernetes Deployment
+Copy and deploy the following yaml file:
+
+``` yaml
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: apps/v1beta2
+    kind: StatefulSet
+    metadata:
+      name: kubemq-cluster
+    spec:
+      selector:
+        matchLabels:
+          app: kubemq-cluster
+      replicas: 3
+      serviceName: kubemq-cluster
+      template:
+        metadata:
+          labels:
+            app: kubemq-cluster
+        spec:
+          containers:
+            - env:
+                - name: KUBEMQ_TOKEN
+                  value: <YOUR_KUBEMQ_TOKEN>
+                - name: CLUSTER_ROUTES
+                  value: 'kubemq-cluster:5228'
+                - name: CLUSTER_PORT
+                  value: '5228'
+                - name: CLUSTER_ENABLE
+                  value: 'true'
+                - name: GRPC_PORT
+                  value: '50000'
+                - name: REST_PORT
+                  value: '9090'
+                - name: KUBEMQ_PORT
+                  value: '8080'
+              image: 'kubemq/kubemq:latest'
+              imagePullPolicy: IfNotPresent
+              name: kubemq-cluster
+              ports:
+                - containerPort: 50000
+                  name: grpc-port
+                  protocol: TCP
+                - containerPort: 8080
+                  name: metrics-port
+                  protocol: TCP
+                - containerPort: 9090
+                  name: rest-port
+                  protocol: TCP
+                - containerPort: 5228
+                  name: cluster-port
+                  protocol: TCP
+          restartPolicy: Always
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: kubemq-cluster
+    spec:
+      ports:
+        - name: metrics-port
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+        - name: grpc-port
+          port: 50000
+          protocol: TCP
+          targetPort: 50000
+        - name: cluster-port
+          port: 5228
+          protocol: TCP
+          targetPort: 5228
+        - name: rest-port
+          port: 9090
+          protocol: TCP
+          targetPort: 9090
+      sessionAffinity: None
+      type: NodePort
+      selector:
+        app: kubemq-cluster
+
+```
+
+</template>
+
+
+<template v-slot:helm>
+
+### Helm Installation
+Add KubeMQ Helm Repository:
+
+``` bash
+helm repo add kubemq-charts https://kubemq-io.github.io/charts
+```
+
+Verify KubeMQ helm repository charts is correctly configured by:
+``` bash
+helm repo list
+```
+
+Install KubeMQ Chart:
+
+``` bash
+helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> kubemq-charts/kubemq
+```
+
+</template>
+
+
+<template v-slot:docker_compose>
+
+### Docker-Compose Deployment
+Run :
+
+``` bash
+docker-compose -d up
+```
+
+With the following yaml file named docker-compose.yaml:
+
+``` yaml
+version: '3.7'
+services:
+  kubemq:
+    image: kubemq/kubemq
+    container_name: kubemq
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+      - "50000:50000"
+    environment:
+      - KUBEMQ_HOST=kubemq
+      - KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN>
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - kubemq_vol:/store
+networks:
+  backend:
+volumes:
+  kubemq_vol:
+```
+
+</template>
+</CodeSwitcher>
+
+## Verify Deployment
+
+Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
+
+For Example:
+``` bash
+curl --location --request GET "http://localhost:8080/health" \
+  --header "Content-Type: application/json"
+```
+
+We Received:
+
+``` json
+[
+    {
+        "host": "DESKTOP-LNB7P20",
+        "utc_time": "2019-07-23T06:59:26.9534018Z",
+        "grpc": {
+            "connections": {
+                "total": 0,
+                "events_senders": 0,
+                "events_stream_senders": 0,
+                "events_receivers": 0,
+                "events_store_receivers": 0,
+                "requests_senders": 0,
+                "responses_senders": 0,
+                "commands_receivers": 0,
+                "queries_receivers": 0,
+                "queue_senders": 0,
+                "queue_receivers": 0
+            },
+            "traffic": {
+                "sent_events": 0,
+                "received_events": 0,
+                "sent_requests": 0,
+                "sent_error": 0,
+                "sent_responses": 0,
+                "received_requests": 0,
+                "sent_events_vol": 0,
+                "received_events_vol": 0,
+                "sent_requests_vol": 0,
+                "sent_errors_vol": 0,
+                "sent_responses_vol": 0,
+                "received_requests_vol": 0,
+                "send_queue_messages_vol": 0,
+                "receive_queue_messages_vol": 0,
+                "send_queue_messages": 0,
+                "receive_queue_messages": 0,
+                "total_messages": 0,
+                "total_volume": 0
+            }
+        },
+        "rest": {
+            "connections": {
+                "total": 0,
+                "events_senders": 0,
+                "events_stream_senders": 0,
+                "events_receivers": 0,
+                "events_store_receivers": 0,
+                "requests_senders": 0,
+                "responses_senders": 0,
+                "commands_receivers": 0,
+                "queries_receivers": 0,
+                "queue_senders": 0,
+                "queue_receivers": 0
+            },
+            "traffic": {
+                "sent_events": 0,
+                "received_events": 0,
+                "sent_requests": 0,
+                "sent_error": 0,
+                "sent_responses": 0,
+                "received_requests": 0,
+                "sent_events_vol": 0,
+                "received_events_vol": 0,
+                "sent_requests_vol": 0,
+                "sent_errors_vol": 0,
+                "sent_responses_vol": 0,
+                "received_requests_vol": 0,
+                "send_queue_messages_vol": 0,
+                "receive_queue_messages_vol": 0,
+                "send_queue_messages": 0,
+                "receive_queue_messages": 0,
+                "total_messages": 0,
+                "total_volume": 0
+            }
+        }
+    }
+]
+
+```
+
+## Next Steps
 
 Now that you have KubeMQ installed and running, we will do the following steps:
 
@@ -30,25 +285,46 @@ As showed in the following diagram:
 ![image info](./images/pub-sub-hello-world.png)
 
 
+## Subscribe to a Channel
+
+A consumer can subscribe to the "hello-world" channel with one of the following methods.
+
+<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<template v-slot:bash>
+
+Run the following KubeTools command:
+``` bash
+./kubetools pubsub rec event hello-world
+```
+
+When connected, a stream of events messages will be shown in the console.
+
 ::: tip KubeTools
 KubeTools is KubeMQ CLI tool.
 You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
 :::
 
-## Subscribe To Channel
+</template>
 
-A consumer can subscribe to the "hello-world" channel with one of the following methods.
+<template v-slot:curl>
 
-<CodeSwitcher :languages="{bash:'kubetools',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`}" :isolated="true">
-<template v-slot:bash>
+The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-$ ./kubetools pubsub rec event hello-world
+curl --location --request GET "https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events" \
+  --header "Content-Type: application/json" \
+  --data ""
 ```
 
-
+::: warning
+Subscribe to Events in REST interface is using WebSocket for streaming (Push) events to the consumer. You will need to implement a WebSocket receiver accordingly.
+:::
 </template>
+
+
 <template v-slot:csharp>
+
+The following .NET code snippet is using KubeMQ's .NET SDK with gRPC interface:
 
 ``` csharp
 using KubeMQ.SDK.csharp.Events;
@@ -114,15 +390,17 @@ namespace kubemqreceiverExm
     
 ```
 
+When executed, a stream of events messages will be shown in the console.
+
 </template>
 <template v-slot:java>
 
-``` java
+The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
+``` java
 import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
 import io.kubemq.sdk.event.lowlevel.Event;
 import io.kubemq.sdk.event.lowlevel.Sender;
-
 import javax.net.ssl.SSLException;
 
 class EventSubscriber extends BaseExample {
@@ -236,14 +514,14 @@ public class BaseExample {
 }
     
 ```
-
+When executed, a stream of events messages will be shown in the console.
 
 </template>
 <template v-slot:go>
 
+The following Go code snippet is using KubeMQ's Go SDK with gRPC interface:
 ``` go
 package main
-
 import (
    "context"
    "fmt"
@@ -287,13 +565,15 @@ func main() {
    }
 }
 ```
+When executed, a stream of events messages will be shown in the console.
 
 </template>
 <template v-slot:py>
 
+The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
+
 ``` py
 from builtins import input
-
 from kubemq.events.subscriber import Subscriber
 from kubemq.subscription.events_store_type import EventsStoreType
 from kubemq.subscription.subscribe_request import SubscribeRequest
@@ -335,29 +615,215 @@ if __name__ == "__main__":
 ")
     
 ```
+When executed, a stream of events messages will be shown in the console.
 
 </template>
+
+<template v-slot:node>
+
+The following Node code snippet is using KubeMQ's REST interface:
+
+``` js
+var https = require('https');
+
+var options = {
+  'method': 'GET',
+  'hostname': 'https://playground.kubemq.io',
+  'path': '/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events',
+  'headers': {
+    'Content-Type': 'application/json',
+  }
+};
+
+var req = https.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function (chunk) {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+
+  res.on("error", function (error) {
+    console.error(error);
+  });
+});
+
+req.end();
+```
+
+
+::: warning
+Subscribe to Events in REST interface is using WebSocket for streaming (Push) events to the consumer. You will need to implement a WebSocket receiver accordingly.
+:::
+
+</template>
+
+<template v-slot:php>
+
+The following PHP code snippet is using KubeMQ's REST interface:
+
+``` php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => false,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "Content-Type: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+} ?>
+```
+
+
+::: warning
+Subscribe to Events in REST interface is using WebSocket for streaming (Push) events to the consumer. You will need to implement a WebSocket receiver accordingly.
+:::
+
+</template>
+
+
+<template v-slot:ruby>
+
+The following Ruby code snippet is using KubeMQ's REST interface:
+
+``` ruby
+require "uri"
+require "net/http"
+
+url = URI("https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events")
+
+http = Net::HTTP.new(url.host, url.port)
+
+request = Net::HTTP::Get.new(url)
+request["Content-Type"] = "application/json"
+
+response = http.request(request)
+puts response.read_body
+```
+
+
+::: warning
+Subscribe to Events in REST interface is using WebSocket for streaming (Push) events to the consumer. You will need to implement a WebSocket receiver accordingly.
+:::
+
+</template>
+
+
+<template v-slot:jquery>
+
+The following jQuery code snippet is using KubeMQ's REST interface:
+
+``` js
+var settings = {
+  "url": "https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
+  "method": "GET",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json",
+  },
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+
+::: warning
+Subscribe to Events in REST interface is using WebSocket for streaming (Push) events to the consumer. You will need to implement a WebSocket receiver accordingly.
+:::
+
+</template>
+
+
 </CodeSwitcher>
 
 
 
-## Publish to Channel
+## Publish to a Channel
 
 After you have subscribed to a hello-world channel, you can send your message to it.
 
 
-<CodeSwitcher :languages="{bash:'kubetools',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+
+
 <template v-slot:bash>
 
+Run the following KubeTools command:
+
 ``` bash
-$ ./kubetools pubsub send event hello-world "Hi KubeMQ"
+./kubetools pubsub send event hello-world "Hi KubeMQ"
 ```
 
+
+::: tip KubeTools
+KubeTools is KubeMQ CLI tool.
+You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
+:::
+
 </template>
+
+
+<template v-slot:curl>
+
+The following cURL command is using KubeMQ's REST interface:
+
+``` bash
+curl --location --request POST "https://playground.kubemq.io/send/event" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"EventID\": \"1234-5678-90\",
+    \"ClientID\": \"events-client-id\",
+    \"Channel\": \"events-channel\",
+    \"Metadata\": \"some-metadata\",
+    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",
+    \"Store\": false
+}"
+```
+
+A response for a successful command will look like this:
+
+``` bash
+{
+  "is_error": false,
+  "message": "OK",
+  "data": {
+    "EventID": "1234-5678-90",
+    "Sent": true
+  }
+}
+```
+</template>
+
 <template v-slot:csharp>
 
-``` csharp
+The following .NET code snippet is using KubeMQ's .NET SDK with gRPC interface:
 
+``` csharp
 using KubeMQ.SDK.csharp.Events.LowLevel;
 using System;
 
@@ -407,11 +873,12 @@ namespace kubemqsenderExm
 </template>
 <template v-slot:java>
 
+The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
+
 ``` java
 import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
 import io.kubemq.sdk.event.lowlevel.Event;
 import io.kubemq.sdk.event.lowlevel.Sender;
-
 import javax.net.ssl.SSLException;
 
 class EventSender extends BaseExample {
@@ -495,9 +962,10 @@ public class BaseExample {
 </template>
 <template v-slot:go>
 
+The following Go code snippet is using KubeMQ's Go SDK with gRPC interface:
+
 ``` go
 package main
-
 import (
    "context"
    "github.com/kubemq-io/kubemq-go"
@@ -533,6 +1001,8 @@ func main() {
 </template>
 <template v-slot:py>
 
+The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
+
 ``` py
 from kubemq.events.lowlevel.event import Event
 from kubemq.events.lowlevel.sender import Sender
@@ -554,5 +1024,182 @@ if __name__ == "__main__":
 
 
 </template>
+
+
+<template v-slot:node>
+
+The following node code snippet is using KubeMQ's REST interface:
+
+``` js
+var https = require('https');
+
+var options = {
+  'method': 'POST',
+  'hostname': 'playground.kubemq.io',
+  'path': '/send/event',
+  'headers': {
+    'Content-Type': 'application/json',
+  }
+};
+
+var req = https.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function (chunk) {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+
+  res.on("error", function (error) {
+    console.error(error);
+  });
+});
+
+var postData =  "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}";
+
+req.write(postData);
+
+req.end();
+```
+
+A response for a successful command will look like this:
+
+``` bash
+{
+  "is_error": false,
+  "message": "OK",
+  "data": {
+    "EventID": "1234-5678-90",
+    "Sent": true
+  }
+}
+```
+</template>
+
+<template v-slot:php>
+
+The following PHP code snippet is using KubeMQ's REST interface:
+
+``` php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://playground.kubemq.io/send/event",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => false,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS =>"{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}",
+  CURLOPT_HTTPHEADER => array(
+    "Content-Type: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+} ?>
+```
+
+A response for a successful command will look like this:
+
+``` bash
+{
+  "is_error": false,
+  "message": "OK",
+  "data": {
+    "EventID": "1234-5678-90",
+    "Sent": true
+  }
+}
+```
+</template>
+
+
+<template v-slot:ruby>
+
+The following Ruby code snippet is using KubeMQ's REST interface:
+
+``` ruby
+require "uri"
+require "net/http"
+
+url = URI("https://playground.kubemq.io/send/event")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request.body = "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}"
+response = https.request(request)
+puts response.read_body
+```
+
+A response for a successful command will look like this:
+
+``` bash
+{
+  "is_error": false,
+  "message": "OK",
+  "data": {
+    "EventID": "1234-5678-90",
+    "Sent": true
+  }
+}
+```
+</template>
+
+
+<template v-slot:jquery>
+
+The following jQuery code snippet is using KubeMQ's REST interface:
+
+``` js
+var settings = {
+  "url": "https://playground.kubemq.io/send/event",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json",
+  },
+  "data": "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}",
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+A response for a successful command will look like this:
+
+``` bash
+{
+  "is_error": false,
+  "message": "OK",
+  "data": {
+    "EventID": "1234-5678-90",
+    "Sent": true
+  }
+}
+```
+</template>
+
+
 </CodeSwitcher>
 
