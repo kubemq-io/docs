@@ -19,7 +19,7 @@ KubeTools executable can be downloaded from bin folder for 4 operating systems:
 Run :
 
 ``` bash
-./kubetools
+kubetools
 ```
 Will prompt the following:
 
@@ -51,12 +51,12 @@ Run the following command for running various tests, checking of KubeMQ installa
 Run :
 
 ``` bash
-./kubetools test
+kubetools test
 ```
 Or,
 
 ``` bash
-./kubetools t
+kubetools t
 ```
 
 
@@ -65,12 +65,12 @@ Run the following command to enter into a monitoring channels mode.
 
 
 ``` bash
-./kubetools mon
+kubetools mon
 ```
 Or,
 
 ``` bash
-./kubetools m
+kubetools m
 ```
 
 Available sub commands:
@@ -153,12 +153,12 @@ kubetools m es channel-name
 Run the following command will monitor and show all traffic in `channel-name` Commands channel:
 
 ``` bash
-./kubetools mon commands channel-name
+kubetools mon commands channel-name
 ```
 Or,
 
 ``` bash
-./kubetools m c channel-name
+kubetools m c channel-name
 ```
 </template>
 <template v-slot:queries>
@@ -182,13 +182,13 @@ Run the following command for sending and receiving queue messages.
 
 
 ``` bash
-./kubetools queue
+kubetools queue
 
 ```
 Or,
 
 ``` bash
-./kubetools q
+kubetools q
 ```
 
 Available Queue commands:
@@ -223,13 +223,13 @@ Use "kubetools queue [command] --help" for more information about a command.
 Run the following command for sending `your-message` to Queue channel `channel-name`:
 
 ``` bash
-./kubetools queue send channel-name your-message 
+kubetools queue send channel-name your-message 
 
 ```
 Or,
 
 ``` bash
-./kubetools q s
+kubetools q s
 ```
 
 Available flags:
@@ -259,12 +259,12 @@ Run the following command for receiving queue message from `channel-name` and se
 
 
 ``` bash
-./kubetools queue receive channel-name
+kubetools queue receive channel-name
 ```
 Or,
 
 ``` bash
-./kubetools q r channel-name
+kubetools q r channel-name
 ```
 
 Available flags:
@@ -293,12 +293,12 @@ Global Flags:
 Run the following command for peaking messages in Queue channel `channel-name`:
 
 ``` bash
-./kubetools queue peak channel-name
+kubetools queue peak channel-name
 ```
 Or,
 
 ``` bash
-./kubetools q p channel-name
+kubetools q p channel-name
 ```
 Available flags:
 
@@ -327,12 +327,12 @@ Global Flags:
 Run the following command for ack all queue messages in Queue `channel-name`:
 
 ``` bash
-./kubetools queue ack channel-name
+kubetools queue ack channel-name
 ```
 Or,
 
 ``` bash
-./kubetools q a channel-name
+kubetools q a channel-name
 ```
 
 
@@ -344,12 +344,12 @@ Run the following command for publish and subscribe real-time and persistent eve
 
 
 ``` bash
-./kubetools pubsub
+kubetools pubsub
 ```
 Or,
 
 ``` bash
-./kubetools p
+kubetools p
 ```
 
 Available Pub/Sub commands:
@@ -372,87 +372,91 @@ Flags:
 Use "kubetools pubsub [command] --help" for more information about a command.
 ```
 
-
 Choose one of the following Pub/Sub commands options:
 
-:::: tabs type:card stretch:true
+<CodeSwitcher :languages="{send_event:'Send Event',receive_events:'Receive Events',send_event_store:`Send Event-Store`,receive_events_store:'Receive Events-Store'}" :isolated="true">
 
-::: tab Send-Event lazy
+<template v-slot:send_event>
+
+### Send Event
 
 Run the following command for sending `your-message` to Events channel `channel-name`:
 
 ``` bash
-./kubetools pubsub send events channel-name your-message
+kubetools pubsub send events channel-name your-message
 ```
 Or,
 
 ``` bash
-./kubetools p s e channel-name your-message
+kubetools p s e channel-name your-message
 ```
 
-:::
+</template>
+<template v-slot:receive_events>
 
-
-::: tab Receive-Events lazy
+### Receive Event
 
 Run the following command for receiving messages in Events channel `channel-name`:
 
-
 ``` bash
-./kubetools pubsub receive events channel-name
+kubetools pubsub receive events channel-name
 ```
 Or,
 
 ``` bash
-./kubetools p r e channel-name your-message
+kubetools p r e channel-name your-message
 ```
 
+</template>
 
-:::
+<template v-slot:send_event_store>
 
-::: tab Send-Events-Store lazy
+### Send Event-Store
+
 Run the following command for sending messages in Events Store channel `channel-name`:
 
 ``` bash
-./kubetools pubsub send events_store channel-name your-message
+kubetools pubsub send events_store channel-name your-message
 ```
 Or,
 
 ``` bash
-./kubetools p s es channel-name your-message
+kubetools p s es channel-name your-message
 ```
 
-:::
+</template>
 
-::: tab Receive-Events-Store lazy
+<template v-slot:receive_events_store>
+
+### Receive Events-Store
+
 Run the following command for receiving messages in Events Store channel `channel-name`:
 
-
 ``` bash
-./kubetools pubsub receive events_store channel-name
+kubetools pubsub receive events_store channel-name
 ```
 Or,
 
 ``` bash
-./kubetools p r es channel-name your-message
+kubetools p r es channel-name your-message
 ```
 
-:::
-::::
+</template>
+</CodeSwitcher>
 
 
-## RPC
+## RPC Command
 
 Run the following command for for sending and receiving RPC calls of commands and queries:
 
 
 ``` bash
-./kubetools rpc
+kubetools rpc
 ```
 Or,
 
 ``` bash
-./kubetools r
+kubetools r
 ```
 
 Available RPC commands:
@@ -478,96 +482,103 @@ Use "kubetools rpc [command] --help" for more information about a command.
 
 Choose one of the following RPC commands options:
 
-:::: tabs type:card stretch:true
+<CodeSwitcher :languages="{send_command:'Send Command',receive_commands:'Receive Commands',send_query:'Send Query',receive_queries:'Receive Queries'}" :isolated="true">
 
-::: tab Send-Command lazy
+<template v-slot:send_command>
+
+### Send Command
+
 
 Run the following command for sending `your-message` to Commands channel `channel-name`:
 
 ``` bash
-./kubetools rpc send command channel-name your-message
+kubetools rpc send command channel-name your-message
 ```
 Or,
 
 ``` bash
-./kubetools r s c channel-name your-message
+kubetools r s c channel-name your-message
 ```
 
-:::
+</template>
+<template v-slot:receive_commands>
 
-
-::: tab Receive-Commands lazy
+### Receive Commands
 
 Run the following command for receiving messages in Command channel `channel-name` and send an acknowledge back to the sender:
 
-
 ``` bash
-./kubetools rpc receive command channel-name
+kubetools rpc receive command channel-name
 ```
 Or,
 
 ``` bash
-./kubetools r r c channel-name your-message
+kubetools r r c channel-name your-message
 ```
 
+</template>
 
-:::
+<template v-slot:send_query>
 
-::: tab Send-Query lazy
+### Send Query
+
 Run the following command for sending `your-message` to Query channel `channel-name`:
 
 ``` bash
-./kubetools rpc send query channel-name your-message
+kubetools rpc send query channel-name your-message
 ```
 Or,
 
 ``` bash
-./kubetools r s q channel-name your-message
+kubetools r s q channel-name your-message
 ```
 
-:::
+</template>
 
-::: tab Receive-Query lazy
+<template v-slot:receive_queries>
+
+### Receive Queries
+
 Run the following command for receiving messages in Query channel `channel-name` and send an acknowledge back to the sender:
 
 ``` bash
-./kubetools rpc receive query channel-name
+kubetools rpc receive query channel-name
 
 ```
 Or,
 
 ``` bash
-./kubetools r r q channel-name your-message
+kubetools r r q channel-name your-message
 ```
 
-:::
-::::
+</template>
+</CodeSwitcher>
 
 
-## Health
+## Health Command
 
 Run the following command for checking health monitor point of KubeMQ:
 
 ``` bash
-./kubetools health
+kubetools health
 ```
 Or,
 
 ``` bash
-./kubetools h
+kubetools h
 ```
 
-## Metrics
+## Metrics Command
 Run the following command for receiving metrics data of KubeMQ:
 
 
 ``` bash
-./kubetools metrics
+kubetools metrics
 ```
 Or,
 
 ``` bash
-./kubetools m
+kubetools m
 ```
 
 

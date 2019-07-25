@@ -27,6 +27,7 @@
         "vuepress": "^1.0.2",
         "vuepress-plugin-code-switcher": "^1.0.0",
         "vuepress-plugin-element-tabs": "^0.1.8",
-        "vuepress-plugin-seo": "^0.1.2"
+        "vuepress-plugin-seo": "^0.1.2",
+        "vuepress-plugin-sitemap": "^2.1.2"
     }
 }
