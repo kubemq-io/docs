@@ -46,7 +46,7 @@ Use "kubetools [command] --help" for more information about a command.
 
 ```
 
-## Test
+## Test Command
 Run the following command for running various tests, checking of KubeMQ installation and proper configuration.
 Run :
 
@@ -60,7 +60,7 @@ Or,
 ```
 
 
-## Monitor
+## Monitor Command
 Run the following command to enter into a monitoring channels mode.
 
 
@@ -97,53 +97,60 @@ Use "kubetools mon [command] --help" for more information about a command.
 
 Choose one of the following Monitoring options:
 
-:::: tabs type:card stretch:true
 
-::: tab Queue lazy
+<CodeSwitcher :languages="{queue:'Queue',events:'Events',events_store:`Events Store`,commands:'Commands',queries:'Queries'}" :isolated="true">
+
+
+<template v-slot:queue>
+
+### Queue
 Run the following command will monitor and show all traffic in `channel-name` Queue channel:
 
 ``` bash
-./kubetools mon queue channel-name
+kubetools mon queue channel-name
 ```
 Or,
 
 ``` bash
-./kubetools m qu channel-name
+kubetools m qu channel-name
 ```
 
-:::
+</template>
+<template v-slot:events>
 
-::: tab Events lazy
+### Events
 Run the following command will monitor and show all traffic in `channel-name` Pub/Sub Events channel:
 
 ``` bash
-./kubetools mon events channel-name
+kubetools mon events channel-name
 ```
 Or,
 
 ``` bash
-./kubetools m e channel-name
+kubetools m e channel-name
 ```
 
-:::
+</template>
+<template v-slot:events_store>
 
-::: tab Events-Store lazy
+### Events Store
+
 Run following command will monitor and show all traffic in `channel-name` Events Store channel:
 
 ``` bash
-./kubetools mon events_store channel-name
+kubetools mon events_store channel-name
 ```
 Or,
 
 ``` bash
-./kubetools m es channel-name
+kubetools m es channel-name
 ```
 
-:::
+</template>
+<template v-slot:commands>
 
-::: tab Command lazy
+### Commands
 Run the following command will monitor and show all traffic in `channel-name` Commands channel:
-
 
 ``` bash
 ./kubetools mon commands channel-name
@@ -153,24 +160,24 @@ Or,
 ``` bash
 ./kubetools m c channel-name
 ```
-:::
+</template>
+<template v-slot:queries>
 
-::: tab Query lazy
+### Queries
 Run the following command will monitor and show all traffic in `channel-name` Queries channel:
 
 ``` bash
-./kubetools mon queries channel-name
+kubetools mon queries channel-name
 ```
 Or,
 
 ``` bash
-./kubetools m q channel-name
+kubetools m q channel-name
 ```
-:::
-::::
+</template>
+</CodeSwitcher>
 
-
-## Queue
+## Queue Command
 Run the following command for sending and receiving queue messages.
 
 
@@ -207,12 +214,12 @@ Use "kubetools queue [command] --help" for more information about a command.
 ```
 
 
-Choose one of the following Queue commands options:
+<CodeSwitcher :languages="{send:'Send',receive:'Receive',peak:`Peak`,ack_all:'Ack All'}" :isolated="true">
 
-:::: tabs type:card stretch:true
 
-::: tab Send lazy
+<template v-slot:send>
 
+### Send
 Run the following command for sending `your-message` to Queue channel `channel-name`:
 
 ``` bash
@@ -241,10 +248,12 @@ Flags:
 Global Flags:
   -t, --queueTransport string   set transport type, grpc or rest (default "grpc")
 ```
-:::
 
+</template>
+<template v-slot:receive>
 
-::: tab Receive lazy
+### Receive
+
 
 Run the following command for receiving queue message from `channel-name` and send an acknowledge back to the sender:
 
@@ -277,9 +286,10 @@ Global Flags:
 
 ```
 
-:::
+</template>
+<template v-slot:peak>
 
-::: tab Peak lazy
+### Peak
 Run the following command for peaking messages in Queue channel `channel-name`:
 
 ``` bash
@@ -310,11 +320,11 @@ Global Flags:
 ```
 
 
-:::
+</template>
+<template v-slot:ack_all>
 
-::: tab Ack-All lazy
+### Ack All
 Run the following command for ack all queue messages in Queue `channel-name`:
-
 
 ``` bash
 ./kubetools queue ack channel-name
@@ -325,13 +335,11 @@ Or,
 ./kubetools q a channel-name
 ```
 
-:::
-::::
 
+</template>
+</CodeSwitcher>
 
-
-
-## Pub/Sub
+## Pub/Sub Command
 Run the following command for publish and subscribe real-time and persistent events:
 
 

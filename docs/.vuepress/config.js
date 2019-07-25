@@ -28,6 +28,7 @@ module.exports = {
     markdown: {
         anchor: { permalink: false },
         lineNumbers: true,
+        plugins: ['footnote'],
     },
     themeConfig: {
         editLinks: false,

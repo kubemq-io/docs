@@ -2,57 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/command.9657b7b1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/event-store.8f95951b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/event.e91f5903.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/pubsub.f9d33f4c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/query-caching.6d28a3d8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/query.e6756659.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-ack-all.12893fce.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-dead-letter.0d6130c9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-delay.39bce9d0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-expiration.aa25ac03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-long-polling.0aaf0280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-peak.7d40c8ca.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-resend-new.7c329780.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-resend.eda20fdb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-stream-flow-fail.8a57248a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-stream-flow-ok.520dd61a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-visibility-ack.d071a5a1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue-visibility-reject.53dca635.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/queue.fdf5ac0e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/rpc.b37ddef8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/assets/img/search.83621669.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/examples.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/illustration-ship-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/kubemq-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/rest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-go.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-net.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/dist/sdk-python.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/home.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/home.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/configuration.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/installation/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/docker.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/go.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference/go.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/java.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference/java.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/net.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference/net.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference/python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/rest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference/rest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/concepts.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/concepts.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/tutorials/kubetools.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/kubetools.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/queue.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/tutorials/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/rpc.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -64,15 +18,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4335994">
+    <splitter split-orientation="horizontal" split-proportion="0.4949165">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/docs/reference/go.md">
+            <entry file="file://$PROJECT_DIR$/docs/reference/net.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="72">
-                    <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="696">
+                    <caret line="29" selection-start-line="29" selection-end-line="29" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -82,11 +36,11 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/docs/reference/python.md">
+            <entry file="file://$PROJECT_DIR$/docs/installation/docker.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="72">
-                    <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="110" />
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="1728">
+                    <caret line="72" selection-start-line="72" selection-end-line="72" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -95,12 +49,12 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/docs/reference/net.md">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/docs/installation/kubernetes.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="696">
-                    <caret line="29" selection-start-line="29" selection-end-line="29" />
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="2928">
+                    <caret line="122" selection-start-line="122" selection-end-line="122" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -152,9 +106,9 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/docs/tutorials/kubetools.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="96">
-                    <caret line="4" column="101" selection-start-line="4" selection-start-column="101" selection-end-line="4" selection-end-column="101" />
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="336">
+                    <caret line="341" column="18" selection-start-line="341" selection-start-column="18" selection-end-line="341" selection-end-column="18" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -191,12 +145,12 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/docs/tutorials/rpc.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="144">
-                    <caret line="6" selection-start-line="6" selection-end-line="6" />
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="522">
+                    <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -209,24 +163,33 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="888">
-                  <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+                <state relative-caret-position="720">
+                  <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
                   <folding>
-                    <marker date="1563899670738" expanded="true" signature="556:811" ph="..." />
+                    <marker date="1563949529552" expanded="true" signature="556:811" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="768">
+                  <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/docs/get_started/pubsub.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
                 <state split_layout="FIRST">
-                  <first_editor relative-caret-position="120">
-                    <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+                  <first_editor relative-caret-position="624">
+                    <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="10" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -271,8 +234,22 @@
             <entry file="file://$PROJECT_DIR$/docs/README.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
                 <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="73">
+                  <first_editor relative-caret-position="96">
                     <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+                  </first_editor>
+                  <second_editor>
+                    <markdownNavigatorState />
+                  </second_editor>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/docs/tutorials/kubetools.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="3072">
+                    <caret line="327" selection-start-line="327" selection-end-line="327" />
                   </first_editor>
                   <second_editor>
                     <markdownNavigatorState />
@@ -353,24 +330,24 @@
         <option value="$PROJECT_DIR$/docs/installation-kubernetes.md" />
         <option value="$PROJECT_DIR$/docs/README.md" />
         <option value="$PROJECT_DIR$/docs/get-started-pubsub.md" />
-        <option value="$PROJECT_DIR$/Taskfile.yml" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/docs/get_started/pubsub.md" />
         <option value="$PROJECT_DIR$/docs/installation/configuration.md" />
-        <option value="$PROJECT_DIR$/docs/installation/docker.md" />
-        <option value="$PROJECT_DIR$/docs/installation/kubernetes.md" />
         <option value="$PROJECT_DIR$/docs/reference/java.md" />
         <option value="$PROJECT_DIR$/docs/reference/go.md" />
         <option value="$PROJECT_DIR$/docs/reference/python.md" />
         <option value="$PROJECT_DIR$/docs/reference/rest.md" />
         <option value="$PROJECT_DIR$/docs/tutorials/concepts.md" />
-        <option value="$PROJECT_DIR$/docs/tutorials/kubetools.md" />
         <option value="$PROJECT_DIR$/docs/tutorials/queue.md" />
         <option value="$PROJECT_DIR$/docs/tutorials/pubsub.md" />
-        <option value="$PROJECT_DIR$/docs/tutorials/rpc.md" />
         <option value="$PROJECT_DIR$/docs/reference/net.md" />
         <option value="$PROJECT_DIR$/docs/home.md" />
+        <option value="$PROJECT_DIR$/Taskfile.yml" />
+        <option value="$PROJECT_DIR$/docs/installation/docker.md" />
+        <option value="$PROJECT_DIR$/docs/installation/kubernetes.md" />
+        <option value="$PROJECT_DIR$/docs/tutorials/kubetools.md" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/docs/.vuepress/config.js" />
+        <option value="$PROJECT_DIR$/docs/tutorials/rpc.md" />
       </list>
     </option>
   </component>
@@ -388,6 +365,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -450,7 +428,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -466,15 +443,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\theme\styles" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
       <recent name="D:\Development\projects\kubemq\docs\docs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\theme\styles" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -581,13 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563868962271</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="v1.2.8&#10;add seo plugin">
+      <created>1563899889334</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563899889334</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="3086" height="1702" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0892267" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09054858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -601,7 +586,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49966845" weight="0.32936507" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49966845" visible="true" weight="0.18427835" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49966845" visible="true" weight="0.19072165" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003316" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -682,7 +667,8 @@
     <MESSAGE value="v1.2.5&#10;major upgrade" />
     <MESSAGE value="v1.2.6" />
     <MESSAGE value="v1.2.7&#10;get started enhancement" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2.7&#10;get started enhancement" />
+    <MESSAGE value="v1.2.8&#10;add seo plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2.8&#10;add seo plugin" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/docs/concepts-channels.md" />
@@ -692,90 +678,13 @@
     <entry file="file://$PROJECT_DIR$/docs/configuration-interfaces.md" />
     <entry file="file://$PROJECT_DIR$/docs/configuration-logging.md" />
     <entry file="file://$PROJECT_DIR$/docs/configuration-metrics.md" />
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-features-list-comparison.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="170">
-            <caret line="27" column="159" selection-start-line="27" selection-start-column="159" selection-end-line="27" selection-end-column="159" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installation-configuration.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="168">
-            <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="7" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/sdk-go.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="752">
-            <caret line="321" column="51" selection-start-line="321" selection-start-column="51" selection-end-line="321" selection-end-column="51" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/sdk-java.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="480">
-            <caret line="20" column="8" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="8" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/sdk-python.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="456">
-            <caret line="31" selection-start-line="31" selection-end-line="31" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/sdk-net.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="115">
-            <caret line="347" column="4" selection-start-line="347" selection-start-column="4" selection-end-line="347" selection-end-column="4" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/rest.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-2040">
-            <caret line="887" column="8" selection-start-line="887" selection-start-column="8" selection-end-line="887" selection-end-column="8" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-features-list-comparison.md" />
+    <entry file="file://$PROJECT_DIR$/docs/installation-configuration.md" />
+    <entry file="file://$PROJECT_DIR$/docs/sdk-go.md" />
+    <entry file="file://$PROJECT_DIR$/docs/sdk-java.md" />
+    <entry file="file://$PROJECT_DIR$/docs/sdk-python.md" />
+    <entry file="file://$PROJECT_DIR$/docs/sdk-net.md" />
+    <entry file="file://$PROJECT_DIR$/docs/rest.md" />
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10656" />
@@ -793,149 +702,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-concepts.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="2736">
-            <caret line="114" selection-start-line="114" selection-end-line="114" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-queue.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="24">
-            <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-pubsub.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="24">
-            <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-rpc.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="24">
-            <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials-kubetools.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="312">
-            <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installation-docker.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="1036">
-            <caret line="62" selection-start-line="30" selection-end-line="62" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installation-kubernetes.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="936">
-            <caret line="123" selection-start-line="107" selection-end-line="123" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/get-started-pubsub.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="227">
-            <caret line="968" selection-start-line="968" selection-end-line="968" />
-            <folding>
-              <element signature="e#14#91#0" expanded="true" />
-              <element signature="e#14#82#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-concepts.md" />
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-queue.md" />
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-pubsub.md" />
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-rpc.md" />
+    <entry file="file://$PROJECT_DIR$/docs/tutorials-kubetools.md" />
+    <entry file="file://$PROJECT_DIR$/docs/installation-docker.md" />
+    <entry file="file://$PROJECT_DIR$/docs/installation-kubernetes.md" />
+    <entry file="file://$PROJECT_DIR$/docs/get-started-pubsub.md" />
     <entry file="file://$PROJECT_DIR$/docs/installation/configuration.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="72">
             <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="96" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installation/docker.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="96">
-            <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installation/kubernetes.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="5" column="96" lean-forward="true" selection-start-line="4" selection-end-line="5" selection-end-column="96" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -977,28 +756,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials/features-list-comparison.md">
+    <entry file="file://$PROJECT_DIR$/docs/reference/python.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Taskfile.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="73">
-            <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <first_editor relative-caret-position="72">
+            <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="110" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1006,23 +768,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials/rpc.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="144">
-            <caret line="6" selection-start-line="6" selection-end-line="6" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials/queue.md">
+    <entry file="file://$PROJECT_DIR$/docs/reference/net.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="72">
-            <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <first_editor relative-caret-position="696">
+            <caret line="29" selection-start-line="29" selection-end-line="29" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1030,11 +780,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials/pubsub.md">
+    <entry file="file://$PROJECT_DIR$/docs/installation/docker.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="72">
-            <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <first_editor relative-caret-position="1728">
+            <caret line="72" selection-start-line="72" selection-end-line="72" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1042,23 +792,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials/kubetools.md">
+    <entry file="file://$PROJECT_DIR$/docs/installation/kubernetes.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="96">
-            <caret line="4" column="101" selection-start-line="4" selection-start-column="101" selection-end-line="4" selection-end-column="101" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorials/concepts.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="72">
-            <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="96" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="2928">
+            <caret line="122" selection-start-line="122" selection-end-line="122" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1078,11 +816,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/reference/python.md">
+    <entry file="file://$PROJECT_DIR$/docs/tutorials/concepts.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="72">
-            <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="110" />
+            <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="96" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1090,15 +828,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/reference/net.md">
+    <entry file="file://$PROJECT_DIR$/docs/tutorials/features-list-comparison.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="696">
-            <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <first_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorials/pubsub.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="72">
+            <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Taskfile.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1114,21 +876,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-          <folding>
-            <marker date="1563899670738" expanded="true" signature="556:811" ph="..." />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/docs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="96">
+            <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/get_started/pubsub.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="120">
-            <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <first_editor relative-caret-position="624">
+            <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="10" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorials/queue.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="72">
+            <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorials/kubetools.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="336">
+            <caret line="341" column="18" selection-start-line="341" selection-start-column="18" selection-end-line="341" selection-end-column="18" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <marker date="1563949529552" expanded="true" signature="556:811" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorials/rpc.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="522">
+            <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
