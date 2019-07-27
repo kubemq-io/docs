@@ -13,9 +13,9 @@ tags: ['pub/sub','message broker','KubeMQ']
 ## Deploy a KubeMQ
 To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
 
-::: tip KubeTools
-KubeTools is KubeMQ CLI tool.
-You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
+::: tip Kubetools
+Kubetools is KubeMQ Command-Line-Interface tool.
+You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
 :::
 
 You can select one of the methods below:
@@ -303,16 +303,16 @@ A consumer can subscribe to the "hello-world" channel with one of the following 
 <CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
-Run the following KubeTools command:
+Run the following Kubetools command:
 ``` bash
 ./kubetools pubsub rec event hello-world
 ```
 
 When connected, a stream of events messages will be shown in the console.
 
-::: tip KubeTools
-KubeTools is KubeMQ CLI tool.
-You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
+::: tip Kubetools
+Kubetools is KubeMQ Command-Line-Interface tool.
+You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
 :::
 
 </template>
@@ -784,16 +784,16 @@ After you have subscribed to a hello-world channel, you can send your message to
 
 <template v-slot:bash>
 
-Run the following KubeTools command:
+Run the following Kubetools command:
 
 ``` bash
 ./kubetools pubsub send event hello-world "Hi KubeMQ"
 ```
 
 
-::: tip KubeTools
-KubeTools is KubeMQ CLI tool.
-You can download KubeTools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
+::: tip Kubetools
+Kubetools is KubeMQ Command-Line-Interface tool.
+You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
 :::
 
 </template>

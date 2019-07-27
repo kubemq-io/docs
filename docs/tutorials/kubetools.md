@@ -1,15 +1,15 @@
 ---
-title: KubeTools (KubeMQ CLI)
+title: Kubetools
 lang: en-US
 description: 'KubeMQ Command Line Interface reference'
 tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','cli']
 ---
-# KubeTools
-Kubetools is a CLI application for testing KubeMQ server or cluster installation. In addition, Kubetools provides several utilities such as monitoring channel traffic, send messages, and subscribe to channels.
+# Kubetools
+Kubetools is a Command-Line-Interface application for testing KubeMQ server or cluster installation. In addition, Kubetools provides several utilities such as monitoring channel traffic, send messages, and subscribe to channels.
 ## Table of Content
 [[toc]]
 ## Download / Installation
-KubeTools executable can be downloaded from bin folder for 4 operating systems:
+Kubetools executable can be downloaded from bin folder for 4 operating systems:
 1. Windows 64bit
 2. Mac OS 64bit
 3. Linux 64bit
@@ -583,7 +583,7 @@ kubetools m
 
 
 ## Configuration
-KubeTools require `.config.yaml` File for connections variables. Default configuration:
+Kubetools require `.config.yaml` File for connections variables. Default configuration:
 
 ``` yaml
 healthAddress: "http://localhost:8080/health" # the address of Health endpoint , you can replace the localhost:8080 with your address
