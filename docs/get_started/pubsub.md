@@ -305,7 +305,7 @@ A consumer can subscribe to the "hello-world" channel with one of the following 
 
 Run the following Kubetools command:
 ``` bash
-./kubetools pubsub rec event hello-world
+kubetools pubsub rec events hello-world
 ```
 
 When connected, a stream of events messages will be shown in the console.
@@ -787,7 +787,7 @@ After you have subscribed to a hello-world channel, you can send your message to
 Run the following Kubetools command:
 
 ``` bash
-./kubetools pubsub send event hello-world "Hi KubeMQ"
+kubetools pubsub send events hello-world "Hi KubeMQ"
 ```
 
 
