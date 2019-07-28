@@ -56,7 +56,7 @@ The KubeMQ persistence (Events Store) configuration can be set as below:
 | Environment Variable               | Type | Default | Description                                                                                       |
 |:-----------------------------------|:-----|:--------|:--------------------------------------------------------------------------------------------------|
 | QUEUE_MAX_NUMBER_OF_MESSAGE        | int  | `1024`  | Sets max of sending / receiving batch of queue messages, default 1024, 0 is unlimited             |
-| QUEUE_MAX_WAIT_TIMEOUT_SECONDS     | int  | `3600`  | Sets max expiration allowed for message, default 43200 seconds, 12 hours                          |
+| QUEUE_MAX_WAIT_TIMEOUT_SECONDS     | int  | `3600`  | Sets max wait time out allowed for receive message, default 3600 seconds, 1 hour                          |
 | QUEUE_MAX_EXPIRATION_SECONDS       | int  | `43200` | Sets max expiration allowed for message, default 43200 seconds, 12 hours                          |
 | QUEUE_MAX_DELAY_SECONDS            | int  | `43200` | Sets max delay seconds allowed for message, default 43200 seconds, 12 hours                       |
 | QUEUE_MAX_RECEIVE_COUNT            | int  | `16`    | Sets max retires to receive message before discard, default 16 times                              |
