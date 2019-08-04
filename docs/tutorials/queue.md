@@ -26,71 +26,75 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 - **Visibility timers** - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
 - **Resend Messages** - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
 
-## Message Expiration (TTL)
+## Publish to Queue
+
+### Message Expiration (TTL)
 KubeMQ allows the producer to set each message with an expiration time (in seconds) also known as Time To Live (TTL). After this time, the message will not be longer available to any consumer.
 
 ![image info](./images/queue-expiration.png)
 
-## Message Delay (Scheduled Messages)
+### Message Delay (Scheduled Messages)
 KubeMQ allows the producer to set each message with sending delay (in seconds) time also known as Scheduled Messages. Until this time, the message will not be available to and consumer.
 
 ![image info](./images/queue-delay.png)
 
 
-## Long Polling
+### Dead-Letter Queue
+KubeMQ allows a producer to set a dead-letter queue per each message a which the message will be moved onto in case of a consumer will fail to ack the message (such a poison message).
+
+ ![image info](./images/queue-dead-letter.png)
+
+## Consume from Queue
+
+### Long Polling
 KubeMQ allows the consumer to connect to KubeMQ and wait for a specified time until a message is available in the queue to consume.
 
 ![image info](./images/queue-long-polling.png)
 
-## Peak Queue Messages
+### Peak Queue Messages
 
 KubeMQ allows a consumer to peak one or many messages in the queue without removing them from the queue.
 
 ![image info](./images/queue-peak.png)
 
 
-## Ack All Queue Messages
+### Ack All Queue Messages
 
 KubeMQ allows a consumer to ack all messages in the queue (clean-up) therefore existing messages in the queue will not be available anymore to consume.
 
  ![image info](./images/queue-ack-all.png)
 
-## Dead-Letter Queue
-KubeMQ allows a producer to set a dead-letter queue per each message a which the message will be moved onto in case of a consumer will fail to ack the message (such a poison message).
-
- ![image info](./images/queue-dead-letter.png)
-
-## Message Visibility
+### Message Visibility
 
  KubeMQ allows the consumer to set a visibility time, which during this time, the message will not be available to any other consumer. During the visibility period, the consumer can extend the visibility time window at any time. Once the consumer completed the message processing, he sends an ack notification to the queue. If the consumer failed to ack the message during the visibility time, the message will be available back in the queue to consume by others.
 
-### Visibility With Ack
+#### Visibility With Ack
   ![image info](./images/queue-visibility-ack.png)
 
-### Visibility With Failure
+#### Visibility With Failure
   ![image info](./images/queue-visibility-reject.png)
 
-## Resend Message
+### Resend Message
 
 KubeMQ allows the consumer to resend the current pulled message to a new queue without the need to send the actual message (act as producer).
 
 ![image info](./images/queue-resend.png)
 
-## Resend Modified Message
+### Resend Modified Message
 
 KubeMQ allows the consumer to send back to the queue a modified message for further processing by other consumers.
 
 ![image info](./images/queue-resend-new.png)
 
 
-## Transactional Flow
+### Transactional Queue
 
 KubeMQ allows the consumer to connect in a stream transactional model where the consumer can control the flow of message life-cycle.
 
-### Successful Flow
+#### Successful Flow
 
 ![image info](./images/queue-stream-flow-ok.png)
 
-### Failed Flow
+#### Failed Flow
 
 ![image info](./images/queue-stream-flow-fail.png)

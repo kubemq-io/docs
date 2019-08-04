@@ -6,7 +6,6 @@ tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native',
 ---
 
 # Go
-KubeMQ is an enterprise-grade message broker for containers, designed for any workload and architecture running in Kubernetes.
 This library is Go implementation of KubeMQ client connection.
 ## Table of Content
 [[toc]]
@@ -14,9 +13,10 @@ This library is Go implementation of KubeMQ client connection.
 `$ go get -u github.com/kubemq-io/kubemq-go
 `
 
-## Core Concepts
-KubeMQ messaging broker has 4 messaging patterns:
+## Core Basics
+KubeMQ messaging broker has 5 messaging patterns:
 
+- Queues - FIFO based, exactly one durable queue pattern
 - Events - real-time pub/sub pattern
 - Events Store - pub/sub with persistence pattern
 - Commands - the Command part of CQRS pattern, which sends commands with the response for executed or not (with proper error messaging)
@@ -33,6 +33,7 @@ The common part of all the patterns are:
 - Id - the sender can set the Id for each type of message, or the Id is automatically generated a UUID Id for him.
 - Metadata - a string field that can hold any metadata related to the message
 - Body - a Bytes array which holds the actual payload to be sent from the sender to the receiver
+- Tags - a Map of string,string for user define data
 
 The KubeMQ core transport is based on gRPC, and the library is a wrapper around the client-side of gRPC complied protobuf hence leveraging the gRPC benefits and advantages.
 
@@ -68,6 +69,299 @@ List of connection options:
 - WithDefaultChannel - set default channel for any outbound requests
 - WithDefaultCacheTTL - set default cache time to live for any query requests with any CacheKey set value
 - WithTransportType - set client transport type, currently gRPC or Rest
+
+An example for gRPC base connection:
+
+``` go
+    sender, err := kubemq.NewClient(ctx, 
+	kubemq.WithAddress("localhost", 50000),
+	kubemq.WithClientId("client-id"),
+	kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer sender.Close()
+```
+An example for gRPC based connection:
+
+``` go
+    sender, err := kubemq.NewClient(ctx, 
+	kubemq.WithAddress("localhost", 50000),
+	kubemq.WithClientId("client-id"),
+	kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer sender.Close()
+```
+
+
+An example for rest based connection:
+
+``` go
+    sender, err := kubemq.NewClient(ctx, 
+	kubemq.WithUri("http://localhost:9090),
+	kubemq.WithClientId("client-id"),
+	kubemq.WithTransportType(kubemq.TransportTypeRest))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer sender.Close()
+```
+## Examples
+Please visit our extensive [examples](https://github.com/kubemq-io/kubemq-go/tree/master/examples) folder
+Please find usage examples on the examples folders.
+## Queues
+
+### Core features
+
+KubeMQ supports distributed durable FIFO based queues with the following core features:
+
+- **Exactly One Delivery** - Only one message guarantee will deliver to the subscriber
+- **Single and Batch Messages Send and Receive** - Single and multiple messages in one call
+- **RPC and Stream Flows** - RPC flow allows an insert and pull messages in one call. Stream flow allows single message consuming in transactional way
+- **Message Policy** - Each message can be configured with expiration and delay timers. In addition, each message can specify a dead-letter queue for un-processed messages attempts
+- **Long Polling** - Consumers can wait until a message available in the queue to consume
+- **Peak Messages** - Consumers can peak into a queue without removing them from the queue
+- **Ack All Queue Messages** - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
+- **Visibility timers** - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
+- **Resend Messages** - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
+
+### Send Message to a Queue
+
+```go
+sendResult, err := client.NewQueueMessage().
+		SetChannel(channel).
+		SetBody([]byte("some-simple_queue-queue-message")).
+		Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+```
+
+### Send Message to a Queue with Expiration
+
+```go
+    sendResult, err := client.NewQueueMessage().
+	SetChannel(channel).
+	SetBody([]byte("some-simple_queue-queue-message")).
+	// message will expire within 20 seconds if will not consumed
+    SetPolicyExpirationSeconds(20).
+	Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+```
+
+
+### Send Message to a Queue with Delay
+
+```go
+    sendResult, err := client.NewQueueMessage().
+	SetChannel(channel).
+	SetBody([]byte("some-simple_queue-queue-message")).
+	// message will be available in the queue in 5 seconds from sending
+    SetPolicyDelaySeconds(5).
+	Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+```
+
+
+### Send Message to a Queue with Dead-letter Queue
+
+```go
+    sendResult, err := client.NewQueueMessage().
+	SetChannel(channel).
+	SetBody([]byte("some-simple_queue-queue-message")).
+	// setting 3 times for un-acked message will re-deliver the message to "DeadLetterQueue"
+    SetPolicyMaxReceiveCount(3).
+	SetPolicyMaxReceiveQueue("DeadLetterQueue").
+	Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+```
+
+### Send Batch Messages
+
+```go
+ 	batch:=client.NewQueueMessages()
+	for i:=0; i<10 ; i++  {
+		batch.Add(client.NewQueueMessage().
+			SetChannel(channel).SetBody([]byte(fmt.Sprintf("Batch Message %d",i))))
+	}
+	batchResult,err:= batch.Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, sendResult := range batchResult {
+		log.Printf("Send to Queue Result: MessageID:%s,Sent At: %s\n", sendResult.MessageID,time.Unix(0,sendResult.SentAt).String())
+	}
+```
+
+### Receive Messages from a Queue
+
+```go
+	receiveResult,err:= client.NewReceiveQueueMessagesRequest().
+		SetChannel(channel).
+		SetMaxNumberOfMessages(10).
+		SetWaitTimeSeconds(1).
+		Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("Received %d Messages:\n",receiveResult.MessagesReceived)
+	for _, msg := range receiveResult.Messages {
+		log.Printf("MessageID: %s, Body: %s",msg.Id,string(msg.Body))
+	}
+```
+
+
+### Peak Messages from a Queue
+
+```go
+	receiveResult,err:= client.NewReceiveQueueMessagesRequest().
+		SetChannel(channel).
+		SetMaxNumberOfMessages(10).
+		SetWaitTimeSeconds(1).
+		SetIsPeak(true).
+		Send(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("Received %d Messages:\n",receiveResult.MessagesReceived)
+	for _, msg := range receiveResult.Messages {
+		log.Printf("MessageID: %s, Body: %s",msg.Id,string(msg.Body))
+	}
+```
+
+
+### Ack All Messages In a Queue
+
+```go
+	receiveResult, err := ackClient.NewAckAllQueueMessagesRequest().
+		SetChannel(channel).
+		SetWaitTimeSeconds(2).
+		Send(ctx)
+	if err != nil {
+		return
+	}
+	log.Printf("ack Messages: %d completed\n", receiveResult.AffectedMessages)
+```
+
+### Transactional Queue - Ack
+
+```go
+	stream := receiver.NewStreamQueueMessage().SetChannel(channel)
+	// get message from the queue with visibility of 10 seconds and wait timeout of 10 seconds
+	msg, err := stream.Next(ctx, 10, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("MessageID: %s, Body: %s", msg.Id, string(msg.Body))
+	log.Println("doing some work.....")
+	time.Sleep(time.Second)
+	// ack the current message
+	log.Println("done, ack the message")
+	err = msg.Ack()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("checking for next message")
+	msg, err = stream.Next(ctx, 10, 1)
+	if err != nil {
+		log.Println(err.Error())
+	}
+	if msg == nil {
+		log.Println("no new message in the queue")
+	}
+```
+
+### Transactional Queue - Reject
+
+```go
+	stream := receiver.NewStreamQueueMessage().SetChannel(channel)
+	// get message from the queue with visibility of 10 seconds and wait timeout of 10 seconds
+	msg, err := stream.Next(ctx, 10, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("MessageID: %s, Body: %s", msg.Id, string(msg.Body))
+	log.Println("reject message")
+	err = msg.Reject()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+```
+
+### Transactional Queue - Extend Visibility
+
+```go
+	// get message from the queue
+	msg, err := stream.Next(ctx, 5, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("MessageID: %s, Body: %s", msg.Id, string(msg.Body))
+	log.Println("work for 1 seconds")
+	time.Sleep(1000 * time.Millisecond)
+	log.Println("need more time to process, extend visibility for more 3 seconds")
+	err = msg.ExtendVisibility(3)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("approved. work for 2.5 seconds")
+	time.Sleep(2500 * time.Millisecond)
+	log.Println("work done.... ack the message")
+	err = msg.Ack()
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("ack done")
+```
+
+### Transactional Queue - Resend to New Queue
+
+```go
+	stream := receiverA.NewStreamQueueMessage().SetChannel(channel)
+	// get message from the queue
+	msg, err := stream.Next(ctx, 5, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("MessageID: %s, Body: %s", msg.Id, string(msg.Body))
+	log.Println("resend to new queue")
+
+	err = msg.Resend("new-queue")
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("done")
+```
+
+
+### Transactional Queue - Resend Modified Message
+
+```go
+    stream := receiver1.NewStreamQueueMessage().SetChannel("receiverA")
+	// get message from the queue
+	msg, err := stream.Next(ctx, 3, 5)
+	if err != nil {
+	log.Println("No new messages for ReceiverA")
+		return
+	}
+	log.Printf("Queue: ReceiverA,MessageID: %s, Body: %s,Seq: %d - send to queue receiverB", msg.Id, string(msg.Body), msg.Attributes.Sequence)
+	msg.SetChannel("receiverB")
+	msg.SetMetadata("new metadata")
+	err = stream.ResendWithNewMessage(msg)
+	if err != nil {
+			log.Fatal(err)
+	}
+```
 
 ## Events
 ### Sending Events
@@ -319,6 +613,4 @@ if err != nil {
    log.Fatal(err)
 }
 ```
-
-## Examples
-Please find usage examples on the examples folders.
+find usage examples on the examples folders.
