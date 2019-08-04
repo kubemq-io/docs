@@ -1,11 +1,11 @@
 ---
-title: 'Pub/Sub'
+title: 'RPC'
 lang: en-US
 type: 'article'
-description: 'Get started with KubeMQ and Pub/Sub pattern'
-tags: ['pub/sub','message broker','KubeMQ']
+description: 'Get started with KubeMQ and RPC pattern'
+tags: ['message broker','KubeMQ','rpc']
 ---
-# Get Started with Pub/Sub
+# Get Started with RPC
 
 ## Table of Content
 [[toc]]

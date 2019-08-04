@@ -16,7 +16,6 @@ Similarly, subscribers express interest in one or more events and only receive m
 ## Core Features
 KubeMQ supports Publish-Subscribe messages patterns with the following core features:
 
-
 - **Event** -  An asynchronous real-time Pub/Sub pattern.
 - **Event Store** -An asynchronous Pub/Sub pattern with persistence.
 - **Grouping** - Load balancing of events between subscribers

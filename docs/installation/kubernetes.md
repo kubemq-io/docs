@@ -20,7 +20,17 @@ Please [register](https://account.kubemq.io/login/register?destination=docker) t
 :::
 
 ## YAML File
-Copy and deploy the following yaml file:
+
+1. Create filename `kubemq.yaml`
+2. Copy the below yaml template file
+3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
+4. Save the file
+5. Deploy the file with command
+``` bash
+kubectl create -f d:/kubemq.yaml
+```
+
+yaml template :
 
 ``` yaml
 apiVersion: v1
@@ -102,6 +112,7 @@ items:
         app: kubemq-cluster
 
 ```
+
 
 ## Helm Chart
 

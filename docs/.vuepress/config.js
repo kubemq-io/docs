@@ -59,7 +59,9 @@ module.exports = {
                 title: 'Get Started',
                 collapsable: false,
                 children: [
+                    '/get_started/queue',
                     '/get_started/pubsub',
+                    '/get_started/rpc',
                 ]
             },
             {

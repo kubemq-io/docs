@@ -1,11 +1,11 @@
 ---
-title: 'Pub/Sub'
+title: 'Queue'
 lang: en-US
 type: 'article'
-description: 'Get started with KubeMQ and Pub/Sub pattern'
-tags: ['pub/sub','message broker','KubeMQ']
+description: 'Get started with KubeMQ and Queue pattern'
+tags: ['message broker','KubeMQ','queue']
 ---
-# Get Started with Pub/Sub
+# Get Started with Queues
 
 ## Table of Content
 [[toc]]
