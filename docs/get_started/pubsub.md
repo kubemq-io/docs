@@ -28,7 +28,7 @@ You can select one of the methods below:
 Pull and run KubeMQ Docker container:
 ``` bash
 docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
--v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+-v $PWD:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
 
 ```
 
@@ -36,99 +36,9 @@ docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
 
 <template v-slot:kubernetes>
 
-### Kubernetes Deployment
-1. Create filename `kubemq.yaml`
-2. Copy the below yaml template file
-3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
-4. Save the file
-5. Deploy the file with command
 ``` bash
-kubectl create -f d:/kubemq.yaml
+kubectl apply -f https://get.kubemq.io/deploy?token=<YOUR_KUBEMQ_TOKEN>
 ```
-
-yaml template :
-
-``` yaml
-apiVersion: v1
-kind: List
-items:
-  - apiVersion: apps/v1beta2
-    kind: StatefulSet
-    metadata:
-      name: kubemq-cluster
-    spec:
-      selector:
-        matchLabels:
-          app: kubemq-cluster
-      replicas: 3
-      serviceName: kubemq-cluster
-      template:
-        metadata:
-          labels:
-            app: kubemq-cluster
-        spec:
-          containers:
-            - env:
-                - name: KUBEMQ_TOKEN
-                  value: <YOUR_KUBEMQ_TOKEN>
-                - name: CLUSTER_ROUTES
-                  value: 'kubemq-cluster:5228'
-                - name: CLUSTER_PORT
-                  value: '5228'
-                - name: CLUSTER_ENABLE
-                  value: 'true'
-                - name: GRPC_PORT
-                  value: '50000'
-                - name: REST_PORT
-                  value: '9090'
-                - name: KUBEMQ_PORT
-                  value: '8080'
-              image: 'kubemq/kubemq:latest'
-              imagePullPolicy: IfNotPresent
-              name: kubemq-cluster
-              ports:
-                - containerPort: 50000
-                  name: grpc-port
-                  protocol: TCP
-                - containerPort: 8080
-                  name: metrics-port
-                  protocol: TCP
-                - containerPort: 9090
-                  name: rest-port
-                  protocol: TCP
-                - containerPort: 5228
-                  name: cluster-port
-                  protocol: TCP
-          restartPolicy: Always
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      name: kubemq-cluster
-    spec:
-      ports:
-        - name: metrics-port
-          port: 8080
-          protocol: TCP
-          targetPort: 8080
-        - name: grpc-port
-          port: 50000
-          protocol: TCP
-          targetPort: 50000
-        - name: cluster-port
-          port: 5228
-          protocol: TCP
-          targetPort: 5228
-        - name: rest-port
-          port: 9090
-          protocol: TCP
-          targetPort: 9090
-      sessionAffinity: None
-      type: NodePort
-      selector:
-        app: kubemq-cluster
-
-```
-
 </template>
 
 
@@ -331,7 +241,7 @@ You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetool
 The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-curl --location --request GET "https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events" \
+curl --location --request GET "http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events" \
   --header "Content-Type: application/json" \
   --data ""
 ```
@@ -648,7 +558,7 @@ var https = require('https');
 
 var options = {
   'method': 'GET',
-  'hostname': 'https://playground.kubemq.io',
+  'hostname': 'http://host:port',
   'path': '/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events',
   'headers': {
     'Content-Type': 'application/json',
@@ -692,7 +602,7 @@ The following PHP code snippet is using KubeMQ's REST interface:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
+  CURLOPT_URL => "http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -733,7 +643,7 @@ The following Ruby code snippet is using KubeMQ's REST interface:
 require "uri"
 require "net/http"
 
-url = URI("https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events")
+url = URI("http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -758,7 +668,7 @@ The following jQuery code snippet is using KubeMQ's REST interface:
 
 ``` js
 var settings = {
-  "url": "https://playground.kubemq.io/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
+  "url": "http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
   "method": "GET",
   "timeout": 0,
   "headers": {
@@ -813,7 +723,7 @@ You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetool
 The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-curl --location --request POST "https://playground.kubemq.io/send/event" \
+curl --location --request POST "http://host:port/send/event" \
   --header "Content-Type: application/json" \
   --data "{
     \"EventID\": \"1234-5678-90\",
@@ -1110,7 +1020,7 @@ The following PHP code snippet is using KubeMQ's REST interface:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://playground.kubemq.io/send/event",
+  CURLOPT_URL => "http://host:port/send/event",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -1159,7 +1069,7 @@ The following Ruby code snippet is using KubeMQ's REST interface:
 require "uri"
 require "net/http"
 
-url = URI("https://playground.kubemq.io/send/event")
+url = URI("http://host:port/send/event")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
@@ -1192,7 +1102,7 @@ The following jQuery code snippet is using KubeMQ's REST interface:
 
 ``` js
 var settings = {
-  "url": "https://playground.kubemq.io/send/event",
+  "url": "http://host:port/send/event",
   "method": "POST",
   "timeout": 0,
   "headers": {

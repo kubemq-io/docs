@@ -21,98 +21,229 @@ Please [register](https://account.kubemq.io/login/register?destination=docker) t
 
 ## YAML File
 
+### Option 1 - Quick Deploy
+
+``` bash
+kubectl apply -f https://get.kubemq.io/deploy?token=<YOUR_KUBEMQ_TOKEN>
+```
+
+
+
+### Option 2 - KubeMQ Without Persistent Volume
+
 1. Create filename `kubemq.yaml`
 2. Copy the below yaml template file
+
+
+``` yaml
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kubemq-cluster
+spec:
+  selector:
+    matchLabels:
+      app: kubemq-cluster
+  replicas: 3
+  serviceName: kubemq-cluster
+  template:
+    metadata:
+      labels:
+        app: kubemq-cluster
+    spec:
+      containers:
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'  
+          image: 'kubemq/kubemq:latest'
+          name: kubemq-cluster
+          ports:
+            - containerPort: 50000
+              name: grpc-port
+              protocol: TCP
+            - containerPort: 8080
+              name: api-port
+              protocol: TCP
+            - containerPort: 9090
+              name: rest-port
+              protocol: TCP
+            - containerPort: 5228
+              name: cluster-port
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubemq-cluster-ext
+spec:
+  ports:
+    - name: api-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: grpc-port
+      port: 50000
+      protocol: TCP
+      targetPort: 50000
+    - name: rest-port
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+  sessionAffinity: None
+  type: NodePort
+  selector:
+    app: kubemq-cluster
+---  
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubemq-cluster
+spec:
+  ports:
+    - name: cluster-port
+      port: 5228
+      protocol: TCP
+      targetPort: 5228
+  sessionAffinity: None
+  type: ClusterIP
+  selector:
+    app: kubemq-cluster
+```
 3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
 4. Save the file
 5. Deploy the file with command
 ``` bash
-kubectl create -f d:/kubemq.yaml
+kubectl apply -f d:/kubemq.yaml
 ```
 
-yaml template :
+### Option 3 - KubeMQ With Persistent Volume
+
+1. Create filename `kubemq.yaml`
+2. Copy the below yaml template file
 
 ``` yaml
-apiVersion: v1
-kind: List
-items:
-  - apiVersion: apps/v1beta2
-    kind: StatefulSet
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kubemq-cluster
+spec:
+  selector:
+    matchLabels:
+      app: kubemq-cluster
+  replicas: 3
+  serviceName: kubemq-cluster
+  template:
     metadata:
-      name: kubemq-cluster
-    spec:
-      selector:
-        matchLabels:
-          app: kubemq-cluster
-      replicas: 3
-      serviceName: kubemq-cluster
-      template:
-        metadata:
-          labels:
-            app: kubemq-cluster
-        spec:
-          containers:
-            - env:
-                - name: KUBEMQ_TOKEN
-                  value: <YOUR_KUBEMQ_TOKEN>
-                - name: CLUSTER_ROUTES
-                  value: 'kubemq-cluster:5228'
-                - name: CLUSTER_PORT
-                  value: '5228'
-                - name: CLUSTER_ENABLE
-                  value: 'true'
-                - name: GRPC_PORT
-                  value: '50000'
-                - name: REST_PORT
-                  value: '9090'
-                - name: KUBEMQ_PORT
-                  value: '8080'
-              image: 'kubemq/kubemq:latest'
-              imagePullPolicy: IfNotPresent
-              name: kubemq-cluster
-              ports:
-                - containerPort: 50000
-                  name: grpc-port
-                  protocol: TCP
-                - containerPort: 8080
-                  name: metrics-port
-                  protocol: TCP
-                - containerPort: 9090
-                  name: rest-port
-                  protocol: TCP
-                - containerPort: 5228
-                  name: cluster-port
-                  protocol: TCP
-          restartPolicy: Always
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      name: kubemq-cluster
-    spec:
-      ports:
-        - name: metrics-port
-          port: 8080
-          protocol: TCP
-          targetPort: 8080
-        - name: grpc-port
-          port: 50000
-          protocol: TCP
-          targetPort: 50000
-        - name: cluster-port
-          port: 5228
-          protocol: TCP
-          targetPort: 5228
-        - name: rest-port
-          port: 9090
-          protocol: TCP
-          targetPort: 9090
-      sessionAffinity: None
-      type: NodePort
-      selector:
+      labels:
         app: kubemq-cluster
-
+    spec:
+      containers:
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+          image: 'kubemq/kubemq:latest'
+          name: kubemq-cluster
+          ports:
+            - containerPort: 50000
+              name: grpc-port
+              protocol: TCP
+            - containerPort: 8080
+              name: api-port
+              protocol: TCP
+            - containerPort: 9090
+              name: rest-port
+              protocol: TCP
+            - containerPort: 5228
+              name: cluster-port
+              protocol: TCP
+          volumeMounts:
+            - name: kubemq-vol
+              mountPath: '/store'
+      restartPolicy: Always
+  volumeClaimTemplates:
+    - metadata:
+        name: kubemq-vol
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName:
+        resources:
+          requests:
+            storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubemq-cluster-ext
+spec:
+  ports:
+    - name: api-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: grpc-port
+      port: 50000
+      protocol: TCP
+      targetPort: 50000
+    - name: rest-port
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+  sessionAffinity: None
+  type: NodePort
+  selector:
+    app: kubemq-cluster
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubemq-cluster
+spec:
+  ports:
+    - name: cluster-port
+      port: 5228
+      protocol: TCP
+      targetPort: 5228
+  sessionAffinity: None
+  type: ClusterIP
+  selector:
+    app: kubemq-cluster
 ```
-
+3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
+4. Save the file
+5. Deploy the file with command
+``` bash
+kubectl apply -f d:/kubemq.yaml
+```
 
 ## Helm Chart
 

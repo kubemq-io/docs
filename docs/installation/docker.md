@@ -26,7 +26,7 @@ Please [register](https://account.kubemq.io/login/register?destination=docker) t
 Pull and run KubeMQ Docker container:
 ``` bash
 docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
--v kubemq-vol:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+-v $PWD:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
 
 ```
 
