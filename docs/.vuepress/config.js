@@ -50,9 +50,9 @@ module.exports = {
         ],
         sidebar: [{
                 title: 'Home',
-                collapsable: true,
+                collapsable: false,
                 children: [
-                    '/home',
+                    '/introduction',
                 ]
             },
             {
