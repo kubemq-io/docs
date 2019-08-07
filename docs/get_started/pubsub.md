@@ -9,14 +9,8 @@ tags: ['pub/sub','message broker','KubeMQ']
 
 ## Table of Content
 [[toc]]
-
 ## Deploy a KubeMQ
 To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
-
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
-You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
-:::
 
 You can select one of the methods below:
 
@@ -24,8 +18,9 @@ You can select one of the methods below:
 
 <template v-slot:docker>
 
-### Docker
+
 Pull and run KubeMQ Docker container:
+
 ``` bash
 docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
 -v $PWD:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
@@ -36,15 +31,17 @@ docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
 
 <template v-slot:kubernetes>
 
-``` bash
-kubectl apply -f https://get.kubemq.io/deploy?token=<YOUR_KUBEMQ_TOKEN>
-```
-</template>
+Execute the flowing command:
 
+``` bash
+kubectl apply -f https://get.kubemq.io/deploy?token="YOUR_KUBEMQ_TOKEN"
+```
+
+
+</template>
 
 <template v-slot:helm>
 
-### Helm Installation
 Add KubeMQ Helm Repository:
 
 ``` bash
@@ -68,8 +65,8 @@ kubemq-charts/kubemq
 
 <template v-slot:docker_compose>
 
-### Docker-Compose Deployment
-Run :
+
+Execute the flowing command:
 
 ``` bash
 docker-compose -d up
@@ -89,7 +86,7 @@ services:
       - "50000:50000"
     environment:
       - KUBEMQ_HOST=kubemq
-      - KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN>
+      - KUBEMQ_TOKEN="YOUR_KUBEMQ_TOKEN"
     networks:
       - backend
       - frontend
@@ -105,10 +102,6 @@ volumes:
 </CodeSwitcher>
 
 
-::: warning PROXY
-If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
-:::
 
 ## Verify Deployment
 
@@ -201,6 +194,12 @@ We received:
 ]
 
 ```
+
+
+::: warning PROXY
+If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
+In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+:::
 
 ## Next Steps
 
