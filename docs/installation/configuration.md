@@ -14,121 +14,458 @@ KubeMQ server can be configured via environment variables set during container l
 
 The KubeMQ general configuration can be set as below:
 
-| Environment Variable | Type   | Default             | Description                                                                                                                                    |
-|:---------------------|:-------|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
-| KUBEMQ_TOKEN         | string | No Default          | Sets the KubeMQ token key                                                                                                                      |
-| KUBEMQ_HOST          | string | container host name | Sets the docker container’s explicit host name                                                                                                |
-| KUBEMQ_PORT          | int    | `8080`              | KubeMQ service API port for health, metrics and traces                                                                                         |
-| KUBEMQ_LOG_LEVEL     | int    | `2`                 | Setting KubeMQ stdout log level where:  <ul><li>1 - Debug</li><li>2 - Info</li><li>3 - Warn</li><li>4 - Error</li></li><li>5 - Fatal</li></ul> |
-| KubeMQ_PROXY         | string | ``                  | Set Proxy server address url access (in case license validation failure)                                                                        |
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN # Sets the KubeMQ token key
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES 
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE 
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT # Sets KubeMQ service API port for health, metrics and traces
+              value: '8080'
+            - name: KUBEMQ_HOST # Sets the docker container’s explicit host name
+              value: 'kuebmq'  
+            - name: KUBEMQ_LOG_LEVEL # Sets KubeMQ stdout log level where:  1 - Debug 2 - Info 3 - Warn 4 - Error 5 - Fatal
+              value: '2'  
+            - name: KUBEMQ_PROXY # Sets Proxy server address url access (in case license validation failure) 
+              value: '2'  
+
+           image: 'kubemq/kubemq:latest'
+....        
+```
 
 
 ## Cluster
 The KubeMQ cluster configuration can be set as below:
 
-| Environment Variable | Type   | Default       | Description                                                        |
-|:---------------------|:-------|:--------------|:-------------------------------------------------------------------|
-| CLUSTER_ENABLE       | bool   | false         | Sets the KubeMQ clustering mode                                        |
-| CLUSTER_ID           | string | `kubemq`      | Sets the KubeMQ cluster id as it is set in the kubernetes stateful set        |
-| CLUSTER_PORT         | int    | `5228`        | Sets the KubeMQ cluster listening port                                 |
-| CLUSTER_IS_SEED      | bool   | `false`       | Sets the current KubeMQ node as the seed (when not running as the stateful set |
-| CLUSTER_ROUTES       | string | `kubemq:5228` | Sets the address of other KubeMQ nodes forming a cluster               |
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES #Sets the address of other KubeMQ nodes forming a cluster 
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT # Sets the KubeMQ cluster listening port 
+              value: '5228'
+            - name: CLUSTER_ENABLE # Sets the KubeMQ clustering mode
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: CLUSTER_IS_SEED # Sets the current KubeMQ node as the seed (when not running as the stateful set 
+              value: 'true'  
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
 
 ## Persistence
 
-The KubeMQ Queue configuration can be set as below:
+<CodeSwitcher :languages="{general:'General',queues:'Queues'}" :isolated="true">
 
-| Environment Variable       | Type   | Default   | Description                                                                         |
-|:---------------------------|:-------|:----------|:------------------------------------------------------------------------------------|
-| STORE_CLEAN                | bool   | false     | true=KubeMQ will clean all the files in the store on boot                           |
-| STORE_DIR                  | string | `./store` | Sets KubeMQ persistence folder                                                      |
-| STORE_MAX_QUEUES           | int    | `0`       | Sets KubeMQ limit of the number of persistent channels/queues, 0 = unlimited        |
-| STORE_MAX_SUBSCRIBERS      | int    | `0`       | Sets KubeMQ limit of the number of subscribers per channel/queue, 0 = unlimited     |
-| STORE_MAX_MESSAGES         | int    | `0`       | Sets KubeMQ limit of the number of stored messages per channel/queue, 0 = unlimited |
-| STORE_MAX_SIZE             | int    | `0`       | Sets KubeMQ max size in bytes per channel/queue, 0 = unlimited                      |
-| STORE_MAX_RETENTION        | int    | `1440`    | Sets KubeMQ store time in minutes for each message per channel/queue, 0 = infinite  |
-| STORE_MAX_INACTIVITY_PURGE | int    | `1440`    | Sets KubeMQ delete channel/queue due to inactivity time in minutes, 0 = no purging  |
+<template v-slot:general>
 
-## Queue
 
-The KubeMQ persistence (Events Store) configuration can be set as below:
+The KubeMQ general persistence configuration can be set as below:
 
-| Environment Variable               | Type | Default | Description                                                                                       |
-|:-----------------------------------|:-----|:--------|:--------------------------------------------------------------------------------------------------|
-| QUEUE_MAX_NUMBER_OF_MESSAGE        | int  | `1024`  | Sets max of sending / receiving batch of queue messages, default 1024, 0 is unlimited             |
-| QUEUE_MAX_WAIT_TIMEOUT_SECONDS     | int  | `3600`  | Sets max wait time out allowed for receive message, default 3600 seconds, 1 hour                          |
-| QUEUE_MAX_EXPIRATION_SECONDS       | int  | `43200` | Sets max expiration allowed for message, default 43200 seconds, 12 hours                          |
-| QUEUE_MAX_DELAY_SECONDS            | int  | `43200` | Sets max delay seconds allowed for message, default 43200 seconds, 12 hours                       |
-| QUEUE_MAX_RECEIVE_COUNT            | int  | `16`    | Sets max retires to receive message before discard, default 16 times                              |
-| QUEUE_MAX_VISIBILITY_SECONDS       | int  | `43200` | Sets max time of hold received message before returning to queue, default 43200 seconds, 12 hours |
-| QUEUE_DEFAULT_VISIBILITY_SECONDS   | int  | `60`    | Sets default time of hold received message before returning to queue, default 60 seconds          |
-| QUEUE_DEFAULT_WAIT_TIMEOUT_SECONDS | int  | `1`     | Sets default time to wait for a message in a queue, default 1 second                              |
 
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR # Sets KubeMQ persistence folder 
+              value: '/store'  
+            - name: STORE_CLEAN  # true=KubeMQ will clean all the files in the store on boot       
+              value: 'true'  
+            - name: STORE_MAX_QUEUES # Sets KubeMQ limit of the number of persistent channels/queues, 0 = unlimited    
+              value: '0'   
+            - name: STORE_MAX_SUBSCRIBERS # Sets KubeMQ limit of the number of subscribers per channel/queue, 0 = unlimited 
+              value: '0'   
+            - name: STORE_MAX_MESSAGES  # Sets KubeMQ limit of the number of stored messages per channel/queue, 0 = unlimited       
+              value: '0'  
+            - name: STORE_MAX_SIZE  # Sets KubeMQ max size in bytes per channel/queue, 0 = unlimited        
+              value: '0'  
+            - name: STORE_MAX_RETENTION # Sets KubeMQ store time in minutes for each message per channel/queue, 0 = infinite    
+              value: '1440'   
+            - name: STORE_MAX_INACTIVITY_PURGE # Sets KubeMQ delete channel/queue due to inactivity time in minutes, 0 = no purging  
+              value: '1440'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+<template v-slot:queues>
+
+The KubeMQ Queues persistence configuration can be set as below:
+
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: QUEUE_MAX_NUMBER_OF_MESSAGE  # Sets max of sending / receiving batch of queue messages, default 1024, 0 is unlimited     
+              value: '1024'  
+            - name: QUEUE_MAX_WAIT_TIMEOUT_SECONDS # Sets max wait time out allowed for receive message, default 3600 seconds, 1 hour   
+              value: '3600'   
+            - name: QUEUE_MAX_EXPIRATION_SECONDS #  Sets max expiration allowed for message, default 43200 seconds, 12 hours
+              value: '43200'   
+            - name: QUEUE_MAX_DELAY_SECONDS  #  Sets max delay seconds allowed for message, default 43200 seconds, 12 hours        
+              value: '43200'  
+            - name: QUEUE_MAX_RECEIVE_COUNT  # Sets max retires to receive message before discard, default 1024 times      
+              value: '1024'  
+            - name: QUEUE_MAX_VISIBILITY_SECONDS # Sets max time of hold received message before returning to queue, default 43200 seconds, 12 hours  
+              value: '43200'   
+            - name: QUEUE_DEFAULT_VISIBILITY_SECONDS #  Sets default time of hold received message before returning to queue, default 60 seconds  
+              value: '60'   
+            - name: QUEUE_DEFAULT_WAIT_TIMEOUT_SECONDS  # Sets default time to wait for a message in a queue, default 1 second        
+              value: '1'                
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+</CodeSwitcher>
 
 
 ## gRPC Interface
 The KubeMQ GRPC interface configuration can be set as below:
 
-| Environment Variable    | Type   | Default   | Description                                                    |
-|:------------------------|:-------|:----------|:---------------------------------------------------------------|
-| GRPC_ENABLE             | bool   | `true`    | Enable/Disable the gRPC interface                                  |
-| GRPC_PORT               | int    | `50000`   | Docker exposed port                                            |
-| GRPC_SECURITY_TLS_MODE  | string | `none`    | `none` = no security, `tls` = TLS secured                      |
-| GRPC_SECURITY_CERT_FILE | string | ``        | CERT file name and location                                    |
-| GRPC_SECURITY_KEY_FILE  | string | ``        | Key file name and location                                     |
-| GRPC_SUB_BUFF_SIZE      | int    | `100`     | Sets the subscribe message / requests buffer size to use on the server |
-| GRPC_BODY_LIMIT         | int    | `4194304` | Sets request body limit in bytes (must be > 0)                 |
 
+<CodeSwitcher :languages="{general:'General',security:'Security'}" :isolated="true">
+
+
+<template v-slot:general>
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: GRPC_ENABLE  # Enable/Disable the gRPC interface     
+              value: 'true'  
+            - name: GRPC_PORT # Sets Docker exposed port  
+              value: '50000'   
+            - name: GRPC_SUB_BUFF_SIZE #  Sets the subscribe message / requests buffer size to use on the server  
+              value: '100'   
+            - name: GRPC_BODY_LIMIT  # Sets request body limit in bytes (must be > 0)      
+              value: '4194304'  
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+
+<template v-slot:security>
+
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: GRPC_ENABLE  # Enable/Disable the gRPC interface     
+              value: 'true'  
+            - name: GRPC_PORT # Sets Docker exposed port  
+              value: '50000'   
+            - name: GRPC_SECURITY_TLS_MODE # Sets Security mode, `none` = no security, `tls` = TLS secured  
+              value: 'tls'   
+            - name: GRPC_SECURITY_CERT_FILE  # Sets CERT file name and location    
+              value: './cert_file'  
+            - name: GRPC_SECURITY_KEY_FILE # Sets Key file name and location  
+              value: './key_file'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+</CodeSwitcher>
 
 
 ## REST Interface
 KubeMQ REST interface configuration can be set as below:
 
-| Environment Variable        | Type          | Default           | Description                                                                                                                  |
-|:----------------------------|:--------------|:------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| REST_ENABLE                 | bool          | `true`            | Enable/Disable REST interface                                                                                                |
-| REST_PORT                   | int           | `9090`            | Docker exposed port                                                                                                          |
-| REST_SECURITY_TLS_MODE      | string        | `none`            | `none` = no security, `tls` = TLS secured                                                                                    |
-| REST_SECURITY_CERT_FILE     | string        | ``                | CERT file name and location                                                                                                  |
-| REST_SECURITY_KEY_FILE      | string        | ``                | Key file name and location                                                                                                   |
-| REST_READ_TIMEOUT           | int           | `60`              | REST read timeout in seconds                                                                                                 |
-| REST_WRITE_TIMEOUT          | int           | `60`              | REST write timeout in seconds                                                                                                |
-| REST_SUB_BUFF_SIZE          | int           | `100`             | Sets subscribe message / requests buffer size to use on server                                                               |
-| REST_BODY_LIMIT             | string        | ``                | Sets request body limit, (i.e. 2M), limit can be specified as 4x or 4xB, where x is one of the multiple from K, M, G, T or P |
-| REST_CORS_ALLOW_ORIGINS     | strings array | `{*}`             | Sets a list of origins that may access the resource                                                                          |
-| REST_CORS_ALLOW_METHODS     | strings array | `{"GET", "POST"}` | Sets a list of methods that may access the resource                                                                          |
-| REST_CORS_ALLOW_HEADERS     | strings array | `{}`              | Sets a list of request headers that can be used when making the actual request                                               |
-| REST_CORS_ALLOW_CREDENTIALS | bool          | `false`           | Sets whether or not the response to the request can be exposed when the credentials flag is true                             |
-| REST_CORS_EXPOSE_HEADERS    | strings array | `{}`              | Sets a whitelist headers that clients are allowed to access                                                                  |
-| REST_CORS_MAX_AGE           | int           | `0`               | Sets how long (in seconds) the results of a pre-flight request can be cached                                                 |
+
+<CodeSwitcher :languages="{general:'General',security:'Security',cors:'CORS'}" :isolated="true">
+
+
+<template v-slot:general>
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: REST_ENABLE  # Enable/Disable REST interface     
+              value: 'true'  
+            - name: REST_PORT # Sets Docker exposed port  
+              value: '9090'   
+            - name: REST_SUB_BUFF_SIZE # Sets subscribe message / requests buffer size to use on server  
+              value: '100'   
+            - name: REST_BODY_LIMIT  #Sets request body limit, (i.e. 2M), limit can be specified as 4x or 4xB, where x is one of the multiple from K, M, G, T or P    
+              value: ''  
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+
+<template v-slot:security>
+
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: REST_ENABLE  # Enable/Disable REST interface     
+              value: 'true'  
+            - name: REST_PORT # Sets Docker exposed port  
+              value: '9090'   
+            - name: REST_SECURITY_TLS_MODE #  Sets Security mode,`none` = no security, `tls` = TLS secured  
+              value: 'tls'   
+            - name: REST_SECURITY_CERT_FILE  # Sets CERT file name and location    
+              value: './cert_file'  
+            - name: REST_SECURITY_KEY_FILE # Sets Key file name and location  
+              value: './key_file'   
+            - name: REST_READ_TIMEOUT  # Sets REST read timeout in seconds 
+              value: '60'  
+            - name: REST_WRITE_TIMEOUT # Sets REST write timeout in seconds   
+              value: '60'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+
+<template v-slot:cors>
+
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: REST_ENABLE  # Enable/Disable REST interface     
+              value: 'true'  
+            - name: REST_PORT # Docker exposed port  
+              value: '9090'   
+            - name: REST_CORS_ALLOW_ORIGINS # Defines a list of origins that may access the resource, default value *  
+              value: '{*}'   
+            - name: REST_CORS_ALLOW_METHODS  # Sets a list of origins that may access the resource   
+              value: '{"GET", "POST"}'  
+            - name: REST_CORS_ALLOW_HEADERS # Sets a list of request headers that can be used when making the actual request  
+              value: '{}'   
+            - name: REST_CORS_ALLOW_CREDENTIALS  # Sets whether or not the response to the request can be exposed when the credentials flag is true
+              value: 'false'  
+            - name: REST_CORS_EXPOSE_HEADERS # Sets a whitelist headers that clients are allowed to access   
+              value: '{}'               
+            - name: REST_CORS_MAX_AGE # Sets how long (in seconds) the results of a pre-flight request can be cached   
+              value: '0'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+
+</template>
+
+</CodeSwitcher>
+
+
 
 ## Logging
 
 KubeMQ supports stdout logging, in addition to docker sending logs to local files and to the [Logly](https://www.loggly.com/) external service.
 
-| Environment Variable     | Type   | Default    | Description                                                                      |
-|:-------------------------|:-------|:-----------|:---------------------------------------------------------------------------------|
-| LOG_FILE_ENABLE          | bool   | `false`    | Enable/Disable saving logs to file                                               |
-| LOG_FILE_PATH            | string | `./log`    | Sets docker container explicit host name                                      |
-| LOG_LOGGLY_ENABLE         | bool   | `false`    | Enable/Disable sensing logs to [Logly](https://www.loggly.com/) external service |
-| LOG_LOGGLY_KEY            | string | No Default | Loggly access key                                                                 |
-| LOG_LOGGLY_FLUSH_INTERVAL | int    | 5          | Loggly sending logs interval in seconds                                           |
 
+<CodeSwitcher :languages="{file:'File',loggly:'Loggly'}" :isolated="true">
+
+
+<template v-slot:file>
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: LOG_FILE_ENABLE  # Enable/Disable saving logs to file    
+              value: 'true'  
+            - name: LOG_FILE_PATH # Sets file write path, default: ./log
+              value: './log'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+
+<template v-slot:loggly>
+
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: LOG_LOGGLY_ENABLE  # Enable/Disable sensing logs to https://www.loggly.com/ external service    
+              value: 'true'  
+            - name: LOG_LOGGLY_KEY # Loggly access key  
+              value: './log'   
+            - name: LOG_LOGGLY_FLUSH_INTERVAL # Loggly sending logs interval in seconds   
+              value: '5'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+
+</template>
+
+
+</CodeSwitcher>
 
 
 ## Observability
 
 KubeMQ exports both metrics and tracing observability information by embedding the [OpenCensus](https://opencensus.io/) library.
-
-
-The general observability configuration can be set as below:
-
-
-| Environment Variable   | Type  | Default | Description                                                        |
-|:-----------------------|:------|:--------|:-------------------------------------------------------------------|
-| METRICS_DISABLE        | bool  | `false` | Sets KubeMQ and disables observability metrics exporting                |
-| METRICS_TRACING_SAMPLE | float | `0.1`   | Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10% |
-
 
 The following backend systems are supported:
 
@@ -142,67 +479,311 @@ The following backend systems are supported:
 | [StackDriver](https://console.cloud.google.com/monitoring) | Yes   | Yes     |
 | [Zimpkin](https://zipkin.io/)                               | No    | Yes     |
 
-### Prometheus
-
-| Environment Variable        | Type          | Default           | Description                                                                                                                  |
-|:----------------------------|:--------------|:------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| METRICS_PROMETHEUS_ENABLE   | bool          | `true`            | Enable/Disable Prometheus exporting                                                                                          |
-| METRICS_PROMETHEUS_PATH     | string        | `/metrics`        | Sets Prometheus scraping end point (on the KubeMQ service API address)                                                           |
-
-### Honeycomb
-
-| Environment Variable      | Type   | Default | Description                        |
-|:--------------------------|:-------|:--------|:-----------------------------------|
-| METRICS_HONEYCOMB_ENABLE  | bool   | `false` | Enable/Disable Honeycomb exporting |
-| METRICS_HONEYCOMB_KEY     | string | ``      | Sets Honeycomb's key               |
-| METRICS_HONEYCOMB_DATASET | string | ``      | Sets Honeycomb's dataset           |
 
 
-
-### AWS X-Ray
-
-| Environment Variable          | Type   | Default | Description                                     |
-|:------------------------------|:-------|:--------|:------------------------------------------------|
-| METRICS_AWS_ENABLE            | bool   | `false` | Enable/Disable AWS X-RAY exporting              |
-| METRICS_AWS_ACCESS_KEY_ID     | string | ``      | Sets AWS access key id environment variable     |
-| METRICS_AWS_SECRET_ACCESS_KEY | string | ``      | Sets AWS secret access key environment variable |
-| METRICS_AWS_DEFAULT_REGION    | string | ``      | Sets AWS default region environment variable    |
+<CodeSwitcher :languages="{prometheus:'Prometheus',jeager:'Jeager',zipkin:'Zipkin', honeycomb:'Honeycomb',google:'StackDriver',amazon:'AWS X-Ray',datadog:'Datadog'}" :isolated="true">
 
 
-### Datadog Configuration
+<template v-slot:prometheus>
 
-| Environment Variable          | Type   | Default | Description                      |
-|:------------------------------|:-------|:--------|:---------------------------------|
-| METRICS_DATADOG_ENABLE        | bool   | `false` | Enable/Disable Datadog exporting |
-| METRICS_DATADOG_TRACE_ADDRESS | string | ``      | Sets Datadog's trace address     |
-| METRICS_DATADOG_STATS_ADDRESS | string | ``      | Sets Datadog's stats address     |
+First, add the following annotations to pod metadata:
+
+```yaml
+...
+spec:
+  selector:
+    matchLabels:
+      app: kubemq-cluster
+  replicas: 3
+  serviceName: kubemq-cluster
+  template:
+    metadata:
+      labels:
+        app: kubemq-cluster
+      annotations: # add here prometheus annotations
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9102'
+        prometheus.io/path: '/metrics'       
+    spec:
+      containers:
+
+...
+```
+
+Second, add the following environment variables to KubeMQ's stateful set yaml definition
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_PROMETHEUS_ENABLE  # Enable/Disable Prometheus exporting  
+              value: 'true'  
+            - name: METRICS_PROMETHEUS_PATH # Sets Prometheus scraping end point (on the KubeMQ service API address)  
+              value: '/metrics'   
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+<template v-slot:jeager>
 
 
-### Jeager
+Add the following environment variables to KubeMQ's stateful set yaml definition
 
-| Environment Variable             | Type   | Default | Description                     |
-|:---------------------------------|:-------|:--------|:--------------------------------|
-| METRICS_JEAGER_ENABLE            | bool   | `false` | Enable/Disable Jeager exporting |
-| METRICS_JEAGER_COLLECTOR_ADDRESS | string | ``      | Sets Jeager collector address   |
-| METRICS_JEAGER_AGENT_ADDRESS     | string | ``      | Sets Jeager agent address       |
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_JEAGER_ENABLE # Enable/Disable Jeager exporting 
+              value: 'true'  
+            - name: METRICS_JEAGER_COLLECTOR_ADDRESS # Sets Jeager collector address 
+              value: 'jeager collector address'  
+            - name: METRICS_JEAGER_AGENT_ADDRESS # Sets Jeager agent address
+              value: 'jeager agent address'  
+          image: 'kubemq/kubemq:latest'
+....        
+```
 
 
-### StackDriver
+</template>
 
-| Environment Variable              | Type   | Default | Description                                               |
-|:----------------------------------|:-------|:--------|:----------------------------------------------------------|
-| METRICS_STACKDRIVER_ENABLE        | bool   | `false` | Enable/Disable Stack Driver exporting                     |
-| METRICS_STACKDRIVER_PROJECT_ID    | string | ``      | Sets StackDriver project id                               |
-| METRICS_STACKDRIVER_MONITOR_CRDES | string | ``      | Sets StackDriver monitor(stats)credentials file location |
-| METRICS_STACKDRIVER_TRACE_CREDS   | string | ``      | Sets StackDriver traces credentials file location         |
+<template v-slot:zipkin>
+
+Add the following environment variables to KubeMQ's stateful set yaml definition
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_ZIPKIN_ENABLE # enable/disable Zipkin exporting
+              value: 'true'  
+            - name: METRICS_ZIPKEIN_REPORTER_ADDRESS # sets Zipkin's reporter address 
+              value: '/metrics'  
+          image: 'kubemq/kubemq:latest'
+....        
+```
 
 
-### Zipkin
+</template>
 
-| Environment Variable             | Type   | Default    | Description                     |
-|:---------------------------------|:-------|:-----------|:--------------------------------|
-| METRICS_ZIPKIN_ENABLE            | bool   | `true`     | Enable/Disable Zipkin exporting |
-| METRICS_ZIPKEIN_REPORTER_ADDRESS | string | `/metrics` | Sets Zipkin's reporter address  |
+<template v-slot:honeycomb>
 
 
+Add the following environment variables to KubeMQ's stateful set yaml definition
 
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_HONEYCOMB_ENABLE  # Enable/Disable Honeycomb exporting 
+              value: 'true'  
+            - name: METRICS_HONEYCOMB_KEY # Sets Honeycomb's key
+              value: 'key'   
+            - name: METRICS_HONEYCOMB_DATASET # SSets Honeycomb's dataset
+              value: 'dataset'  
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+<template v-slot:google>
+
+Add the following environment variables to KubeMQ's stateful set yaml definition
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_STACKDRIVER_ENABLE # Enable/Disable Stack Driver exporting 
+              value: 'true'  
+            - name: METRICS_STACKDRIVER_PROJECT_ID
+              value: 'Your Product ID'  # Sets StackDriver project id 
+            - name: METRICS_STACKDRIVER_MONITOR_CRDES # Sets StackDriver monitor(stats)credentials file location
+              value: 'Your Monitor Creds File'  
+            - name: METRICS_STACKDRIVER_TRACE_CREDS # Sets StackDriver traces credentials file location
+              value: 'Your Trace Creds File'  
+          image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+<template v-slot:amazon>
+
+Add the following environment variables to KubeMQ's stateful set yaml definition
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_AWS_ENABLE  # Enable/Disable AWS X-RAY exporting 
+              value: 'true'  
+            - name: METRICS_AWS_ACCESS_KEY_ID # Sets AWS access key id environment variable
+              value: 'aws access key id'   
+            - name: METRICS_AWS_SECRET_ACCESS_KEY # Sets AWS secret access key environment variable
+              value: 'aws secret access key'  
+            - name: METRICS_AWS_DEFAULT_REGION # Sets AWS default region environment variable
+              value: 'aws default region'  
+          image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+<template v-slot:datadog>
+
+
+Add the following environment variables to KubeMQ's stateful set yaml definition
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_TOKEN
+              value: <YOUR-KUBEMQ-TOKEN>
+            - name: CLUSTER_ROUTES
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT
+              value: '8080'
+            - name: STORE_DIR
+              value: '/store'
+            - name: METRICS_DISABLE  # Sets KubeMQ and disables observability metrics exporting  
+              value: 'false'  
+            - name: METRICS_TRACING_SAMPLE # Sets KubeMQ tracing sample probability as a percentage, i.e 0.1 =10%  
+              value: '0.1'   
+            - name: METRICS_DATADOG_ENABLE # Enable/Disable Datadog exporting 
+              value: 'true'  
+            - name: METRICS_DATADOG_TRACE_ADDRESS  # Sets Datadog's trace address 
+              value: 'datadog trace address' 
+            - name: METRICS_DATADOG_STATS_ADDRESS # Sets Datadog's stats address
+              value: 'datadog stats address'  
+          image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+</CodeSwitcher>

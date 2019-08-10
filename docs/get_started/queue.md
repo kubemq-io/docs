@@ -726,3 +726,6 @@ $.ajax(settings).done(function (response) {
 
 </CodeSwitcher>
 
+::: tip Get Queues information
+You can get Queues information by running `kubetools get queues`.
+:::

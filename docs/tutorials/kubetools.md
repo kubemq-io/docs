@@ -66,6 +66,7 @@ Or manually:
 Kubetools require `.config.yaml` File for connections variables. Default configuration:
 
 ```
+statsAddress: "http://localhost:8080/v1/stats" #the address of Stats endpoint, you can replace the localhost:8080 with your address
 healthAddress: "http://localhost:8080/health" # the address of Health endpoint , you can replace the localhost:8080 with your address
 metricsAddress: "http://localhost:8080/metrics" #the address of Health endpoint, you can replace the localhost:8080 with your address
 monitorAddress: "ws://localhost:8080/v1/stats" #the address of Monitor endpoint, you can replace the localhost:8080 with your address
@@ -96,6 +97,7 @@ Usage:
   kubetools [command]
 
 Available Commands:
+  get         Call kubemq get resources endpoint
   health      Call kubemq health endpoint
   help        Help about any command
   metrics     Call kubemq metrics endpoint
@@ -106,13 +108,114 @@ Available Commands:
   test        test your kubemq installation
   version     print kubemq version
 
-
 Flags:
   -h, --help   help for kubetools
 
 Use "kubetools [command] --help" for more information about a command.
 
 ```
+## Get Command
+Run the following command for retrieve an information about various resources such Queues and Events Stores
+
+Run :
+
+``` bash
+kubetools get
+```
+Or,
+
+``` bash
+kubetools g
+```
+
+A list of sub commands will be shown:
+
+``` bash
+Usage:
+  kubetools get [command]
+
+Aliases:
+  get, g
+
+Available Commands:
+  events_stores Call kubemq get list of events store channels
+  queues        Call kubemq get list of queues
+
+Flags:
+  -h, --help   help for get
+
+Use "kubetools get [command] --help" for more information about a command.
+
+```
+::: warning
+This features is supported only for KubeMQ version v1.6.2 and up
+:::
+
+Choose one of the following Get options:
+
+<CodeSwitcher :languages="{queue:'Queues',events_store:`Events Stores`}" :isolated="true">
+
+
+<template v-slot:queue>
+
+``` bash
+kubetools get queues
+```
+Or,
+
+``` bash
+kubetools g qu
+```
+
+Example of results:
+
+```
+CHANNELS:
+NAME       CLIENTS  MESSAGES  BYTES   FIRST_SEQUENCE  LAST_SEQUENCE
+dead       1        0         0       0               0
+done       1        3000      563231  1               3000
+receiverA  1        3000      593231  1               3000
+receiverB  1        3000      593231  1               3000
+receiverC  1        3000      593231  1               3000
+receiverD  1        3000      593231  1               3000
+receiver   1        3000      593231  1               3000
+receiverF  1        3000      593231  1               3000
+
+TOTAL CHANNELS:  8
+
+CLIENTS:
+CLIENT_ID                             CHANNEL    ACTIVE  LAST_SENT  PENDING  STALLED
+49e2f897-8051-49cb-98af-8949a8ce9093  dead       false   0          0        false
+ff897393-bbb6-4877-a7ed-4130b752ae33  done       false   3000       0        false
+056b501a-1f5f-4722-875f-859c36e0997a  receiverA  false   3000       0        false
+d44d7fb2-f21e-46aa-96db-e475c8bf0848  receiverB  false   3000       0        false
+4a9fab08-4cd7-4e75-984c-f94b9759209e  receiverC  false   3000       0        false
+06f44b57-afa5-46d9-88d0-4b5ce0516129  receiverD  false   3000       0        false
+06bbe283-1978-4751-8abc-5699dacea741  receiver   false   3000       0        false
+475d17c0-847c-4969-9c05-bf171f176f86  receiverF  false   3000       0        false
+
+TOTAL CLIENTS:  8
+```
+
+
+</template>
+<template v-slot:events_store>
+
+Run the following command for retrieve an information about Events Stores
+
+``` bash
+kubetools get events_stores
+```
+Or,
+
+``` bash
+kubetools g es
+```
+
+Results example are similar to Get Queues results.
+
+</template>
+</CodeSwitcher>
 
 ## Test Command
 Run the following command for running various tests, checking of KubeMQ installation and proper configuration.

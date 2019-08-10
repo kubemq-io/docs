@@ -4,7 +4,10 @@
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/home.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/home.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorials/kubetools.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/kubetools.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565161931723</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update introduction">
+      <created>1565183380965</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1565183380965</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update introduction">
+      <created>1565184512482</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1565184512482</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +303,7 @@
     <MESSAGE value="adding feature list and get started" />
     <MESSAGE value="update queue get started" />
     <MESSAGE value="adding get started for rpc and queue" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding get started for rpc and queue" />
+    <MESSAGE value="update introduction" />
+    <option name="LAST_COMMIT_MESSAGE" value="update introduction" />
   </component>
 </project>

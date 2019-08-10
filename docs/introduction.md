@@ -78,6 +78,6 @@ KubeMQ supports CQRS based RPC flows with the following core features:
 
 - **Metrics** - Metrics can be exported to variety of Backend
 - **Tracing** - Tracing can be exported to variety of Backend
-- **Backend Support** - [Prometheus](https://prometheus.io/), [Honeycomb](https://www.honeycomb.io/), [AWS X-Ray](https://console.aws.amazon.com/xray/home),[Datadog](https://www.datadoghq.com/),[Jeager](https://www.jaegertracing.io/),[StackDriver](https://console.cloud.google.com/monitoring),[Zimpkin](https://zipkin.io/)
+- **Backend Support** - [Prometheus](https://prometheus.io/), [Honeycomb](https://www.honeycomb.io/), [AWS X-Ray](https://console.aws.amazon.com/xray/home),[Datadog](https://www.datadoghq.com/),[Jeager](https://www.jaegertracing.io/),[StackDriver](https://console.cloud.google.com/monitoring),[Zipkin](https://zipkin.io/)
 
 
