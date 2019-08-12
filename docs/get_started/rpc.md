@@ -5,13 +5,13 @@ type: 'article'
 description: 'Get started with KubeMQ and RPC pattern'
 tags: ['message broker','KubeMQ','rpc']
 ---
-# Get Started with RPC
+# Get Started with RPC <Badge text="v1.5.0+"/> <Badge text="stable"/>
 
 ## Table of Content
 [[toc]]
 
 ## Deploy a KubeMQ
-To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
+To start using KubeMQ with RPC, we first need to run a KubeMQ docker container either locally or on a remote node.
 
 You can select one of the methods below:
 
@@ -199,7 +199,7 @@ We received:
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+To to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
 :::
 
 ## Next Steps
@@ -207,7 +207,7 @@ In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environ
 Now that you have KubeMQ installed and running, we will do the following steps:
 
 1. Subscribe a receiver to `hello-command` command channel. When a command will be available a Response will be sent back to the sender.
-2. Send a command in the the channel and wait for response.
+2. Send a command in the channel and wait for a response.
 3. Display the response in the console
 
 As showed in the following diagram:
@@ -252,13 +252,13 @@ Once a command is received a Send Response call should be invoked:
 curl --location --request POST "{{host}}/send/response" \
   --header "Content-Type: application/json" \
   --data "{
-	\"RequestID\": \"some_id\",
-	\"ClientID\":\"some_client_id\",
-	\"ReplyChannel\": \"_INBOX.x8bxFotxDNG4c3zTp8scBQ.x8bxFotxDNG4c3zTp8scMq\",
-	\"Metadata\" :\"some_metadata\",
-	\"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",
-	\"Executed\": true,
-	\"Error\":\"\"
+   \"RequestID\": \"some_id\",
+   \"ClientID\":\"some_client_id\",
+   \"ReplyChannel\": \"_INBOX.x8bxFotxDNG4c3zTp8scBQ.x8bxFotxDNG4c3zTp8scMq\",
+   \"Metadata\" :\"some_metadata\",
+   \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",
+   \"Executed\": true,
+   \"Error\":\"\"
 }"
 ```
 
@@ -298,52 +298,52 @@ The following Go code snippet is using KubeMQ's Go SDK with gRPC interface:
 package main
 
 import (
-	"context"
-	"github.com/kubemq-io/kubemq-go"
-	"log"
-	"time"
+   "context"
+   "github.com/kubemq-io/kubemq-go"
+   "log"
+   "time"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	client, err := kubemq.NewClient(ctx,
-		kubemq.WithAddress("localhost", 50000),
-		kubemq.WithClientId("test-command-client-id"),
-		kubemq.WithTransportType(kubemq.TransportTypeGRPC))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-	channel := "hello-command"
-	errCh := make(chan error)
-	commandsCh, err := client.SubscribeToCommands(ctx, channel, "", errCh)
-	if err != nil {
-		log.Fatal(err)
-	}
-	for {
-		select {
-		case err := <-errCh:
-			log.Fatal(err)
-			return
-		case command, more := <-commandsCh:
-			if !more {
-				log.Println("Command Received , done")
-				return
-			}
-			log.Printf("Command Received:\nId %s\nChannel: %s\nMetadata: %s\nBody: %s\n", command.Id, command.Channel, command.Metadata, command.Body)
-			err := client.R().
-				SetRequestId(command.Id).
-				SetResponseTo(command.ResponseTo).
-				SetExecutedAt(time.Now()).
-				Send(ctx)
-			if err != nil {
-				log.Fatal(err)
-			}
-		case <-ctx.Done():
-			return
-		}
-	}
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress("localhost", 50000),
+      kubemq.WithClientId("test-command-client-id"),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channel := "hello-command"
+   errCh := make(chan error)
+   commandsCh, err := client.SubscribeToCommands(ctx, channel, "", errCh)
+   if err != nil {
+      log.Fatal(err)
+   }
+   for {
+      select {
+      case err := <-errCh:
+         log.Fatal(err)
+         return
+      case command, more := <-commandsCh:
+         if !more {
+            log.Println("Command Received , done")
+            return
+         }
+         log.Printf("Command Received:\nId %s\nChannel: %s\nMetadata: %s\nBody: %s\n", command.Id, command.Channel, command.Metadata, command.Body)
+         err := client.R().
+            SetRequestId(command.Id).
+            SetResponseTo(command.ResponseTo).
+            SetExecutedAt(time.Now()).
+            Send(ctx)
+         if err != nil {
+            log.Fatal(err)
+         }
+      case <-ctx.Done():
+         return
+      }
+   }
 
 }
 
@@ -647,13 +647,13 @@ The following cURL command is using KubeMQ's REST interface:
 curl --location --request POST "{{host}}/send/request" \
   --header "Content-Type: application/json" \
   --data "{
-	\"RequestID\": \"688daec3-7f3e-4766-87fa-4cd1f4f03a23\",
-	\"RequestTypeData\":1, 
-	\"ClientID\": \"some_clientID\",
-	\"Channel\": \"hello-command\",
-	\"Metadata\" :\"some_metadata\",
-	\"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",
-	\"Timeout\": 10000
+   \"RequestID\": \"688daec3-7f3e-4766-87fa-4cd1f4f03a23\",
+   \"RequestTypeData\":1, 
+   \"ClientID\": \"some_clientID\",
+   \"Channel\": \"hello-command\",
+   \"Metadata\" :\"some_metadata\",
+   \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",
+   \"Timeout\": 10000
 }"
 ```
 
@@ -664,7 +664,7 @@ curl --location --request POST "{{host}}/send/request" \
 The following .NET code snippet is using KubeMQ's .NET SDK with gRPC interface:
 
 ``` csharp
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 </template>
@@ -673,7 +673,7 @@ Code snippet will available soon
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 </template>
@@ -685,35 +685,35 @@ The following Go code snippet is using KubeMQ's Go SDK with gRPC interface:
 package main
 
 import (
-	"context"
-	"github.com/kubemq-io/kubemq-go"
-	"log"
-	"time"
+   "context"
+   "github.com/kubemq-io/kubemq-go"
+   "log"
+   "time"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	client, err := kubemq.NewClient(ctx,
-		kubemq.WithAddress("localhost", 50000),
-		kubemq.WithClientId("test-command-client-id"),
-		kubemq.WithTransportType(kubemq.TransportTypeGRPC))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-	channel := "hello-command"
-	response, err := client.C().
-		SetId("some-command-id").
-		SetChannel(channel).
-		SetMetadata("some-metadata").
-		SetBody([]byte("hello kubemq - sending a command, please reply")).
-		SetTimeout(time.Second).
-		Send(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf("Response Received:\nCommandID: %s\nExecutedAt:%s\n", response.CommandId, response.ExecutedAt)
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress("localhost", 50000),
+      kubemq.WithClientId("test-command-client-id"),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channel := "hello-command"
+   response, err := client.C().
+      SetId("some-command-id").
+      SetChannel(channel).
+      SetMetadata("some-metadata").
+      SetBody([]byte("hello kubemq - sending a command, please reply")).
+      SetTimeout(time.Second).
+      Send(ctx)
+   if err != nil {
+      log.Fatal(err)
+   }
+   log.Printf("Response Received:\nCommandID: %s\nExecutedAt:%s\n", response.CommandId, response.ExecutedAt)
 }
 
 ```
@@ -724,7 +724,7 @@ func main() {
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 

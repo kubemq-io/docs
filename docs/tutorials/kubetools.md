@@ -114,7 +114,7 @@ Flags:
 Use "kubetools [command] --help" for more information about a command.
 
 ```
-## Get Command
+## Get Command <Badge text="v1.3.0+"/> <Badge text="requires KubeMQ v1.6.0+" type="warn"/>
 Run the following command for retrieve an information about various resources such Queues and Events Stores
 
 Run :

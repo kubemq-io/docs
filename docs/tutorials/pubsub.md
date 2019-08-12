@@ -4,7 +4,7 @@ lang: en-US
 description: 'KubeMQ Pub/Sub tutorial'
 tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial']
 ---
-# Pub/Sub (Publish-Subscribe)
+# Pub/Sub (Publish-Subscribe) <Badge text="v1.6.0+"/> <Badge text="stable"/>
 The publish-subscribe pattern (or pub/sub, for short) is a messaging pattern where senders of messages (publishers), do not program the messages to be sent directly to specific receivers (subscribers). Instead, the programmer “publishes” messages (events), without any knowledge of any subscribers there may be.
 
 Similarly, subscribers express interest in one or more events and only receive messages that are of interest, without any knowledge of any publishers.

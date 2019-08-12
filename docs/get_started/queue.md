@@ -5,7 +5,7 @@ type: 'article'
 description: 'Get started with KubeMQ and Queue pattern'
 tags: ['message broker','KubeMQ','queue']
 ---
-# Get Started with Queues
+# Get Started with Queues <Badge text="v1.6.0+"/> <Badge text="stable"/>
 
 ## Table of Content
 [[toc]]
@@ -199,7 +199,7 @@ We received:
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+To fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
 :::
 
 ## Next Steps
@@ -210,7 +210,7 @@ Now that you have KubeMQ installed and running, we will do the following steps:
 2. Request a message from `hello-world-queue` channel and receive a message.
 3. Display the received message in the console.
 
-As showed in the following diagram:
+As shown in the following diagram:
 
 ![image info](./images/queue-hello-world.png)
 
@@ -228,7 +228,7 @@ Run the following Kubetools command:
 kubetools queue send "hello-world-queue" "this is a queue message"
 ```
 
-A result message will be display with indication of sending time of the message
+A result message will be shown with an indication of sending time of the message
 
 ::: tip Kubetools
 Kubetools is KubeMQ Command-Line-Interface tool.
@@ -272,7 +272,7 @@ curl --location --request POST "{{host}}/queue/send" \
 The following .NET code snippet is using KubeMQ's .NET SDK with gRPC interface:
 
 ``` csharp
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 When executed, a stream of events messages will be shown in the console.
@@ -283,7 +283,7 @@ When executed, a stream of events messages will be shown in the console.
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-Code snippet will available soon
+The code snippet will available soon
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -295,33 +295,33 @@ The following Go code snippet is using KubeMQ's Go SDK with gRPC interface:
 package main
 
 import (
-	"context"
-	"github.com/kubemq-io/kubemq-go"
-	"log"
-	"time"
+   "context"
+   "github.com/kubemq-io/kubemq-go"
+   "log"
+   "time"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	client, err := kubemq.NewClient(ctx,
-		kubemq.WithAddress("localhost", 50000),
-		kubemq.WithClientId("test-command-client-id"),
-		kubemq.WithTransportType(kubemq.TransportTypeGRPC))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-	channel := "hello-world-queue"
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress("localhost", 50000),
+      kubemq.WithClientId("test-command-client-id"),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channel := "hello-world-queue"
 
-	sendResult, err := client.NewQueueMessage().
-		SetChannel(channel).
-		SetBody([]byte("some-simple_queue-queue-message")).
-		Send(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf("Send to Queue Result: MessageID:%s,Sent At: %s\n", sendResult.MessageID, time.Unix(0, sendResult.SentAt).String())
+   sendResult, err := client.NewQueueMessage().
+      SetChannel(channel).
+      SetBody([]byte("some-simple_queue-queue-message")).
+      Send(ctx)
+   if err != nil {
+      log.Fatal(err)
+   }
+   log.Printf("Send to Queue Result: MessageID:%s,Sent At: %s\n", sendResult.MessageID, time.Unix(0, sendResult.SentAt).String())
 }
 ```
 When executed, a stream of events messages will be shown in the console.
@@ -332,7 +332,7 @@ When executed, a stream of events messages will be shown in the console.
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
-Code snippet will available soon
+The code snippet will available soon
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -477,7 +477,7 @@ $.ajax(settings).done(function (response) {
 
 ## Receive a Message
 
-After you have send a message to a queue, you can request the message from a queue.
+After you have sent a message to a queue, you can request the message from a queue.
 
 
 <CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
@@ -528,7 +528,7 @@ curl --location --request POST "{{host}}/queue/receive" \
 The following c# code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` csharp
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 </template>
@@ -538,7 +538,7 @@ Code snippet will available soon
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 </template>
@@ -550,37 +550,37 @@ The following Go code snippet is using KubeMQ's Go SDK with gRPC interface:
 package main
 
 import (
-	"context"
-	"github.com/kubemq-io/kubemq-go"
-	"log"
-	"time"
+   "context"
+   "github.com/kubemq-io/kubemq-go"
+   "log"
+   "time"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	client, err := kubemq.NewClient(ctx,
-		kubemq.WithAddress("localhost", 50000),
-		kubemq.WithClientId("test-command-client-id"),
-		kubemq.WithTransportType(kubemq.TransportTypeGRPC))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-	channel := "hello-world-queue"
+   ctx, cancel := context.WithCancel(context.Background())
+   defer cancel()
+   client, err := kubemq.NewClient(ctx,
+      kubemq.WithAddress("localhost", 50000),
+      kubemq.WithClientId("test-command-client-id"),
+      kubemq.WithTransportType(kubemq.TransportTypeGRPC))
+   if err != nil {
+      log.Fatal(err)
+   }
+   defer client.Close()
+   channel := "hello-world-queue"
 
-	receiveResult, err := client.NewReceiveQueueMessagesRequest().
-		SetChannel(channel).
-		SetMaxNumberOfMessages(1).
-		SetWaitTimeSeconds(5).
-		Send(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf("Received %d Messages:\n", receiveResult.MessagesReceived)
-	for _, msg := range receiveResult.Messages {
-		log.Printf("MessageID: %s, Body: %s", msg.Id, string(msg.Body))
-	}
+   receiveResult, err := client.NewReceiveQueueMessagesRequest().
+      SetChannel(channel).
+      SetMaxNumberOfMessages(1).
+      SetWaitTimeSeconds(5).
+      Send(ctx)
+   if err != nil {
+      log.Fatal(err)
+   }
+   log.Printf("Received %d Messages:\n", receiveResult.MessagesReceived)
+   for _, msg := range receiveResult.Messages {
+      log.Printf("MessageID: %s, Body: %s", msg.Id, string(msg.Body))
+   }
 }
 
 ```
@@ -591,7 +591,7 @@ func main() {
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
-Code snippet will available soon
+The code snippet will available soon
 ```
 
 

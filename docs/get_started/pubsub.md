@@ -5,7 +5,7 @@ type: 'article'
 description: 'Get started with KubeMQ and Pub/Sub pattern'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
-# Get Started with Pub/Sub
+# Get Started with Pub/Sub <Badge text="v1.5.0+"/> <Badge text="stable"/>
 
 ## Table of Content
 [[toc]]
@@ -105,7 +105,7 @@ volumes:
 
 ## Verify Deployment
 
-Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
+Browse to KubeMQ's API endpoint with a GET request to `/health` path and get a JSON response like below:
 
 For Example:
 ``` bash
@@ -198,7 +198,7 @@ We received:
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+To fix this, you can add -e KUBEMQ_PROXY="your-proxy-URL" as an environment variable.
 :::
 
 ## Next Steps
@@ -206,10 +206,10 @@ In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environ
 Now that you have KubeMQ installed and running, we will do the following steps:
 
 1. Subscribe a consumer to `hello-world` channel
-2. Publish "Hi KubeMQ" message in the the channel
+2. Publish "Hi KubeMQ" message in the channel
 3. Display the received message in the console.
 
-As showed in the following diagram:
+As shown in the following diagram:
 
 ![image info](./images/pub-sub-hello-world.png)
 

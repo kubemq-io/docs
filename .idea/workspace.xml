@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/get_started/get_started.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/configuration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/tutorials/kubetools.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/kubetools.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorials/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/pubsub.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorials/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/queue.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorials/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/rpc.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,23 +38,23 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/reference" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/get_started" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\reference" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\theme\styles" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\reference" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
     </key>
   </component>
@@ -233,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565184512482</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update kubetools&#10;update configuration">
+      <created>1565468318718</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1565468318718</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +292,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="- add kubemq.io link&#10;- fix some typos" />
     <MESSAGE value="- add playground" />
     <MESSAGE value="- update drone" />
     <MESSAGE value="-v1.0.5 &#10;edits after proofing" />
@@ -304,6 +316,7 @@
     <MESSAGE value="update queue get started" />
     <MESSAGE value="adding get started for rpc and queue" />
     <MESSAGE value="update introduction" />
-    <option name="LAST_COMMIT_MESSAGE" value="update introduction" />
+    <MESSAGE value="update kubetools&#10;update configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="update kubetools&#10;update configuration" />
   </component>
 </project>
