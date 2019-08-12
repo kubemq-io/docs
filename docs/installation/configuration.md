@@ -170,7 +170,7 @@ The KubeMQ Queues persistence configuration can be set as below:
 
 
 ## gRPC Interface
-The KubeMQ GRPC interface configuration can be set as below:
+The KubeMQ gRPC interface configuration can be set as below:
 
 
 <CodeSwitcher :languages="{general:'General',security:'Security'}" :isolated="true">
