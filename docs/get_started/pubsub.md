@@ -5,7 +5,7 @@ type: 'article'
 description: 'Get started with KubeMQ and Pub/Sub pattern'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
-# Get Started with Pub/Sub <Badge text="v1.5.0+"/> <Badge text="stable"/>
+# Get Started with Pub/Sub <Badge text="v1.5````.0+"/> <Badge text="stable"/>
 
 ## Table of Content
 [[toc]]
@@ -256,67 +256,49 @@ Subscribe to Events in REST interface is using WebSocket for streaming (Push) ev
 The following .NET code snippet is using KubeMQ's .NET SDK with gRPC interface:
 
 ``` csharp
-using KubeMQ.SDK.csharp.Events;
-using KubeMQ.SDK.csharp.Subscription;
 using System;
 
-namespace kubemqreceiverExm
+namespace PubSub_Subscribe_to_a_Channel
 {
     class Program
     {
-        private static Subscriber subscriber;
         static void Main(string[] args)
         {
-            SubcribeToEventsWithoutStore();
-        }
 
-        private static void SubcribeToEventsWithoutStore()
-        {
-            subscriber = new Subscriber("localhost:50000");
-            SubscribeRequest subscribeRequest = CreateSubscribeRequest(SubscribeType.Events);
+            var ChannelName = "testing_event_channel";
+            var ClientID = "hello-world-subscriber";
+            var KubeMQServerAddress = "localhost:50000";
+     
+            var  subscriber = new KubeMQ.SDK.csharp.Events.Subscriber(KubeMQServerAddress);
             try
             {
-                subscriber.SubscribeToEvents(subscribeRequest, HandleIncomingEvents);
+                subscriber.SubscribeToEvents(new KubeMQ.SDK.csharp.Subscription.SubscribeRequest
+                {
+                    Channel = ChannelName,
+                    SubscribeType = KubeMQ.SDK.csharp.Subscription.SubscribeType.Events,
+                    ClientID = ClientID
+
+                }, (eventReceive) =>
+                {
+           
+                    Console.WriteLine($"Event Received: EventID:{eventReceive.EventID} Channel:{eventReceive.Channel} Metadata:{eventReceive.Metadata} Body:{ KubeMQ.SDK.csharp.Tools.Converter.FromByteArray(eventReceive.Body)} ");
+                },
+                (errorHandler) =>                 
+                {
+                    Console.WriteLine(errorHandler.Message);
+                });
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"failed to sub on ex :{ex.Message}");
+                Console.WriteLine(ex.Message);
             }
+            Console.WriteLine("press any key to close PubSub_Subscribe_to_a_Channel");
             Console.ReadLine();
-
-        }
-
-        private static SubscribeRequest CreateSubscribeRequest(SubscribeType subscriptionType = SubscribeType.SubscribeTypeUndefined,
-        EventsStoreType eventsStoreType = EventsStoreType.Undefined,
-        int TypeValue = 0, string group = "")
-        {
-            Random random = new Random();
-            SubscribeRequest subscribeRequest = new SubscribeRequest()
-            {
-                Channel = "myChannel",
-                ClientID = "mySubID",
-                EventsStoreType = eventsStoreType,
-                EventsStoreTypeValue = TypeValue,
-                Group = group,
-                SubscribeType = subscriptionType
-            };
-            return subscribeRequest;
-        }
-
-        private static void HandleIncomingEvents(EventReceive @event)
-        {
-            if (@event != null)
-            {
-                string strMsg = string.Empty;
-                object body = KubeMQ.SDK.csharp.Tools.Converter.FromByteArray(@event.Body);
-
-                Console.WriteLine($"Subscriber Received Event: Metadata:'{@event.Metadata}', Channel:'{@event.Channel}', Body:'{strMsg}'");
-            }
-        }
+        }  
+        
     }
 }
-
-    
+   
 ```
 
 When executed, a stream of events messages will be shown in the console.
@@ -753,50 +735,45 @@ A response for a successful command will look like this:
 The following .NET code snippet is using KubeMQ's .NET SDK with gRPC interface:
 
 ``` csharp
-using KubeMQ.SDK.csharp.Events.LowLevel;
 using System;
 
-namespace kubemqsenderExm
+namespace PubSub_Publish_to_a_Channel
 {
     class Program
     {
-        private static Sender sender;
         static void Main(string[] args)
         {
-            SendLowLevelEvents();
-        }
-        private static void SendLowLevelEvents()
-        {
-            sender = new Sender("localhost:50000");
-            Event @event = CreateLowLevelEventWithoutStore();
+            var ChannelName = "testing_event_channel";
+            var ClientID = "hello-world-sender";
+            var KubeMQServerAddress = "localhost:50000";
+
+
+            var channel = new KubeMQ.SDK.csharp.Events.Channel(new KubeMQ.SDK.csharp.Events.ChannelParameters
+            {
+                ChannelName = ChannelName,
+                ClientID = ClientID,
+                KubeMQAddress = KubeMQServerAddress
+            });
+
             try
             {
-                sender.SendEvent(@event);
+                var result = channel.SendEvent(new KubeMQ.SDK.csharp.Events.Event()
+                {                  
+                    Body = KubeMQ.SDK.csharp.Tools.Converter.ToByteArray("hello kubemq - sending single event")
+                });
+                if (!result.Sent)
+                {
+                    Console.WriteLine($"Could not send single message:{result.Error}");                 
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"failed to send on ex :{ex.Message}");
+                Console.WriteLine(ex.Message);          
             }
-
-        }
-        private static Event CreateLowLevelEventWithoutStore()
-        {
-            Console.WriteLine("Start Creating Event");
-            KubeMQ.SDK.csharp.Events.LowLevel.Event @event = new KubeMQ.SDK.csharp.Events.LowLevel.Event()
-            {
-                Metadata = "EventMetaData",
-                Body = KubeMQ.SDK.csharp.Tools.Converter.ToByteArray($"hello world"),
-                Store = false,
-                Channel = "myChannel",
-                ClientID = "myID",
-                ReturnResult = false
-            };
-            return @event;
         }
     }
 }
 
-    
 ```
 
 </template>
