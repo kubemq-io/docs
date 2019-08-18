@@ -9,7 +9,7 @@ tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native',
 ## Table of Content
 [[toc]]
 ## General
-KubeMQ can be deployed in a Kubernetes cluster as s StatefullSet either by a yaml config file or by helm chart.
+KubeMQ can be deployed in a Kubernetes cluster as s StatefulSet either by a yaml config file or by helm chart.
 
 
 ![image info](./images/kubernetes-cluster.png)
@@ -124,6 +124,7 @@ spec:
   selector:
     app: kubemq-cluster
 ```
+
 3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
 4. Save the file
 5. Deploy the file with command
@@ -238,6 +239,7 @@ spec:
   selector:
     app: kubemq-cluster
 ```
+
 3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
 4. Save the file
 5. Deploy the file with command

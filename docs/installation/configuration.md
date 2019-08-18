@@ -12,8 +12,11 @@ KubeMQ server can be configured via environment variables set during container l
 [[toc]]
 ## General
 
-The KubeMQ general configuration can be set as below:
+<CodeSwitcher :languages="{token:'With Token',lic:'With License Key'}" :isolated="true">
 
+<template v-slot:token>
+
+The KubeMQ general configuration can be set as below:
 
 ``` yaml
 ...
@@ -42,6 +45,50 @@ The KubeMQ general configuration can be set as below:
            image: 'kubemq/kubemq:latest'
 ....        
 ```
+
+</template>
+
+<template v-slot:lic>
+
+In case KubeMQ is deployed into environment without internet connectivity, you can get a license data by contact [support](mailto:support@kubemq.io).
+
+After receiving a license data, you can set the configuration as below:
+
+``` yaml
+...
+        - env:
+            - name: KUBEMQ_LICENSE_DATA # Sets the KubeMQ license data
+              value: <license data>
+            - name: CLUSTER_ROUTES 
+              value: 'kubemq-cluster:5228'
+            - name: CLUSTER_PORT
+              value: '5228'
+            - name: CLUSTER_ENABLE 
+              value: 'true'
+            - name: GRPC_PORT
+              value: '50000'
+            - name: REST_PORT
+              value: '9090'
+            - name: KUBEMQ_PORT # Sets KubeMQ service API port for health, metrics and traces
+              value: '8080'
+            - name: KUBEMQ_HOST # Sets the docker container’s explicit host name
+              value: 'kuebmq'  
+            - name: KUBEMQ_LOG_LEVEL # Sets KubeMQ stdout log level where:  1 - Debug 2 - Info 3 - Warn 4 - Error 5 - Fatal
+              value: '2'  
+            - name: KUBEMQ_PROXY # Sets Proxy server address url access (in case license validation failure) 
+              value: '2'  
+
+           image: 'kubemq/kubemq:latest'
+....        
+```
+
+</template>
+
+
+</CodeSwitcher>
+
+
+
 
 
 ## Cluster
