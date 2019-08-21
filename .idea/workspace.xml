@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get-started_docker.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_kubernetes.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_pub_sub.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_queue.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_rpc.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/verify_deploy.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566137990438</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add animated gifs">
+      <created>1566401869901</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1566401869901</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +323,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="- v1.1.0&#10;add get started&#10;rearrange reference" />
     <MESSAGE value="- v1.1.1&#10;fix docker-compose" />
     <MESSAGE value="update rest doc" />
     <MESSAGE value="update concept section" />
@@ -350,6 +347,7 @@
     <MESSAGE value="update c# get started" />
     <MESSAGE value="change to configuration and fix typos" />
     <MESSAGE value="update drone" />
-    <option name="LAST_COMMIT_MESSAGE" value="update drone" />
+    <MESSAGE value="add animated gifs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add animated gifs" />
   </component>
 </project>
