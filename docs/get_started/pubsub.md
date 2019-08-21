@@ -14,7 +14,7 @@ To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker contain
 
 You can select one of the methods below:
 
-<CodeSwitcher :languages="{docker:'docker',kubernetes:'kubernetes',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+<CodeSwitcher :languages="{kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
 
 <template v-slot:docker>
 
@@ -22,21 +22,30 @@ You can select one of the methods below:
 Pull and run KubeMQ Docker container:
 
 ``` bash
-docker run -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
+docker run --name kubemq -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
 -v $PWD:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
 
 ```
+
+For Example:
+
+![get-started_docker.gif](./images/get-started_docker.gif)
+
+
 
 </template>
 
 <template v-slot:kubernetes>
 
-Execute the flowing command:
+Execute the following command:
 
 ``` bash
 kubectl apply -f https://get.kubemq.io/deploy?token="YOUR_KUBEMQ_TOKEN"
 ```
 
+For Example:
+
+![get_started_kubernetes.gif](./images/get_started_kubernetes.gif)
 
 </template>
 
@@ -66,7 +75,7 @@ kubemq-charts/kubemq
 <template v-slot:docker_compose>
 
 
-Execute the flowing command:
+Execute the following command:
 
 ``` bash
 docker-compose -d up
@@ -105,100 +114,18 @@ volumes:
 
 ## Verify Deployment
 
-Browse to KubeMQ's API endpoint with a GET request to `/health` path and get a JSON response like below:
+Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
 
 For Example:
 ``` bash
-curl --location --request GET "http://localhost:8080/health" \
-  --header "Content-Type: application/json"
+curl --location --request GET "http://localhost:8080/health" --header "Content-Type: application/json"
 ```
 
-We received:
-
-``` json
-[
-    {
-        "host": "some-host",
-        "utc_time": "2019-07-23T06:59:26.9534018Z",
-        "grpc": {
-            "connections": {
-                "total": 0,
-                "events_senders": 0,
-                "events_stream_senders": 0,
-                "events_receivers": 0,
-                "events_store_receivers": 0,
-                "requests_senders": 0,
-                "responses_senders": 0,
-                "commands_receivers": 0,
-                "queries_receivers": 0,
-                "queue_senders": 0,
-                "queue_receivers": 0
-            },
-            "traffic": {
-                "sent_events": 0,
-                "received_events": 0,
-                "sent_requests": 0,
-                "sent_error": 0,
-                "sent_responses": 0,
-                "received_requests": 0,
-                "sent_events_vol": 0,
-                "received_events_vol": 0,
-                "sent_requests_vol": 0,
-                "sent_errors_vol": 0,
-                "sent_responses_vol": 0,
-                "received_requests_vol": 0,
-                "send_queue_messages_vol": 0,
-                "receive_queue_messages_vol": 0,
-                "send_queue_messages": 0,
-                "receive_queue_messages": 0,
-                "total_messages": 0,
-                "total_volume": 0
-            }
-        },
-        "rest": {
-            "connections": {
-                "total": 0,
-                "events_senders": 0,
-                "events_stream_senders": 0,
-                "events_receivers": 0,
-                "events_store_receivers": 0,
-                "requests_senders": 0,
-                "responses_senders": 0,
-                "commands_receivers": 0,
-                "queries_receivers": 0,
-                "queue_senders": 0,
-                "queue_receivers": 0
-            },
-            "traffic": {
-                "sent_events": 0,
-                "received_events": 0,
-                "sent_requests": 0,
-                "sent_error": 0,
-                "sent_responses": 0,
-                "received_requests": 0,
-                "sent_events_vol": 0,
-                "received_events_vol": 0,
-                "sent_requests_vol": 0,
-                "sent_errors_vol": 0,
-                "sent_responses_vol": 0,
-                "received_requests_vol": 0,
-                "send_queue_messages_vol": 0,
-                "receive_queue_messages_vol": 0,
-                "send_queue_messages": 0,
-                "receive_queue_messages": 0,
-                "total_messages": 0,
-                "total_volume": 0
-            }
-        }
-    }
-]
-
-```
-
+![verify_deploy.gif](./images/verify_deploy.gif)
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-To fix this, you can add -e KUBEMQ_PROXY="your-proxy-URL" as an environment variable.
+To fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
 :::
 
 ## Next Steps
@@ -209,9 +136,12 @@ Now that you have KubeMQ installed and running, we will do the following steps:
 2. Publish "Hi KubeMQ" message in the channel
 3. Display the received message in the console.
 
+![get_started_pub_sub.gif](./images/get_started_pub_sub.gif)
+
 As shown in the following diagram:
 
 ![image info](./images/pub-sub-hello-world.png)
+
 
 
 ## Subscribe to a Channel
@@ -228,10 +158,7 @@ kubetools pubsub rec events hello-world
 
 When connected, a stream of events messages will be shown in the console.
 
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
-You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
-:::
+
 
 </template>
 
@@ -693,7 +620,8 @@ kubetools pubsub send events hello-world "Hi KubeMQ"
 
 ::: tip Kubetools
 Kubetools is KubeMQ Command-Line-Interface tool.
-You can download Kubetools binaries [here](https://github.com/kubemq-io/kubetools/tree/master/bin).
+
+Installation instructions [here](../tutorials/kubetools.html#installation).
 :::
 
 </template>

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="change co">
+    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get-started_docker.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_kubernetes.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_pub_sub.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_queue.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get_started_rpc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/verify_deploy.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/configuration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +36,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/get_started" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/get_started/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -43,9 +49,9 @@
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\reference" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
     </key>
@@ -259,7 +265,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565871708950</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="change to configuration and fix typos">
+      <created>1566134964975</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1566134964975</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update drone">
+      <created>1566137990438</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1566137990438</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,8 +325,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="-v1.0.6 &#10;adding Google Analytics" />
-    <MESSAGE value="-v1.0.7 &#10;adding Google Analytics" />
     <MESSAGE value="- v1.1.0&#10;add get started&#10;rearrange reference" />
     <MESSAGE value="- v1.1.1&#10;fix docker-compose" />
     <MESSAGE value="update rest doc" />
@@ -330,6 +348,8 @@
     <MESSAGE value="create get started&#10;fix typos" />
     <MESSAGE value="fix typos" />
     <MESSAGE value="update c# get started" />
-    <option name="LAST_COMMIT_MESSAGE" value="update c# get started" />
+    <MESSAGE value="change to configuration and fix typos" />
+    <MESSAGE value="update drone" />
+    <option name="LAST_COMMIT_MESSAGE" value="update drone" />
   </component>
 </project>
