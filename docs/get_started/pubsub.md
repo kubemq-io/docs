@@ -5,7 +5,7 @@ type: 'article'
 description: 'Get started with KubeMQ and Pub/Sub pattern'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
-# Get Started with Pub/Sub <Badge text="v1.5````.0+"/> <Badge text="stable"/>
+# Get Started with Pub/Sub <Badge text="v1.5.0+"/> <Badge text="stable"/>
 
 ## Table of Content
 [[toc]]
@@ -120,6 +120,8 @@ For Example:
 ``` bash
 curl --location --request GET "http://localhost:8080/health" --header "Content-Type: application/json"
 ```
+
+We will get this:
 
 ![verify_deploy.gif](./images/verify_deploy.gif)
 

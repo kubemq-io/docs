@@ -120,6 +120,8 @@ For Example:
 curl --location --request GET "http://localhost:8080/health" --header "Content-Type: application/json"
 ```
 
+We will get this:
+
 ![verify_deploy.gif](./images/verify_deploy.gif)
 
 ::: warning PROXY
