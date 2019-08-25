@@ -247,6 +247,14 @@ spec:
 kubectl apply -f d:/kubemq.yaml
 ```
 
+
+Use KubeCtl to forward KubeMQ cluster ports:
+
+``` bash
+kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
+```
+
+
 ## Helm Chart
 
 Add KubeMQ Helm Repository:
@@ -311,6 +319,12 @@ helm install --name kubemq-release --set token={your kubemq token}, \
 nameOverride=my-kubemq-cluster kubemq-charts/kubemq 
 ```
 
+
+Use KubeCtl to forward KubeMQ cluster ports:
+
+``` bash
+kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
+```
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.

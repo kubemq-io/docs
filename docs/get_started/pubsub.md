@@ -47,6 +47,14 @@ For Example:
 
 ![get_started_kubernetes.gif](./images/get_started_kubernetes.gif)
 
+
+Use KubeCtl to forward KubeMQ cluster ports:
+
+``` bash
+kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
+```
+
+
 </template>
 
 <template v-slot:helm>
@@ -67,6 +75,13 @@ Install KubeMQ Chart:
 ``` bash
 helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> \
 kubemq-charts/kubemq
+```
+
+
+Use KubeCtl to forward KubeMQ cluster ports:
+
+``` bash
+kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
 ```
 
 </template>
@@ -109,7 +124,6 @@ volumes:
 
 </template>
 </CodeSwitcher>
-
 
 
 ## Verify Deployment
