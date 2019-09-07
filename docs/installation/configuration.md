@@ -40,7 +40,7 @@ The KubeMQ general configuration can be set as below:
             - name: KUBEMQ_LOG_LEVEL # Sets KubeMQ stdout log level where:  1 - Debug 2 - Info 3 - Warn 4 - Error 5 - Fatal
               value: '2'  
             - name: KUBEMQ_PROXY # Sets Proxy server address url access (in case license validation failure) 
-              value: '2'  
+              value: 'proxy-host:proxy-port'  
 
            image: 'kubemq/kubemq:latest'
 ....        
@@ -57,6 +57,8 @@ After receiving a license data, you can set the configuration as below:
 ``` yaml
 ...
         - env:
+            - name: KUBEMQ_TOKEN # Sets the KubeMQ token key
+              value: <YOUR-KUBEMQ-TOKEN>
             - name: KUBEMQ_LICENSE_DATA # Sets the KubeMQ license data
               value: <license data>
             - name: CLUSTER_ROUTES 
@@ -76,7 +78,7 @@ After receiving a license data, you can set the configuration as below:
             - name: KUBEMQ_LOG_LEVEL # Sets KubeMQ stdout log level where:  1 - Debug 2 - Info 3 - Warn 4 - Error 5 - Fatal
               value: '2'  
             - name: KUBEMQ_PROXY # Sets Proxy server address url access (in case license validation failure) 
-              value: '2'  
+              value: 'proxy-host:proxy-port'  
 
            image: 'kubemq/kubemq:latest'
 ....        
