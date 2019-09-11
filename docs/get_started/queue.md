@@ -15,7 +15,23 @@ To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker contain
 
 You can select one of the methods below:
 
-<CodeSwitcher :languages="{kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+<CodeSwitcher :languages="{kubetools:'kubetools',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+
+
+<template v-slot:kubetools>
+
+Run kubetools create cluster command:
+
+``` bash
+kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+```
+
+For Example:
+
+![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+
+</template>
+
 
 <template v-slot:docker>
 
@@ -129,16 +145,16 @@ volumes:
 
 ## Verify Deployment
 
-Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
+Run kubetools cluster list command:
 
-For Example:
+
 ``` bash
-curl --location --request GET "http://localhost:8080/health" --header "Content-Type: application/json"
+kubetools cluster list
 ```
 
 We will get this:
 
-![verify_deploy.gif](./images/verify_deploy.gif)
+![get-started-status.gif](./images/get-started-status.gif)
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.

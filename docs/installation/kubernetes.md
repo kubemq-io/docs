@@ -19,6 +19,32 @@ Every installation method requires a KubeMQ token.
 Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 :::
 
+## Kubetools
+
+### With Default Options
+
+Run kubetools create cluster command:
+
+``` bash
+kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+```
+
+For Example:
+
+![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+
+### With Configuration Options
+
+Run kubetools create cluster command:
+
+``` bash
+kubetools cluster create -t <YOUR_KUBEMQ_TOKEN> -o
+```
+
+For Example:
+
+![kubetools-create-options.gif](./images/kubetools-create-options.gif)
+
 ## YAML File
 
 ### Option 1 - Quick Deploy

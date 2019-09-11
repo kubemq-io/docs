@@ -35,8 +35,6 @@ The KubeMQ general configuration can be set as below:
               value: '9090'
             - name: KUBEMQ_PORT # Sets KubeMQ service API port for health, metrics and traces
               value: '8080'
-            - name: KUBEMQ_HOST # Sets the docker container’s explicit host name
-              value: 'kuebmq'  
             - name: KUBEMQ_LOG_LEVEL # Sets KubeMQ stdout log level where:  1 - Debug 2 - Info 3 - Warn 4 - Error 5 - Fatal
               value: '2'  
             - name: KUBEMQ_PROXY # Sets Proxy server address url access (in case license validation failure) 
@@ -73,8 +71,6 @@ After receiving a license data, you can set the configuration as below:
               value: '9090'
             - name: KUBEMQ_PORT # Sets KubeMQ service API port for health, metrics and traces
               value: '8080'
-            - name: KUBEMQ_HOST # Sets the docker container’s explicit host name
-              value: 'kuebmq'  
             - name: KUBEMQ_LOG_LEVEL # Sets KubeMQ stdout log level where:  1 - Debug 2 - Info 3 - Warn 4 - Error 5 - Fatal
               value: '2'  
             - name: KUBEMQ_PROXY # Sets Proxy server address url access (in case license validation failure) 
@@ -495,11 +491,11 @@ KubeMQ supports stdout logging, in addition to docker sending logs to local file
               value: '8080'
             - name: STORE_DIR
               value: '/store'
-            - name: LOG_LOGGLY_ENABLE  # Enable/Disable sensing logs to https://www.loggly.com/ external service    
+            - name: LOG_LOGGLY_ENABLE  # Enable/Disable sending logs to https://www.loggly.com/ external service    
               value: 'true'  
             - name: LOG_LOGGLY_KEY # Loggly access key  
-              value: './log'   
-            - name: LOG_LOGGLY_FLUSH_INTERVAL # Loggly sending logs interval in seconds   
+              value: ''   
+            - name: LOG_LOGGLY_FLUSH_INTERVAL # Set Loggly sending logs interval in seconds   
               value: '5'   
            image: 'kubemq/kubemq:latest'
 ....        
@@ -705,7 +701,7 @@ Add the following environment variables to KubeMQ's stateful set yaml definition
               value: 'true'  
             - name: METRICS_HONEYCOMB_KEY # Sets Honeycomb's key
               value: 'key'   
-            - name: METRICS_HONEYCOMB_DATASET # SSets Honeycomb's dataset
+            - name: METRICS_HONEYCOMB_DATASET # Sets Honeycomb's dataset
               value: 'dataset'  
            image: 'kubemq/kubemq:latest'
 ....        

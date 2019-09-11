@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get-started-kubetools.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get-started-status.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/installation/images/get-started-kubetools.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/installation/images/kubetools-create-options.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/images/verify_deploy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,23 +37,24 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/get_started/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/installation/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\theme\styles" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\reference" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\theme\styles" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
     </key>
   </component>
@@ -299,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1566748718432</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="fix configuration entries">
+      <created>1567849067480</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1567849067480</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix configuration entries">
+      <created>1567849337221</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1567849337221</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +369,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update concept section" />
     <MESSAGE value="v1.2.0" />
     <MESSAGE value="v1.2.1&#10;Fix typos" />
     <MESSAGE value="v1.2.1&#10;add dist" />
@@ -370,6 +393,7 @@
     <MESSAGE value="add animated gifs" />
     <MESSAGE value="fix pubsub" />
     <MESSAGE value="update port-forward" />
-    <option name="LAST_COMMIT_MESSAGE" value="update port-forward" />
+    <MESSAGE value="fix configuration entries" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix configuration entries" />
   </component>
 </project>
