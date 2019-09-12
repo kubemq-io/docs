@@ -1,16 +1,37 @@
 ---
-title: Configuration
+title: Kubetools
 lang: en-US
 type: 'article'
 description: 'KubeMQ configuration manual'
 tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
 ---
-# KubeMQ Configuration
-KubeMQ server can be configured via environment variables set during container loading.
+# KubeMQ Direct Configuration
+KubeMQ server can be configured by kubetools or via environment variables set during container loading.
+
 
 ## Table of Content
 [[toc]]
-## General
+
+## Kubetools Configuration
+
+## Default Configuration
+
+
+Run kubetools create cluster command:
+
+``` bash
+kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+```
+
+For Example:
+
+![get-started-kubetools.gif](../../installation/images/get-started-kubetools.gif)
+
+
+
+
+
+## Environment Configuration
 
 <CodeSwitcher :languages="{token:'With Token',lic:'With License Key'}" :isolated="true">
 
@@ -832,3 +853,4 @@ Add the following environment variables to KubeMQ's stateful set yaml definition
 </template>
 
 </CodeSwitcher>
+

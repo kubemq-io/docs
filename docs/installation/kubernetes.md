@@ -45,6 +45,15 @@ For Example:
 
 ![kubetools-create-options.gif](./images/kubetools-create-options.gif)
 
+### With Yaml file
+
+Run kubetools create cluster command:
+
+``` bash
+kubetools cluster create  -f kubemq-cluster.yaml
+```
+
+
 ## YAML File
 
 ### Option 1 - Quick Deploy

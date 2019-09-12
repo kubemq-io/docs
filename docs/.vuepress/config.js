@@ -71,7 +71,14 @@ module.exports = {
                 children: [
                     '/installation/kubernetes',
                     '/installation/docker',
-                    '/installation/configuration',
+                ]
+            },
+            {
+                title: 'Configuration',
+                collapsable: false,
+                children: [
+                    '/configuration/kubetools',
+                    '/configuration/manual',
                 ]
             },
             {

@@ -44,8 +44,8 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 
 KubeMQ supports Publish-Subscribe (a.k.a Pub/Sub) messages patterns with the following core features:
 
-- **Event** -  An asynchronous real-time Pub/Sub pattern.
-- **Event Store** -An asynchronous Pub/Sub pattern with persistence.
+- **Events** -  An asynchronous real-time Pub/Sub pattern.
+- **Events Store** -An asynchronous Pub/Sub pattern with persistence.
 - **Grouping** - Load balancing of events between subscribers
 
 ### RPC

@@ -2,23 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get-started-kubetools.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/get_started/images/get-started-status.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/installation/images/get-started-kubetools.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/installation/images/kubetools-create-options.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.vuepress/configuration/kubetools.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/images/verify_deploy.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/installation/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/configuration/manual.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/introduction.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
@@ -30,6 +32,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -37,25 +40,25 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/installation/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/.vuepress/configuration/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\.vuepress\configuration\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\reference" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\.vuepress\configuration" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\get_started\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\theme\styles" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -323,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567849337221</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="adding new kubetools">
+      <created>1568214036380</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1568214036380</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +379,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="v1.2.0" />
     <MESSAGE value="v1.2.1&#10;Fix typos" />
     <MESSAGE value="v1.2.1&#10;add dist" />
     <MESSAGE value="-v1.2.4" />
@@ -394,6 +403,7 @@
     <MESSAGE value="fix pubsub" />
     <MESSAGE value="update port-forward" />
     <MESSAGE value="fix configuration entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix configuration entries" />
+    <MESSAGE value="adding new kubetools" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding new kubetools" />
   </component>
 </project>
