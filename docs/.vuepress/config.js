@@ -77,20 +77,20 @@ module.exports = {
                 title: 'Configuration',
                 collapsable: false,
                 children: [
-                    '/configuration/kubetools',
+                    // '/configuration/kubetools',
                     '/configuration/manual',
                 ]
             },
             {
-                title: 'Tutorials',
+                title: 'Message Patterns',
                 collapsable: false,
                 children: [
                     '/tutorials/concepts',
                     `/tutorials/queue`,
                     `/tutorials/pubsub`,
                     `/tutorials/rpc`,
-                    `/tutorials/kubetools`,
-                ]
+                    // `/tutorials/kubetools`,
+                 ]
             },
              {
                 title: 'Reference',

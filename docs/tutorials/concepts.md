@@ -51,7 +51,7 @@ N level hierarchies:
 `foo.bar.A.B.C.>` is valid n (n=6) level hierarchies.
 
 ## Wildcards
-KubeMQ supports two wildcards, `*` and `>`. Wildcards are used to subscribe to a group of channels’ strings.
+KubeMQ supports two wildcards, `*` and `>`. Wildcards are used to subscribe to a group of channels’strings.
 
 ##### Asterisk `*`
 Matching a single token in any hierarchy

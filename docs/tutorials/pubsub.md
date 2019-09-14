@@ -1,5 +1,5 @@
 ---
-title: Pub/Sub Pattern
+title: Pub/Sub
 lang: en-US
 description: 'KubeMQ Pub/Sub tutorial'
 tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial']
@@ -16,13 +16,14 @@ Similarly, subscribers express interest in one or more events and only receive m
 ## Core Features
 KubeMQ supports Publish-Subscribe messages patterns with the following core features:
 
-- **Event** -  An asynchronous real-time Pub/Sub pattern.
-- **Event Store** -An asynchronous Pub/Sub pattern with persistence.
+- **Events** - An asynchronous real-time Pub/Sub pattern.
+- **Events Store** - An asynchronous Pub/Sub pattern with persistence.
 - **Grouping** - Load balancing of events between subscribers
+- **Partitioning** - Channels/Topics based wildcards
 
 
 ## Events
-Events is an asynchronous real-time Pub/Sub pattern.
+Events are an asynchronous real-time Pub/Sub pattern.
 In Events, multiple senders can send real-time messages to various receivers, however, only if they are currently connected to KubeMQ; there is no message persistence available in this pattern.
 
 ![image info](./images/event.png)
@@ -31,8 +32,20 @@ In Events, multiple senders can send real-time messages to various receivers, ho
 
 ‘Events’ pattern is suitable for cases such as publishing streaming data, logs, notifications, etc.
 
+### Demo - Basic
+
+![kubemqctl-pub-sub-events-basic.gif](./demo/kubemqctl-pub-sub-events-basic.gif)
+
+### Demo - Group (Load Balancing)
+
+![kubemqctl-pub-sub-events-group.gif](./demo/kubemqctl-pub-sub-events-group.gif)
+
+### Demo - Wildcards
+
+![kubemqctl-pub-sub-events-wildcards.gif](./demo/kubemqctl-pub-sub-events-wildcards.gif)
+
 ## Events Store
-Events Store’ is an asynchronous Pub/Sub pattern with persistence.
+Events Store is an asynchronous Pub/Sub pattern with persistence.
 In Events Store, multiple senders can send messages to various receivers even if they are not currently. Any receiver can connect to KubeMQ and replay one, any, or all of the messages stored for a specific channel.
 
 ![image info](./images/event-store.png)
@@ -55,30 +68,59 @@ KubeMQ supports six types of Events Store subscriptions and replay:
 
 ![image info](./images/event-store-from-new.png)
 
+##### Demo
+
+![kubemqctl-pub-sub-events-store-start-from-new.gif](./demo/kubemqctl-pub-sub-events-store-start-from-new.gif)
 
 #### Start From First Event
 
 ![image info](./images/event-store-from-first.png)
 
+##### Demo
+
+![kubemqctl-pub-sub-events-store-start-from-first.gif](./demo/kubemqctl-pub-sub-events-store-start-from-first.gif)
 
 #### Start From Last Event
 
 ![image info](./images/event-store-from-last.png)
 
+##### Demo
+![kubemqctl-pub-sub-events-store-start-from-last.gif](./demo/kubemqctl-pub-sub-events-store-start-from-last.gif)
 
 #### Start From Sequence
 
 ![image info](./images/event-store-from-seq.png)
-
+##### Demo
+![kubemqctl-pub-sub-events-store-start-from-seq.gif](./demo/kubemqctl-pub-sub-events-store-start-from-seq.gif)
 
 #### Start From Time
 
 ![image info](./images/event-store-from-time.png)
 
+##### Demo
+![kubemqctl-pub-sub-events-store-start-from-time.gif](./demo/kubemqctl-pub-sub-events-store-start-from-time.gif)
 
 #### Start From Time Delta
 
 ![image info](./images/event-store-from-time-delta.png)
+
+##### Demo
+![kubemqctl-pub-sub-events-store-start-from-duration.gif](./demo/kubemqctl-pub-sub-events-store-start-from-duration.gif)
+
+
+### Grouping - Load Balancing
+KubeMQ supports grouping (load balancing) of multiple receivers to share the load
+
+#### Demo
+
+##### Example 1
+![kubemqctl-pub-sub-events-store-groups-1.gif](./demo/kubemqctl-pub-sub-events-store-groups-1.gif)
+
+##### Example 2
+![kubemqctl-pub-sub-events-store-groups-2.gif](./demo/kubemqctl-pub-sub-events-store-groups-2.gif)
+
+##### Example 3
+![kubemqctl-pub-sub-events-store-groups-3.gif](./demo/kubemqctl-pub-sub-events-store-groups-3.gif)
 
 
 ### Unique Client ID

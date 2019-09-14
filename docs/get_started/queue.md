@@ -783,3 +783,7 @@ $.ajax(settings).done(function (response) {
 ::: tip Get Queues information
 You can get Queues information by running `kubetools get queues`.
 :::
+
+## Demo
+
+![kubemqctl-queue-send-receive.gif](./demo/kubemqctl-queue-send-receive.gif)

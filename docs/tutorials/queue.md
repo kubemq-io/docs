@@ -1,5 +1,5 @@
 ---
-title: Queue Pattern
+title: Queue
 lang: en-US
 description: 'KubeMQ queue tutorial'
 tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial','queue']
@@ -28,21 +28,43 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 
 ## Publish to Queue
 
+### Publish Single and Batch Messages
+KubeMQ allows the producer to send single and/or batch messages in one command.
+
+#### Demo - Single
+
+![kubemqctl-queue-send-receive.gif](./demo/kubemqctl-queue-send-receive.gif)
+
+#### Demo - Batch
+
+![kubemqctl-queue-send-receive-batch.gif](./demo/kubemqctl-queue-send-receive-batch.gif)
+
 ### Message Expiration (TTL)
 KubeMQ allows the producer to set each message with an expiration time (in seconds) also known as Time To Live (TTL). After this time, the message will not be longer available to any consumer.
 
 ![image info](./images/queue-expiration.png)
+
+#### Demo
+
+![kubemqctl-queue-send-expiration.gif](./demo/kubemqctl-queue-send-expiration.gif)
 
 ### Message Delay (Scheduled Messages)
 KubeMQ allows the producer to set each message with sending delay (in seconds) time also known as Scheduled Messages. Until this time, the message will not be available to and consumer.
 
 ![image info](./images/queue-delay.png)
 
+#### Demo
+
+![kubemqctl-queue-send-delay.gif](./demo/kubemqctl-queue-send-delay.gif)
 
 ### Dead-Letter Queue
 KubeMQ allows a producer to set a dead-letter queue per each message a which the message will be moved onto in case of a consumer will fail to ack the message (such a poison message).
 
  ![image info](./images/queue-dead-letter.png)
+
+#### Demo
+
+![kubemqctl-queue-send-dead-letter.gif](./demo/kubemqctl-queue-send-dead-letter.gif)
 
 ## Consume from Queue
 
@@ -51,12 +73,19 @@ KubeMQ allows the consumer to connect to KubeMQ and wait for a specified time un
 
 ![image info](./images/queue-long-polling.png)
 
+#### Demo
+
+![kubemqctl-queue-long-polling.gif](./demo/kubemqctl-queue-long-polling.gif)
+
 ### Peak Queue Messages
 
 KubeMQ allows a consumer to peak one or many messages in the queue without removing them from the queue.
 
 ![image info](./images/queue-peak.png)
 
+#### Demo
+
+![kubemqctl-queue-peak.gif](./demo/kubemqctl-queue-peak.gif)
 
 ### Ack All Queue Messages
 
@@ -64,9 +93,13 @@ KubeMQ allows a consumer to ack all messages in the queue (clean-up) therefore e
 
  ![image info](./images/queue-ack-all.png)
 
+#### Demo
+
+![kubemqctl-queue-ack.gif](./demo/kubemqctl-queue-ack.gif)
+
 ### Message Visibility
 
- KubeMQ allows the consumer to set a visibility time, which during this time, the message will not be available to any other consumer. During the visibility period, the consumer can extend the visibility time window at any time. Once the consumer completed the message processing, he sends an ack notification to the queue. If the consumer failed to ack the message during the visibility time, the message will be available back in the queue to consume by others.
+KubeMQ allows the consumer to set a visibility time, which during this time, the message will not be available to any other consumer. During the visibility period, the consumer can extend the visibility time window at any time. Once the consumer completed the message processing, he sends an ack notification to the queue. If the consumer failed to ack the message during the visibility time, the message will be available back in the queue to consume by others.
 
 #### Visibility With Ack
   ![image info](./images/queue-visibility-ack.png)
@@ -74,11 +107,19 @@ KubeMQ allows a consumer to ack all messages in the queue (clean-up) therefore e
 #### Visibility With Failure
   ![image info](./images/queue-visibility-reject.png)
 
+#### Demo
+
+![kubemqctl-queue-stream-extend-visibility.gif](./demo/kubemqctl-queue-stream-extend-visibility.gif)
+
 ### Resend Message
 
 KubeMQ allows the consumer to resend the current pulled message to a new queue without the need to send the actual message (act as producer).
 
 ![image info](./images/queue-resend.png)
+
+#### Demo
+
+![kubemqctl-queue-stream-resend-queue.gif](./demo/kubemqctl-queue-stream-resend-queue.gif)
 
 ### Resend Modified Message
 
@@ -86,7 +127,9 @@ KubeMQ allows the consumer to send back to the queue a modified message for furt
 
 ![image info](./images/queue-resend-new.png)
 
+#### Demo
 
+![kubemqctl-queue-stream-resend-new.gif](./demo/kubemqctl-queue-stream-resend-new.gif)
 ### Transactional Queue
 
 KubeMQ allows the consumer to connect in a stream transactional model where the consumer can control the flow of message life-cycle.
@@ -95,6 +138,14 @@ KubeMQ allows the consumer to connect in a stream transactional model where the 
 
 ![image info](./images/queue-stream-flow-ok.png)
 
+#### Demo
+
+![kubemqctl-queue-stream-ack.gif](./demo/kubemqctl-queue-stream-ack.gif)
+
 #### Failed Flow
 
 ![image info](./images/queue-stream-flow-fail.png)
+
+#### Demo
+
+![kubemqctl-queue-stream-reject.gif](./demo/kubemqctl-queue-stream-reject.gif)

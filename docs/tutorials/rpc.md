@@ -1,5 +1,5 @@
 ---
-title: RPC Pattern
+title: RPC
 lang: en-US
 description: 'KubeMQ RPC tutorials'
 tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial','CQRS']
@@ -41,6 +41,17 @@ This pattern implements the ‘Command’ part of CQRS[^cqrs_footnote] as follow
 
 Commands pattern is suitable for use cases, such as sending updates to a DB, WebHooks, or any request without the need of response by a specific time.
 
+### Demo - Basic
+
+![kubemqctl-rpc-commands-send-response.gif](./demo/kubemqctl-rpc-commands-send-response.gif)
+
+### Demo - Timeout
+
+![kubemqctl-rpc-commands-timeout.gif](./demo/kubemqctl-rpc-commands-timeout.gif)
+
+### Demo - Group (Load Balancing)
+
+![kubemqctl-rpc-commands-group.gif](./demo/kubemqctl-rpc-commands-group.gif)
 
 ## Queries
 
@@ -59,10 +70,22 @@ This pattern implements the Query part of CQRS[^cqrs_footnote] as follows:
 [^cqrs_footnote]: [Martin Fowler - CQRS](https://martinfowler.com/bliki/CQRS.html)
 
 
-
 **Use Cases**
 
 Queries pattern is suitable for use cases, primarily for database queries.
+
+### Demo - Basic
+
+![kubemqctl-rpc-query-response.gif](./demo/kubemqctl-rpc-query-response.gif)
+
+### Demo - Timeout
+
+![kubemqctl-rpc-query-timeout.gif](./demo/kubemqctl-rpc-query-timeout.gif)
+
+### Demo - Group (Load Balancing)
+
+![kubemqctl-rpc-query-group.gif](./demo/kubemqctl-rpc-query-group.gif)
+
 
 ## Caching
 KubeMQ supports caching of query results as follows:
@@ -75,6 +98,10 @@ KubeMQ supports caching of query results as follows:
 4. If a Response is NOT stored in Cache, KubeMQ will send the Request to an available Receiver (as above).
 5. Once a valid response is received from a Responder, KubeMQ will store the Response in the Cache, along with the Cache key provided by the Sender, for the time set by Cache TTL.
 6. A new Request within the Cache TTL time-frame, and with the same Cache key, will get the same Response as stored in KubeMQ from the previous Sender Request.
+
+### Demo - Caching
+
+![kubemqctl-query-cache.gif](./demo/kubemqctl-query-cache.gif)
 
 
 ## Commands vs. Queries

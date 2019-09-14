@@ -25,10 +25,7 @@ kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
 
 For Example:
 
-![get-started-kubetools.gif](../../installation/images/get-started-kubetools.gif)
-
-
-
+![get-started-kubetools.gif](./images/get-started-kubetools.gif)
 
 
 ## Environment Configuration

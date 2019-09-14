@@ -912,3 +912,6 @@ $.ajax(settings).done(function (response) {
 
 </CodeSwitcher>
 
+## Demo
+
+![kubemqctl-rpc-commands-send-response.gif](./demo/kubemqctl-rpc-commands-send-response.gif)

@@ -1071,3 +1071,6 @@ A response for a successful command will look like this:
 
 </CodeSwitcher>
 
+## Demo
+
+![kubemqctl-pub-sub-events-basic.gif](./demo/kubemqctl-pub-sub-events-basic.gif)
