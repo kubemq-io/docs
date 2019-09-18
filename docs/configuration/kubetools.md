@@ -1,31 +1,31 @@
 ---
-title: Kubetools
+title: Kubemqctl
 lang: en-US
 type: 'article'
 description: 'KubeMQ configuration manual'
 tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
 ---
 # KubeMQ Direct Configuration
-KubeMQ server can be configured by kubetools or via environment variables set during container loading.
+KubeMQ server can be configured by Kubemqctl or via environment variables set during container loading.
 
 
 ## Table of Content
 [[toc]]
 
-## Kubetools Configuration
+## Kubemqctl Configuration
 
 ## Default Configuration
 
 
-Run kubetools create cluster command:
+Run Kubemqctl create cluster command:
 
 ``` bash
-kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
 For Example:
 
-![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
 
 
 ## Environment Configuration

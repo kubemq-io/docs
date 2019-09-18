@@ -15,20 +15,20 @@ To start using KubeMQ with RPC, we first need to run a KubeMQ docker container e
 
 You can select one of the methods below:
 
-<CodeSwitcher :languages="{kubetools:'kubetools',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+<CodeSwitcher :languages="{Kubemqctl:'Kubemqctl',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
 
 
-<template v-slot:kubetools>
+<template v-slot:Kubemqctl>
 
-Run kubetools create cluster command:
+Run Kubemqctl create cluster command:
 
 ``` bash
-kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
 For Example:
 
-![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
 
 </template>
 
@@ -144,11 +144,11 @@ volumes:
 
 ## Verify Deployment
 
-Run kubetools cluster list command:
+Run Kubemqctl cluster list command:
 
 
 ``` bash
-kubetools cluster list
+Kubemqctl cluster list
 ```
 
 We will get this:
@@ -180,20 +180,20 @@ As showed in the following diagram:
 
 A receiver can subscribe to the `hello-command` channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
-Run the following Kubetools command:
+Run the following Kubemqctl command:
 ``` bash
- kubetools rpc rec command "hello-command"
+ Kubemqctl rpc rec command "hello-command"
 ```
 
-When connected, the stream will block until receiving a command. Once a command will be received Kubetools automatically will send a Response.
+When connected, the stream will block until receiving a command. Once a command will be received Kubemqctl automatically will send a Response.
 
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
+::: tip Kubemqctl
+Kubemqctl is KubeMQ Command-Line-Interface tool.
 
-Installation instructions [here](../tutorials/kubetools.html#installation).
+Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 :::
 </template>
 
@@ -630,22 +630,22 @@ Subscribe to Commands in REST interface is using WebSocket for streaming (Push) 
 After you have subscribed to a hello-command channel, you can send your command to it.
 
 
-<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
 
-Run the following Kubetools command:
+Run the following Kubemqctl command:
 
 ``` bash
-kubetools rpc send command "hello-command" "some command"
+Kubemqctl rpc send command "hello-command" "some command"
 ```
 
 
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
+::: tip Kubemqctl
+Kubemqctl is KubeMQ Command-Line-Interface tool.
 
-Installation instructions [here](../tutorials/kubetools.html#installation).
+Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 :::
 
 </template>

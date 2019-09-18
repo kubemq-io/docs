@@ -14,20 +14,20 @@ To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker contain
 
 You can select one of the methods below:
 
-<CodeSwitcher :languages="{kubetools:'kubetools',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+<CodeSwitcher :languages="{Kubemqctl:'Kubemqctl',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
 
 
-<template v-slot:kubetools>
+<template v-slot:Kubemqctl>
 
-Run kubetools create cluster command:
+Run Kubemqctl create cluster command:
 
 ``` bash
-kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
 For Example:
 
-![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
 
 </template>
 
@@ -145,17 +145,17 @@ volumes:
 
 ## Verify Deployment
 
-Run kubetools cluster list command:
+Run Kubemqctl cluster list command:
 
 
 ``` bash
-kubetools cluster list
+Kubemqctl cluster list
 ```
 
 We will get this:
 
 
-![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
@@ -182,12 +182,12 @@ As shown in the following diagram:
 
 A consumer can subscribe to the "hello-world" channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
-Run the following Kubetools command:
+Run the following Kubemqctl command:
 ``` bash
-kubetools pubsub rec events hello-world
+Kubemqctl pubsub rec events hello-world
 ```
 
 When connected, a stream of events messages will be shown in the console.
@@ -640,22 +640,22 @@ Subscribe to Events in REST interface is using WebSocket for streaming (Push) ev
 After you have subscribed to a hello-world channel, you can send your message to it.
 
 
-<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
 
-Run the following Kubetools command:
+Run the following Kubemqctl command:
 
 ``` bash
-kubetools pubsub send events hello-world "Hi KubeMQ"
+Kubemqctl pubsub send events hello-world "Hi KubeMQ"
 ```
 
 
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
+::: tip Kubemqctl
+Kubemqctl is KubeMQ Command-Line-Interface tool.
 
-Installation instructions [here](../tutorials/kubetools.html#installation).
+Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 :::
 
 </template>

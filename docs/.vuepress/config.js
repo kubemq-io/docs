@@ -77,7 +77,7 @@ module.exports = {
                 title: 'Configuration',
                 collapsable: false,
                 children: [
-                    // '/configuration/kubetools',
+                    // '/configuration/Kubemqctl',
                     '/configuration/manual',
                 ]
             },
@@ -89,7 +89,7 @@ module.exports = {
                     `/tutorials/queue`,
                     `/tutorials/pubsub`,
                     `/tutorials/rpc`,
-                    // `/tutorials/kubetools`,
+                    // `/tutorials/Kubemqctl`,
                  ]
             },
              {

@@ -1,11 +1,11 @@
 ---
-title: Kubetools
+title: Kubemqctl
 lang: en-US
 description: 'KubeMQ Command Line Interface reference'
 tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','cli']
 ---
-# Kubetools
-Kubetools provides access to [KubeMQ](https://kubemq.io) via a command-line interface.
+# Kubemqctl
+Kubemqctl provides access to [KubeMQ](https://kubemq.io) via a command-line interface.
 
 It currently provides the ability to:
 
@@ -15,7 +15,7 @@ It currently provides the ability to:
 - **Check Health** and get simple stats.
 - **Get Metrics** detailed data
 
-If there is something you'd like to see Kubetools be able to do from the CLI, let us know! :)
+If there is something you'd like to see Kubemqctl be able to do from the CLI, let us know! :)
 
 ## Table of Content
 [[toc]]
@@ -25,23 +25,23 @@ If there is something you'd like to see Kubetools be able to do from the CLI, le
 ### Mac OS:
 
 ```bash
-curl -L https://github.com/kubemq-io/kubetools/releases/download/latest/kubetools_darwin_amd64 -o /usr/local/bin/kubetools 
-chmod +x /usr/local/bin/kubetools
+curl -L https://github.com/kubemq-io/Kubemqctl/releases/download/latest/Kubemqctl_darwin_amd64 -o /usr/local/bin/Kubemqctl 
+chmod +x /usr/local/bin/Kubemqctl
 ```
 
 ### Linux 64 bits:
 
 ```bash
-curl -L https://github.com/kubemq-io/kubetools/releases/download/latest/kubetools_linux_amd64 -o /usr/local/bin/kubetools
-chmod +x /usr/local/bin/kubetools
+curl -L https://github.com/kubemq-io/Kubemqctl/releases/download/latest/Kubemqctl_linux_amd64 -o /usr/local/bin/Kubemqctl
+chmod +x /usr/local/bin/Kubemqctl
 ```
 
 
 ### Linux 32 bits:
 
 ```bash
-curl -L https://github.com/kubemq-io/kubetools/releases/download/latest/kubetools_linux_386 -o /usr/local/bin/kubetools
-chmod +x /usr/local/bin/kubetools
+curl -L https://github.com/kubemq-io/Kubemqctl/releases/download/latest/Kubemqctl_linux_386 -o /usr/local/bin/Kubemqctl
+chmod +x /usr/local/bin/Kubemqctl
 ```
 
 ### Windows:
@@ -49,21 +49,21 @@ chmod +x /usr/local/bin/kubetools
 Run in PowerShell as administrator:
 
 ```powershell
-New-Item -ItemType Directory 'C:\Program Files\Kubetools'
-Invoke-WebRequest https://github.com/kubemq-io/kubetools/releases/download/latest/kubetools.exe -OutFile 'C:\Program Files\Kubetools\kubetools.exe'
-[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\Kubetools', [EnvironmentVariableTarget]::Machine)
-$env:Path += ';C:\Program Files\Kubetools'
+New-Item -ItemType Directory 'C:\Program Files\Kubemqctl'
+Invoke-WebRequest https://github.com/kubemq-io/Kubemqctl/releases/download/latest/Kubemqctl.exe -OutFile 'C:\Program Files\Kubemqctl\Kubemqctl.exe'
+[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\Kubemqctl', [EnvironmentVariableTarget]::Machine)
+$env:Path += ';C:\Program Files\Kubemqctl'
 ```
 
 Or manually:
 
-- [Download the latest kubetools.exe](https://github.com/sourcegraph/src-cli/releases/download/latest/kubetolls.exe).
-- Place the file under e.g. `C:\Program Files\Kubetools\kubetools.exe`
+- [Download the latest Kubemqctl.exe](https://github.com/sourcegraph/src-cli/releases/download/latest/kubetolls.exe).
+- Place the file under e.g. `C:\Program Files\Kubemqctl\Kubemqctl.exe`
 - Add that directory to your system path to access it from any command prompt
 
 
 ## Configuration
-Kubetools require `.config.yaml` File for connections variables. Default configuration:
+Kubemqctl require `.config.yaml` File for connections variables. Default configuration:
 
 ```
 statsAddress: "http://localhost:8080/v1/stats" #the address of Stats endpoint, you can replace the localhost:8080 with your address
@@ -88,13 +88,13 @@ connections:
 Run :
 
 ``` bash
-kubetools
+Kubemqctl
 ```
 Will prompt the following:
 
 ```
 Usage:
-  kubetools [command]
+  Kubemqctl [command]
 
 Available Commands:
   get         Call kubemq get resources endpoint
@@ -109,9 +109,9 @@ Available Commands:
   version     print kubemq version
 
 Flags:
-  -h, --help   help for kubetools
+  -h, --help   help for Kubemqctl
 
-Use "kubetools [command] --help" for more information about a command.
+Use "Kubemqctl [command] --help" for more information about a command.
 
 ```
 ## Get Command <Badge text="v1.3.0+"/> <Badge text="requires KubeMQ v1.6.0+" type="warn"/>
@@ -120,19 +120,19 @@ Run the following command for retrieve an information about various resources su
 Run :
 
 ``` bash
-kubetools get
+Kubemqctl get
 ```
 Or,
 
 ``` bash
-kubetools g
+Kubemqctl g
 ```
 
 A list of sub commands will be shown:
 
 ``` bash
 Usage:
-  kubetools get [command]
+  Kubemqctl get [command]
 
 Aliases:
   get, g
@@ -144,7 +144,7 @@ Available Commands:
 Flags:
   -h, --help   help for get
 
-Use "kubetools get [command] --help" for more information about a command.
+Use "Kubemqctl get [command] --help" for more information about a command.
 
 ```
 ::: warning
@@ -159,12 +159,12 @@ Choose one of the following Get options:
 <template v-slot:queue>
 
 ``` bash
-kubetools get queues
+Kubemqctl get queues
 ```
 Or,
 
 ``` bash
-kubetools g qu
+Kubemqctl g qu
 ```
 
 Example of results:
@@ -204,12 +204,12 @@ TOTAL CLIENTS:  8
 Run the following command for retrieve an information about Events Stores
 
 ``` bash
-kubetools get events_stores
+Kubemqctl get events_stores
 ```
 Or,
 
 ``` bash
-kubetools g es
+Kubemqctl g es
 ```
 
 Results example are similar to Get Queues results.
@@ -222,12 +222,12 @@ Run the following command for running various tests, checking of KubeMQ installa
 Run :
 
 ``` bash
-kubetools test
+Kubemqctl test
 ```
 Or,
 
 ``` bash
-kubetools t
+Kubemqctl t
 ```
 
 
@@ -236,19 +236,19 @@ Run the following command to enter into a monitoring channels mode.
 
 
 ``` bash
-kubetools mon
+Kubemqctl mon
 ```
 Or,
 
 ``` bash
-kubetools m
+Kubemqctl m
 ```
 
 Available sub commands:
 
 ```
 Usage:
-  kubetools mon [command]
+  Kubemqctl mon [command]
 
 Aliases:
   mon, m
@@ -263,7 +263,7 @@ Available Commands:
 Flags:
   -h, --help   help for mon
 
-Use "kubetools mon [command] --help" for more information about a command.
+Use "Kubemqctl mon [command] --help" for more information about a command.
 ```
 
 Choose one of the following Monitoring options:
@@ -278,12 +278,12 @@ Choose one of the following Monitoring options:
 Run the following command will monitor and show all traffic in `channel-name` Queue channel:
 
 ``` bash
-kubetools mon queue channel-name
+Kubemqctl mon queue channel-name
 ```
 Or,
 
 ``` bash
-kubetools m qu channel-name
+Kubemqctl m qu channel-name
 ```
 
 </template>
@@ -293,12 +293,12 @@ kubetools m qu channel-name
 Run the following command will monitor and show all traffic in `channel-name` Pub/Sub Events channel:
 
 ``` bash
-kubetools mon events channel-name
+Kubemqctl mon events channel-name
 ```
 Or,
 
 ``` bash
-kubetools m e channel-name
+Kubemqctl m e channel-name
 ```
 
 </template>
@@ -309,12 +309,12 @@ kubetools m e channel-name
 Run following command will monitor and show all traffic in `channel-name` Events Store channel:
 
 ``` bash
-kubetools mon events_store channel-name
+Kubemqctl mon events_store channel-name
 ```
 Or,
 
 ``` bash
-kubetools m es channel-name
+Kubemqctl m es channel-name
 ```
 
 </template>
@@ -324,12 +324,12 @@ kubetools m es channel-name
 Run the following command will monitor and show all traffic in `channel-name` Commands channel:
 
 ``` bash
-kubetools mon commands channel-name
+Kubemqctl mon commands channel-name
 ```
 Or,
 
 ``` bash
-kubetools m c channel-name
+Kubemqctl m c channel-name
 ```
 </template>
 <template v-slot:queries>
@@ -338,12 +338,12 @@ kubetools m c channel-name
 Run the following command will monitor and show all traffic in `channel-name` Queries channel:
 
 ``` bash
-kubetools mon queries channel-name
+Kubemqctl mon queries channel-name
 ```
 Or,
 
 ``` bash
-kubetools m q channel-name
+Kubemqctl m q channel-name
 ```
 </template>
 </CodeSwitcher>
@@ -353,20 +353,20 @@ Run the following command for sending and receiving queue messages.
 
 
 ``` bash
-kubetools queue
+Kubemqctl queue
 
 ```
 Or,
 
 ``` bash
-kubetools q
+Kubemqctl q
 ```
 
 Available Queue commands:
 
 ```
 Usage:
-  kubetools queue [command]
+  Kubemqctl queue [command]
 
 Aliases:
   queue, q
@@ -381,7 +381,7 @@ Flags:
   -h, --help                    help for queue
   -t, --queueTransport string   set transport type, grpc or rest (default "grpc")
 
-Use "kubetools queue [command] --help" for more information about a command.
+Use "Kubemqctl queue [command] --help" for more information about a command.
 ```
 
 
@@ -394,19 +394,19 @@ Use "kubetools queue [command] --help" for more information about a command.
 Run the following command for sending `your-message` to Queue channel `channel-name`:
 
 ``` bash
-kubetools queue send channel-name your-message 
+Kubemqctl queue send channel-name your-message 
 
 ```
 Or,
 
 ``` bash
-kubetools q s
+Kubemqctl q s
 ```
 
 Available flags:
 ```
 Usage:
-  kubetools queue send [flags]
+  Kubemqctl queue send [flags]
 
 Aliases:
   send, s
@@ -430,19 +430,19 @@ Run the following command for receiving queue message from `channel-name` and se
 
 
 ``` bash
-kubetools queue receive channel-name
+Kubemqctl queue receive channel-name
 ```
 Or,
 
 ``` bash
-kubetools q r channel-name
+Kubemqctl q r channel-name
 ```
 
 Available flags:
 
 ```
 Usage:
-  kubetools queue receive [flags]
+  Kubemqctl queue receive [flags]
 
 Aliases:
   receive, r
@@ -464,19 +464,19 @@ Global Flags:
 Run the following command for peaking messages in Queue channel `channel-name`:
 
 ``` bash
-kubetools queue peak channel-name
+Kubemqctl queue peak channel-name
 ```
 Or,
 
 ``` bash
-kubetools q p channel-name
+Kubemqctl q p channel-name
 ```
 Available flags:
 
 
 ```
 Usage:
-  kubetools queue peak [flags]
+  Kubemqctl queue peak [flags]
 
 Aliases:
   peak, p
@@ -498,12 +498,12 @@ Global Flags:
 Run the following command for ack all queue messages in Queue `channel-name`:
 
 ``` bash
-kubetools queue ack channel-name
+Kubemqctl queue ack channel-name
 ```
 Or,
 
 ``` bash
-kubetools q a channel-name
+Kubemqctl q a channel-name
 ```
 
 
@@ -515,19 +515,19 @@ Run the following command for publish and subscribe real-time and persistent eve
 
 
 ``` bash
-kubetools pubsub
+Kubemqctl pubsub
 ```
 Or,
 
 ``` bash
-kubetools p
+Kubemqctl p
 ```
 
 Available Pub/Sub commands:
 
 ```
 Usage:
-  kubetools pubsub [command]
+  Kubemqctl pubsub [command]
 
 Aliases:
   pubsub, p, ps
@@ -540,7 +540,7 @@ Flags:
   -h, --help                     help for pubsub
   -t, --pubsubTransport string   set transport type, grpc or rest (default "grpc")
 
-Use "kubetools pubsub [command] --help" for more information about a command.
+Use "Kubemqctl pubsub [command] --help" for more information about a command.
 ```
 
 Choose one of the following Pub/Sub commands options:
@@ -554,12 +554,12 @@ Choose one of the following Pub/Sub commands options:
 Run the following command for sending `your-message` to Events channel `channel-name`:
 
 ``` bash
-kubetools pubsub send events channel-name your-message
+Kubemqctl pubsub send events channel-name your-message
 ```
 Or,
 
 ``` bash
-kubetools p s e channel-name your-message
+Kubemqctl p s e channel-name your-message
 ```
 
 </template>
@@ -570,12 +570,12 @@ kubetools p s e channel-name your-message
 Run the following command for receiving messages in Events channel `channel-name`:
 
 ``` bash
-kubetools pubsub receive events channel-name
+Kubemqctl pubsub receive events channel-name
 ```
 Or,
 
 ``` bash
-kubetools p r e channel-name your-message
+Kubemqctl p r e channel-name your-message
 ```
 
 </template>
@@ -587,12 +587,12 @@ kubetools p r e channel-name your-message
 Run the following command for sending messages in Events Store channel `channel-name`:
 
 ``` bash
-kubetools pubsub send events_store channel-name your-message
+Kubemqctl pubsub send events_store channel-name your-message
 ```
 Or,
 
 ``` bash
-kubetools p s es channel-name your-message
+Kubemqctl p s es channel-name your-message
 ```
 
 </template>
@@ -604,12 +604,12 @@ kubetools p s es channel-name your-message
 Run the following command for receiving messages in Events Store channel `channel-name`:
 
 ``` bash
-kubetools pubsub receive events_store channel-name
+Kubemqctl pubsub receive events_store channel-name
 ```
 Or,
 
 ``` bash
-kubetools p r es channel-name your-message
+Kubemqctl p r es channel-name your-message
 ```
 
 </template>
@@ -622,19 +622,19 @@ Run the following command for for sending and receiving RPC calls of commands an
 
 
 ``` bash
-kubetools rpc
+Kubemqctl rpc
 ```
 Or,
 
 ``` bash
-kubetools r
+Kubemqctl r
 ```
 
 Available RPC commands:
 
 ```
 Usage:
-  kubetools rpc [command]
+  Kubemqctl rpc [command]
 
 Aliases:
   rpc, r
@@ -647,7 +647,7 @@ Flags:
   -h, --help                  help for rpc
   -t, --rpcTransport string   set transport type, grpc or rest (default "grpc")
 
-Use "kubetools rpc [command] --help" for more information about a command.
+Use "Kubemqctl rpc [command] --help" for more information about a command.
 ```
 
 
@@ -663,12 +663,12 @@ Choose one of the following RPC commands options:
 Run the following command for sending `your-message` to Commands channel `channel-name`:
 
 ``` bash
-kubetools rpc send command channel-name your-message
+Kubemqctl rpc send command channel-name your-message
 ```
 Or,
 
 ``` bash
-kubetools r s c channel-name your-message
+Kubemqctl r s c channel-name your-message
 ```
 
 </template>
@@ -679,12 +679,12 @@ kubetools r s c channel-name your-message
 Run the following command for receiving messages in Command channel `channel-name` and send an acknowledge back to the sender:
 
 ``` bash
-kubetools rpc receive command channel-name
+Kubemqctl rpc receive command channel-name
 ```
 Or,
 
 ``` bash
-kubetools r r c channel-name your-message
+Kubemqctl r r c channel-name your-message
 ```
 
 </template>
@@ -696,12 +696,12 @@ kubetools r r c channel-name your-message
 Run the following command for sending `your-message` to Query channel `channel-name`:
 
 ``` bash
-kubetools rpc send query channel-name your-message
+Kubemqctl rpc send query channel-name your-message
 ```
 Or,
 
 ``` bash
-kubetools r s q channel-name your-message
+Kubemqctl r s q channel-name your-message
 ```
 
 </template>
@@ -713,13 +713,13 @@ kubetools r s q channel-name your-message
 Run the following command for receiving messages in Query channel `channel-name` and send an acknowledge back to the sender:
 
 ``` bash
-kubetools rpc receive query channel-name
+Kubemqctl rpc receive query channel-name
 
 ```
 Or,
 
 ``` bash
-kubetools r r q channel-name your-message
+Kubemqctl r r q channel-name your-message
 ```
 
 </template>
@@ -731,12 +731,12 @@ kubetools r r q channel-name your-message
 Run the following command for checking health monitor point of KubeMQ:
 
 ``` bash
-kubetools health
+Kubemqctl health
 ```
 Or,
 
 ``` bash
-kubetools h
+Kubemqctl h
 ```
 
 ## Metrics Command
@@ -744,11 +744,11 @@ Run the following command for receiving metrics data of KubeMQ:
 
 
 ``` bash
-kubetools metrics
+Kubemqctl metrics
 ```
 Or,
 
 ``` bash
-kubetools m
+Kubemqctl m
 ```
 

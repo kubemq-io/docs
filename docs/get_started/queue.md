@@ -15,20 +15,20 @@ To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker contain
 
 You can select one of the methods below:
 
-<CodeSwitcher :languages="{kubetools:'kubetools',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+<CodeSwitcher :languages="{Kubemqctl:'Kubemqctl',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
 
 
-<template v-slot:kubetools>
+<template v-slot:Kubemqctl>
 
-Run kubetools create cluster command:
+Run Kubemqctl create cluster command:
 
 ``` bash
-kubetools cluster create -t <YOUR_KUBEMQ_TOKEN>
+Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
 For Example:
 
-![get-started-kubetools.gif](./images/get-started-kubetools.gif)
+![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
 
 </template>
 
@@ -145,11 +145,11 @@ volumes:
 
 ## Verify Deployment
 
-Run kubetools cluster list command:
+Run Kubemqctl cluster list command:
 
 
 ``` bash
-kubetools cluster list
+Kubemqctl cluster list
 ```
 
 We will get this:
@@ -181,20 +181,20 @@ As shown in the following diagram:
 
 The producer can send a message to the "hello-world-queue" channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
-Run the following Kubetools command:
+Run the following Kubemqctl command:
 ``` bash
-kubetools queue send "hello-world-queue" "this is a queue message"
+Kubemqctl queue send "hello-world-queue" "this is a queue message"
 ```
 
 A result message will be shown with an indication of sending time of the message
 
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
+::: tip Kubemqctl
+Kubemqctl is KubeMQ Command-Line-Interface tool.
 
-Installation instructions [here](../tutorials/kubetools.html#installation).
+Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 :::
 
 </template>
@@ -489,22 +489,22 @@ $.ajax(settings).done(function (response) {
 After you have sent a message to a queue, you can request the message from a queue.
 
 
-<CodeSwitcher :languages="{bash:'kubetools',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
 
-Run the following Kubetools command:
+Run the following Kubemqctl command:
 
 ``` bash
-kubetools queue receive "hello-world-queue"
+Kubemqctl queue receive "hello-world-queue"
 ```
 
 
-::: tip Kubetools
-Kubetools is KubeMQ Command-Line-Interface tool.
+::: tip Kubemqctl
+Kubemqctl is KubeMQ Command-Line-Interface tool.
 
-Installation instructions [here](../tutorials/kubetools.html#installation).
+Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 :::
 </template>
 
@@ -781,7 +781,7 @@ $.ajax(settings).done(function (response) {
 </CodeSwitcher>
 
 ::: tip Get Queues information
-You can get Queues information by running `kubetools get queues`.
+You can get Queues information by running `Kubemqctl get queues`.
 :::
 
 ## Demo
