@@ -19,275 +19,64 @@ Every installation method requires a KubeMQ token.
 Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 :::
 
-## Kubemqctl
+## kubemqctl
 
-### With Default Options
+The easiest way to deploy KubeMQ cluster is via kubemqctl CLI tool.
 
-Run Kubemqctl create cluster command:
+You can select one of the following options:
+
+
+<CodeSwitcher :languages="{default:'With Default Options',options:'With Expert Configuration',import:'With Yaml File'}" :isolated="true">
+
+<template v-slot:default>
+
+Run kubemqctl create cluster command:
 
 ``` bash
-Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
+kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
 For Example:
 
-![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
+![kubemqctl-create-basic.gif](./images/kubemqctl-create-basic.gif)
 
-### With Configuration Options
 
-Run Kubemqctl create cluster command:
+</template>
+
+
+<template v-slot:options>
+
+
+Run kubemqctl create cluster command:
 
 ``` bash
-Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN> -o
+kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN> -o
 ```
 
 For Example:
 
-![Kubemqctl-create-options.gif](./images/Kubemqctl-create-options.gif)
-
-### With Yaml file
-
-Run Kubemqctl create cluster command:
-
-``` bash
-Kubemqctl cluster create  -f kubemq-cluster.yaml
-```
+![kubemqctl-create-options.gif](./images/kubemqctl-create-options.gif)
 
 
-## YAML File
+</template>
 
-### Option 1 - Quick Deploy
+
+<template v-slot:import>
+
+Run kubemqctl create cluster command:
 
 ``` bash
-kubectl apply -f https://get.kubemq.io/deploy?token=<YOUR_KUBEMQ_TOKEN>
+kubemqctl cluster create  -f kubemq-cluster.yaml
 ```
 
 
+</template>
 
-### Option 2 - KubeMQ Without Persistent Volume
+</CodeSwitcher>
 
-1. Create filename `kubemq.yaml`
-2. Copy the below yaml template file
-
-
-``` yaml
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: kubemq-cluster
-spec:
-  selector:
-    matchLabels:
-      app: kubemq-cluster
-  replicas: 3
-  serviceName: kubemq-cluster
-  template:
-    metadata:
-      labels:
-        app: kubemq-cluster
-    spec:
-      containers:
-        - env:
-            - name: KUBEMQ_TOKEN
-              value: <YOUR-KUBEMQ-TOKEN>
-            - name: CLUSTER_ROUTES
-              value: 'kubemq-cluster:5228'
-            - name: CLUSTER_PORT
-              value: '5228'
-            - name: CLUSTER_ENABLE
-              value: 'true'
-            - name: GRPC_PORT
-              value: '50000'
-            - name: REST_PORT
-              value: '9090'
-            - name: KUBEMQ_PORT
-              value: '8080'
-            - name: STORE_DIR
-              value: '/store'  
-          image: 'kubemq/kubemq:latest'
-          name: kubemq-cluster
-          ports:
-            - containerPort: 50000
-              name: grpc-port
-              protocol: TCP
-            - containerPort: 8080
-              name: api-port
-              protocol: TCP
-            - containerPort: 9090
-              name: rest-port
-              protocol: TCP
-            - containerPort: 5228
-              name: cluster-port
-              protocol: TCP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: kubemq-cluster-ext
-spec:
-  ports:
-    - name: api-port
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    - name: grpc-port
-      port: 50000
-      protocol: TCP
-      targetPort: 50000
-    - name: rest-port
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
-  sessionAffinity: None
-  type: NodePort
-  selector:
-    app: kubemq-cluster
----  
-apiVersion: v1
-kind: Service
-metadata:
-  name: kubemq-cluster
-spec:
-  ports:
-    - name: cluster-port
-      port: 5228
-      protocol: TCP
-      targetPort: 5228
-  sessionAffinity: None
-  type: ClusterIP
-  selector:
-    app: kubemq-cluster
-```
-
-3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
-4. Save the file
-5. Deploy the file with command
-``` bash
-kubectl apply -f d:/kubemq.yaml
-```
-
-### Option 3 - KubeMQ With Persistent Volume
-
-1. Create filename `kubemq.yaml`
-2. Copy the below yaml template file
-
-``` yaml
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: kubemq-cluster
-spec:
-  selector:
-    matchLabels:
-      app: kubemq-cluster
-  replicas: 3
-  serviceName: kubemq-cluster
-  template:
-    metadata:
-      labels:
-        app: kubemq-cluster
-    spec:
-      containers:
-        - env:
-            - name: KUBEMQ_TOKEN
-              value: <YOUR-KUBEMQ-TOKEN>
-            - name: CLUSTER_ROUTES
-              value: 'kubemq-cluster:5228'
-            - name: CLUSTER_PORT
-              value: '5228'
-            - name: CLUSTER_ENABLE
-              value: 'true'
-            - name: GRPC_PORT
-              value: '50000'
-            - name: REST_PORT
-              value: '9090'
-            - name: KUBEMQ_PORT
-              value: '8080'
-            - name: STORE_DIR
-              value: '/store'
-          image: 'kubemq/kubemq:latest'
-          name: kubemq-cluster
-          ports:
-            - containerPort: 50000
-              name: grpc-port
-              protocol: TCP
-            - containerPort: 8080
-              name: api-port
-              protocol: TCP
-            - containerPort: 9090
-              name: rest-port
-              protocol: TCP
-            - containerPort: 5228
-              name: cluster-port
-              protocol: TCP
-          volumeMounts:
-            - name: kubemq-vol
-              mountPath: '/store'
-      restartPolicy: Always
-  volumeClaimTemplates:
-    - metadata:
-        name: kubemq-vol
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        storageClassName:
-        resources:
-          requests:
-            storage: 10Gi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: kubemq-cluster-ext
-spec:
-  ports:
-    - name: api-port
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    - name: grpc-port
-      port: 50000
-      protocol: TCP
-      targetPort: 50000
-    - name: rest-port
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
-  sessionAffinity: None
-  type: NodePort
-  selector:
-    app: kubemq-cluster
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: kubemq-cluster
-spec:
-  ports:
-    - name: cluster-port
-      port: 5228
-      protocol: TCP
-      targetPort: 5228
-  sessionAffinity: None
-  type: ClusterIP
-  selector:
-    app: kubemq-cluster
-```
-
-3. Edit the file with your `KUBEMQ_TOKEN` instead of `<YOUR_KUBEMQ_TOKEN>`
-4. Save the file
-5. Deploy the file with command
-``` bash
-kubectl apply -f d:/kubemq.yaml
-```
-
-
-Use KubeCtl to forward KubeMQ cluster ports:
-
-``` bash
-kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
-```
+::: tip kubemqctl Installation
+Please visit [kubemqctl Installation](../kubemqctl/kubemqctl.md).
+:::
 
 
 ## Helm Chart
@@ -365,95 +154,3 @@ kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
 In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
 :::
-
-## Verify Deployment
-
-Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
-
-For Example:
-``` bash
-curl --location --request GET "http://localhost:8080/health" \
-  --header "Content-Type: application/json"
-```
-
-We received:
-
-``` json
-[
-    {
-        "host": "DESKTOP-LNB7P20",
-        "utc_time": "2019-07-23T06:59:26.9534018Z",
-        "grpc": {
-            "connections": {
-                "total": 0,
-                "events_senders": 0,
-                "events_stream_senders": 0,
-                "events_receivers": 0,
-                "events_store_receivers": 0,
-                "requests_senders": 0,
-                "responses_senders": 0,
-                "commands_receivers": 0,
-                "queries_receivers": 0,
-                "queue_senders": 0,
-                "queue_receivers": 0
-            },
-            "traffic": {
-                "sent_events": 0,
-                "received_events": 0,
-                "sent_requests": 0,
-                "sent_error": 0,
-                "sent_responses": 0,
-                "received_requests": 0,
-                "sent_events_vol": 0,
-                "received_events_vol": 0,
-                "sent_requests_vol": 0,
-                "sent_errors_vol": 0,
-                "sent_responses_vol": 0,
-                "received_requests_vol": 0,
-                "send_queue_messages_vol": 0,
-                "receive_queue_messages_vol": 0,
-                "send_queue_messages": 0,
-                "receive_queue_messages": 0,
-                "total_messages": 0,
-                "total_volume": 0
-            }
-        },
-        "rest": {
-            "connections": {
-                "total": 0,
-                "events_senders": 0,
-                "events_stream_senders": 0,
-                "events_receivers": 0,
-                "events_store_receivers": 0,
-                "requests_senders": 0,
-                "responses_senders": 0,
-                "commands_receivers": 0,
-                "queries_receivers": 0,
-                "queue_senders": 0,
-                "queue_receivers": 0
-            },
-            "traffic": {
-                "sent_events": 0,
-                "received_events": 0,
-                "sent_requests": 0,
-                "sent_error": 0,
-                "sent_responses": 0,
-                "received_requests": 0,
-                "sent_events_vol": 0,
-                "received_events_vol": 0,
-                "sent_requests_vol": 0,
-                "sent_errors_vol": 0,
-                "sent_responses_vol": 0,
-                "received_requests_vol": 0,
-                "send_queue_messages_vol": 0,
-                "receive_queue_messages_vol": 0,
-                "send_queue_messages": 0,
-                "receive_queue_messages": 0,
-                "total_messages": 0,
-                "total_volume": 0
-            }
-        }
-    }
-]
-
-```

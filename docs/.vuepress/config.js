@@ -89,10 +89,90 @@ module.exports = {
                     `/tutorials/queue`,
                     `/tutorials/pubsub`,
                     `/tutorials/rpc`,
-                    // `/tutorials/Kubemqctl`,
                  ]
             },
-             {
+            {
+                title: 'Kubemqctl',
+                collapsable: false,
+                children: [
+                    '/kubemqctl/kubemqctl',
+                    {
+                        title: 'Cluster',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/cluster/kubemqctl_cluster_create',
+                            '/kubemqctl/cluster/kubemqctl_cluster_apply',
+                            '/kubemqctl/cluster/kubemqctl_cluster_delete',
+                            '/kubemqctl/cluster/kubemqctl_cluster_scale',
+                            '/kubemqctl/cluster/kubemqctl_cluster_get',
+                            '/kubemqctl/cluster/kubemqctl_cluster_describe',
+                            '/kubemqctl/cluster/kubemqctl_cluster_logs',
+                            '/kubemqctl/cluster/kubemqctl_cluster_proxy',
+                            '/kubemqctl/cluster/kubemqctl_cluster_events',
+                            '/kubemqctl/cluster/kubemqctl_cluster_context',
+                            '/kubemqctl/cluster/kubemqctl_cluster_dashboard',
+                        ]
+                    },
+                    {
+                        title: 'Queues',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/queues/kubemqctl_queues_send',
+                            '/kubemqctl/queues/kubemqctl_queues_receive',
+                            '/kubemqctl/queues/kubemqctl_queues_stream',
+                            '/kubemqctl/queues/kubemqctl_queues_peek',
+                            '/kubemqctl/queues/kubemqctl_queues_ack',
+                            '/kubemqctl/queues/kubemqctl_queues_list',
+                            '/kubemqctl/queues/kubemqctl_queues_attach',
+                        ]
+                    },
+                    {
+                        title: 'Events',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/events/kubemqctl_events_send',
+                            '/kubemqctl/events/kubemqctl_events_receive',
+                            '/kubemqctl/events/kubemqctl_events_attach',
+                        ]
+                    },
+                    {
+                        title: 'Events Store',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/events_store/kubemqctl_events_store_send',
+                            '/kubemqctl/events_store/kubemqctl_events_store_receive',
+                            '/kubemqctl/events_store/kubemqctl_events_store_attach',
+                            '/kubemqctl/events_store/kubemqctl_events_store_list',
+                        ]
+                    },
+                    {
+                        title: 'Commands',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/commands/kubemqctl_commands_send',
+                            '/kubemqctl/commands/kubemqctl_commands_receive',
+                            '/kubemqctl/commands/kubemqctl_commands_attach',
+                        ]
+                    },
+                    {
+                        title: 'Queries',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/queries/kubemqctl_queries_send',
+                            '/kubemqctl/queries/kubemqctl_queries_receive',
+                            '/kubemqctl/queries/kubemqctl_queries_attach',
+                        ]
+                    },
+                    {
+                        title: 'Config',
+                        collapsable: true,
+                        children: [
+                            '/kubemqctl/config/kubemqctl_config',
+                        ]
+                    },
+                ]
+            },
+            {
                 title: 'Reference',
                 collapsable: false,
                 children: [

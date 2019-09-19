@@ -10,192 +10,115 @@ tags: ['message broker','KubeMQ','queue']
 ## Table of Content
 [[toc]]
 
-## Deploy a KubeMQ
-To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
+## Get KubeMQ Token
+Every installation method requires a KubeMQ token.
 
-You can select one of the methods below:
-
-<CodeSwitcher :languages="{Kubemqctl:'Kubemqctl',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
+Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 
 
-<template v-slot:Kubemqctl>
+## Get KubeMQ CLI - kubemqctl
 
-Run Kubemqctl create cluster command:
+<CodeSwitcher :languages="{macOS:'macOS',linux64:'Linux 64 Bits',linux32:'Linux 32 Bits',windows:'Windows'}" :isolated="true">
 
-``` bash
-Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
+<template v-slot:macOS>
+
+Copy and paste the following lines:
+
+```bash
+curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_darwin_amd64 -o /usr/local/bin/kubemqctl 
+chmod +x /usr/local/bin/kubemqctl
+
 ```
-
-For Example:
-
-![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
 
 </template>
 
 
-<template v-slot:docker>
+<template v-slot:linux64>
 
+Copy and paste the following lines:
 
-Pull and run KubeMQ Docker container:
-
-``` bash
-docker run --name kubemq -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
--v $PWD:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+```bash
+curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_amd64 -o /usr/local/bin/kubemqctl
+chmod +x /usr/local/bin/kubemqctl
 
 ```
-
-For Example:
-
-![get-started_docker.gif](./images/get-started_docker.gif)
 
 </template>
 
-<template v-slot:kubernetes>
 
-Execute the following command:
+<template v-slot:linux32>
 
-``` bash
-kubectl apply -f https://get.kubemq.io/deploy?token="YOUR_KUBEMQ_TOKEN"
+Copy and paste the following lines:
+
+```bash
+curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_386 -o /usr/local/bin/kubemqctl
+chmod +x /usr/local/bin/kubemqctl
+
 ```
-
-For Example:
-
-![get_started_kubernetes.gif](./images/get_started_kubernetes.gif)
-
-
-Use KubeCtl to forward KubeMQ cluster ports:
-
-``` bash
-kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
-```
-
-
-</template>
-
-<template v-slot:helm>
-
-Add KubeMQ Helm Repository:
-
-``` bash
-helm repo add kubemq-charts https://kubemq-io.github.io/charts
-```
-
-Verify KubeMQ helm repository charts is correctly configured by:
-``` bash
-helm repo list
-```
-
-Install KubeMQ Chart:
-
-``` bash
-helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> \
-kubemq-charts/kubemq
-```
-
-
-Use KubeCtl to forward KubeMQ cluster ports:
-
-``` bash
-kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
-```
-
 
 </template>
 
 
-<template v-slot:docker_compose>
+<template v-slot:windows>
 
+##### Option 1:
 
-Execute the following command:
+- [Download the latest kubemqctl.exe](https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe).
+- Place the file under e.g. `C:\Program Files\kubemqctl\kubemqctl.exe`
+- Add that directory to your system path to access it from any command prompt
 
-``` bash
-docker-compose -d up
-```
+##### Option 2:
+Run in PowerShell as administrator:
 
-With the following yaml file named docker-compose.yaml:
-
-``` yaml
-version: '3.7'
-services:
-  kubemq:
-    image: kubemq/kubemq
-    container_name: kubemq
-    ports:
-      - "8080:8080"
-      - "9090:9090"
-      - "50000:50000"
-    environment:
-      - KUBEMQ_HOST=kubemq
-      - KUBEMQ_TOKEN="YOUR_KUBEMQ_TOKEN"
-    networks:
-      - backend
-      - frontend
-    volumes:
-      - kubemq_vol:/store
-networks:
-  backend:
-volumes:
-  kubemq_vol:
+```powershell
+New-Item -ItemType Directory 'C:\Program Files\kubemqctl'
+Invoke-WebRequest https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe -OutFile 'C:\Program Files\kubemqctl\kubemqctl.exe'
+[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\kubemqctl', [EnvironmentVariableTarget]::Machine)
+$env:Path += ';C:\Program Files\kubemqctl'
 ```
 
 </template>
+
 </CodeSwitcher>
 
 
+## Create KubeMQ Cluster
 
-## Verify Deployment
-
-Run Kubemqctl cluster list command:
-
+Run kubemqctl create cluster command:
 
 ``` bash
-Kubemqctl cluster list
+kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
-We will get this:
+For Example:
 
-![get-started-status.gif](./images/get-started-status.gif)
+![kubemqctl-create-basic.gif](./images/kubemqctl-create-basic.gif)
 
-::: warning PROXY
-If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-To fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
-:::
+## Connect Your KubeMQ Cluster
 
-## Next Steps
+In order to be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
 
-Now that you have KubeMQ installed and running, we will do the following steps:
+kubemqctl has a handy command that will do it for you:
 
-1. Send a message to `hello-world-queue` channel.
-2. Request a message from `hello-world-queue` channel and receive a message.
-3. Display the received message in the console.
-
-![get_started_queue.gif](./images/get_started_queue.gif)
-
-As shown in the following diagram:
-
-![image info](./images/queue-hello-world.png)
+``` bash
+kubemqctl cluster proxy
+```
 
 
-## Send a Message
 
+## Send a Queue Message
 
 The producer can send a message to the "hello-world-queue" channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
-Run the following Kubemqctl command:
+Run the following kubemqctl command:
 ``` bash
-Kubemqctl queue send "hello-world-queue" "this is a queue message"
+kubemqctl queues send "hello-world-queue" "this is a queue message"
 ```
 
 A result message will be shown with an indication of sending time of the message
-
-::: tip Kubemqctl
-Kubemqctl is KubeMQ Command-Line-Interface tool.
-
-Installation instructions [here](../tutorials/Kubemqctl.html#installation).
-:::
 
 </template>
 
@@ -204,25 +127,9 @@ Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-curl --location --request POST "{{host}}/queue/send" \
-  --header "Content-Type: application/json" \
-  --data "{
-         \"Id\":\"\",
-         \"ClientId\":\"send-message-client-id\",
-         \"Channel\":\"hello-world-queue\",
-         \"Metadata\":\"\",
-         \"Body\":\"QmF0Y2ggTWVzc2FnZSAw\",
-         \"Tags\":{
-            \"message\":\"0\"
-         },
-         \"Attributes\":null,
-         \"Policy\":{
-            \"ExpirationSeconds\":0,
-            \"DelaySeconds\":0,
-            \"MaxReceiveCount\":0,
-            \"MaxReceiveQueue\":\"\"
-         }
-}"
+curl -H 'Content-Type: application/json'  \
+    --request POST "http://localhost:9090/queue/send" \
+    --data '{"Id":"","ClientId":"send-message-client-id","Channel":"hello-world-queue","Metadata":"","Body":"QmF0Y2ggTWVzc2FnZSAw","Tags":{"message":"0"}}'
 ```
 
 
@@ -292,7 +199,52 @@ When executed, a stream of events messages will be shown in the console.
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-The code snippet will available soon
+package io.kubemq.sdk.examples.get_Started.queue_Send_a_Message;
+
+import io.kubemq.sdk.queue.Message;
+import io.kubemq.sdk.queue.Queue;
+import io.kubemq.sdk.queue.SendMessageResult;
+import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
+import io.kubemq.sdk.grpc.Kubemq;
+import io.kubemq.sdk.tools.Converter;
+
+import javax.net.ssl.SSLException;
+import java.io.IOException;
+
+public class Program {
+
+    public static void main(String[] args) throws ServerAddressNotSuppliedException {
+        
+        
+        String queueName = "hello-world-queue", clientID = "test-queue-client-id2", kubeMQServerAddress = "localhost:50000";
+
+        Queue queue = null;
+        try{
+            queue = new io.kubemq.sdk.queue.Queue(queueName,clientID,1,2,kubeMQServerAddress);
+        } catch (ServerAddressNotSuppliedException e) {
+            System.out.println("Error: Can not determine KubeMQ server address.");
+        } catch (io.grpc.StatusRuntimeException e) {
+            System.out.println("Error: KubeMQ is unreachable.");
+        } catch (SSLException e) {
+            System.out.println("Error: error detected by an SSL subsystem");
+        }
+
+        try {
+            
+            Message msg = new Message()
+            .setBody(Converter.ToByteArray("some-simple_queue-queue-message"))
+            .setMetadata("empty");
+            SendMessageResult res=  queue.SendQueueMessage(msg);
+          if(res.getIsError()  )       {
+            System.out.println("message enqueue error, error:{res.Error}");
+          } else{
+            System.out.println("message sent at, {res.SentAt}");
+          }
+        } catch (IOException e) {
+            System.out.println("Error:  I/O error occurred.");
+        }
+    }
+}
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -352,35 +304,36 @@ When executed, a stream of events messages will be shown in the console.
 The following Node code snippet is using KubeMQ's REST interface:
 
 ``` js
-var https = require('https');
+var http = require('http');
 
 var options = {
-  'method': 'POST',
-  'hostname': '{{host}}',
-  'path': '/queue/send',
-  'headers': {
-    'Content-Type': 'application/json'
-  }
+    'method': 'POST',
+    'hostname': 'localhost',
+    'port': '9090',
+    'path': '/queue/send',
+    'headers': {
+        'Content-Type': 'application/json'
+    }
 };
 
-var req = https.request(options, function (res) {
-  var chunks = [];
+var req = http.request(options, function(res) {
+    var chunks = [];
 
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
+    res.on("data", function(chunk) {
+        chunks.push(chunk);
+    });
 
-  res.on("end", function (chunk) {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
+    res.on("end", function(chunk) {
+        var body = Buffer.concat(chunks);
+        console.log(body.toString());
+    });
 
-  res.on("error", function (error) {
-    console.error(error);
-  });
+    res.on("error", function(error) {
+        console.error(error);
+    });
 });
 
-var postData =  "{\r\n         \"Id\":\"\",\r\n         \"ClientId\":\"send-message-client-id\",\r\n         \"Channel\":\"hello-world-queue\",\r\n         \"Metadata\":\"\",\r\n         \"Body\":\"QmF0Y2ggTWVzc2FnZSAw\",\r\n         \"Tags\":{\r\n            \"message\":\"0\"\r\n         },\r\n         \"Attributes\":null,\r\n         \"Policy\":{\r\n            \"ExpirationSeconds\":5,\r\n            \"DelaySeconds\":5,\r\n            \"MaxReceiveCount\":0,\r\n            \"MaxReceiveQueue\":\"\"\r\n         }\r\n}";
+var postData = "{\r\n         \"Id\":\"\",\r\n         \"ClientId\":\"send-message-client-id\",\r\n         \"Channel\":\"hello-world-queue\",\r\n         \"Metadata\":\"\",\r\n         \"Body\":\"QmF0Y2ggTWVzc2FnZSAw\",\r\n         \"Tags\":{\r\n            \"message\":\"0\"\r\n         },\r\n         \"Attributes\":null,\r\n         \"Policy\":{\r\n            \"ExpirationSeconds\":5,\r\n            \"DelaySeconds\":5,\r\n            \"MaxReceiveCount\":0,\r\n            \"MaxReceiveQueue\":\"\"\r\n         }\r\n}";
 
 req.write(postData);
 
@@ -401,7 +354,7 @@ The following PHP code snippet is using KubeMQ's REST interface:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "{{host}}/queue/send",
+  CURLOPT_URL => "http://localhost:9090/queue/send",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -439,7 +392,7 @@ The following Ruby code snippet is using KubeMQ's REST interface:
 require "uri"
 require "net/http"
 
-url = URI("{{host}}/queue/send")
+url = URI("http://localhost:9090/queue/send")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -461,7 +414,7 @@ The following jQuery code snippet is using KubeMQ's REST interface:
 
 ``` js
 var settings = {
-  "url": "{{host}}/queue/send",
+  "url": "http://localhost:9090/queue/send",
   "method": "POST",
   "timeout": 0,
   "headers": {
@@ -482,49 +435,32 @@ $.ajax(settings).done(function (response) {
 
 </CodeSwitcher>
 
-
-
-## Receive a Message
+## Receive a Queue Message
 
 After you have sent a message to a queue, you can request the message from a queue.
 
 
-<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
 
-Run the following Kubemqctl command:
+Run the following kubemqctl command:
 
 ``` bash
-Kubemqctl queue receive "hello-world-queue"
+kubemqctl queues receive "hello-world-queue"
 ```
 
-
-::: tip Kubemqctl
-Kubemqctl is KubeMQ Command-Line-Interface tool.
-
-Installation instructions [here](../tutorials/Kubemqctl.html#installation).
-:::
 </template>
-
 
 <template v-slot:curl>
 
 The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-curl --location --request POST "{{host}}/queue/receive" \
+ curl --location --request POST "http://localhost:9090/queue/receive" \
   --header "Content-Type: application/json" \
-  --data "{
-   \"RequestID\":\"some-request-id\",
-   \"ClientID\":\"receive-message-client-id\",
-   \"Channel\":\"hello-world-queue\",
-   \"MaxNumberOfMessages\":1,
-   \"WaitTimeSeconds\":5,
-   \"IsPeak\":false
-}"
-
+  --data '{"RequestID":"some-request-id","ClientID":"receive-message-client-id","Channel":"hello-world-queue","MaxNumberOfMessages":1,"WaitTimeSeconds":5}'
 ```
 
 
@@ -592,7 +528,57 @@ namespace Queue_Receive_a_Message
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-The code snippet will available soon
+package io.kubemq.sdk.examples.get_Started.queue_Receive_a_Message;
+
+import java.io.IOException;
+
+import javax.net.ssl.SSLException;
+
+import io.kubemq.sdk.queue.Message;
+import io.kubemq.sdk.queue.Queue;
+import io.kubemq.sdk.queue.ReceiveMessagesResponse;
+import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
+import io.kubemq.sdk.tools.Converter;
+
+public class Program {
+
+    public static void main(String[] args) throws ServerAddressNotSuppliedException, ClassNotFoundException {
+        
+        
+        String queueName = "hello-world-queue", clientID = "test-queue-client-id2", kubeMQServerAddress = "localhost:50000";
+
+
+        Queue queue = null;
+        try{
+            queue = new io.kubemq.sdk.queue.Queue(queueName,clientID,1,2,kubeMQServerAddress);
+        } catch (ServerAddressNotSuppliedException e) {
+            System.out.println("Error: Can not determine KubeMQ server address.");
+        } catch (io.grpc.StatusRuntimeException e) {
+            System.out.println("Error: KubeMQ is unreachable.");
+        } catch (SSLException e) {
+            System.out.println("Error: error detected by an SSL subsystem");
+        }
+
+        try {
+            ReceiveMessagesResponse res=  queue.ReceiveQueueMessages(2,null);            
+          if(res.getIsError()  )       {
+            System.out.println("message enqueue error, error:{res.Error}");
+          }
+          
+          System.out.println("Received {msg.MessagesReceived} Messages:");
+
+          for (Message msg : res.getMessages()) {              
+        
+            System.out.printf("MessageID:%s, Body:%s",msg.getMessageID(), Converter.FromByteArray(msg.getBody()));
+          }
+          
+
+
+        } catch (IOException e) {
+            System.out.println("Error:  I/O error occurred.");
+        }
+    }
+}
 ```
 
 </template>
@@ -657,39 +643,40 @@ The code snippet will available soon
 The following node code snippet is using KubeMQ's REST interface:
 
 ``` js
-var https = require('https');
+var http = require('http');
 
 var options = {
-  'method': 'POST',
-  'hostname': '{{host}}',
-  'path': '/queue/receive',
-  'headers': {
-    'Content-Type': 'application/json'
-  }
+    'method': 'POST',
+    'hostname': 'localhost',
+    'port': "9090",
+    'path': '/queue/receive',
+    'headers': {
+        'Content-Type': 'application/json'
+    }
 };
 
-var req = https.request(options, function (res) {
-  var chunks = [];
+var req = http.request(options, function(res) {
+    var chunks = [];
 
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
+    res.on("data", function(chunk) {
+        chunks.push(chunk);
+    });
 
-  res.on("end", function (chunk) {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
+    res.on("end", function(chunk) {
+        var body = Buffer.concat(chunks);
+        console.log(body.toString());
+    });
 
-  res.on("error", function (error) {
-    console.error(error);
-  });
+    res.on("error", function(error) {
+        console.error(error);
+    });
 });
 
-var postData =  "{\r\n   \"RequestID\":\"some-request-id\",\r\n   \"ClientID\":\"receive-message-client-id\",\r\n   \"Channel\":\"hello-world-queue\",\r\n   \"MaxNumberOfMessages\":10,\r\n   \"WaitTimeSeconds\":5,\r\n   \"IsPeak\":false\r\n}";
+var postData = "{\r\n   \"RequestID\":\"some-request-id\",\r\n   \"ClientID\":\"receive-message-client-id\",\r\n   \"Channel\":\"hello-world-queue\",\r\n   \"MaxNumberOfMessages\":10,\r\n   \"WaitTimeSeconds\":5,\r\n   \"IsPeak\":false\r\n}";
 
 req.write(postData);
 
-req.end();
+req.end()
 ```
 
 </template>
@@ -704,7 +691,7 @@ The following PHP code snippet is using KubeMQ's REST interface:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "{{host}}/queue/receive",
+  CURLOPT_URL => "http://localhost:9090/queue/receive",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -740,7 +727,7 @@ The following Ruby code snippet is using KubeMQ's REST interface:
 require "uri"
 require "net/http"
 
-url = URI("{{host}}/queue/receive")
+url = URI("http://localhost:9090/queue/receive")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -761,7 +748,7 @@ The following jQuery code snippet is using KubeMQ's REST interface:
 
 ``` js
 var settings = {
-  "url": "{{host}}/queue/receive",
+  "url": "http://localhost:9090/queue/receive",
   "method": "POST",
   "timeout": 0,
   "headers": {
@@ -781,7 +768,7 @@ $.ajax(settings).done(function (response) {
 </CodeSwitcher>
 
 ::: tip Get Queues information
-You can get Queues information by running `Kubemqctl get queues`.
+You can get Queues information by running `kubemqctl queues list`.
 :::
 
 ## Demo

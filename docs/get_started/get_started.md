@@ -9,7 +9,7 @@ tags: ['message broker','KubeMQ']
 
 Thank you for choosing KubeMQ as your Cloud Native Message Broker.
 
-No matter what kind of App or Service you want to build, our three-step checklists will get you set up and ready.
+No matter what kind of App or Service you want to build, our steps checklists will get you set up and ready.
 
 ::: tip KubeMQ Token
 Every installation method requires a KubeMQ token.

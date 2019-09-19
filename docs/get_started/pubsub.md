@@ -9,189 +9,118 @@ tags: ['pub/sub','message broker','KubeMQ']
 
 ## Table of Content
 [[toc]]
-## Deploy a KubeMQ
-To start using KubeMQ with Pub/Sub, we first need to run a KubeMQ docker container either locally or on a remote node.
-
-You can select one of the methods below:
-
-<CodeSwitcher :languages="{Kubemqctl:'Kubemqctl',kubernetes:'kubernetes',docker:'docker',helm:`helm`,docker_compose:'docker-compose'}" :isolated="true">
 
 
-<template v-slot:Kubemqctl>
+## Get KubeMQ Token
+Every installation method requires a KubeMQ token.
 
-Run Kubemqctl create cluster command:
-
-``` bash
-Kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
-```
-
-For Example:
-
-![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
-
-</template>
+Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 
 
+## Get KubeMQ CLI - kubemqctl
 
-<template v-slot:docker>
+<CodeSwitcher :languages="{macOS:'macOS',linux64:'Linux 64 Bits',linux32:'Linux 32 Bits',windows:'Windows'}" :isolated="true">
 
+<template v-slot:macOS>
 
-Pull and run KubeMQ Docker container:
+Copy and paste the following lines:
 
-``` bash
-docker run --name kubemq -d -p 8080:8080 -p 50000:50000 -p 9090:9090 \
--v $PWD:/store -e KUBEMQ_TOKEN=<YOUR_KUBEMQ_TOKEN> kubemq/kubemq
+```bash
+curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_darwin_amd64 -o /usr/local/bin/kubemqctl 
+chmod +x /usr/local/bin/kubemqctl
 
-```
-
-For Example:
-
-![get-started_docker.gif](./images/get-started_docker.gif)
-
-
-
-</template>
-
-<template v-slot:kubernetes>
-
-Execute the following command:
-
-``` bash
-kubectl apply -f https://get.kubemq.io/deploy?token="YOUR_KUBEMQ_TOKEN"
-```
-
-For Example:
-
-![get_started_kubernetes.gif](./images/get_started_kubernetes.gif)
-
-
-Use KubeCtl to forward KubeMQ cluster ports:
-
-``` bash
-kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
-```
-
-
-</template>
-
-<template v-slot:helm>
-
-Add KubeMQ Helm Repository:
-
-``` bash
-helm repo add kubemq-charts https://kubemq-io.github.io/charts
-```
-
-Verify KubeMQ helm repository charts is correctly configured by:
-``` bash
-helm repo list
-```
-
-Install KubeMQ Chart:
-
-``` bash
-helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> \
-kubemq-charts/kubemq
-```
-
-
-Use KubeCtl to forward KubeMQ cluster ports:
-
-``` bash
-kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
 ```
 
 </template>
 
 
-<template v-slot:docker_compose>
+<template v-slot:linux64>
 
+Copy and paste the following lines:
 
-Execute the following command:
+```bash
+curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_amd64 -o /usr/local/bin/kubemqctl
+chmod +x /usr/local/bin/kubemqctl
 
-``` bash
-docker-compose -d up
-```
-
-With the following yaml file named docker-compose.yaml:
-
-``` yaml
-version: '3.7'
-services:
-  kubemq:
-    image: kubemq/kubemq
-    container_name: kubemq
-    ports:
-      - "8080:8080"
-      - "9090:9090"
-      - "50000:50000"
-    environment:
-      - KUBEMQ_HOST=kubemq
-      - KUBEMQ_TOKEN="YOUR_KUBEMQ_TOKEN"
-    networks:
-      - backend
-      - frontend
-    volumes:
-      - kubemq_vol:/store
-networks:
-  backend:
-volumes:
-  kubemq_vol:
 ```
 
 </template>
+
+
+<template v-slot:linux32>
+
+Copy and paste the following lines:
+
+```bash
+curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_386 -o /usr/local/bin/kubemqctl
+chmod +x /usr/local/bin/kubemqctl
+
+```
+
+</template>
+
+
+<template v-slot:windows>
+
+##### Option 1:
+
+- [Download the latest kubemqctl.exe](https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe).
+- Place the file under e.g. `C:\Program Files\kubemqctl\kubemqctl.exe`
+- Add that directory to your system path to access it from any command prompt
+
+##### Option 2:
+Run in PowerShell as administrator:
+
+```powershell
+New-Item -ItemType Directory 'C:\Program Files\kubemqctl'
+Invoke-WebRequest https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe -OutFile 'C:\Program Files\kubemqctl\kubemqctl.exe'
+[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\kubemqctl', [EnvironmentVariableTarget]::Machine)
+$env:Path += ';C:\Program Files\kubemqctl'
+```
+
+</template>
+
 </CodeSwitcher>
 
 
-## Verify Deployment
+## Create KubeMQ Cluster
 
-Run Kubemqctl cluster list command:
-
+Run kubemqctl create cluster command:
 
 ``` bash
-Kubemqctl cluster list
+kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 ```
 
-We will get this:
+For Example:
+
+![kubemqctl-create-basic.gif](./images/kubemqctl-create-basic.gif)
+
+## Connect Your KubeMQ Cluster
+
+In order to be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
+
+kubemqctl has a handy command that will do it for you:
+
+``` bash
+kubemqctl cluster proxy
+```
 
 
-![get-started-Kubemqctl.gif](./images/get-started-Kubemqctl.gif)
-
-::: warning PROXY
-If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-To fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
-:::
-
-## Next Steps
-
-Now that you have KubeMQ installed and running, we will do the following steps:
-
-1. Subscribe a consumer to `hello-world` channel
-2. Publish "Hi KubeMQ" message in the channel
-3. Display the received message in the console.
-
-![get_started_pub_sub.gif](./images/get_started_pub_sub.gif)
-
-As shown in the following diagram:
-
-![image info](./images/pub-sub-hello-world.png)
-
-
-
-## Subscribe to a Channel
+## Subscribe to Events Channel
 
 A consumer can subscribe to the "hello-world" channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+
 <template v-slot:bash>
 
-Run the following Kubemqctl command:
+Run the following kubemqctl command:
+
 ``` bash
-Kubemqctl pubsub rec events hello-world
+kubemqctl events rec hello-world
 ```
 
 When connected, a stream of events messages will be shown in the console.
-
 
 
 </template>
@@ -201,7 +130,7 @@ When connected, a stream of events messages will be shown in the console.
 The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-curl --location --request GET "http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events" \
+curl --location --request GET "http://localhost:9090/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events" \
   --header "Content-Type: application/json" \
   --data ""
 ```
@@ -226,7 +155,7 @@ namespace PubSub_Subscribe_to_a_Channel
         static void Main(string[] args)
         {
 
-            var ChannelName = "testing_event_channel";
+            var ChannelName = "hello-world";
             var ClientID = "hello-world-subscriber";
             var KubeMQServerAddress = "localhost:50000";
      
@@ -259,7 +188,6 @@ namespace PubSub_Subscribe_to_a_Channel
         
     }
 }
-   
 ```
 
 When executed, a stream of events messages will be shown in the console.
@@ -270,121 +198,72 @@ When executed, a stream of events messages will be shown in the console.
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
-import io.kubemq.sdk.event.lowlevel.Event;
-import io.kubemq.sdk.event.lowlevel.Sender;
+package io.kubemq.sdk.examples.get_Started.pubSub_Subscribe_to_a_Channel;
+
+import java.io.IOException;
+
 import javax.net.ssl.SSLException;
 
-class EventSubscriber extends BaseExample {
+import io.grpc.stub.StreamObserver;
+import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
+import io.kubemq.sdk.event.EventReceive;
+import io.kubemq.sdk.event.Subscriber;
+import io.kubemq.sdk.subscription.SubscribeRequest;
+import io.kubemq.sdk.subscription.SubscribeType;
+import io.kubemq.sdk.tools.Converter;
 
-    private Subscriber subscriber;
+public class Program {
 
-    EventSubscriber() throws ServerAddressNotSuppliedException, SSLException {
-        super("EventSubscriber");
-        Subscriber subscriber = new Subscriber("localhost:50000");
-        SubcribeToEventsWithoutStore();
-        SubcribeToEventsWithStore();
-
-    }
-
-    private void SubcribeToEventsWithStore() throws ServerAddressNotSuppliedException, SSLException {
-        subscriber = new Subscriber();
-        SubscribeRequest subscribeRequest = CreateSubscribeRequest(SubscribeType.EventsStore, EventsStoreType.StartAtSequence, 2);
-        EventReceive eventReceive = subscriber.SubscribeToEvents(subscribeRequest);
-        HandleIncomingEvents(eventReceive);
-    }
-
-    private void SubcribeToEventsWithoutStore() throws ServerAddressNotSuppliedException, SSLException {
-        subscriber = new Subscriber();
-        SubscribeRequest subscribeRequest = CreateSubscribeRequest(SubscribeType.Events);
-        EventReceive eventReceive = subscriber.SubscribeToEvents(subscribeRequest);
-        HandleIncomingEvents(eventReceive);
-    }
-
-    private void HandleIncomingEvents(EventReceive message) {
-        String body = new String(message.getBody());
-
-        System.out.println(MessageFormat.format(
-                "Subscriber Received Event: Metadata:''{0}'', Channel:''{1}'', Body:''{2}''",
-                message.getMetadata(),
-                message.getChannel(),
-                body
-        ));
-    }
-}
-
-public class BaseExample {
-      protected Logger logger;
-      private String channelName;
-      private String clientID;
-      private int timeout;
-
-      public BaseExample(String _ClientId) {
-         clientID = _ClientId;
-         timeout = 111000;
-         channelName = "MyTestChannelName";
-         logger = LoggerFactory.getLogger(BaseExample.class);
-      }
-       protected SubscribeRequest CreateSubscribeRequest(
-            SubscribeType subscriptionType,
-            EventsStoreType eventsStoreType,
-            int TypeValue,
-            String group
-      )
-
-      {
+    public static void main(String[] args)  {
+        
+        
+        String channelName = "hello-world", clientID = "hello-world-subscriber", kubeMQAddress = "localhost:50000";
+        Subscriber subscriber = new Subscriber(kubeMQAddress);
         SubscribeRequest subscribeRequest = new SubscribeRequest();
-
         subscribeRequest.setChannel(channelName);
-        subscribeRequest.setClientID(generateRandomClientID());
-        subscribeRequest.setEventsStoreType(eventsStoreType);
-        subscribeRequest.setEventsStoreTypeValue(TypeValue);
-        subscribeRequest.setGroup(group);
-        subscribeRequest.setSubscribeType(subscriptionType);
+        subscribeRequest.setClientID(clientID);
+        subscribeRequest.setSubscribeType(SubscribeType.Events); 
 
-        return subscribeRequest;
-    }
+        StreamObserver<EventReceive> streamObserver = new StreamObserver<EventReceive>() {
 
-    protected SubscribeRequest CreateSubscribeRequest(SubscribeType subscriptionType) {
-        return CreateSubscribeRequest(subscriptionType, EventsStoreType.Undefined, 0, "");
-    }
+            @Override
+            public void onNext(EventReceive value) {
+                try {
+                    System.out.printf("Event Received: EventID: %d, Channel: %s, Metadata: %s, Body: %s",
+                            value.getEventId(), value.getChannel(), value.getMetadata(),
+                            Converter.FromByteArray(value.getBody()));
+                } catch (ClassNotFoundException e) {
+                    System.out.printf("ClassNotFoundException: %s",e.getMessage());
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    System.out.printf("IOException:  %s",e.getMessage());
+                    e.printStackTrace();
+                }
 
-    protected SubscribeRequest CreateSubscribeRequest(SubscribeType subscriptionType, EventsStoreType eventsStoreType, int TypeValue) {
-        return CreateSubscribeRequest(subscriptionType, eventsStoreType, TypeValue, "");
-    }
+            }
 
-    private String generateRandomClientID() {
-        Random random = new Random();
-        int low = 9;
-        int high = 19999;
-        return Integer.toString(random.nextInt(high - low) + low);
-    }
+            @Override
+            public void onError(Throwable t) {
+                System.out.printf("Event Received Error: %s", t.toString());
+            }
 
-    protected int getTimeout() {
-        return timeout;
-    }
+            @Override
+            public void onCompleted() {
 
-    protected void setTimeout(int timeout) {
-        this.timeout = timeout;
+            }
+        };
+        try {
+            subscriber.SubscribeToEvents(subscribeRequest, streamObserver);
+        } catch (SSLException e) {
+            System.out.printf("SSLException: %s", e.toString());
+            e.printStackTrace();
+        } catch (ServerAddressNotSuppliedException e) {
+            System.out.printf("ServerAddressNotSuppliedException: %s", e.toString());
+			e.printStackTrace();
+		}
+       
     }
-
-    protected String getChannelName() {
-        return channelName;
-    }
-
-    protected void setChannelName(String channelName) {
-        this.channelName = channelName;
-    }
-
-    protected String getClientID() {
-        return clientID;
-    }
-
-    protected void setClientID(String clientID) {
-        this.clientID = clientID;
-    }
-}
-    
+}    
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -496,18 +375,19 @@ When executed, a stream of events messages will be shown in the console.
 The following Node code snippet is using KubeMQ's REST interface:
 
 ``` js
-var https = require('https');
+var http = require('http');
 
 var options = {
   'method': 'GET',
-  'hostname': 'http://host:port',
-  'path': '/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events',
+  'hostname': 'localhost',
+  'port': '9090',
+  'path': '/subscribe/events?client_id=some_client_id&channel=hello-world&group=some_group&subscribe_type=events',
   'headers': {
     'Content-Type': 'application/json',
   }
 };
 
-var req = https.request(options, function (res) {
+var req = http.request(options, function (res) {
   var chunks = [];
 
   res.on("data", function (chunk) {
@@ -544,7 +424,7 @@ The following PHP code snippet is using KubeMQ's REST interface:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
+  CURLOPT_URL => "http://localhost:9090/subscribe/events?client_id=some_client_id&channel=hello-world&group=some_group&subscribe_type=events",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -585,7 +465,7 @@ The following Ruby code snippet is using KubeMQ's REST interface:
 require "uri"
 require "net/http"
 
-url = URI("http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events")
+url = URI("http://localhost:9090/subscribe/events?client_id=some_client_id&channel=hello-world&group=some_group&subscribe_type=events")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -610,7 +490,7 @@ The following jQuery code snippet is using KubeMQ's REST interface:
 
 ``` js
 var settings = {
-  "url": "http://host:port/subscribe/events?client_id=some_client_id&channel=some_channel&group=some_group&subscribe_type=events",
+  "url": "http://localhost:9090/subscribe/events?client_id=some_client_id&channel=hello-world&group=some_group&subscribe_type=events",
   "method": "GET",
   "timeout": 0,
   "headers": {
@@ -635,28 +515,22 @@ Subscribe to Events in REST interface is using WebSocket for streaming (Push) ev
 
 
 
-## Publish to a Channel
+## Publish to Event Channel
 
 After you have subscribed to a hello-world channel, you can send your message to it.
 
 
-<CodeSwitcher :languages="{bash:'Kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
 
-Run the following Kubemqctl command:
+Run the following kubemqctl command:
 
 ``` bash
-Kubemqctl pubsub send events hello-world "Hi KubeMQ"
+kubemqctl events send hello-world "Hi KubeMQ"
 ```
 
-
-::: tip Kubemqctl
-Kubemqctl is KubeMQ Command-Line-Interface tool.
-
-Installation instructions [here](../tutorials/Kubemqctl.html#installation).
-:::
 
 </template>
 
@@ -666,16 +540,9 @@ Installation instructions [here](../tutorials/Kubemqctl.html#installation).
 The following cURL command is using KubeMQ's REST interface:
 
 ``` bash
-curl --location --request POST "http://host:port/send/event" \
-  --header "Content-Type: application/json" \
-  --data "{
-    \"EventID\": \"1234-5678-90\",
-    \"ClientID\": \"events-client-id\",
-    \"Channel\": \"events-channel\",
-    \"Metadata\": \"some-metadata\",
-    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",
-    \"Store\": false
-}"
+curl --location --request POST "http://localhost:9090/send/event" 
+  --header "Content-Type: application/json" 
+  --data '{"EventID": "1234-5678-90","ClientID": "events-client-id","Channel": "events-channel","Metadata": "some-metadata","Body": "c29tZSBlbmNvZGVkIGJvZHk=","Store": false}'
 ```
 
 A response for a successful command will look like this:
@@ -705,7 +572,7 @@ namespace PubSub_Publish_to_a_Channel
     {
         static void Main(string[] args)
         {
-            var ChannelName = "testing_event_channel";
+            var ChannelName = "hello-wrold";
             var ClientID = "hello-world-sender";
             var KubeMQServerAddress = "localhost:50000";
 
@@ -744,87 +611,42 @@ namespace PubSub_Publish_to_a_Channel
 The following Java code snippet is using KubeMQ's Java SDK with gRPC interface:
 
 ``` java
-import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
-import io.kubemq.sdk.event.lowlevel.Event;
-import io.kubemq.sdk.event.lowlevel.Sender;
+package io.kubemq.sdk.examples.get_Started.pubSub_Publish_to_a_Channel;
+
+import java.io.IOException;
+
 import javax.net.ssl.SSLException;
 
-class EventSender extends BaseExample {
+import io.kubemq.sdk.basic.ServerAddressNotSuppliedException;
+import io.kubemq.sdk.event.Event;
+import io.kubemq.sdk.event.Result;
+import io.kubemq.sdk.tools.Converter;
 
-    EventSender() throws ServerAddressNotSuppliedException, SSLException {
-        super("EventSender");
-        SendLowLevelMessages();
-    }
+public class Program {
 
-    private void SendLowLevelMessages() throws ServerAddressNotSuppliedException, SSLException {
-        Sender sender = new Sender("localhost:50000");
-        Event event = CreateLowLevelEventWithoutStore();
-        sender.SendEvent(event);
-    }
-}
-
-public class BaseExample {
-
-    protected Logger logger;
-    private String channelName;
-    private String clientID;
-    private int timeout;
-
-    public BaseExample(String _ClientId) {
-        clientID = _ClientId;
-        timeout = 111000;
-        channelName = "MyTestChannelName";
-        logger = LoggerFactory.getLogger(BaseExample.class);
-    }
-
-    private Event CreateNewEvent() {
-        logger.debug("Start Creating Event");
-        Event message = new Event();
-        message.setMetadata("MessageMetaData");
-        message.setBody(MessageFormat.format("Event Created on time {0}", Instant.now()).getBytes());
-        return message;
-    }
-
-    protected Event CreateLowLevelEventWithoutStore() {
-        Event message = CreateNewEvent();
-        message.setStore(false);
-        message.setChannel(channelName);
-        message.setClientID(clientID);
-        message.setReturnResult(false);
-        return message;
-    }
-       private String generateRandomClientID() {
-        Random random = new Random();
-        int low = 9;
-        int high = 19999;
-        return Integer.toString(random.nextInt(high - low) + low);
-    }
-
-    protected int getTimeout() {
-        return timeout;
-    }
-
-    protected void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
-
-    protected String getChannelName() {
-        return channelName;
-    }
-
-    protected void setChannelName(String channelName) {
-        this.channelName = channelName;
-    }
-
-    protected String getClientID() {
-        return clientID;
-    }
-
-    protected void setClientID(String clientID) {
-        this.clientID = clientID;
-    }
-}
+    public static void main(String[] args)  {
+        
+        String channelName = "hello-world", clientID = "hello-world-subscriber", kubeMQAddress = "localhost:50000";
     
+        io.kubemq.sdk.event.Channel chan = new io.kubemq.sdk.event.Channel(channelName, clientID, false, kubeMQAddress);
+
+        Event event = new Event();
+        try {
+            event.setBody(Converter.ToByteArray("hello kubemq - sending single event"));
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+        }
+        
+        try {
+            Result res = chan.SendEvent(event);
+        } catch (SSLException | ServerAddressNotSuppliedException e) {
+           
+            e.printStackTrace();
+        }
+
+    }
+} 
 ```
 
 </template>
@@ -851,7 +673,7 @@ func main() {
       log.Fatal(err)
    }
    defer client.Close()
-   channelName := "testing_event_channel"
+   channelName := "hello-world"
    err = client.E().
       SetId("some-id").
       SetChannel(channelName).
@@ -883,7 +705,7 @@ if __name__ == "__main__":
         metadata="some-meta-data",
         body=("hello world").encode('UTF-8'),
         store=False,
-        channel="TestChannelName",
+        channel="hello-world",
         client_id="EventSender",
     )
     sender.send_event(event)
@@ -899,11 +721,12 @@ if __name__ == "__main__":
 The following node code snippet is using KubeMQ's REST interface:
 
 ``` js
-var https = require('https');
+var http = require('http');
 
 var options = {
   'method': 'POST',
-  'hostname': 'playground.kubemq.io',
+  'hostname': 'localhost',
+  'port': '9090',
   'path': '/send/event',
   'headers': {
     'Content-Type': 'application/json',
@@ -927,7 +750,7 @@ var req = https.request(options, function (res) {
   });
 });
 
-var postData =  "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}";
+var postData =  "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"hello-world\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}";
 
 req.write(postData);
 
@@ -958,7 +781,7 @@ The following PHP code snippet is using KubeMQ's REST interface:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://host:port/send/event",
+  CURLOPT_URL => "http://localhost:9090/send/event",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -966,7 +789,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => false,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS =>"{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}",
+  CURLOPT_POSTFIELDS =>"{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"hello-world\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}",
   CURLOPT_HTTPHEADER => array(
     "Content-Type: application/json"
   ),
@@ -1007,14 +830,14 @@ The following Ruby code snippet is using KubeMQ's REST interface:
 require "uri"
 require "net/http"
 
-url = URI("http://host:port/send/event")
+url = URI("http://localhost:9090/send/event")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
 
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
-request.body = "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}"
+request.body = "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"hello-world\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}"
 response = https.request(request)
 puts response.read_body
 ```
@@ -1040,13 +863,13 @@ The following jQuery code snippet is using KubeMQ's REST interface:
 
 ``` js
 var settings = {
-  "url": "http://host:port/send/event",
+  "url": "http://localhost:9090/send/event",
   "method": "POST",
   "timeout": 0,
   "headers": {
     "Content-Type": "application/json",
   },
-  "data": "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"events-channel\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}",
+  "data": "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"hello-world\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}",
 };
 
 $.ajax(settings).done(function (response) {
