@@ -39,8 +39,8 @@ Use "kubemqctl [command] --help" for more information about a command.
 Copy and paste the following lines:
 
 ```bash
-curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_darwin_amd64 -o /usr/local/bin/kubemqctl 
-chmod +x /usr/local/bin/kubemqctl
+sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_darwin_amd64 -o /usr/local/bin/kubemqctl 
+sudo chmod +x /usr/local/bin/kubemqctl
 
 ```
 
@@ -52,8 +52,8 @@ chmod +x /usr/local/bin/kubemqctl
 Copy and paste the following lines:
 
 ```bash
-curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_amd64 -o /usr/local/bin/kubemqctl
-chmod +x /usr/local/bin/kubemqctl
+sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_amd64 -o /usr/local/bin/kubemqctl
+sudo chmod +x /usr/local/bin/kubemqctl
 
 ```
 
@@ -65,8 +65,8 @@ chmod +x /usr/local/bin/kubemqctl
 Copy and paste the following lines:
 
 ```bash
-curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_386 -o /usr/local/bin/kubemqctl
-chmod +x /usr/local/bin/kubemqctl
+sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_386 -o /usr/local/bin/kubemqctl
+sudo chmod +x /usr/local/bin/kubemqctl
 
 ```
 
