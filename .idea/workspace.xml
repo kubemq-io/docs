@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="adding new kubetools">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/introduction/introduction.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/examples.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/examples.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/go.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/go.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/java.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/java.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/net.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/net.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference/rest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/rest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/concepts.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/concepts.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorials/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorials/rpc.md" afterDir="false" />
+    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -375,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568896754243</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="add Quick Start">
+      <created>1568975855610</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1568975855610</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +410,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="-v1.2.4" />
     <MESSAGE value="v1.2.5&#10;major upgrade" />
     <MESSAGE value="v1.2.6" />
     <MESSAGE value="v1.2.7&#10;get started enhancement" />
@@ -446,6 +434,7 @@
     <MESSAGE value="adding new kubetools" />
     <MESSAGE value="adding kubemqctl and fix get-started" />
     <MESSAGE value="update .net sdk" />
-    <option name="LAST_COMMIT_MESSAGE" value="update .net sdk" />
+    <MESSAGE value="add Quick Start" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Quick Start" />
   </component>
 </project>
