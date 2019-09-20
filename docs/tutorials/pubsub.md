@@ -24,7 +24,7 @@ KubeMQ supports Publish-Subscribe messages patterns with the following core feat
 
 ## Events
 Events are an asynchronous real-time Pub/Sub pattern.
-In Events, multiple senders can send real-time messages to various receivers, however, only if they are currently connected to KubeMQ; there is no message persistence available in this pattern.
+In Events, multiple senders can send real-time messages to various receivers; however, only if they are currently connected to KubeMQ; there is no message persistence available in this pattern.
 
 ![image info](./images/event.png)
 
@@ -61,7 +61,7 @@ KubeMQ supports six types of Events Store subscriptions and replay:
 | Last Event      | KubeMQ will replay the last event and continue to send new events                                            |
 | From Sequence   | KubeMQ will replay events from a specific sequence and continue to send new events                             |
 | From Time       | KubeMQ will replay events from a specific time in the past and continue to send new events                     |
-| From Time Delta | KubeMQ will replay events from the specific delta of time back (i.e. 5 min back) and continue to send new events |
+| From Time Delta | KubeMQ will replay events from the particular time delta back (i.e., 5 min back) and continue to send new events |
 
 
 #### Start From New Events
@@ -138,4 +138,4 @@ If a Receiver wishes to receive messages on `foo.bar` again, they should subscri
 
 **Use Cases**
 
-Events Store pattern is suitable for cases in which events are important, such as worker’s pool, chats, and inbox related applications.
+Events Store pattern is suitable for cases in which events are necessary, such as worker’s pool, chats, and inbox related applications.

@@ -96,7 +96,7 @@ For Example:
 
 ## Connect Your KubeMQ Cluster
 
-In order to be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
+To be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
 
 kubemqctl has a handy command that will do it for you:
 
@@ -117,7 +117,7 @@ Run the following kubemqctl command:
  kubemqctl commands rec "hello-command" -a
 ```
 
-When connected, the stream will block until receiving a command. Once a command will be received kubemqctl automatically will send a Response.
+When connected, the stream will block until receiving a command. Once a command will be received, kubemqctl automatically will send a Response.
 
 </template>
 
@@ -338,7 +338,7 @@ When connected, once a command will be received in the channel, we create a Resp
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
-Code snippet will available soon
+The code snippet will available soon
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -723,7 +723,7 @@ public class Program {
         } catch (ServerAddressNotSuppliedException e) {
             System.out.printf("ServerAddressNotSuppliedException: %s", e.toString());
             e.printStackTrace();
-		}
+      }
         
     
     }

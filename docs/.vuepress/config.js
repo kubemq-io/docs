@@ -1,7 +1,7 @@
 module.exports = {
     base: '/',
     title: 'KubeMQ Documentation',
-    description: 'Message broker  for containers and Kubernetes',
+    description: 'Message broker for containers and Kubernetes',
     head: ['link', { rel: 'icon', href: '/icon.png' }],
 //    ga: 'UA-128055473-1',
     plugins:[
@@ -49,10 +49,11 @@ module.exports = {
             { text: 'Register', link: 'https://account.kubemq.io/login/register'},
         ],
         sidebar: [{
-                title: 'Home',
+                title: 'Introduction',
                 collapsable: false,
                 children: [
-                    '/introduction',
+                    '/introduction/introduction',
+                    '/introduction/quick-start',
                 ]
             },
             {
@@ -173,15 +174,15 @@ module.exports = {
                 ]
             },
             {
-                title: 'Reference',
+                title: 'Development',
                 collapsable: false,
                 children: [
-                    '/reference/net',
-                    '/reference/java',
-                    '/reference/go',
-                    '/reference/python',
-                    '/reference/rest',
-                    '/reference/examples'
+                    '/development/net',
+                    '/development/java',
+                    '/development/go',
+                    '/development/python',
+                    '/development/rest',
+                    '/development/examples'
                 ]
             },
         ]

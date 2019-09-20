@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /illustration-ship-1.png
-actionText: Get Started →
-actionLink: /get_started/get_started.md
+actionText: Quick Start →
+actionLink: /introduction/quick-start.md
 features:
 - title: Multi-Cloud
   details: KubeMQ enables true freedom and control to run an application, workload, or data on any cloud – private or public – based on business or technical requirements. Supports any architecture, edge or bus topologies.

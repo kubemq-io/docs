@@ -18,8 +18,8 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 
 - **Exactly One Delivery** - Only one message guarantee will deliver to the subscriber
 - **Single and Batch Messages Send and Receive** - Single and multiple messages in one call
-- **RPC and Stream Flows** - RPC flow allows an insert and pull messages in one call. Stream flow allows single message consuming in transactional way
-- **Message Policy** - Each message can be configured with expiration and delay timers. In addition, each message can specify a dead-letter queue for un-processed messages attempts
+- **RPC and Stream Flows** - RPC flow allows an insert and pulls messages in one call. Stream flow allows single message consuming in a transactional way
+- **Message Policy** - Each message can be configured with expiration and delay timers. Also, each message can specify a dead-letter queue for un-processed messages attempts
 - **Long Polling** - Consumers can wait until a message available in the queue to consume
 - **Peak Messages** - Consumers can peak into a queue without removing them from the queue
 - **Ack All Queue Messages** - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
@@ -49,7 +49,7 @@ KubeMQ allows the producer to set each message with an expiration time (in secon
 ![kubemqctl-queue-send-expiration.gif](./demo/kubemqctl-queue-send-expiration.gif)
 
 ### Message Delay (Scheduled Messages)
-KubeMQ allows the producer to set each message with sending delay (in seconds) time also known as Scheduled Messages. Until this time, the message will not be available to and consumer.
+KubeMQ allows the producer to set each message with sending delay (in seconds) time, also known as Scheduled Messages. Until this time, the message will not be available to and consumer.
 
 ![image info](./images/queue-delay.png)
 
@@ -89,7 +89,7 @@ KubeMQ allows a consumer to peak one or many messages in the queue without remov
 
 ### Ack All Queue Messages
 
-KubeMQ allows a consumer to ack all messages in the queue (clean-up) therefore existing messages in the queue will not be available anymore to consume.
+KubeMQ allows a consumer to ack all messages in the queue (clean-up); therefore, existing messages in the queue will not be available anymore to consume.
 
  ![image info](./images/queue-ack-all.png)
 

@@ -7,19 +7,22 @@ tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native',
 
 # Java
 
-The **KubeMQ SDK for Java** enables Java developers to easily work with [KubeMQ](https://kubemq.io/) server.
+The **KubeMQ SDK for Java** enables Java developers to communicate with [KubeMQ](https://kubemq.io/) server.
+
 ## Table of Content
 [[toc]]
+
 ## General SDK description
 The SDK implements all communication patterns available through the KubeMQ server:
 - Events
 - EventStore
 - Command
 - Query
+- Queue
 
 ### Prerequisites
 
-KubeMQ-SDK-Java works with **JDK 8+**.
+KubeMQ-SDK-Java works with JDK 8+
 
 ### Installing
 

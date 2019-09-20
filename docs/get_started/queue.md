@@ -96,7 +96,7 @@ For Example:
 
 ## Connect Your KubeMQ Cluster
 
-In order to be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
+To be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
 
 kubemqctl has a handy command that will do it for you:
 
@@ -118,7 +118,7 @@ Run the following kubemqctl command:
 kubemqctl queues send "hello-world-queue" "this is a queue message"
 ```
 
-A result message will be shown with an indication of sending time of the message
+A result message will be shown with an indication of the sending time of the message.
 
 </template>
 

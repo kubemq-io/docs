@@ -28,10 +28,10 @@ Before a Receiver can receive any messages, a Subscription function is needed to
 A channel string can be formed from any UTF-8 characters with the following attributes:
    - Case sensitive, FOO and foo are different channel names
    - No white spaces allowed
-   - Cannot be Blank (`""`)
+   - Cannot be Blank (`"`)
    - `.`, `*`, `>` are special characters for token hierarchies.
    - Cannot start with `.`
-   - Can start with `>` or `*` (for subscription receivers only)
+   - Can begin with `>` or `*` (for subscription receivers only)
    - Unlimited hierarchies
 
 
@@ -61,7 +61,7 @@ Matching one or more tokens at the tail of a channel
 
 Examples:
 
-Here some examples of channel subscription patterns and which types of messages with channels are accepted and ignored.
+Here some cases of channel subscription patterns and which types of messages with channels are accepted and ignored.
 
 | Channel Pattern | Messages Accepted   | Messages Ignored    |
 |:----------------|:--------------------|:--------------------|
@@ -108,12 +108,12 @@ In the table below, we explore several message channels and which receiver will 
 | Sending Message to Channel | Receivers|
 |:---------------------------|:---------|
 | `foo`                      | R6,R7|
-| `foo.bar`                  |R1, R2 or R3, R4 or R5, R6,R8|
-| `foo.bar.zoo`               |R1, R2 or R3, R6,R8|
+| `foo.bar`                  |R1, R2 or R3, R4 or R5, R6, R8|
+| `foo.bar.zoo`               |R1, R2 or R3, R6, R8|
 
 
 ## Endpoints
-KubeMQ has 3 exported endpoints, gRPC, Rest/Websocket, and API.
+KubeMQ has three exported endpoints, gRPC, Rest/Websocket, and API.
 
 ### gRPC
 KubeMQ’s main endpoint is gRPC server.
@@ -122,7 +122,7 @@ The KubeMQ gRPC server is enabled by default and can be disabled by setting envi
 
 The KubeMQ gRPC embedded server exposes port 50000 by default and can be set via environment variable `GRPC_PORT`.
 
-kubeMQ gRPC can secured by providing TLS certification and key.
+KubeMQ gRPC can be secured by providing TLS certification and key.
 
 Setting the gRPC TLS secured server via the following environment variables:
 
@@ -140,7 +140,7 @@ The KubeMQ Rest/Websocket server is enabled by default and can be disabled by se
 
 The KubeMQ Rest/Websocket server exposes port 9090 by default and can be set via environment variable `REST_PORT`.
 
-The kubeMQ Rest/Websocket can be secured by providing the TLS certification and key.
+The KubeMQ Rest/Websocket can be secured by providing the TLS certification and key.
 
 Setting the Rest/Websocket TLS secured server via the following environment variables:
 

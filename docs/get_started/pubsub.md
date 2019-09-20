@@ -97,7 +97,7 @@ For Example:
 
 ## Connect Your KubeMQ Cluster
 
-In order to be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
+To be able to communicate with KubeMQ interface ports running in Kubernetes cluster, a Port Forward of KubeMQ's ports is needed.
 
 kubemqctl has a handy command that will do it for you:
 
@@ -259,8 +259,8 @@ public class Program {
             e.printStackTrace();
         } catch (ServerAddressNotSuppliedException e) {
             System.out.printf("ServerAddressNotSuppliedException: %s", e.toString());
-			e.printStackTrace();
-		}
+         e.printStackTrace();
+      }
        
     }
 }    

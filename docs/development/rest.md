@@ -8,7 +8,7 @@ tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native',
 
 The KubeMQ server API provides a simple interface for all messaging patterns.
 
-RPC functions are supported by REST calls and Stream functions are supported by Websockets calls.
+RPC functions are supported by REST calls, and Stream functions are supported by Websockets calls.
 ## Table of Content
 [[toc]]
 ::: tip Postman
@@ -49,12 +49,12 @@ Where:
 
 | Field                     | Type              | Required | Description                                                                                                                                  |
 |:--------------------------|:------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Id                        | string            | No       | Message id can set by the sender, if no Id is set KubeMQ will generate a UUID type value for Message Id                                      |
+| Id                        | string            | No       | Message id can set by the sender if no Id is set KubeMQ will generate a UUID type value for Message Id                                      |
 | ClientID                  | string            | Yes      | Sender Client ID                                                                                                                             |
 | Channel                   | string            | Yes      | Channel sender address                                                                                                                       |
 | Metadata                  | string            | No       | Sender-defined message metadata data                                                                                                         |
 | Body                      | string/base64     | Yes      | Sender-defined message body data                                                                                                             |
-| Tags                      | map string,string | No       | Set message Tags                                                                                                                             |
+| Tags                      | map string, string | No       | Set message Tags                                                                                                                             |
 | Policy->ExpirationSeconds | integer           | No       | Set expiration seconds which after this time the message will not be available to consume                                                    |
 | Policy->DelaySeconds      | integer           | No       | Set delay seconds which before this time the message will not be available to consume                                                        |
 | Policy->MaxReceiveCount   | integer           | No       | Set max receiving count which set how many times the message will be consumed without ack before re-route to a dead-letter queue or discarded |
@@ -179,7 +179,7 @@ Where:
 
 | Field                     | Type              | Required | Description                                                                                                                                  |
 |:--------------------------|:------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| BatchID                        | string            | No       | Batch Message id can set by the sender, if no Id is set KubeMQ will generate a UUID type value for Message Id                                      |
+| BatchID                        | string            | No       | Batch Message id can set by the sender if no Id is set KubeMQ will generate a UUID type value for Message Id                                      |
 | Messages                  | array of queue messages           | Yes      | contains all the messages to be send                                                                                      |
 
 As a Response from `POST` message:
@@ -347,7 +347,7 @@ Where Data field
 | Field           | Type          |  Description                                                                                                   |
 |:----------------|:--------------|:--------------------------------------------------------------------------------------------------------------|
 | RequestID       | string        | Get the id of the request|
-| Messages        | array of queue messages        |  contains array of pulled messages  |
+| Messages        | array of queue messages        |  contains an array of pulled messages  |
 | MessagesReceived         | integer        |  how many valid messages pulled from the queue                                                                     |
 | MessagesExpired         | integer        |  how many expired messages pulled from the queue                                                                     |
 
@@ -472,14 +472,14 @@ Where Data field
 | Field           | Type          |  Description                                                                                                   |
 |:----------------|:--------------|:--------------------------------------------------------------------------------------------------------------|
 | RequestID       | string        | Get the id of the request|
-| Messages        | array of queue messages        |  contains array of pulled messages  |
+| Messages        | array of queue messages        |  contains an array of pulled messages  |
 | MessagesReceived         | integer        |  how many valid messages pulled from the queue                                                                     |
 | MessagesExpired         | integer        |  how many expired messages pulled from the queue                                                                     |
 | IsPeak         | bool        |  indicate peak request                                                                  |
 
 
 ### Ack All Messages
-Send a Ack All Messages request to mark all available messages as taken (ack) .
+Send an Ack All Messages request to mark all available messages as taken (ack).
 
 Send Message endpoint is a `POST` function to `{{host}}/queue/ack_all` where `host` is the KubeMQ REST interface address.
 `POST` Send message JSON structure:
@@ -587,7 +587,7 @@ Where:
 
 | Field    | Type          | Required | Description                                                                                             |
 |:---------|:--------------|:---------|:--------------------------------------------------------------------------------------------------------|
-| EventID  | string        | No       | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID  | string        | No       | event id can set by the sender if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | ClientID | string        | Yes      | Sender Client ID                                                                                        |
 | Channel  | string        | Yes      | Channel sender address                                                                                  |
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
@@ -631,13 +631,13 @@ Where:
 
 | Field    | Type          | Required | Description                                                                                             |
 |:---------|:--------------|:---------|:--------------------------------------------------------------------------------------------------------|
-| EventID  | string        | No       | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID  | string        | No       | event id can set by the sender if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | ClientID | string        | Yes      | Sender Client ID                                                                                        |
 | Channel  | string        | Yes      | Channel sender address                                                                                  |
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
 | Body     | string/base64 | Yes      | Sender-defined event body data                                                                          |
 | Store    | bool          | Yes      | Store=false send to Event pattern, Store=true send to Event Store pattern                               |
-| Tags           | map string,string| No      | Set Event Store Tags|
+| Tags           | map string, string| No      | Set Event Store Tags|
 
 As a Response from `POST` message:
 
@@ -653,13 +653,13 @@ As a Response from `POST` message:
 ```
 
 ### Send Events Stream
-Send Events Stream allows opening a bo-directional websocket connection and stream Event messages and receive Response messages.
+Send Events Stream allows opening a bi-directional WebSocket connection and stream Event messages and receive Response messages.
 
 Send Event endpoint is a `GET` function with websocket upgrade to `{{host}}/send/stream` where `host` is the KubeMQ REST interface address.
 
-**NOTE:**  Since Postman does not support websocket upgrade function, only the GET function is provided.
+**NOTE:**  Since Postman does not support WebSocket upgrade function, only the GET function is provided.
 
-After websocket upgrade, sending Event messages and receiving responses will use websocket Text format.
+After WebSocket upgrade, sending Event messages and receiving responses will use WebSocket Text format.
 
 Event message JSON structure:
 ``` json
@@ -681,7 +681,7 @@ Where:
 
 | Field    | Type          | Required | Description                                                                                             |
 |:---------|:--------------|:---------|:--------------------------------------------------------------------------------------------------------|
-| EventID  | string        | No       | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID  | string        | No       | event id can set by the sender if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | ClientID | string        | Yes      | Sender Client ID                                                                                        |
 | Channel  | string        | Yes      | Channel sender address                                                                                  |
 | Metadata | string        | No       | Sender-defined event metadata data                                                                      |
@@ -689,7 +689,7 @@ Where:
 | Store    | bool          | Yes      | Store=false send to Event pattern, Store=true send to Event Store pattern                               |
 | Tags           | map string,string| No      | Set Event / Event Store Tags|
 
-The websocket will receive Response messages with this structure:
+The WebSocket will receive Response messages with this structure:
 
 ``` json
 {
@@ -735,7 +735,7 @@ Where:
 
 | Field    | Type          | Description                                                                                             |
 |:---------|:--------------|:--------------------------------------------------------------------------------------------------------|
-| EventID  | string        | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID  | string        | event id can set by the sender if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | Channel  | string        | Channel sender address                                                                                  |
 | Metadata | string        | Sender metadata data                                                                                    |
 | Body     | string/base64 | Sender body data                                                                                        |
@@ -744,7 +744,7 @@ Where:
 
 **NOTE:**
 
-Since Postman does not supports websocket upgrade function, only the GET function is provided.
+Since Postman does not support WebSocket upgrade function, only the GET function is provided.
 
 
 ### Subscribe to Events Store
@@ -797,17 +797,17 @@ Where:
 
 | Field     | Type          | Description                                                                                             |
 |:----------|:--------------|:--------------------------------------------------------------------------------------------------------|
-| EventID   | string        | event id can set by the sender, if no EventID is set KubeMQ will generate a UUID type value for EventID |
+| EventID   | string        | event id can set by the sender if no EventID is set KubeMQ will generate a UUID type value for EventID |
 | Channel   | string        | Channel sender address                                                                                  |
 | Metadata  | string        | Sender metadata data                                                                                    |
 | Body      | string/base64 | Sender body data                                                                                        |
 | Timestamp | int64         | Unix time format of message                                                                             |
 | Sequence  | int           | Events Store message sequence number                                                                    |
-| Tags           | map string,string| Event Store sender Tags|
+| Tags           | map string, string| Event Store sender Tags|
 
 **NOTE:**
 
-Since Postman does not supports websocket upgrade function, only the GET function is provided.
+Since Postman does not support WebSocket upgrade function, only the GET function is provided.
 
 ## RPC
 
@@ -836,7 +836,7 @@ Where:
 
 | Field           | Type          | Required | Description                                                                                                   |
 |:----------------|:--------------|:---------|:--------------------------------------------------------------------------------------------------------------|
-| RequestID       | string        | Yes      | request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
+| RequestID       | string        | Yes      | request id can set by the sender if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
 | RequestTypeData | int           | Yes      | Command=1                                                                                                     |
 | ClientID        | string        | Yes      | Sender Client ID                                                                                              |
 | Channel         | string        | Yes      | Channel sender address                                                                                        |
@@ -908,7 +908,7 @@ Where:
 
 | Field           | Type          | Required               | Description                                                                                                   |
 |:----------------|:--------------|:-----------------------|:--------------------------------------------------------------------------------------------------------------|
-| RequestID       | string        | Yes                    | request id can set by the sender, if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
+| RequestID       | string        | Yes                    | request id can set by the sender if no RequestID is set KubeMQ will generate a UUID type value for RequestID |
 | RequestTypeData | int           | Yes                    | Query = 2                                                                                                     |
 | ClientID        | string        | Yes                    | Sender Client ID                                                                                              |
 | Channel         | string        | Yes                    | Channel sender address                                                                                        |
@@ -1084,5 +1084,5 @@ Where:
 | Body         | string/base64 | No       | Sender-defined event body data (Query only)                 |
 | Executed     | bool          | Yes      | Set Command / Query request execution result                |
 | Error        | string        | No       | Set error message in case of failed Command / Query request |
-| Tags           | map string,string| No      | Set Resonse Tags|
+| Tags           | map string,string| No      | Set Response Tags|
 

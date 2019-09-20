@@ -68,12 +68,12 @@ volumes:
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+To fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
 :::
 
 ## Verify Deployment
 
-Browse to KubeMQ's API end-point with GET request to `/health` path and get a json response like below:
+Browse to KubeMQ's API end-point with a GET request to `/health` path and get a json response like below:
 
 For Example:
 ``` bash

@@ -2,8 +2,8 @@
 title: Kubernetes
 lang: en-US
 type: 'article'
-description: 'KubeMQ Kubernetes cluster deployment'
-tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue']
+description: 'KubeMQ Kubernetes cluster deployment.'
+tags: ['pub/sub','message broker','KubeMQ',Kubernetes','docker','cloud native','message queue']
 ---
 # Kubernetes Deployment
 ## Table of Content
@@ -152,5 +152,5 @@ kubectl port-forward svc/kubemq-cluster-ext 8080:8080 9090:9090 50000:50000
 
 ::: warning PROXY
 If KubeMQ fails to load, probably there is a proxy server which prevents the validation of KubeMQ token.
-In order to fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
+To fix this, you can add -e KUBEMQ_PROXY="your-proxy-url" as an environment variable.
 :::

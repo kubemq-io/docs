@@ -7,6 +7,7 @@ tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native',
 
 # .NET
 .NET client SDK for KubeMQ. Simple interface to work with the KubeMQ server.
+
 ## Table of Content
 
 [[toc]]
@@ -44,7 +45,7 @@ Set `KubeMQServerAddress` to the KubeMQ Server Address
 
 
 ### Configuration via appsettings.json
-Simply add the following to your appsettings.json:
+Add the following to your appsettings.json:
 ```json
 {
   "KubeMQ": {
@@ -70,17 +71,17 @@ Simply add the following to your app.config:
 
 ## Main Concepts
 
-- Metadata: The metadata allows us to pass additional information with the event. Can be in any form that can be presented as a string, i.e., struct, JSON, XML and many more.
-- Body: The actual content of the event. Can be in any form that is serializable into a byte array, i.e., string, struct, JSON, XML, Collection, binary file and many more.
-- ClientID: Displayed in logs, tracing and KubeMQ dashboard(When using EventStore it must be unique).
+- Metadata: The metadata allows us to pass additional information with the event. Can be in any form that can be presented as a string, i.e., struct, JSON, XML and many more.
+- Body: The actual content of the event. Can be in any form that is serializable into a byte array, i.e., string, struct, JSON, XML, Collection, binary file and many more.
+- ClientID: Displayed in logs, tracing, and KubeMQ dashboard(When using Events Store, it must be unique).
 - Tags: Set of Key value pair that help categorize the message
 
 
 ### Event/EventStore/Command/Query
 
-- Channel: Represents the endpoint target. One-to-one or one-to-many. Real-Time Multicast.
-- Group: Optional parameter when subscribing to a channel. A set of subscribers can define the same group so that only one of the subscribers within the group will receive a specific event. Used mainly for load balancing. Subscribing without the group parameter ensures receiving all the channel messages. (When using Grouping all the programs that are assigned to the group need to have to same channel name)
-- Event Store: The Event Store represents a persistence store, should be used when need to store data on a volume.
+- Channel: Represents the endpoint target. One-to-one or one-to-many. Real-Time Multicast.
+- Group: Optional parameter when subscribing to a channel. A set of subscribers can define the same group so that only one of the subscribers within the group will receive a specific event. Used mainly for load balancing. Subscribing without the group parameter ensures receiving all the channel messages. (When using Grouping all the programs that are assigned to the group need to have to same channel name)
+- Event Store: The Event Store represents a persistence store, should be used when need to store data on a volume.
 
 
 ### Queue
@@ -93,29 +94,29 @@ Simply add the following to your app.config:
 
 A struct that is used to initialize SubscribeToEvents/SubscribeToRequest, the SubscribeRequest contains the following:
 
-- SubscribeType - Mandatory - Enum that represent the subscription type:
+- SubscribeType - Mandatory - Enum that represents the subscription type:
 - Events - if there is no need for Persistence.
-- EventsStore - If you want to receive Events from persistence See Main concepts.
+- EventsStore - If you want to receive Events from persistence. See Main concepts.
 - Command - Should be used when a response is not needed.
 - Query - Should be used when a response is needed.
-- ClientID - Mandatory - See Main concepts
-- Channel - Mandatory - See Main concepts
-- Group - Optional - See Main concepts
-- EventsStoreType - Mandatory - set the type event store to subscribe to Main concepts.
+- ClientID - Mandatory - See Main concepts
+- Channel - Mandatory - See Main concepts
+- Group - Optional - See Main concepts
+- EventsStoreType - Mandatory - set the type event store to subscribe to Main concepts.
 
 ## Queue
 
 KubeMQ supports distributed durable FIFO based queues with the following core features:
 
-- Exactly One Delivery - Only one message guarantee will deliver to the subscriber
-- Single and Batch Messages Send and Receive - Single and multiple messages in one call
-- RPC and Stream Flows - RPC flow allows an insert and pull messages in one call. Stream flow allows single message consuming in transactional way
-- Message Policy - Each message can be configured with expiration and delay timers. In addition, each message can specify a dead-letter queue for un-processed messages attempts
-- Long Polling - Consumers can wait until a message available in the queue to consume
-- Peak Messages - Consumers can peak into a queue without removing them from the queue
-- Ack All Queue Messages - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
-- Visibility timers - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
-- Resend Messages - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
+- Exactly One Delivery - Only one message guarantee will deliver to the subscriber
+- Single and Batch Messages Send and Receive - Single and multiple messages in one call
+- RPC and Stream Flow - RPC flow allows an insert and pulls messages in one call. Stream flow allows single message consuming in a transactional way
+- Message Policy - Each message can be configured with expiration and delay timers. Also, each message can specify a dead-letter queue for un-processed messages attempts
+- Long Polling - Consumers can wait until a message available in the queue to consume
+- Peak Messages - Consumers can peak into a queue without removing them from the queue
+- Ack All Queue Messages - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
+- Visibility timers - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
+- Resend Messages - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
 
 ### Send Message to a Queue
 
@@ -398,7 +399,7 @@ var queue = new KubeMQ.SDK.csharp.Queue.Queue("QueueName", "ClientID", "localhos
 
             var transaction = queue.CreateTransaction(); 
 
-            // get message from the queue with visibility of 10 seconds and wait timeout of 10 seconds 
+            // get a message from the queue with visibility of 10 seconds and wait timeout of 10 seconds 
 
             var resRec = transaction.Receive(10, 10); 
 
@@ -453,7 +454,7 @@ var queue = new KubeMQ.SDK.csharp.Queue.Queue("QueueName", "ClientID", "localhos
 
             var transaction = queue.CreateTransaction(); 
 
-            // get message from the queue with visibility of 10 seconds and wait timeout of 10 seconds 
+            // get a message from the queue with visibility of 10 seconds and wait timeout of 10 seconds 
 
             var resRec = transaction.Receive(10, 10); 
 
@@ -490,7 +491,7 @@ var queue = new KubeMQ.SDK.csharp.Queue.Queue("QueueName", "ClientID", "localhos
 
             var transaction = queue.CreateTransaction(); 
 
-            // get message from the queue with visibility of 5 seconds and wait timeout of 10 seconds 
+            // get a message from the queue with visibility of 5 seconds and wait timeout of 10 seconds 
 
             var resRec = transaction.Receive(5, 10); 
 
@@ -552,7 +553,7 @@ var queue = new KubeMQ.SDK.csharp.Queue.Queue("QueueName", "ClientID", "localhos
 
             var transaction = queue.CreateTransaction(); 
 
-            // get message from the queue with visibility of 5 seconds and wait timeout of 10 seconds 
+            // get a message from the queue with visibility of 5 seconds and wait timeout of 10 seconds 
 
             var resRec = transaction.Receive(5, 10); 
 
@@ -591,7 +592,7 @@ var queue = new KubeMQ.SDK.csharp.Queue.Queue("QueueName", "ClientID", "localhos
 
             var transaction = queue.CreateTransaction(); 
 
-            // get message from the queue with visibility of 5 seconds and wait timeout of 10 seconds 
+            // get a message from the queue with visibility of 5 seconds and wait timeout of 10 seconds 
 
             var resRec = transaction.Receive(3,5); 
 
@@ -637,20 +638,20 @@ Employing several variations of point to point Event communication style pattern
 - Send stream
 - Send single event
 
-#### The KubeMQ.SDK.csharp.Events.LowLevel.Event object:
+#### The KubeMQ.SDK.csharp.Events.LowLevel.Event object:
 
-Struct used to send and receive Events using the Event pattern. Contains the following fields (See Main concepts for more details on each field):
+Struct used to send and receive Events using the Event pattern. Contains the following fields (See Main concepts for more details on each field):
 
 - Channel
 - Metadata
 - Body
 - EventID - set internally
-- Store - Boolean, set if the event should be sent to store.
+- Store - Boolean, set if the event should be sent to storage.
 - ClientID
 
 ### Subscribe
 
-This method allows subscribing to events. Both single and stream of events. Pass a delegate (callback) that will handle the incoming event(s). The implementation uses await and does not block the continuation of the code execution.
+This method allows subscribing to events. Both single and stream of events. Pass a delegate (callback) that will handle the incoming event(s). The implementation uses await and do not block the continuation of the code execution.
 
 Parameters:
 
@@ -722,7 +723,7 @@ This method allows for sending a single event.
 
 #### KubeMQ.SDK.csharp.Events.LowLevel.Event - Mandatory. The actual Event that will be sent.
 
-Initialize Sender with server address from code (also can be initialized using config file):
+Initialize Sender with server address from code (also can be initialized using config file):
 ``` csharp
 var ChannelName = "testing_event_channel";
 
@@ -768,13 +769,13 @@ var ChannelName = "testing_event_channel";
 
                 Console.WriteLine(ex.Message); 
 
-            	            } 
+                           } 
 ```
 ### Send stream
 
 This method allows for sending a stream of events. Use cases: sending a file in multiple packets; frequent high rate of events.
 
-Initialize Sender with server address from code (also can be initialized using config file):
+Initialize Sender with server address from code (also can be initialized using config file):
 ``` csharp
 var ChannelName = "testing_event_channel";
 
@@ -827,14 +828,14 @@ Employing persistent point to point Event communication style patterns.
 
 The 'EventsStoreType' object:
 
-To receive events from persistence, the subscriber need to assign one of seven EventsStoreType and the value for EventsStoreTypeValue.
+To receive events from persistence, the subscriber needs to assign one of seven EventsStoreType and the value for EventsStoreTypeValue.
 
 - EventsStoreTypeUndefined - 0 - Should be set when there is no need for eventsStore.(when using this type there is no need to set EventsStoreTypeValue)
-- StartNewOnly - 1 - The subscriber will only receive new events (from the time he subscribed).(when using this type there is no need to set EventsStoreTypeValue)
-- StartFromFirst - 2 - The subscriber will receive all events from the start of the queue and all future events as well.(when using this type there is no need to set EventsStoreTypeValue)
-- StartFromLast - 3 - The subscriber will receive the last event in queue and all future events as well.(when using this type there is no need to set EventsStoreTypeValue)
+- StartNewOnly - 1 - The subscriber will only receive new events (from the time he subscribed). (when using this type there is no need to set EventsStoreTypeValue)
+- StartFromFirst - 2 - The subscriber will receive all events from the start of the queue and all future events as well. (when using this type there is no need to set EventsStoreTypeValue)
+- StartFromLast - 3 - The subscriber will receive the last event in queue and all future events as well. (when using this type there is no need to set EventsStoreTypeValue)
 - StartAtSequence - 4 - The subscriber will receive events from the chosen Sequence and all future events as well. (need to provide with long that of the wanted eventID)
-- StartAtTime - 5 - The subscriber will receive events that were "Stored" from a certain DateTime and all future events as well. (need to provide with chosen time)
+- StartAtTime - 5 - The subscriber will receive events that were "Stored" from a specified DateTime and all future events as well. (need to provide with chosen time)
 - StartAtTimeDelta - 6 - The subscriber will receive events that were "Stored" from the difference between DateTime.Now minus the delta was chosen. (need to provide with a long that represents the time delta to check within milliseconds)
 
 
@@ -1025,23 +1026,23 @@ Request\Reply communication pattern.
 - Subscribe to requests
 - Send request
 
-#### The KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request object:
+#### The KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request object:
 
 Struct used to send the request under the Request\Reply pattern. Contains the following fields (See Main concepts for more details on some field):
 
 - RequestID - Optional. Used to match Request to Response. If omitted, it will be set internally.
 - RequestType - Mandatory. Used to set if a response is expected or not.
 - ClientID - Mandatory. Displayed in logs, tracing, and KubeMQ dashboard.
-- Channel - Mandatory. The channel that the Responder subscribed on.
+- Channel - Mandatory. The channel that the Responder subscribed on.
 - Metadata - Mandatory.
 - ReplyChannel - Read-only, set internally.
 - Timeout - Mandatory. Max time for the response to return. Set per request. If exceeded an exception is thrown.
 
-The Response object:
+The Response object:
 
 Struct used to send the response under the Request\Reply pattern.
 
-The Response Constructors requires the corresponding 'Request' object.
+The Response Constructors requires the corresponding 'Request' object.
 
 Contains the following fields (See Main concepts for more details on some field):
 
@@ -1050,7 +1051,7 @@ Contains the following fields (See Main concepts for more details on some field)
 - Metadata - Optional.
 - Body - Mandatory.
 - Timestamp -Set Internally, an indication of the time the response was created.
-- Executed - Boolean that represents of the task the Responder was performed.
+- Executed - Boolean that represents the task the Responder was performed.
 - Error - Mandatory - Represents if an error occurred while processing the request.
 
 ### Subscribe to Requests
@@ -1133,25 +1134,25 @@ var ChannelName = "testing_event_channel";
 
 ### Send Request
 
-The KubeMQ SDK comes with two similar methods to send a Request and wait for the Response
+The KubeMQ SDK comes with two similar methods to send a Request and wait for the Response.
 
-SendRequestAsync returns the Response in a Task
+SendRequestAsync returns the Response in a Task
 
-SendRequest returns the Response to the Delegate (callback) supplied as a parameter
+SendRequest returns the Response to the Delegate (callback) supplied as a parameter.
 
 #### Send Request Async
 
-This method allows to send a request to the Responder, it awaits for the Response and returns it in a Task
+This method allows to send a request to the Responder; it awaits for the Response and returns it in a Task.
 
 parameters:
 
-KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request - Mandatory. The Request object to send.
+KubeMQ.SDK.csharp.CommandQuery.LowLevel.Request - Mandatory. The Request object to send.
 
-Initialize Initiator with server address from code (also can be initialized using config file):
+Initialize Initiator with server address from code (also can be initialized using config file):
 
 Method: send request
 
-This method allows to send a request to the Responder, and returns the Response to the Delegate (callback) supplied as a parameter
+This method allows to send a request to the Responder and returns the Response to the Delegate (callback) supplied as a parameter.
 
 ``` csharp
 var ChannelName = "testing_event_channel";
@@ -1291,13 +1292,13 @@ Request\Reply communication pattern similar to Command. Allows caching the respo
 
 KubeMQ server allows storing each response in a dedicated cache system. Each request can specify whether or not to use the cache. In case the cache is used, the KubeMQ server will try to return the response directly from the cache and reduce latency.
 
-To use the cache mechanism, add the following parameters to each Request:
+To use the cache mechanism, add the following parameters to each Request:
 
 CacheKey - Unique key to store the response in the KubeMQ cache mechanism.
 
 CacheTTL - Cache data Time to live in milliseconds per CacheKey.
 
-In the Response object you will receive an indication whether it was returned from cache:
+In the Response object you will receive an indication whether it was returned from cache:
 
 CacheHit - Indication if the response was returned from KubeMQ cache.
 
@@ -1509,18 +1510,4 @@ var ChannelName = "testing_event_channel";
             } 
 
 ```
-
-Usage: Channel
-
-Creating a Sender\Initiator with a set of predefined parameters to prevent repetitive code.
-
-*Replaces the channel parameter in the "low level" Event/Request.
-
-KubeMQ.SDK.csharp.Events.Channel
-
-Represents a Sender with a set of predefined parameters.
-
-parameters:
-
-KubeMQ.SDK.csharp.Events.ChannelParameters - Mandatory. # .NET .NET client SDK for KubeMQ. Simple interface to work with the KubeMQ server.
 
