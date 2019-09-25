@@ -100,8 +100,9 @@ kubemqctl queue receive q1
 
 ## Demo
 
-![kubemq-quick-start.gif](./images/kubemq-quick-start.gif)
+KubeMQ Quick Start:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G3WIxa7YfFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Learn More
 
