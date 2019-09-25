@@ -102,11 +102,18 @@ kubemqctl queue receive q1
 
 KubeMQ Quick Start:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G3WIxa7YfFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/G3WIxa7YfFI" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
 
 ## Learn More
 
 ### Get Started with Patterns
+
 - [Get Started with Queue Message Pattern](../get_started/queue.md)
 - [Get Started with Pub/Sub Message Pattern](../get_started/pubsub.md)
 - [Get Started with RPC Message Pattern](../get_started/rpc.md)
