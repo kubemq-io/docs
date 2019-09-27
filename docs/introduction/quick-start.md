@@ -7,61 +7,41 @@ tags: ['pub/sub','message broker','KubeMQ']
 ---
 
 # KubeMQ Quick Start
-This QuickStart will guide you through running KubeMQ Message Broker cluster in Kubernetes, send and receive messages under 60 seconds.
+**Welcome to KubeMQ!**
+
+In this guide, we’ll walk you through how to install KubeMQ into your Kubernetes cluster. Then we’ll send and receive messages to verify your KubeMQ installation.
+
+Installing KubeMQ is easy. First, you will install kubemqctl the KubeMQ CLI (command-line interface) onto your local machine. Using this CLI, you’ll then install KubeMQ cluster into your Kubernetes cluster. Finally, you’ll send a hello-world message to a queue and retrieve the message for verification of proper KubeMQ cluster installation.
+
+## Step 0 - Setup
+
+Before we can do anything, we need to ensure you have access to a Kubernetes cluster running 1.12 or later, and a functioning kubectl command on your local machine. (One easy option is to run Kubernetes on your local machine. We suggest [Docker Desktop](https://www.docker.com/products/docker-desktop) or [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/), but there are [many options](https://kubernetes.io/docs/setup/).)
+
+When ready, make sure you’re running a recent version of Kubernetes with:
+
+```bash
+kubectl version --short
+```
+
+In the next step, we will install the kubemqctl the KubeMQ CLI and validate that your cluster is ready to send and receive messages.
 
 
 ## Step 1 - Get KubeMQ CLI - kubemqctl
 
-<CodeSwitcher :languages="{macOS:'macOS',linux64:'Linux 64 Bits',linux32:'Linux 32 Bits',windows:'Windows'}" :isolated="true">
-
-<template v-slot:macOS>
-
-Copy and paste the following lines:
+### macOS / Linux
 
 ```bash
-sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_darwin_amd64 -o /usr/local/bin/kubemqctl 
-sudo chmod +x /usr/local/bin/kubemqctl
-
+curl -sL https://get.kubemq.io/install | sh 
 ```
+### Windows
 
-</template>
-
-
-<template v-slot:linux64>
-
-Copy and paste the following lines:
-
-```bash
-sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_amd64 -o /usr/local/bin/kubemqctl
-sudo chmod +x /usr/local/bin/kubemqctl
-
-```
-
-</template>
-
-
-<template v-slot:linux32>
-
-Copy and paste the following lines:
-
-```bash
-sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_386 -o /usr/local/bin/kubemqctl
-sudo chmod +x /usr/local/bin/kubemqctl
-
-```
-
-</template>
-
-
-<template v-slot:windows>
-
-##### Option 1:
+#### Option 1:
 
 - [Download the latest kubemqctl.exe](https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe).
 - Place the file under e.g. `C:\Program Files\kubemqctl\kubemqctl.exe`
 - Add that directory to your system path to access it from any command prompt
 
-##### Option 2:
+#### Option 2:
 Run in PowerShell as administrator:
 
 ```powershell
@@ -70,10 +50,6 @@ Invoke-WebRequest https://github.com/kubemq-io/kubemqctl/releases/download/lates
 [Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\kubemqctl', [EnvironmentVariableTarget]::Machine)
 $env:Path += ';C:\Program Files\kubemqctl'
 ```
-
-</template>
-
-</CodeSwitcher>
 
 
 ## Step 2 - Create KubeMQ Cluster

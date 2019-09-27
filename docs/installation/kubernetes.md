@@ -19,11 +19,35 @@ Every installation method requires a KubeMQ token.
 Please [register](https://account.kubemq.io/login/register?destination=docker) to obtain your KubeMQ token.
 :::
 
-## kubemqctl
+## Install With KubeMQ CLI - kubemqctl
 
 The easiest way to deploy KubeMQ cluster is via kubemqctl CLI tool.
 
-You can select one of the following options:
+### macOS / Linux
+
+```bash
+curl -sL https://get.kubemq.io/install | sh 
+```
+### Windows
+
+#### Option 1:
+
+- [Download the latest kubemqctl.exe](https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe).
+- Place the file under e.g. `C:\Program Files\kubemqctl\kubemqctl.exe`
+- Add that directory to your system path to access it from any command prompt
+
+#### Option 2:
+Run in PowerShell as administrator:
+
+```powershell
+New-Item -ItemType Directory 'C:\Program Files\kubemqctl'
+Invoke-WebRequest https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe -OutFile 'C:\Program Files\kubemqctl\kubemqctl.exe'
+[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\kubemqctl', [EnvironmentVariableTarget]::Machine)
+$env:Path += ';C:\Program Files\kubemqctl'
+```
+
+
+The you can select one of the following options:
 
 
 <CodeSwitcher :languages="{default:'With Default Options',options:'With Expert Configuration',import:'With Yaml File'}" :isolated="true">

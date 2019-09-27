@@ -19,56 +19,20 @@ Please [register](https://account.kubemq.io/login/register?destination=docker) t
 
 ## Get KubeMQ CLI - kubemqctl
 
-<CodeSwitcher :languages="{macOS:'macOS',linux64:'Linux 64 Bits',linux32:'Linux 32 Bits',windows:'Windows'}" :isolated="true">
-
-<template v-slot:macOS>
-
-Copy and paste the following lines:
+### macOS / Linux
 
 ```bash
-sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_darwin_amd64 -o /usr/local/bin/kubemqctl 
-sudo chmod +x /usr/local/bin/kubemqctl
-
+curl -sL https://get.kubemq.io/install | sh 
 ```
+### Windows
 
-</template>
-
-
-<template v-slot:linux64>
-
-Copy and paste the following lines:
-
-```bash
-sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_amd64 -o /usr/local/bin/kubemqctl
-sudo chmod +x /usr/local/bin/kubemqctl
-
-```
-
-</template>
-
-
-<template v-slot:linux32>
-
-Copy and paste the following lines:
-
-```bash
-sudo curl -L https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl_linux_386 -o /usr/local/bin/kubemqctl
-sudo chmod +x /usr/local/bin/kubemqctl
-
-```
-
-</template>
-
-
-<template v-slot:windows>
-
-##### Option 1:
+#### Option 1:
 
 - [Download the latest kubemqctl.exe](https://github.com/kubemq-io/kubemqctl/releases/download/latest/kubemqctl.exe).
 - Place the file under e.g. `C:\Program Files\kubemqctl\kubemqctl.exe`
 - Add that directory to your system path to access it from any command prompt
 
-##### Option 2:
+#### Option 2:
 Run in PowerShell as administrator:
 
 ```powershell
@@ -77,10 +41,6 @@ Invoke-WebRequest https://github.com/kubemq-io/kubemqctl/releases/download/lates
 [Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine) + ';C:\Program Files\kubemqctl', [EnvironmentVariableTarget]::Machine)
 $env:Path += ';C:\Program Files\kubemqctl'
 ```
-
-</template>
-
-</CodeSwitcher>
 
 
 ## Create KubeMQ Cluster
