@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
+    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="make video responsive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/introduction/quick-start.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/introduction/quick-start.md" afterDir="false" />
@@ -380,7 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569427051586</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="make video responsive">
+      <created>1569429112195</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1569429112195</updated>
+    </task>
+    <task id="LOCAL-00045" summary="kubemqctl installation update">
+      <created>1569574310787</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1569574310787</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,8 +440,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="v1.2.7&#10;get started enhancement" />
-    <MESSAGE value="v1.2.8&#10;add seo plugin" />
     <MESSAGE value="v1.2.10&#10;update get started" />
     <MESSAGE value="v1.2.12&#10;update to kubetools" />
     <MESSAGE value="v1.2.13&#10;update to go sdk docs" />
@@ -451,6 +463,8 @@
     <MESSAGE value="add Quick Start" />
     <MESSAGE value="tag" />
     <MESSAGE value="add videos and java docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="add videos and java docs" />
+    <MESSAGE value="make video responsive" />
+    <MESSAGE value="kubemqctl installation update" />
+    <option name="LAST_COMMIT_MESSAGE" value="kubemqctl installation update" />
   </component>
 </project>
