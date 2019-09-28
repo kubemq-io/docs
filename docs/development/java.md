@@ -64,7 +64,7 @@ Javadoc is used for documentation. You can generate HTML locally with the follow
 
 ## Running the examples
 
-The [examples](https://github.com/kubemq-io/Java_SDK/tree/v1.0.1/examples)
+The [examples](https://github.com/kubemq-io/kubemq-Java/tree/master/examples/src/main/java/io/kubemq/sdk/examples)
 are standalone projects that showcase the usage of the SDK.
 
 To run the examples, you need to have a running instance of KubeMQ.
