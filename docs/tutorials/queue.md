@@ -1,5 +1,5 @@
 ---
-title: Queue
+title: Queues
 lang: en-US
 description: 'KubeMQ queue tutorial'
 tags: ['pub/sub','rpc','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','guide','tutorial','queue']
@@ -42,50 +42,87 @@ KubeMQ allows the producer to send single and/or batch messages in one command.
 ### Message Expiration (TTL)
 KubeMQ allows the producer to set each message with an expiration time (in seconds) also known as Time To Live (TTL). After this time, the message will not be longer available to any consumer.
 
-![image info](./images/queue-expiration.png)
+
 
 #### Demo
 
-![kubemqctl-queue-send-expiration.gif](./demo/kubemqctl-queue-send-expiration.gif)
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/cLdMIz9K0bg" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
+
 
 ### Message Delay (Scheduled Messages)
 KubeMQ allows the producer to set each message with sending delay (in seconds) time, also known as Scheduled Messages. Until this time, the message will not be available to and consumer.
 
-![image info](./images/queue-delay.png)
+
 
 #### Demo
 
-![kubemqctl-queue-send-delay.gif](./demo/kubemqctl-queue-send-delay.gif)
+
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/Eiwb6n65b8A" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
+
+
 
 ### Dead-Letter Queue
 KubeMQ allows a producer to set a dead-letter queue per each message a which the message will be moved onto in case of a consumer will fail to ack the message (such a poison message).
 
- ![image info](./images/queue-dead-letter.png)
 
 #### Demo
 
-![kubemqctl-queue-send-dead-letter.gif](./demo/kubemqctl-queue-send-dead-letter.gif)
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/Cwz-_sbmyOk" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
+
+
 
 ## Consume from Queue
 
 ### Long Polling
 KubeMQ allows the consumer to connect to KubeMQ and wait for a specified time until a message is available in the queue to consume.
 
-![image info](./images/queue-long-polling.png)
+
+
 
 #### Demo
 
-![kubemqctl-queue-long-polling.gif](./demo/kubemqctl-queue-long-polling.gif)
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/x_XOqjKZlK" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
 
 ### Peak Queue Messages
 
 KubeMQ allows a consumer to peak one or many messages in the queue without removing them from the queue.
 
-![image info](./images/queue-peak.png)
 
 #### Demo
 
-![kubemqctl-queue-peak.gif](./demo/kubemqctl-queue-peak.gif)
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/eGnme7rG5mY" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
+
+
 
 ### Ack All Queue Messages
 
