@@ -856,4 +856,12 @@ A response for a successful command will look like this:
 
 ## Demo
 
-![kubemqctl-pub-sub-events-basic.gif](./demo/kubemqctl-pub-sub-events-basic.gif)
+
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/x02IXA9VpoU" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
+

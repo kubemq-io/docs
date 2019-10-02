@@ -28,6 +28,8 @@ In the next step, we will install the kubemqctl the KubeMQ CLI and validate that
 
 ## Step 1 - Get KubeMQ CLI - kubemqctl
 
+Kubemqctl is a CLI (Command Line Interface) tool to deploy and manage KubeMQ clusters.
+
 ### macOS / Linux
 
 ```bash
@@ -54,6 +56,8 @@ $env:Path += ';C:\Program Files\kubemqctl'
 
 ## Step 2 - Create KubeMQ Cluster
 
+Now that you have kubemqctl installed, we will create a KubeMQ cluster:
+
 Run kubemqctl create cluster command:
 
 ``` bash
@@ -63,11 +67,15 @@ kubemqctl cluster create -t <YOUR_KUBEMQ_TOKEN>
 
 ## Step 3 - Send 'hello-world'
 
+After you have created a KubeMQ cluster, you can send hello-world message to q1 queue channel.
+
 ``` bash
 kubemqctl queue send q1 hello-world
 ```
 
 ## Step 4 - Get 'hello-world'
+
+After you have sent a message to q1 queue channel, you can retrieve the message like this:
 
 ``` bash
 kubemqctl queue receive q1

@@ -874,4 +874,10 @@ $.ajax(settings).done(function (response) {
 
 ## Demo
 
-![kubemqctl-rpc-commands-send-response.gif](./demo/kubemqctl-rpc-commands-send-response.gif)
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/MVnpbiIJjEQ" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>

@@ -1,5 +1,5 @@
 ---
-title: 'Queue'
+title: 'Queues'
 lang: en-US
 type: 'article'
 description: 'Get started with KubeMQ and Queue pattern'
@@ -734,4 +734,10 @@ You can get Queues information by running `kubemqctl queues list`.
 
 ## Demo
 
-![kubemqctl-queue-send-receive.gif](./demo/kubemqctl-queue-send-receive.gif)
+<div class="video-block">
+    <iframe width="1280" height="720"
+      src="https://www.youtube.com/embed/mIMThCItlHU" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+</div>
