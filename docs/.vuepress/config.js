@@ -75,6 +75,21 @@ module.exports = {
                 ]
             },
             {
+                title: 'Operations',
+                collapsable: false,
+                children: [
+                    '/operations/status',
+                    '/operations/context',
+                    '/operations/create',
+                    '/operations/delete',
+                    '/operations/describe',
+                    '/operations/events',
+                    '/operations/logs',
+                    '/operations/proxy',
+                    '/operations/scale',
+                ]
+            },
+            {
                 title: 'Configuration',
                 collapsable: false,
                 children: [
