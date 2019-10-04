@@ -78,15 +78,17 @@ module.exports = {
                 title: 'Operations',
                 collapsable: false,
                 children: [
+                    '/operations/create',
+//                    '/operations/apply',
                     '/operations/status',
                     '/operations/context',
-                    '/operations/create',
                     '/operations/delete',
                     '/operations/describe',
-                    '/operations/events',
+                   '/operations/events',
                     '/operations/logs',
                     '/operations/proxy',
                     '/operations/scale',
+
                 ]
             },
             {
