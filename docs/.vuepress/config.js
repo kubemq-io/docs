@@ -95,7 +95,14 @@ module.exports = {
                 title: 'Configuration',
                 collapsable: false,
                 children: [
-                    // '/configuration/Kubemqctl',
+                    {
+                        title: 'Recipes',
+                        collapsable: true,
+                        children: [
+                             '/configuration/recipes/config-security',
+
+                        ]
+                    },
                     '/configuration/manual',
                 ]
             },
