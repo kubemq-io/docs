@@ -98,10 +98,15 @@ module.exports = {
                     {
                         title: 'Recipes',
                         collapsable: true,
-                        children: [
-                             '/configuration/recipes/config-security',
+                        children: [{
+                            title: 'Authentication',
+                            collapsable: true,
+                            children: [
+                                '/configuration/recipes/authentication/config-security',
 
-                        ]
+                            ]
+                        }
+                        ],
                     },
                     '/configuration/manual',
                 ]
