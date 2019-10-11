@@ -103,7 +103,10 @@ module.exports = {
                                 title: 'Basic',
                                 collapsable: true,
                                 children: [
+                                    '/configuration/recipes/basic/basic-name',
+                                    '/configuration/recipes/basic/basic-namespace',
                                     '/configuration/recipes/basic/basic-expose',
+
                                 ]
                             },
                             {
