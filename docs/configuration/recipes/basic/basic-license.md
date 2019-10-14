@@ -8,7 +8,7 @@ tags: ['pub/sub','message broker','KubeMQ']
 
 ## Set License Data
 
-In case when there is a need to create a KubeMQ cluster with license data (i.e no Internet connection to Kubernetes cluster), please follow the steps below:
+In case when there is a need to create a KubeMQ cluster with license data (i.e. no Internet connection to Kubernetes cluster), please follow the steps below:
 
 ### Use kubemqctl tool to set license data
 Run the following commands:
@@ -33,7 +33,7 @@ kubemqctl cluster create -t 1b124xxxxx6-4fra-49e9-94e1-aa29b7be70d6 -o
 
 - Press 'Enter' to skip proxy settings.
 
-![basic-license-3.png](images/basic-license-3-.png)
+![basic-license-3.png](images/basic-license-3.png)
 
 - Press 'Enter' and deploy KubeMQ.
 
