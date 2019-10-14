@@ -2,7 +2,7 @@
 title: 'Expose Cluster'
 lang: en-US
 type: 'article'
-description: 'KubeMQ Cluster Operations'
+description: 'KubeMQ Cluster Recipes'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
 
@@ -14,7 +14,7 @@ KubeMQ supports the setting of exposing gRPC, REST, and API services in 3 modes:
  - LoadBalancer - Ports are exposed externally with Load Balancer
 
 ### Use kubemqctl tool to set Cluster Service Mode
-Run the following commands
+Run the following commands:
 
 - Create a KubeMQ cluster with options configuration (-o flag).
 

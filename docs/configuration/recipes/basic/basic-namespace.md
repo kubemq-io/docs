@@ -2,7 +2,7 @@
 title: 'Set Cluster Namespace'
 lang: en-US
 type: 'article'
-description: 'KubeMQ Cluster Operations'
+description: 'KubeMQ Cluster Recipes'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
 
@@ -11,7 +11,7 @@ tags: ['pub/sub','message broker','KubeMQ']
 KubeMQ default cluster namespace is 'kubemq'. If you want to set a different namespace, please follow the steps below:
 
 ### Use kubemqctl tool to set Cluster namespace
-Run the following commands
+Run the following commands:
 
 - Create a KubeMQ cluster with options configuration (-o flag).
 

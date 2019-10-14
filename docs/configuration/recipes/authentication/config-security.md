@@ -11,7 +11,7 @@ tags: ['pub/sub','message broker','KubeMQ']
 KubeMQ supports the setting of TLS Authentication certifications and keys for both gRPC and REST interfaces.
 
 ### Use kubemqctl tool to set TLS certificates for KubeMQ interfaces
-Run the following commands
+Run the following commands:
 
 - Create KubeMQ cluster with options configuration (-o flag)
 

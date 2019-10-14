@@ -2,7 +2,7 @@
 title: 'Set Cluster Name'
 lang: en-US
 type: 'article'
-description: 'KubeMQ Cluster Operations'
+description: 'KubeMQ Cluster Recipes'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
 
@@ -11,7 +11,7 @@ tags: ['pub/sub','message broker','KubeMQ']
 KubeMQ default cluster name is 'kubemq-cluster'. If you want to set a different name, please follow the steps below:
 
 ### Use kubemqctl tool to set the Cluster name
-Run the following commands
+Run the following commands:
 
 - Create a KubeMQ cluster with options configuration (-o flag).
 

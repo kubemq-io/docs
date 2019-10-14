@@ -97,11 +97,11 @@ module.exports = {
                 children: [
                     {
                         title: 'Recipes',
-                        collapsable: true,
+                        collapsable: false,
                         children: [
                             {
                                 title: 'Basic',
-                                collapsable: true,
+                                collapsable: false,
                                 children: [
                                     '/configuration/recipes/basic/basic-name',
                                     '/configuration/recipes/basic/basic-namespace',
@@ -110,8 +110,15 @@ module.exports = {
                                 ]
                             },
                             {
+                                title: 'Cluster',
+                                collapsable: false,
+                                children: [
+                                    '/configuration/recipes/cluster/register',
+                                ]
+                            },
+                            {
                             title: 'Authentication',
-                            collapsable: true,
+                            collapsable: false,
                             children: [
                                 '/configuration/recipes/authentication/config-security',
                             ]
