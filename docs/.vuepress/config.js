@@ -88,7 +88,7 @@ module.exports = {
                     '/operations/logs',
                     '/operations/proxy',
                     '/operations/scale',
-
+                    '/operations/register'
                 ]
             },
             {
@@ -105,15 +105,8 @@ module.exports = {
                                 children: [
                                     '/configuration/recipes/basic/basic-name',
                                     '/configuration/recipes/basic/basic-namespace',
+                                    '/configuration/recipes/basic/basic-license',
                                     '/configuration/recipes/basic/basic-expose',
-
-                                ]
-                            },
-                            {
-                                title: 'Cluster',
-                                collapsable: false,
-                                children: [
-                                    '/configuration/recipes/cluster/register',
                                 ]
                             },
                             {
