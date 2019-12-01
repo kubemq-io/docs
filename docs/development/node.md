@@ -1,11 +1,11 @@
 ---
-title: Node
+title: NodeJS
 lang: en-US
 description: 'Node KubeMQ SDK reference'
 tags: ['pub/sub','message broker','KubeMQ','kubernetes','docker','cloud native','message queue','nodejs']
 ---
 
-# Nodejs
+# NodeJS
 
 The **KubeMQ SDK for Nodejs** enables Nodejs developers to communicate with [KubeMQ](https://kubemq.io/) server.
 
@@ -98,7 +98,7 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 
 ### Send Message to a Queue
 
-```Nodejs
+```js
 let channelName     =     "queue";
 let kubemqAdd       =      "localhost:50000";
 let message_queue   =     new MessageQueue(kubemqAdd,channelName,"transaction");
@@ -127,7 +127,7 @@ let message          =     new msgQueue.Message("FirstMessage",bytes,tags);
 
  ### Send Message to a Queue with Expiration
 
-```Nodejs
+```js
       let bytes               =     [];
 
       for(let i = 0; i < "myQueueTestMessage".length; i++) {
@@ -152,7 +152,7 @@ let message          =     new msgQueue.Message("FirstMessage",bytes,tags);
 
 ### Send Message to a Queue with Delay
 
-```Nodejs
+```js
       let bytes               =     [];
 
       for(let i = 0; i < "myQueueTestMessage".length; i++) {
@@ -179,7 +179,7 @@ let message          =     new msgQueue.Message("FirstMessage",bytes,tags);
 
 ### Send Batch Messages
 
-```Nodejs
+```js
   let channelName     =     "test-batch-queue";
         let kubemqAdd       =      "localhost:50000";
         let bytes               =     [];
@@ -208,7 +208,7 @@ let message          =     new msgQueue.Message("FirstMessage",bytes,tags);
 
 ### Receive Messages from a Queue
 
-```Nodejs
+```js
         let channelName     =     "test-receive-queue";
         let kubemqAdd       =      "localhost:50000";
         let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-receive-queue");
@@ -222,7 +222,7 @@ let message          =     new msgQueue.Message("FirstMessage",bytes,tags);
 
 ### Peek Messages from a Queue
 
-```Nodejs
+```js
 let channelName     =     "test-peek-queue";
 let kubemqAdd       =      "localhost:50000";
 let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue");
@@ -232,7 +232,7 @@ let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue
 ```
 ### Ack All Messages In a Queue
 
-```Nodejs
+```js
   let channelName     =     "test-peek-queue";
   let kubemqAdd       =       "localhost:50000";
  let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue");
@@ -242,7 +242,7 @@ let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue
 ```
 
 ### Transactional Queue - Ack and reject
-```Nodejs
+```js
     let channelName = "transaction-queue";
     let kubemqAdd = "localhost:50000";
     let message_queue = new MessageQueue(kubemqAdd, channelName, "my-transaction");
@@ -297,7 +297,7 @@ let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue
 
 ### Transactional Queue - Extend Visibility
 
-```Nodejs
+```js
     let channelName = "transaction-queue";
     let kubemqAdd = "localhost:50000";
     let message_queue = new MessageQueue(kubemqAdd, channelName, "my-transaction");
@@ -324,7 +324,7 @@ let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue
 
 ### Transactional Queue - Resend to New Queue
 
-```Nodejs
+```js
 
 let channelName = "transaction-queue";
 let kubemqAdd = "localhost:50000";
@@ -349,7 +349,7 @@ function queueHandler(recm) {
 ```
 
 ### Transactional Queue - Resend Modified Message
-```Nodejs
+```js
 let channelName = "transaction-queue";
 let kubemqAdd = "localhost:50000";
 let message_queue = new MessageQueue(kubemqAdd, channelName, "my-resend");
@@ -377,7 +377,7 @@ function queueHandler(recm) {
 
 
 #### Single event
-```Nodejs
+```js
 let pub = new publish.Publisher('localhost', '50000', 'pub', 'pubsub');
 
 let event = new publish.Event(byteConverter.stringToByte('test'));
@@ -390,7 +390,7 @@ pub.send(event).then(res => {
 ```
 
 #### Stream Events
-```Nodejs
+```js
 
 let kubemqAdd = "localhost:50000";
 
@@ -424,7 +424,7 @@ for (let i = 1; i < 5; i++) {
 
 ### Receiving Events
 
-```Nodejs
+```js
 var subscriber = require('../pubSub/events/subscriber');
 let sub = new subscriber.Subscriber('localhost', '50000', 'sub', 'pubsub');
 
@@ -457,7 +457,7 @@ KubeMQ supports six types of subscriptions:
 
 #### Single Event Store
 
-```Nodejs
+```js
 var storePublish = require('../pubSub/eventsStore/StorePublisher');
 let storePub = new storePublish.StorePublisher('localhost', '50000', 'pub', 'pubsubper');
 
@@ -471,7 +471,7 @@ storePub.send(eventStore).then(res => {
 
 ### Receiving Events Store
 
-```Nodejs
+```js
   var storeSubscriber = require('../pubSub/eventsStore/StoreSubscriber');
 let storeSub = new storeSubscriber.StoreSubscriber('localhost', '50000', 'sub', 'pubsubper');
 
@@ -489,7 +489,7 @@ Commands implement the synchronous messaging pattern in which the sender sends a
 The response can be successful or not. This is the responsibility of the responder to return with the result of the command within the time the sender set in the request.
 
 #### Receiving Commands Requests
-```Nodejs
+```js
   var commandReceiver = require('../rpc/command/commandReceiver');
 
 
@@ -511,7 +511,7 @@ cmdRes.subscribe(cmd => {
 
 ### Sending Command Request
 
-```Nodejs
+```js
 var byteConv = require('../tools/stringToByte');
 
 const commandSender = require('../rpc/command/commandSender');
@@ -527,7 +527,7 @@ sender.send(request).then(
 
 ### Sending Command Request Async
 
-```Nodejs
+```js
   var byteConv = require('../tools/stringToByte');
 
 const commandSender = require('../rpc/command/commandSender');
@@ -551,7 +551,7 @@ The response must include metadata or body together with an indication of succes
 
 ### Receiving Query Requests
 
-```Nodejs
+```js
   var qryResClass = require('../rpc/query/queryReceiver');
 
 var byteConv = require('../tools/stringToByte');
@@ -576,7 +576,7 @@ query.subscribe(qry => {
 
 ### Sending Query Requests
 
-```Nodejs
+```js
  
 var qrySendClass = require('../rpc/query/querySender');
 var qrySend = new qrySendClass.QuerySender('localhost', '50000', 'cc1', 'qry', 10000);
