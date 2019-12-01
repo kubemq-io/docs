@@ -601,7 +601,7 @@ The code snippet will available soon
 
 <template v-slot:node>
 
-The following node code snippet is using KubeMQ's REST interface:
+
 
 ``` js
 var http = require('http');
@@ -735,9 +735,5 @@ You can get Queues information by running `kubemqctl queues list`.
 ## Demo
 
 <div class="video-block">
-    <iframe width="1280" height="720"
-      src="https://www.youtube.com/embed/mIMThCItlHU" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+   <iframe src="https://player.vimeo.com/video/372195918" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 </div>

@@ -47,7 +47,7 @@ $env:Path += ';C:\Program Files\kubemqctl'
 ```
 
 
-The you can select one of the following options:
+Then you can select one of the following options:
 
 
 <CodeSwitcher :languages="{default:'With Default Options',options:'With Expert Configuration',import:'With Yaml File'}" :isolated="true">

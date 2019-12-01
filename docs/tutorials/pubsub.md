@@ -34,15 +34,23 @@ In Events, multiple senders can send real-time messages to various receivers; ho
 
 ### Demo - Basic
 
-![kubemqctl-pub-sub-events-basic.gif](./demo/kubemqctl-pub-sub-events-basic.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372195988" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 ### Demo - Group (Load Balancing)
 
-![kubemqctl-pub-sub-events-group.gif](./demo/kubemqctl-pub-sub-events-group.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372195963" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
 
 ### Demo - Wildcards
 
-![kubemqctl-pub-sub-events-wildcards.gif](./demo/kubemqctl-pub-sub-events-wildcards.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372196013" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
 
 ## Events Store
 Events Store is an asynchronous Pub/Sub pattern with persistence.
@@ -69,8 +77,9 @@ KubeMQ supports six types of Events Store subscriptions and replay:
 ![image info](./images/event-store-from-new.png)
 
 ##### Demo
-
-![kubemqctl-pub-sub-events-store-start-from-new.gif](./demo/kubemqctl-pub-sub-events-store-start-from-new.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372195866" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 #### Start From First Event
 
@@ -78,35 +87,45 @@ KubeMQ supports six types of Events Store subscriptions and replay:
 
 ##### Demo
 
-![kubemqctl-pub-sub-events-store-start-from-first.gif](./demo/kubemqctl-pub-sub-events-store-start-from-first.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372196147" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
 
 #### Start From Last Event
 
 ![image info](./images/event-store-from-last.png)
 
 ##### Demo
-![kubemqctl-pub-sub-events-store-start-from-last.gif](./demo/kubemqctl-pub-sub-events-store-start-from-last.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372196161" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 #### Start From Sequence
 
 ![image info](./images/event-store-from-seq.png)
 ##### Demo
-![kubemqctl-pub-sub-events-store-start-from-seq.gif](./demo/kubemqctl-pub-sub-events-store-start-from-seq.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372195881" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 #### Start From Time
 
 ![image info](./images/event-store-from-time.png)
 
 ##### Demo
-![kubemqctl-pub-sub-events-store-start-from-time.gif](./demo/kubemqctl-pub-sub-events-store-start-from-time.gif)
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372195889" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 #### Start From Time Delta
 
 ![image info](./images/event-store-from-time-delta.png)
 
 ##### Demo
-![kubemqctl-pub-sub-events-store-start-from-duration.gif](./demo/kubemqctl-pub-sub-events-store-start-from-duration.gif)
-
+<div class="video-block">
+<iframe src="https://player.vimeo.com/video/372195899" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 ### Grouping - Load Balancing
 KubeMQ supports grouping (load balancing) of multiple receivers to share the load

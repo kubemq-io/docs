@@ -11,7 +11,7 @@ Peek a messages from a queue channel command
 
 ### Synopsis
 
-Peek command allows to peak one or many messages from a queue channel without removing them from the queue
+Peek command allows to peek one or many messages from a queue channel without removing them from the queue
 
 ```
 kubemqctl queues peek [flags]

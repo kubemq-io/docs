@@ -113,7 +113,7 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 - RPC and Stream Flow - RPC flow allows an insert and pulls messages in one call. Stream flow allows single message consuming in a transactional way
 - Message Policy - Each message can be configured with expiration and delay timers. Also, each message can specify a dead-letter queue for un-processed messages attempts
 - Long Polling - Consumers can wait until a message available in the queue to consume
-- Peak Messages - Consumers can peak into a queue without removing them from the queue
+- Peak Messages - Consumers can peek into a queue without removing them from the queue
 - Ack All Queue Messages - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
 - Visibility timers - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
 - Resend Messages - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
@@ -356,7 +356,7 @@ var queue = new KubeMQ.SDK.csharp.Queue.Queue("QueueName", "ClientID", "localhos
 
             { 
 
-                Console.WriteLine($"Message peak error, error:{resPeak.Error}"); 
+                Console.WriteLine($"Message peek error, error:{resPeak.Error}"); 
 
                 return; 
 

@@ -71,7 +71,9 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '/installation/kubernetes',
-                    '/installation/docker',
+                    '/installation/microk8s',
+                    '/installation/k3s',
+                    '/installation/docker'
                 ]
             },
             {
@@ -221,6 +223,7 @@ module.exports = {
                     '/development/java',
                     '/development/go',
                     '/development/python',
+                    '/development/node',
                     '/development/rest',
                     '/development/examples'
                 ]

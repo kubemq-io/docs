@@ -332,45 +332,18 @@ When executed, a stream of events messages will be shown in the console.
 
 <template v-slot:node>
 
-The following Node code snippet is using KubeMQ's REST interface:
 
 ``` js
-var http = require('http');
+var byteConverter = require('../tools/stringToByte');
+var subscriber = require('../pubSub/events/subscriber');
+let sub = new subscriber.Subscriber('localhost', '50000', 'sub', 'pubsub');
 
-var options = {
-  'method': 'GET',
-  'hostname': 'localhost',
-  'port': '9090',
-  'path': '/subscribe/events?client_id=some_client_id&channel=hello-world&group=some_group&subscribe_type=events',
-  'headers': {
-    'Content-Type': 'application/json',
-  }
-};
+sub.subscribeToEvents(msg => {
+    console.log('msg:' + String.fromCharCode.apply(null, msg.Body))
+}
+    , err => { console.log('error:' + err) })
 
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function (chunk) {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-
-  res.on("error", function (error) {
-    console.error(error);
-  });
-});
-
-req.end();
 ```
-
-
-::: warning
-Subscribe to Events in REST interface is using WebSocket for streaming (Push) events to the consumer. You will need to implement a WebSocket receiver accordingly.
-:::
 
 </template>
 
@@ -678,43 +651,16 @@ if __name__ == "__main__":
 
 <template v-slot:node>
 
-The following node code snippet is using KubeMQ's REST interface:
 
 ``` js
-var http = require('http');
+var publish = require('../pubSub/events/publisher');
+let pub = new publish.Publisher('localhost', '50000', 'pub', 'pubsub');
 
-var options = {
-  'method': 'POST',
-  'hostname': 'localhost',
-  'port': '9090',
-  'path': '/send/event',
-  'headers': {
-    'Content-Type': 'application/json',
-  }
-};
+let event = new publish.Event(byteConverter.stringToByte('test'));
 
-var req = https.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function (chunk) {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-
-  res.on("error", function (error) {
-    console.error(error);
-  });
+pub.send(event).then(res => {
+    console.log(res);
 });
-
-var postData =  "{\n    \"EventID\": \"1234-5678-90\",\n    \"ClientID\": \"events-client-id\",\n    \"Channel\": \"hello-world\",\n    \"Metadata\": \"some-metadata\",\n    \"Body\": \"c29tZSBlbmNvZGVkIGJvZHk=\",\n    \"Store\": false\n}";
-
-req.write(postData);
-
-req.end();
 ```
 
 A response for a successful command will look like this:
@@ -858,10 +804,6 @@ A response for a successful command will look like this:
 
 
 <div class="video-block">
-    <iframe width="1280" height="720"
-      src="https://www.youtube.com/embed/x02IXA9VpoU" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+   <iframe src="https://player.vimeo.com/video/372195907" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 </div>
 

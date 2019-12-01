@@ -10,11 +10,11 @@
         "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
         "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
         "@vuepress/plugin-nprogress": "^1.0.0-rc.1",
-        "vuepress": "^1.0.2",
+        "markdown-it-footnote": "^3.0.2",
+        "vuepress": "^1.2.0",
         "vuepress-plugin-code-switcher": "^1.0.0",
         "vuepress-plugin-element-tabs": "^0.1.8",
-        "vuepress-plugin-seo": "^0.1.2",
-        "markdown-it-footnote": "^3.0.2"
+        "vuepress-plugin-seo": "^0.1.2"
     },
     "dependencies": {
         "@dovyp/vuepress-plugin-clipboard-copy": "^1.0.0-alpha.7",
@@ -24,7 +24,6 @@
         "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
         "@vuepress/plugin-nprogress": "^1.0.0-rc.1",
         "markdown-it-footnote": "^3.0.2",
-        "vuepress": "^1.0.2",
         "vuepress-plugin-code-switcher": "^1.0.0",
         "vuepress-plugin-element-tabs": "^0.1.8",
         "vuepress-plugin-seo": "^0.1.2",

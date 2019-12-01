@@ -20,11 +20,13 @@ KubeMQ is provided as a small, lightweight Docker container, designed for any wo
 - Runs in Single and cluster modes
 - No Message broker configuration needed (i.e., queues, exchanges)
 - Built-in Caching, Metrics, and Tracing
-- .Net, Java, Python, Go SDKs
+- .Net, Java, Python, Go and NodeJS SDKs
 - Monitoring Dashboard
 
 ## Kubernetes and Docker Ready
 - **Kubernetes** - KubeMQ can be deployed on any Kubernetes cluster as stateful set.
+- **MicroK8s** - [Canonical's MicroK8s](https://microk8s.io/)
+- **K3s** - [Rancher's](https://k3s.io/)
 - **Docker** - KubeMQ can run as a single docker container or as high availability cluster.
 
 ## Messaging Patterns
@@ -37,7 +39,7 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 - **RPC and Stream Flows** - RPC flow allows an insert and pull messages in one call. Stream flow allows single message consuming in transactional way
 - **Message Policy** - Each message can be configured with expiration and delay timers. In addition, each message can specify a dead-letter queue for un-processed messages attempts
 - **Long Polling** - Consumers can wait until a message available in the queue to consume
-- **Peak Messages** - Consumers can peak into a queue without removing them from the queue
+- **Peak Messages** - Consumers can peek into a queue without removing them from the queue
 - **Ack All Queue Messages** - Any client can mark all the messages in a queue as discarded and will not be available anymore to consume
 - **Visibility timers** - Consumers can pull a message from the queue and set a timer which will cause the message not be visible to other consumers. This timer can be extended as needed.
 - **Resend Messages** - Consumers can send back a message they pulled to a new queue or send a modified message to the same queue for further processing.
@@ -70,7 +72,7 @@ KubeMQ supports CQRS based RPC flows with the following core features:
 - **Go** - Go SDK based on gRPC
 - **Python** - Python SDK based on gRPC
 - **cURL** - cURL SDK based on Rest
-- **Node** - Node SDK based on Rest
+- **Node** - Node SDK based on gRPC and Rest
 - **PHP** - PHP SDK based on Rest
 - **Ruby** - Ruby SDK based on Rest
 - **jQuery** jQuery SDK based Rest
