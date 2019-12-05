@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="adding Operations">
-      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/cluster/images/cluster-register-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/cluster/images/cluster-register-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/cluster/images/cluster-register-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/cluster/images/cluster-register-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/cluster/register.md" afterDir="false" />
+    <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="adding recipes license">
+      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-persistence.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/images/basic-pvc-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/images/basic-pvc-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/images/basic-pvc-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration/recipes/authentication/config-security.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration/recipes/authentication/config-security.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-expose.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-expose.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-name.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-name.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-namespace.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration/recipes/basic/basic-namespace.md" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,10 +26,16 @@
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1OxoBFpjDtyHeqRaWoKt29b4Gad" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
@@ -46,36 +46,36 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/configuration/recipes/cluster/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/configuration/recipes/basic/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\configuration\recipes\cluster\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\configuration\recipes\cluster" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\operations\images" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\Operations" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\introduction\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\configuration\recipes\basic\images" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\configuration\recipes\basic" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\development" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation" />
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\introduction" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\use-cases\pipeline-message-processing" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\introduction" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\installation\images" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs" />
       <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\tutorials\demo" />
-      <recent name="D:\Development\bitbucket\go\projects\kubemq\docs\docs\.vuepress\configuration" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -86,41 +86,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563361583021</updated>
-    </task>
-    <task id="LOCAL-00005" summary="v1.2.0">
-      <created>1563473324726</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1563473324727</updated>
-    </task>
-    <task id="LOCAL-00006" summary="v1.2.0">
-      <created>1563507137664</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1563507137664</updated>
-    </task>
-    <task id="LOCAL-00007" summary="v1.2.1&#10;Fix typos">
-      <created>1563510583290</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1563510583290</updated>
-    </task>
-    <task id="LOCAL-00008" summary="v1.2.1&#10;add dist">
-      <created>1563525489550</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1563525489550</updated>
-    </task>
-    <task id="LOCAL-00009" summary="-v1.2.4">
-      <created>1563713751149</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1563713751149</updated>
     </task>
     <task id="LOCAL-00010" summary="v1.2.5&#10;major upgrade">
       <created>1563820157912</created>
@@ -430,7 +395,42 @@
       <option name="project" value="LOCAL" />
       <updated>1570194353738</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="adding register recipes">
+      <created>1571046315507</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1571046315507</updated>
+    </task>
+    <task id="LOCAL-00055" summary="adding recipes license">
+      <created>1571076336908</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1571076336908</updated>
+    </task>
+    <task id="LOCAL-00056" summary="-add nodejs&#10;- update vimeo&#10;- add installation for micro and k3s">
+      <created>1575222822653</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1575222822653</updated>
+    </task>
+    <task id="LOCAL-00057" summary="update nodejs sdk">
+      <created>1575223330943</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1575223330943</updated>
+    </task>
+    <task id="LOCAL-00058" summary="update get started with NodeJS code">
+      <created>1575529613912</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1575529613912</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,11 +476,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update queue get started" />
-    <MESSAGE value="adding get started for rpc and queue" />
-    <MESSAGE value="update introduction" />
-    <MESSAGE value="update kubetools&#10;update configuration" />
-    <MESSAGE value="create get started&#10;fix typos" />
     <MESSAGE value="fix typos" />
     <MESSAGE value="update c# get started" />
     <MESSAGE value="change to configuration and fix typos" />
@@ -501,6 +496,45 @@
     <MESSAGE value="update java sdk" />
     <MESSAGE value="update docs with videos" />
     <MESSAGE value="adding Operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding Operations" />
+    <MESSAGE value="adding register recipes" />
+    <MESSAGE value="adding recipes license" />
+    <MESSAGE value="-add nodejs&#10;- update vimeo&#10;- add installation for micro and k3s" />
+    <MESSAGE value="update nodejs sdk" />
+    <MESSAGE value="update get started with NodeJS code" />
+    <option name="LAST_COMMIT_MESSAGE" value="update get started with NodeJS code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1162" y="356" key="CommitChangelistDialog2" timestamp="1575529609933">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1162" y="356" key="CommitChangelistDialog2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575529609933" />
+    <state x="93" y="93" width="2886" height="1502" key="DiffContextDialog" timestamp="1575197382829">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="93" y="93" width="2886" height="1502" key="DiffContextDialog/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575197382829" />
+    <state x="1317" y="599" key="FileChooserDialogImpl" timestamp="1575283547686">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1317" y="599" key="FileChooserDialogImpl/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575283547686" />
+    <state x="1292" y="624" key="MarkdownNavigator.LinkFormatDialog" timestamp="1575219283562">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1292" y="624" key="MarkdownNavigator.LinkFormatDialog/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575219283562" />
+    <state x="1315" y="474" key="RollbackChangesDialog" timestamp="1575197360465">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1315" y="474" key="RollbackChangesDialog/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575197360465" />
+    <state x="1129" y="577" key="Vcs.Push.Dialog.v2" timestamp="1575529616677">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1129" y="577" key="Vcs.Push.Dialog.v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575529616677" />
+    <state x="1346" y="761" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575197406693">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1346" y="761" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575197406693" />
+    <state x="1366" y="123" width="1561" height="1026" key="find.popup" timestamp="1575529442932">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="1366" y="123" width="1561" height="1026" key="find.popup/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575529442932" />
   </component>
 </project>

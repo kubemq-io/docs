@@ -110,6 +110,7 @@ module.exports = {
                                     '/configuration/recipes/basic/basic-license',
                                     '/configuration/recipes/basic/basic-proxy',
                                     '/configuration/recipes/basic/basic-expose',
+                                    '/configuration/recipes/basic/basic-persistence',
                                 ]
                             },
                             {
