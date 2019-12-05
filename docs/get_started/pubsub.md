@@ -70,7 +70,7 @@ kubemqctl cluster proxy
 
 A consumer can subscribe to the "hello-world" channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`NodeJS`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 <template v-slot:bash>
 
@@ -332,17 +332,24 @@ When executed, a stream of events messages will be shown in the console.
 
 <template v-slot:node>
 
+The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var byteConverter = require('../tools/stringToByte');
-var subscriber = require('../pubSub/events/subscriber');
-let sub = new subscriber.Subscriber('localhost', '50000', 'sub', 'pubsub');
+var Subscriber = require('../pubSub/events/subscriber');
+const byteToString = require('../tools/stringToByte').byteToString;
+
+
+let channelName = 'testing_event_channel', clientID = 'hello-world-subscriber',
+    kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
+
+let sub = new Subscriber(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
 
 sub.subscribeToEvents(msg => {
-    console.log('msg:' + String.fromCharCode.apply(null, msg.Body))
-}
-    , err => { console.log('error:' + err) })
-
+    console.log('Event Received: EventID:' + msg.EventID + ', Channel:' + msg.Channel + ' ,Metadata:' + msg.Metadata + ', Body:' + byteToString(msg.Body));
+}, err => {
+    console.log('error:' + err)
+})
+ 
 ```
 
 </template>
@@ -453,7 +460,7 @@ Subscribe to Events in REST interface is using WebSocket for streaming (Push) ev
 After you have subscribed to a hello-world channel, you can send your message to it.
 
 
-<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`NodeJS`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
@@ -651,30 +658,28 @@ if __name__ == "__main__":
 
 <template v-slot:node>
 
+The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var publish = require('../pubSub/events/publisher');
-let pub = new publish.Publisher('localhost', '50000', 'pub', 'pubsub');
+var publisher = require('../pubSub/events/publisher');
+var stringToByte = require('../tools/stringToByte').stringToByte;
 
-let event = new publish.Event(byteConverter.stringToByte('test'));
+let channelName = 'testing_event_channel', clientID = 'hello-world-subscriber',
+    kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
 
-pub.send(event).then(res => {
-    console.log(res);
-});
+let pub = new publisher(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+
+let event = new publisher.Event(stringToByte('hello kubemq - sending single event'));
+
+pub.send(event).then(
+    res => {
+        console.log(res);
+    }).catch(
+        err => {
+            console.log('error sending' + err)
+        }); 
 ```
 
-A response for a successful command will look like this:
-
-``` bash
-{
-  "is_error": false,
-  "message": "OK",
-  "data": {
-    "EventID": "1234-5678-90",
-    "Sent": true
-  }
-}
-```
 </template>
 
 <template v-slot:php>

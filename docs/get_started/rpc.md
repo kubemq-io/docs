@@ -69,7 +69,7 @@ kubemqctl cluster proxy
 
 A receiver can subscribe to the `hello-command` channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`NodeJS`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
 Run the following kubemqctl command:
@@ -306,28 +306,28 @@ When executed, a stream of events messages will be shown in the console.
 
 <template v-slot:node>
 
-
+The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-const stringConvert = require('../tools/stringToByte');
+var CommandReceiver = require('../rpc/command/commandReceiver');
+var stringToByte = require('../tools/stringToByte').stringToByte;
 
-var commandReceiver = require('../rpc/command/commandReceiver');
 
+let channelName = 'testing_Command_channel', clientID = 'hello-world-sender',
+    kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
 
-var cmdRes = new commandReceiver.CommandReceiver('localhost', '50000', 'cc', 'cmd');
-cmdRes.subscribe(cmd => {
-    console.log(cmd);
-
-    let respond = new commandReceiver.Response(cmd);
-    respond.Executed = true;
-    cmdRes.sendResponse(respond).then(snd => {
-        'sent:' + snd;
-    }).catch(err => console.log(err));
-
+let receiver = new CommandReceiver(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+receiver.subscribe(cmd => {
+    let response = new CommandReceiver.Response(cmd, true);
+    response.Timestamp = Math.floor(new Date() / 1000);
+    receiver.sendResponse(response).then(snd => {
+        console.log('sent:' + snd);
+    }).catch(cht => console.log(cht));
 }, err => {
     console.log(err);
 }
 )
+
 ```
 
 
@@ -508,7 +508,7 @@ Subscribe to Commands in REST interface is using WebSocket for streaming (Push) 
 After you have subscribed to a hello-command channel, you can send your command to it.
 
 
-<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`NodeJS`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
@@ -692,19 +692,32 @@ The code snippet will available soon
 
 <template v-slot:node>
 
-
+The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var byteConv = require('../tools/stringToByte');
+var stringToByte = require('../tools/stringToByte').stringToByte;
+const CommandSender = require('../rpc/command/commandSender');
 
-const commandSender = require('../rpc/command/commandSender');
+let kubeMQHost = 'localhost', kubeMQGrpcPort = '50000',
+    channelName = 'testing_Command_channel', clientID = 'hello-world-sender',
+    defaultTimeOut = 10000;
 
-var sender = new commandSender.CommandSender('localhost', '50000', 'cc1', 'cmd', 10000);
+var sender = new CommandSender(kubeMQHost, kubeMQGrpcPort, clientID, channelName, defaultTimeOut);
 
-var request = new commandSender.CommandRequest(byteConv.stringToByte(''));
+var request = new CommandSender.CommandRequest(
+    stringToByte(' hello kubemq - sending a command, please reply'));
 
 sender.send(request).then(
-res => { console.log(res.Executed) });
+    res => {
+        if (res.Error) {
+            console.log('Response error: ' + res.message);
+            return;
+        }
+        console.log('Response Received:' + res.RequestID + ' ExecutedAt:' + res.Timestamp);
+    }).catch(
+        err => {
+            console.log('command error: ' + err)
+        });
 ```
 
 </template>

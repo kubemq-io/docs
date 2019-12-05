@@ -71,7 +71,7 @@ kubemqctl cluster proxy
 
 The producer can send a message to the "hello-world-queue" channel with one of the following methods.
 
-<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`NodeJS`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 <template v-slot:bash>
 
 Run the following kubemqctl command:
@@ -262,43 +262,31 @@ When executed, a stream of events messages will be shown in the console.
 
 <template v-slot:node>
 
-The following Node code snippet is using KubeMQ's REST interface:
+The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var http = require('http');
+const Queue = require('../queue/message_queue');
+const Message = require('../queue/message')
+const byteConverter = require('../tools/stringToByte').stringToByte;
 
-var options = {
-    'method': 'POST',
-    'hostname': 'localhost',
-    'port': '9090',
-    'path': '/queue/send',
-    'headers': {
-        'Content-Type': 'application/json'
-    }
-};
+let queueName = 'hello-world-queue', clientID = 'test-queue-client-id2',
+    kubeMQAddress = 'localhost:50000';
 
-var req = http.request(options, function(res) {
-    var chunks = [];
 
-    res.on("data", function(chunk) {
-        chunks.push(chunk);
+let queue = new Queue(kubeMQAddress, queueName, clientID);
+
+queue.sendQueueMessage(
+    new Message('metadata', byteConverter('some-simple_queue-queue-message')))
+    .then(sent => {
+        if (sent.Error) {
+            console.log('message enqueue error, error:' + err);
+        } else {
+            console.log('"message sent at:' + sent.SentAt);
+        }
+    }).catch(err => {
+        console.log('message enqueue error, error:' + err);
     });
 
-    res.on("end", function(chunk) {
-        var body = Buffer.concat(chunks);
-        console.log(body.toString());
-    });
-
-    res.on("error", function(error) {
-        console.error(error);
-    });
-});
-
-var postData = "{\r\n         \"Id\":\"\",\r\n         \"ClientId\":\"send-message-client-id\",\r\n         \"Channel\":\"hello-world-queue\",\r\n         \"Metadata\":\"\",\r\n         \"Body\":\"QmF0Y2ggTWVzc2FnZSAw\",\r\n         \"Tags\":{\r\n            \"message\":\"0\"\r\n         },\r\n         \"Attributes\":null,\r\n         \"Policy\":{\r\n            \"ExpirationSeconds\":5,\r\n            \"DelaySeconds\":5,\r\n            \"MaxReceiveCount\":0,\r\n            \"MaxReceiveQueue\":\"\"\r\n         }\r\n}";
-
-req.write(postData);
-
-req.end();
 ```
 
 
@@ -401,7 +389,7 @@ $.ajax(settings).done(function (response) {
 After you have sent a message to a queue, you can request the message from a queue.
 
 
-<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`Node`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
+<CodeSwitcher :languages="{bash:'kubemqctl',curl:'cURL',csharp:'.Net',java:`Java`,go:`Go`,py:`Python`,node:`NodeJS`,php:`PHP`,ruby:`Ruby`,jquery:`jQuery`}" :isolated="true">
 
 
 <template v-slot:bash>
@@ -601,43 +589,33 @@ The code snippet will available soon
 
 <template v-slot:node>
 
-
+The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var http = require('http');
+const Queue = require('../queue/message_queue');
+const byteToString = require('../tools/stringToByte').byteToString;
 
-var options = {
-    'method': 'POST',
-    'hostname': 'localhost',
-    'port': "9090",
-    'path': '/queue/receive',
-    'headers': {
-        'Content-Type': 'application/json'
+let queueName = 'hello-world-queue', clientID = 'test-queue-client-id2',
+    kubeMQAddress = 'localhost:50000';
+
+
+let queue = new Queue(kubeMQAddress, queueName, clientID);
+queue.receiveQueueMessages(2, 1).then(res => {
+    if (res.Error) {
+        console.log('Message enqueue error, error:' + res.message);
+    } else {
+        if (res.MessagesReceived) {
+            console.log('Received: ' + res.MessagesReceived);
+            res.Messages.forEach(element => {
+                console.log('MessageID:' + element.MessageID + ', Body:' + byteToString(element.Body));
+            });
+        } else {
+            console.log('No messages');
+        }
     }
-};
+}).catch(
+    err => console.log('Error:' + err));
 
-var req = http.request(options, function(res) {
-    var chunks = [];
-
-    res.on("data", function(chunk) {
-        chunks.push(chunk);
-    });
-
-    res.on("end", function(chunk) {
-        var body = Buffer.concat(chunks);
-        console.log(body.toString());
-    });
-
-    res.on("error", function(error) {
-        console.error(error);
-    });
-});
-
-var postData = "{\r\n   \"RequestID\":\"some-request-id\",\r\n   \"ClientID\":\"receive-message-client-id\",\r\n   \"Channel\":\"hello-world-queue\",\r\n   \"MaxNumberOfMessages\":10,\r\n   \"WaitTimeSeconds\":5,\r\n   \"IsPeak\":false\r\n}";
-
-req.write(postData);
-
-req.end()
 ```
 
 </template>
