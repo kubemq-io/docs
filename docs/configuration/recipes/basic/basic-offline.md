@@ -1,19 +1,25 @@
 ---
-title: 'Set License Data'
+title: 'Set Offline Mode'
 lang: en-US
 type: 'article'
 description: 'KubeMQ Cluster Recipes'
 tags: ['pub/sub','message broker','KubeMQ']
 ---
 
-## Set License Data
+## Set Offline Mode
 
-In case when there is a need to create a KubeMQ cluster with license data (i.e. no Internet connection to Kubernetes cluster), please follow the steps below:
+In case when there is a need to create a KubeMQ cluster in offline mode (i.e. no Internet connection to Kubernetes cluster), please follow the steps below:
 
-### Use kubemqctl tool to set license data
+### Use kubemqctl tool to set KubeMQ in offline mode
 Run the following commands:
 
-- Contact [KubeMQ Support team](mailto://support.kubemq.io) with your registered email address and ask for license data.
+- Get license file data.
+
+```bash
+kubemqctl config get_license -t 1b124xxxxx6-4fra-49e9-94e1-aa29b7be70d6
+```
+
+- Copy license data output to your clipboard
 
 - Create a KubeMQ cluster with options configuration (-o flag).
 
@@ -33,7 +39,7 @@ kubemqctl cluster create -t 1b124xxxxx6-4fra-49e9-94e1-aa29b7be70d6 -o
 
 - Press 'Enter' to skip proxy settings.
 
-![basic-license-3.png](images/basic-license-3.png)
+![basic-license-3.png](./images/basic-license-3.png)
 
 - Press 'Enter' and deploy KubeMQ.
 

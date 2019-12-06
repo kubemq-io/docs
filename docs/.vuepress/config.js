@@ -107,7 +107,7 @@ module.exports = {
                                 children: [
                                     '/configuration/recipes/basic/basic-name',
                                     '/configuration/recipes/basic/basic-namespace',
-                                    '/configuration/recipes/basic/basic-license',
+                                    '/configuration/recipes/basic/basic-offline',
                                     '/configuration/recipes/basic/basic-proxy',
                                     '/configuration/recipes/basic/basic-expose',
                                     '/configuration/recipes/basic/basic-persistence',

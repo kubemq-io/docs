@@ -254,7 +254,29 @@ When executed, a stream of events messages will be shown in the console.
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
-The code snippet will available soon
+from kubemq.queue.message_queue import MessageQueue
+from kubemq.queue.message import Message
+
+if __name__ == "__main__":
+
+    queue = MessageQueue("hello-world-queue", "test-queue-client-id2", "localhost:50000")
+    message = Message()
+    message.metadata = 'metadata'
+    message.body = "some-simple_queue-queue-message".encode('UTF-8')
+    message.attributes = None
+    try:
+        sent  = queue.send_queue_message(message)
+        if sent.error:
+            print('message enqueue error, error:' + sent.error)
+        else:
+            print('message sent at: %d' % (
+                sent.sent_at
+                        ))
+    except Exception as err:
+        print('message enqueue error, error:%s'  % (
+                err
+                        ))
+
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -580,7 +602,33 @@ func main() {
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
-The code snippet will available soon
+from kubemq.queue.message_queue import MessageQueue
+if __name__ == "__main__":
+    queue = MessageQueue("hello-world-queue", "test-queue-client-id2", "localhost:50000", 2, 1)
+    try:
+        res = queue.receive_queue_messages()
+        if res.error:
+            print(
+                "'Received:'%s'" % (
+                    res.error
+                            )
+            )
+        else:
+            for message in res.messages:
+                print(
+                        "'MessageID :%s ,Body: sending:'%s'" % (
+                            message.MessageID,
+                            message.Body
+                                    )
+                    )
+    except Exception as err:
+      print(
+            "'error sending:'%s'" % (
+                err
+                        )
+        )
+    input("Press 'Enter' to stop the application...\n")
+
 ```
 
 
