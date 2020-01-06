@@ -99,225 +99,240 @@ KubeMQ supports distributed durable FIFO based queues with the following core fe
 ### Send Message to a Queue
 
 ```js
-let channelName     =     "queue";
-let kubemqAdd       =      "localhost:50000";
-let message_queue   =     new MessageQueue(kubemqAdd,channelName,"transaction");
+const kubemq = require('kubemq-nodejs');
+
+let queueName = 'testQueue', clientID = 'test-queue-client-id2',
+    kubeMQAddress = 'localhost:50000';
 
 
-let bytes               =     [];
+let queue = new kubemq.Queue(kubeMQAddress, queueName, clientID);
 
-for(let i = 0; i < "myQueueTestMessage".length; i++) {
-    let char              =    "TestBody".charCodeAt(i);
-    bytes.push(char >>> 8);
-    bytes.push(char & 0xFF);
-}
-
-let tags           =    [];
-tags[ 'key3' ]     =    "value3";
-tags[ 'key2' ]     =    "value2";
-
-
-let message          =     new msgQueue.Message("FirstMessage",bytes,tags);
-
-    message_queue.sendQueueMessage(message).then(messageQueueResponse =>{
-        let messagesRemaining     =   messages.length;
-        console.log(`finished sending batch ${messagesRemaining} messages`);
+queue.sendQueueMessage(
+    new kubemq.Message('metadata', kubemq.stringToByte('some-simple_queue-queue-message')))
+    .then(sent => {
+        if (sent.Error) {
+            console.log('message enqueue error, error:' + err);
+        } else {
+            console.log('"message sent at:' + sent.SentAt);
+        }
+    }).catch(err => {
+        console.log('message enqueue error, error:' + err);
     });
+
+
 ```
 
  ### Send Message to a Queue with Expiration
 
 ```js
-      let bytes               =     [];
+	const kubemq = require('kubemq-nodejs');
+	let queueName = 'testQueue', clientID = 'test-queue-client-id2',
+    kubeMQAddress = 'localhost:50000';
 
-      for(let i = 0; i < "myQueueTestMessage".length; i++) {
-        let char              =    "TestBody".charCodeAt(i);
-        bytes.push(char >>> 8);
-        bytes.push(char & 0xFF);
-      }
 
-      let tags = [];
-      tags[ 'key3' ] = "value3";
-      tags[ 'key2' ] = "value2";
-      
-        let channelName     =     "queue";
-        let kubemqAdd       =      "localhost:50000";
-        let message_queue   =     new MessageQueue(kubemqAdd,channelName,"transaction");
-        let message          =     new msgQueue.Message("MyQueueSendReceive",bytes,tags);
-            message_queue.sendQueueMessage(message).then(messageResponse =>{
-              console.log(messageResponse);
-              });
+	let queue = new kubemq.Queue(kubeMQAddress, queueName, clientID);
+	let message =new kubemq.Message('metadata', kubemq.stringToByte('some-simple_queue-queue-message'))
+	message.addExpiration(1)
+	queue.sendQueueMessage(
+		message)
+		.then(sent => {
+			if (sent.Error) {
+				console.log('message enqueue error, error:' + err);
+			} else {
+				console.log('"message sent at:' + sent.SentAt);
+			}
+		}).catch(err => {
+			console.log('message enqueue error, error:' + err);
+    });
+
 
 ```
 
 ### Send Message to a Queue with Delay
 
 ```js
-      let bytes               =     [];
+	const kubemq = require('kubemq-nodejs');
 
-      for(let i = 0; i < "myQueueTestMessage".length; i++) {
-        let char              =    "TestBody".charCodeAt(i);
-        bytes.push(char >>> 8);
-        bytes.push(char & 0xFF);
-      }
+	let queueName = 'testQueue', clientID = 'test-queue-client-id2',
+		kubeMQAddress = 'localhost:50000';
 
-      let tags = [];
-      tags[ 'key3' ] = "value3";
-      tags[ 'key2' ] = "value2";
-      
-        let channelName     =     "queue";
-        let kubemqAdd       =      "localhost:50000";
-        let message_queue   =     new MessageQueue(kubemqAdd,channelName,"transaction");
 
-        let message          =     new msgQueue.Message("MyQueueSendReceive",bytes,tags);
-        message.addDelay(3);
-            message_queue.sendQueueMessage(message).then(messageResponse =>{
-              console.log(messageResponse);
-              });
+	let queue = new kubemq.Queue(kubeMQAddress, queueName, clientID);
+	let message =new kubemq.Message('metadata', kubemq.stringToByte('some-simple_queue-queue-message'))
+	message.addDelay(1)
+	queue.sendQueueMessage(
+		message)
+		.then(sent => {
+			if (sent.Error) {
+				console.log('message enqueue error, error:' + err);
+			} else {
+				console.log('"message sent at:' + sent.SentAt);
+			}
+		}).catch(err => {
+			console.log('message enqueue error, error:' + err);
+		});
 ```
 
 
 ### Send Batch Messages
 
 ```js
-  let channelName     =     "test-batch-queue";
-        let kubemqAdd       =      "localhost:50000";
-        let bytes               =     [];
-        let messages_to_send    =      5;
-        for(let i = 0; i < "myQueueTestMessage".length; i++) {
-          let char              =    "TestBody".charCodeAt(i);
-          bytes.push(char >>> 8);
-          bytes.push(char & 0xFF);
-        }
+	const kubemq = require('kubemq-nodejs');
 
-        let tags             =   [];
-        tags[ 'key3' ]       =   "value3";
-        tags[ 'key2' ]       =   "value2";
 
-        let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-batch-queue");
-        //Send to channel test-kube with no store
-        let messageArray     =   [];
-        for (let index = 0; index < messages_to_send; index++) {
-            let message      =     new msgQueue.Message(`batch-Request-number:${index}`,bytes,tags);
-            messageArray.push(message);
-        }
-        message_queue.sendQueueMessageBatch(messageArray).then(batchResponse =>{
-            console.log(batchResponse);
-        });
+	let message_queue = new kubemq.MessageQueue('localhost:50000', 'testQueue', 'client');
+
+	let messages = [];
+	for (let index = 0; index < 20; index++) {
+	   messages.push(new kubemq.Message(`MyMessage:${index}`, kubemq.stringToByte(`Message body:${index}`)));
+	}
+
+	message_queue.sendQueueMessageBatch(messages).then(res => {
+	   console.log(res)
+	});
+	console.log("batch messages were sent");
+
 ```
 
 ### Receive Messages from a Queue
 
 ```js
-        let channelName     =     "test-receive-queue";
-        let kubemqAdd       =      "localhost:50000";
-        let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-receive-queue");
+	const kubemq = require('kubemq-nodejs');
+	let queueName = 'testQueue', clientID = 'test-queue-client-id2',
+		kubeMQAddress = 'localhost:50000';
 
-      message_queue.receiveQueueMessages(1,2).then(receiveResponse =>{
-          receiveResponse.Messages.forEach(element => {
-              console.log(element);
-          });
-      });
+
+	let queue = new kubemq.Queue(kubeMQAddress, queueName, clientID);
+	queue.receiveQueueMessages(2, 1).then(res => {
+		if (res.Error) {
+			console.log('Message enqueue error, error:' + res.message);
+		} else {
+			if (res.MessagesReceived) {
+				console.log('Received: ' + res.MessagesReceived);
+				res.Messages.forEach(element => {
+					console.log('MessageID:' + element.MessageID + ', Body:' + kubemq.byteToString(element.Body));
+				});
+			} else {
+				console.log('No messages');
+			}
+		}
+	}).catch(
+		err => console.log('Error:' + err));
+
 ```
 
 ### Peek Messages from a Queue
 
 ```js
-let channelName     =     "test-peek-queue";
-let kubemqAdd       =      "localhost:50000";
-let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue");
- message_queue.peekQueueMessage(1,1).then(peekResponse =>{
-              console.log(peekResponse);
-          });     
+	const kubemq = require('kubemq-nodejs');
+
+	let message_queue   =     new kubemq.MessageQueue('localhost:50000','testQueue','client');
+
+			message_queue.peekQueueMessage().then(receivedMessages=>{
+				receivedMessages.Messages.forEach(element => {               
+					console.log('peek message:'+ kubemq.byteToString(element.Body));
+				})         
+	});
+ 
 ```
 ### Ack All Messages In a Queue
 
 ```js
-  let channelName     =     "test-peek-queue";
-  let kubemqAdd       =       "localhost:50000";
- let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue");
-            message_queue.ackAllQueueMessages().then(ackAllResponse =>{
-              console.log(ackAllResponse);
-      });
+	const kubemq = require('kubemq-nodejs');
+
+	let message_queue   =     new kubemq.MessageQueue('localhost:50000','testQueue','client');
+
+			message_queue.ackAllQueueMessages().then(ackAllResponse => {
+				console.log("called ack all")   
+	});
 ```
 
 ### Transactional Queue - Ack and reject
 ```js
-    let channelName = "transaction-queue";
-    let kubemqAdd = "localhost:50000";
-    let message_queue = new MessageQueue(kubemqAdd, channelName, "my-transaction");
-
-
-    let transaction = message_queue.createTransaction();
+    const kubemq = require('kubemq-nodejs');
 
 
 
+	let message_queue = new kubemq.MessageQueue('localhost:50000', 'testQueue', 'client');
 
-    transaction.receive(100, 1, queueHandler);
 
 
-    function queueHandler(recm) {
-      console.log(`Received messages ${recm}`);
-      if (recm.StreamRequestTypeData == "ReceiveMessage") {
+	let transaction = message_queue.createTransaction();
+	transaction.receive(100, 1, queueHandler, errorHandler)
 
-        let msgSequence = recm.Message.Attributes.Sequence;
-        workOnMSG(recm)
-          .then(_ => {
-            transaction.ackMessage(msgSequence)
-              .then(_ => {
-                console.log("ack was called");
-              }
-              )
-          }).catch(_ => {
-            transaction.rejectedMessage(msgSequence)
-              .then(_ => {
-                console.log('msg was rejected');
-              });
-          });
-      }
-      else if (recm.StreamRequestTypeData === "AckMessage" || recm.StreamRequestTypeData === "RejectMessage") {
-        console.log('msg acked, stream was close');
-        transaction.closeStream();
-      }
+	function queueHandler(msg) {
+	  console.log(`Received messages ${msg.StreamRequestTypeData}`);
+	  if (msg.StreamRequestTypeData == "ReceiveMessage") {
+		if (msg.IsError === false) {
+		  let msgSequence = msg.Message.Attributes.Sequence;
+		  workOnMSG(msg).then(_ => {
+			transaction.ackMessage(msgSequence).then(_ => {
+			  console.log("ack was called");
+			}
+			)
+		  }).catch(_ => {
+			transaction.rejectedMessage(msgSequence).then(_ => {
+			  console.log('msg was rejected');
+			});
+		  });
+		} else {
+		  console.log(`Received error of ${msg.Error}`);
+		}
+	  }
+	  else if (msg.StreamRequestTypeData === "AckMessage" || msg.StreamRequestTypeData === "RejectMessage") {
+		transaction.closeStream();
+		console.log('msg Ack, stream was close');
 
-    }
+		//loop a a long pool request.
+		transaction = message_queue.createTransaction();
+		transaction.receive(100, 1, queueHandler, errorHandler)
+	  }
+	};
 
-    function workOnMSG(msg) {
-      return new Promise((resolve, reject) => {
-        if (msg.Message.Attributes.Sequence !== '3') {
-          console.log('worked on msg');
-          resolve();
-        }
-        else {
-          reject();
-        }
-      });
+	function errorHandler(msg) {
+	  console.log(`Received error ${msg}`);
+	};
+
+	function workOnMSG(msg) {
+	  return new Promise((resolve, reject) => {
+		if (msg.Message.Attributes.Sequence !== '3') {
+		  console.log('worked on msg');
+		  resolve();
+		}
+		else {
+		  reject();
+		}
+	  });
+	};
+
 ```
 
 
 ### Transactional Queue - Extend Visibility
 
 ```js
-    let channelName = "transaction-queue";
-    let kubemqAdd = "localhost:50000";
-    let message_queue = new MessageQueue(kubemqAdd, channelName, "my-transaction");
+	const kubemq = require('kubemq-nodejs');
+
+	let message_queue = new kubemq.MessageQueue('localhost:50000', 'testQueue', 'client');
 
 
-    let transaction      =     message_queue.createTransaction();
+	  let transaction      =     message_queue.createTransaction();
 
-    function queueHandler(recm) {
-        console.log(`Received messages ${recm}`);
-        if (recm.StreamRequestTypeData=="ReceiveMessage")
-        {
-          console.log("Need more time to process, extend visibility for more 3 seconds");
-          transaction.extendVisibility(100).then(_=> {
-            console.log(`sent extendVisibiltyRequest`);
-          });
-        }
-    }
+	  function queueHandler(msg) {
+		  console.log(`Received messages ${msg.StreamRequestTypeData}`);
+		  if (msg.StreamRequestTypeData=="ReceiveMessage")
+		  {
+			console.log("Need more time to process, extend visibility for more 3 seconds");
+			transaction.extendVisibility(3).then(_=> {
+			  console.log(`sent extendVisibilityRequest`);
+			});
+		  }
+	  }
 
-
-      transaction.receive(5, 10,queueHandler);
+	  function errorHandler(msg) {
+		console.log(`Received error ${msg}`);
+	  };
+		transaction.receive(5, 10,queueHandler,errorHandler);
         
 
 ```
@@ -325,51 +340,58 @@ let message_queue    =     new MessageQueue(kubemqAdd,channelName,"my-peek-queue
 ### Transactional Queue - Resend to New Queue
 
 ```js
+	const kubemq = require('kubemq-nodejs');
 
-let channelName = "transaction-queue";
-let kubemqAdd = "localhost:50000";
-let message_queue = new MessageQueue(kubemqAdd, channelName, "my-resend");
-
-
-let transaction      =     message_queue.createTransaction();
-
-function queueHandler(recm) {
-    console.log(`Received messages ${recm}`);
-    if (recm.StreamRequestTypeData=="ReceiveMessage")
-    {
-      console.log("Received Message sending resend request.");
-      transaction.resend(channelName).then(_=> {
-        console.log(`sent resend`);
-      });
-    }
-}
+	let message_queue = new kubemq.MessageQueue('localhost:50000', 'testQueue', 'client');
 
 
-  transaction.receive(5, 10,queueHandler);
+	let transaction      =     message_queue.createTransaction();
+
+	function queueHandler(msg) {
+		console.log(`Received messages ${msg}`);
+		if (msg.StreamRequestTypeData=="ReceiveMessage")
+		{
+		  console.log("Received Message sending resend request.");
+		  transaction.resend('newQueue').then(_=> {
+			console.log(`sent resend`);
+		  });
+		}
+	}
+
+	function errorHandler(msg) {
+	  console.log(`Received error ${msg}`);
+	};
+
+	  transaction.receive(5, 10,queueHandler,errorHandler);
 ```
 
 ### Transactional Queue - Resend Modified Message
 ```js
-let channelName = "transaction-queue";
-let kubemqAdd = "localhost:50000";
-let message_queue = new MessageQueue(kubemqAdd, channelName, "my-resend");
+	const kubemq = require('kubemq-nodejs');
+	let message_queue = new kubemq.MessageQueue('localhost:50000', 'testQueue', 'Client');
 
 
-let transaction      =     message_queue.createTransaction();
+	let transaction      =     message_queue.createTransaction();
 
-function queueHandler(recm) {
-    console.log(`Received messages ${recm}`);
-    if (recm.StreamRequestTypeData=="ReceiveMessage")
-    {
-      console.log("Received Message sending resend request.");
-      transaction.resend("new Queue").then(_=> {
-        console.log(`sent resend`);
-      });
-    }
-}
+	function queueHandler(msg) {
+		console.log(`Received messages ${msg}`);
+		if (msg.StreamRequestTypeData=="ReceiveMessage")
+		{
+		  msg.Metadata= "new meta data"
+		  msg.Channel= "testQueue"
+		  msg.ClientID = "Client"
+		  console.log("Received Message sending modify request.");
+		  transaction.modify(msg).then(_=> {
+			console.log(msg);
+		  });
+		}
+	}
 
+	function errorHandler(msg) {
+	  console.log(`Received error ${msg}`);
+	};
 
-  transaction.receive(5, 10,queueHandler);
+	  transaction.receive(5, 10,queueHandler,errorHandler);
 ```
 
 ## Event
@@ -378,13 +400,22 @@ function queueHandler(recm) {
 
 #### Single event
 ```js
-let pub = new publish.Publisher('localhost', '50000', 'pub', 'pubsub');
+	const kubemq = require('kubemq-nodejs');
 
-let event = new publish.Event(byteConverter.stringToByte('test'));
+	let channelName = 'pubsub', clientID = 'hello-world-subscriber',
+		kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
 
-pub.send(event).then(res => {
-    console.log(res);
-});
+	const publisher = new kubemq.Publisher(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+
+	let event = new kubemq.Publisher.Event(kubemq.stringToByte('hello kubemq - sending single event'));
+
+	publisher.send(event).then(
+		res => {
+			console.log(res);
+		}).catch(
+			err => {
+				console.log('error sending' + err)
+			});
 
 
 ```
@@ -392,46 +423,52 @@ pub.send(event).then(res => {
 #### Stream Events
 ```js
 
-let kubemqAdd = "localhost:50000";
 
-const sender          =   require('../pubSub/lowLevel/sender');
-const events          =   require('events');
-const lowLevelEvent   =   require('../pubSub/lowLevel/event')
+	const kubemq = require('kubemq-nodejs');
+	let kubemqAdd = "localhost:50000";
 
-let channelName            =      "test-event-stream";
-let send                =      new sender(kubemqAdd);
-let bytes = [];
+	const events          =   require('events');
 
-for (let i = 0; i < "myTestStream".length; i++) {
-  let char = "TestBody".charCodeAt(i);
-  bytes.push(char >>> 8);
-  bytes.push(char & 0xFF);
-}
+	let channelName	        =	  "test-event-stream";
+	let send                =	  new kubemq.Sender(kubemqAdd);
+	let bytes = [];
 
-let eventEmmiter = new events.EventEmitter();
+	for (let i = 0; i < "myTestStream".length; i++) {
+	  let char = "myTestStream".charCodeAt(i);
+	  bytes.push(char >>> 8);
+	  bytes.push(char & 0xFF);
+	}
+
+	let eventEmmiter = new events.EventEmitter();
 
 
-send.streamEvent(eventEmmiter)
-console.log('test')
-for (let i = 1; i < 5; i++) {
-  let event= new lowLevelEvent(bytes);
-  event.Channel = "test-channel";
-  event.ClientID ="MyID";
-  eventEmmiter.emit('message',event)
-  
-}
+	send.streamEvent(eventEmmiter)
+	console.log('test')
+	for (let i = 1; i < 5; i++) {
+	  let event= new kubemq.LowLevelEvent(bytes);
+	  event.Channel = channelName;
+	  event.ClientID ="MyID";
+	  eventEmmiter.emit('message',event)
+	  
+	}
 ```
 
 ### Receiving Events
 
 ```js
-var subscriber = require('../pubSub/events/subscriber');
-let sub = new subscriber.Subscriber('localhost', '50000', 'sub', 'pubsub');
+	const kubemq = require('kubemq-nodejs');
 
-sub.subscribeToEvents(msg => {
-    console.log('msg:' + String.fromCharCode.apply(null, msg.Body))
-}
-    , err => { console.log('error:' + err) })
+	let channelName = 'pubsub', clientID = 'hello-world-subscriber',
+		kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
+
+	let sub = new kubemq.Subscriber(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+
+	sub.subscribeToEvents(msg => {
+		console.log('Event Received: EventID:' + msg.EventID + ', Channel:' + msg.Channel + ' ,Metadata:' + msg.Metadata + ', Body:' + kubemq.byteToString(msg.Body));
+	}, err => {
+		console.log('error:' + err)
+	})
+
 
 
 ```
@@ -453,32 +490,49 @@ KubeMQ supports six types of subscriptions:
 - StartFromTime - replay events from specific time continue stream new events from this point
 
 - StartFromTimeDelta - replay events from specific current time - delta duration in seconds, continue stream new events from this point
-### Sending Event Store
 
 #### Single Event Store
 
 ```js
-var storePublish = require('../pubSub/eventsStore/StorePublisher');
-let storePub = new storePublish.StorePublisher('localhost', '50000', 'pub', 'pubsubper');
+	const kubemq = require('kubemq-nodejs');
 
-let eventStore = new storePublish.Event('test');
-eventStore.Metadata = 'test store';
+	let channelName = 'sub', clientID = 'hello-testing_event_channel-subscriber',
+		kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
 
-storePub.send(eventStore).then(res => {
-    console.log(res);
-});
+
+	let storePub = new kubemq.StorePublisher('localhost', '50000', clientID+'sender', channelName);
+
+	let eventStore = new kubemq.StorePublisher.Event('test');
+	eventStore.Metadata = 'test store';
+
+	storePub.send(eventStore).then(
+		res => {
+			console.log(res);
+		}).catch(
+		err => {
+		console.log('error sending' + err)
+	});
+
 ```
 
 ### Receiving Events Store
 
 ```js
-  var storeSubscriber = require('../pubSub/eventsStore/StoreSubscriber');
-let storeSub = new storeSubscriber.StoreSubscriber('localhost', '50000', 'sub', 'pubsubper');
+		const kubemq = require('kubemq-nodejs');
 
-storeSub.subscribeToEvents(msg => { 
-    console.log('msg:' + msg.Metadata) }
-    , err => { console.log('error:' + err) },
-    storeSubscriber.EventStoreType.StartFromFirst);
+		let channelName = 'sub', clientID = 'hello-testing_event_channel-subscriber';
+
+		let storeSub = new kubemq.StoreSubscriber('localhost', '50000', clientID+'store', channelName);
+
+		storeSub.subscribeToEvents(msg => {
+			console.log('msg:' + msg.Metadata)
+		}, 
+		err => { console.log('error:' + err) },
+
+		kubemq.EventStoreType.StartFromFirst, '1');
+
+
+	​
 ```
 
 ## Commands
@@ -490,55 +544,48 @@ The response can be successful or not. This is the responsibility of the respond
 
 #### Receiving Commands Requests
 ```js
-  var commandReceiver = require('../rpc/command/commandReceiver');
+	const kubemq = require('kubemq-nodejs');
 
+	let channelName = 'testing_Command_channel', clientID = 'hello-world-sender',
+		kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
 
-var cmdRes = new commandReceiver.CommandReceiver('localhost', '50000', 'cc', 'cmd');
-cmdRes.subscribe(cmd => {
-    console.log(cmd);
-
-    let respond = new commandReceiver.Response(cmd);
-    respond.Executed = true;
-    cmdRes.sendResponse(respond).then(snd => {
-        'sent:' + snd;
-    }).catch(err => console.log(err));
-
-}, err => {
-    console.log(err);
-}
-)
+	let receiver = new kubemq.CommandReceiver(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+	receiver.subscribe(cmd => {
+		let response = new kubemq.CommandReceiver.Response(cmd, true);
+		response.Timestamp = Math.floor(new Date() / 1000);
+		receiver.sendResponse(response).then(snd => {
+			console.log('sent:' + snd);
+		}).catch(cht => console.log(cht));
+	}, err => {
+		console.log(err);
+	});
 ```
 
 ### Sending Command Request
 
 ```js
-var byteConv = require('../tools/stringToByte');
+	const kubemq = require('kubemq-nodejs');
 
-const commandSender = require('../rpc/command/commandSender');
+	let kubeMQHost = 'localhost', kubeMQGrpcPort = '50000',
+		channelName = 'testing_Command_channel', clientID = 'hello-world-sender',
+		defaultTimeOut = 10000;
 
-var sender = new commandSender.CommandSender('localhost', '50000', 'cc1', 'cmd', 10000);
+	let sender = new kubemq.CommandSender(kubeMQHost, kubeMQGrpcPort, clientID, channelName, defaultTimeOut);
 
-var request = new commandSender.CommandRequest(byteConv.stringToByte(''));
+	let request = new kubemq.CommandSender.CommandRequest(
+		kubemq.stringToByte(' hello kubemq - sending a command, please reply'));
 
-sender.send(request).then(
-  
-    res => { console.log(res.Executed) });
-```
-
-### Sending Command Request Async
-
-```js
-  var byteConv = require('../tools/stringToByte');
-
-const commandSender = require('../rpc/command/commandSender');
-
-var sender = new commandSender.CommandSender('localhost', '50000', 'cc1', 'cmd', 10000);
-
-var request = new commandSender.CommandRequest(byteConv.stringToByte(''));
-
-sender.send(request).then(
-  
-    res => { console.log(res.Executed) });
+	sender.send(request).then(
+		res => {
+			if (res.Error) {
+				console.log('Response error: ' + res.message);
+				return;
+			}
+			console.log('Response Received:' + res.RequestID + ' ExecutedAt:' + res.Timestamp);
+		}).catch(
+			err => {
+				console.log('command error: ' + err)
+			});
 ```
 
 ## Queries
@@ -552,25 +599,22 @@ The response must include metadata or body together with an indication of succes
 ### Receiving Query Requests
 
 ```js
-  var qryResClass = require('../rpc/query/queryReceiver');
+	const kubemq = require('kubemq-nodejs');
+	let query = new kubemq.QueryReceiver('localhost', '50000', 'cc', 'qry', undefined, 10000);
 
-var byteConv = require('../tools/stringToByte');
+	query.subscribe(qry => {
+		console.log(qry);
+		let respond = new kubemq.QueryReceiver.QueryResponse(qry, kubemq.stringToByte('result:123'));
+		query.sendResponse(respond).then(snd => {
+			console.log('sent:' +snd);
+		}).catch(cht => console.log(cht));
 
-var query = new qryResClass.QueryReceiver('localhost', '50000', 'cc', 'qry', undefined, 10000);
-query.subscribe(qry => {
-    console.log(qry);
-    
+	}, err => {
+		console.log(err);
+	}
+	)
 
-    var respond = new qryResClass.QueryResponse(qry, byteConv.stringToByte('result:123')
-    )
-    query.sendResponse(respond).then(snd => {
-        console.log('sent:' +snd);
-    }).catch(cht => console.log(cht));
 
-}, err => {
-    console.log(err);
-}
-)
 
 ```
 
@@ -578,13 +622,10 @@ query.subscribe(qry => {
 
 ```js
  
-var qrySendClass = require('../rpc/query/querySender');
-var qrySend = new qrySendClass.QuerySender('localhost', '50000', 'cc1', 'qry', 10000);
+	const kubemq = require('kubemq-nodejs');
+	let qrySend = new kubemq.QuerySender('localhost', '50000', 'cc1', 'qry', 10000);
 
-var request = new qrySendClass.QueryRequest('ff');
-
-
-
-qrySend.send(request).then(res => {
-     console.log(res) });
+	let request = new kubemq.QueryRequest(kubemq.stringToByte('select books'));
+	qrySend.send(request).then(res => {
+		 console.log(res) });
 ```
