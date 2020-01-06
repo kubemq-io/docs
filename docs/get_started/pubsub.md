@@ -285,46 +285,51 @@ The following Python code snippet is using KubeMQ's Python SDK with gRPC interfa
 
 ``` py
 from builtins import input
+from random import randint
 from kubemq.events.subscriber import Subscriber
+from kubemq.tools.listener_cancellation_token import ListenerCancellationToken
+from kubemq.subscription.subscribe_type import SubscribeType
 from kubemq.subscription.events_store_type import EventsStoreType
 from kubemq.subscription.subscribe_request import SubscribeRequest
-from kubemq.subscription.subscribe_type import SubscribeType
 
-
-def create_subscribe_request(
-        subscribe_type=SubscribeType.SubscribeTypeUndefined,
-        events_store_type=EventsStoreType.Undefined,
-        events_store_type_value=0):
-    return SubscribeRequest(
-        channel="TestChannelName",
-        client_id="someID",
-        events_store_type=events_store_type,
-        events_store_type_value=events_store_type_value,
-        group="",
-        subscribe_type=subscribe_type
-    )
 
 
 def handle_incoming_events(event):
     if event:
-        print("Subscriber Received Event: Metadata:'%s', Channel:'%s', Body:'%s'" % (
+        print("Subscriber Received Event: Metadata:'%s', Channel:'%s', Body:'%s tags:%s'" % (
             event.metadata,
             event.channel,
-            event.body
+            event.body,
+            event.tags
+        ))
+
+def handle_incoming_error(error_msg):
+        print("received error:%s'" % (
+            error_msg
         ))
 
 
 if __name__ == "__main__":
     print("Subscribing to event on channel example")
+    cancel_token=ListenerCancellationToken()
+
 
     # Subscribe to events without store
     subscriber = Subscriber("localhost:50000")
-    subscribe_request = create_subscribe_request(SubscribeType.Events)
-    subscriber.subscribe_to_events(subscribe_request, handle_incoming_events)
-
-    input("Press 'Enter' to stop the application...
-")
+    subscribe_request = SubscribeRequest(
+        channel="testing_event_channel",
+        client_id="hello-world-subscriber",
+        events_store_type=EventsStoreType.Undefined,
+        events_store_type_value=0,
+        group="",
+        subscribe_type=SubscribeType.Events
+    )
+    subscriber.subscribe_to_events(subscribe_request, handle_incoming_events,handle_incoming_error,cancel_token)
     
+    input("Press 'Enter' to stop Listen...\n")
+    cancel_token.cancel()
+    input("Press 'Enter' to stop the application...\n")
+
 ```
 When executed, a stream of events messages will be shown in the console.
 
@@ -335,21 +340,19 @@ When executed, a stream of events messages will be shown in the console.
 The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var Subscriber = require('../pubSub/events/subscriber');
-const byteToString = require('../tools/stringToByte').byteToString;
+const kubemq = require('kubemq-nodejs');
 
-
-let channelName = 'testing_event_channel', clientID = 'hello-world-subscriber',
+let channelName = 'pubsub', clientID = 'hello-world-subscriber',
     kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
 
-let sub = new Subscriber(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+let sub = new kubemq.Subscriber(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
 
 sub.subscribeToEvents(msg => {
-    console.log('Event Received: EventID:' + msg.EventID + ', Channel:' + msg.Channel + ' ,Metadata:' + msg.Metadata + ', Body:' + byteToString(msg.Body));
+    console.log('Event Received: EventID:' + msg.EventID + ', Channel:' + msg.Channel + ' ,Metadata:' + msg.Metadata + ', Body:' + kubemq.byteToString(msg.Body));
 }, err => {
     console.log('error:' + err)
 })
- 
+
 ```
 
 </template>
@@ -634,21 +637,32 @@ func main() {
 The following Python code snippet is using KubeMQ's Python SDK with gRPC interface:
 
 ``` py
+
+import datetime
+
 from kubemq.events.lowlevel.event import Event
 from kubemq.events.lowlevel.sender import Sender
 
 if __name__ == "__main__":
-    print("Sending event using sender example")
 
-    sender = Sender("localhost:50000")
+    publisher  = Sender("localhost:50000")
     event = Event(
-        metadata="some-meta-data",
-        body=("hello world").encode('UTF-8'),
+        metadata="EventMetaData",
+        body =("hello kubemq - sending single event").encode('UTF-8'),
         store=False,
-        channel="hello-world",
-        client_id="EventSender",
+        channel="testing_event_channel",
+        client_id="hello-world-subscriber"
     )
-    sender.send_event(event)
+    try:
+        res = publisher.send_event(event)
+        print(res)
+    except Exception as err:
+      print(
+            "'error sending:'%s'" % (
+                err
+                        )
+        )
+
     
 ```
 
@@ -661,23 +675,19 @@ if __name__ == "__main__":
 The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-var publisher = require('../pubSub/events/publisher');
-var stringToByte = require('../tools/stringToByte').stringToByte;
-
-let channelName = 'testing_event_channel', clientID = 'hello-world-subscriber',
+const kubemq = require('kubemq-nodejs');
+let channelName = 'pubsub', clientID = 'hello-world-subscriber',
     kubeMQHost = 'localhost', kubeMQGrpcPort = '50000';
-
-let pub = new publisher(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
-
-let event = new publisher.Event(stringToByte('hello kubemq - sending single event'));
-
-pub.send(event).then(
+const publisher = new kubemq.Publisher(kubeMQHost, kubeMQGrpcPort, clientID, channelName);
+let event = new kubemq.Publisher.Event(kubemq.stringToByte('hello kubemq - sending single event'));
+publisher.send(event).then(
     res => {
         console.log(res);
     }).catch(
         err => {
             console.log('error sending' + err)
-        }); 
+        });
+
 ```
 
 </template>

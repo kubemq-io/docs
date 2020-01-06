@@ -255,7 +255,9 @@ The following Python code snippet is using KubeMQ's Python SDK with gRPC interfa
 
 ``` py
 from kubemq.queue.message_queue import MessageQueue
+
 from kubemq.queue.message import Message
+
 
 if __name__ == "__main__":
 
@@ -287,18 +289,16 @@ When executed, a stream of events messages will be shown in the console.
 The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-const Queue = require('../queue/message_queue');
-const Message = require('../queue/message')
-const byteConverter = require('../tools/stringToByte').stringToByte;
+const kubemq = require('kubemq-nodejs');
 
 let queueName = 'hello-world-queue', clientID = 'test-queue-client-id2',
     kubeMQAddress = 'localhost:50000';
 
 
-let queue = new Queue(kubeMQAddress, queueName, clientID);
+let queue = new kubemq.Queue(kubeMQAddress, queueName, clientID);
 
 queue.sendQueueMessage(
-    new Message('metadata', byteConverter('some-simple_queue-queue-message')))
+    new kubemq.Message('metadata', kubemq.stringToByte('some-simple_queue-queue-message')))
     .then(sent => {
         if (sent.Error) {
             console.log('message enqueue error, error:' + err);
@@ -308,7 +308,6 @@ queue.sendQueueMessage(
     }).catch(err => {
         console.log('message enqueue error, error:' + err);
     });
-
 ```
 
 
@@ -628,7 +627,6 @@ if __name__ == "__main__":
                         )
         )
     input("Press 'Enter' to stop the application...\n")
-
 ```
 
 
@@ -640,14 +638,10 @@ if __name__ == "__main__":
 The following JS code snippet is using KubeMQ's NodeJS SDK with gRPC interface:
 
 ``` js
-const Queue = require('../queue/message_queue');
-const byteToString = require('../tools/stringToByte').byteToString;
-
+const kubemq = require('kubemq-nodejs');
 let queueName = 'hello-world-queue', clientID = 'test-queue-client-id2',
     kubeMQAddress = 'localhost:50000';
-
-
-let queue = new Queue(kubeMQAddress, queueName, clientID);
+let queue = new kubemq.Queue(kubeMQAddress, queueName, clientID);
 queue.receiveQueueMessages(2, 1).then(res => {
     if (res.Error) {
         console.log('Message enqueue error, error:' + res.message);
@@ -655,7 +649,7 @@ queue.receiveQueueMessages(2, 1).then(res => {
         if (res.MessagesReceived) {
             console.log('Received: ' + res.MessagesReceived);
             res.Messages.forEach(element => {
-                console.log('MessageID:' + element.MessageID + ', Body:' + byteToString(element.Body));
+                console.log('MessageID:' + element.MessageID + ', Body:' + kubemq.byteToString(element.Body));
             });
         } else {
             console.log('No messages');
