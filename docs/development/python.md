@@ -14,7 +14,7 @@ The **KubeMQ SDK for Python** enables Python developers to easily work with [Kub
 
 ### Prerequisites
 
-KubeMQ-SDK-Python works with **Python 2.7** or newer.
+KubeMQ-SDK-Python works with Python 3.2 or newer.
 
 ### Installing
 
@@ -82,7 +82,7 @@ IMPORTANT - it's the user responsibility to close the Client connection when no 
 
 Connection
 Connecting to KubeMQ server can be by creating the type needed:
-```
+```python
     pub/sub:
         sender:
         sender = Sender("localhost:50000")
@@ -134,14 +134,14 @@ Core features
 
 
 Send Message to a Queue:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add)
     message = create_queue_message("someMeta", "some-simple_queue-queue-message".encode('UTF-8'))
     queue_send_response = queue.send_queue_message(message)
     print("finished sending to queue answer. message_id: %s, body: %s" % (queue_send_response.message_id, message.body))
 ```
 create_queue_message:
-```
+```python
     def create_queue_message(meta_data, body, policy=None):
         message = Message()
         message.metadata = meta_data
@@ -155,7 +155,7 @@ create_queue_message:
         return message
 ```
 Send Message to a Queue with Expiration:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     policy = QueueMessagePolicy()
     policy.ExpirationSeconds = 5
@@ -166,7 +166,7 @@ Send Message to a Queue with Expiration:
 ```
 
 Send Message to a Queue with Delay:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     policy = QueueMessagePolicy()
     policy.DelaySeconds = 5
@@ -177,7 +177,7 @@ Send Message to a Queue with Delay:
 ```
 
 Send Message to a Queue with Dead-letter Queue:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     policy = QueueMessagePolicy()
     policy.MaxReceiveCount = 3
@@ -189,7 +189,7 @@ Send Message to a Queue with Dead-letter Queue:
 ```
 
 Send Batch Messages:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     mm = []
     for i in range(2):
@@ -200,27 +200,27 @@ Send Batch Messages:
 ```
 
 Receive Messages from a Queue:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     queue_receive_response = queue.receive_queue_messages()
     print("finished sending message to receive_queue answer: {} ".format(queue_receive_response))
 ```
 
 Peak Messages from a Queue:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     queue_receive_response = queue.peek_queue_message(5)
     print("finished sending message to peek answer: {} ".format(queue_receive_response))
 ```
 
 Ack All Messages In a Queue:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add, max_number_messages, max_timeout)
     queue_ack_response = queue.ack_all_queue_messages()
     print("finished sending message to ack answer: {} ".format(queue_ack_response))
 ```
 Transactional Queue - Ack:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add)
     transaction = queue.create_transaction()
     res_rec = transaction.receive(10, 10)
@@ -238,7 +238,7 @@ Transactional Queue - Ack:
     print("Received message of type: %s" % StreamRequestType(res_ack.stream_request_type).name)
 ```
 Transactional Queue - Reject:
-```
+```python
     queue = MessageQueue(queue_name, client_id, kube_add)
     transaction = queue.create_transaction()
     res_rec = transaction.receive(10, 10)
@@ -256,7 +256,7 @@ Transactional Queue - Reject:
 ```
 
 Transactional Queue - Extend Visibility:
-```
+```python
     queue_rej = MessageQueue("reject_test", client_id, kube_add)
 
     message = create_queue_message("queueName {}".format(0), "my reject".encode('UTF-8'))
@@ -299,7 +299,7 @@ Transactional Queue - Extend Visibility:
 ```
 
 Transactional Queue - Resend to New Queue:
-```
+```python
     queue_rej = MessageQueue("resend_to_new_queue", client_id, kube_add)
 
     message = create_queue_message("resend to new queue {}".format(0), "my resend".encode('UTF-8'))
@@ -325,7 +325,7 @@ Transactional Queue - Resend to New Queue:
     print("Done")
 ```
 Transactional Queue - Resend Modified Message:
-```
+```python
     queue_res = MessageQueue("resend_modify_message", client_id, kube_add)
 
     message = create_queue_message("resend to new queue {}".format(0), "my resend modify".encode('UTF-8'))
@@ -356,7 +356,7 @@ Transactional Queue - Resend Modified Message:
 Events
 Sending Events
 Single Event:
-```
+```python
     def send_single_event():
         sender = Sender(kube_add)
         event = Event(
@@ -373,7 +373,7 @@ Single Event:
         sender.send_event(event)
 ```
 Stream Events:
-```
+```python
     sender = Sender(kube_add)
 
 
@@ -397,7 +397,7 @@ Stream Events:
 
 Receiving Events
 First you should subscribe to Events:
-```
+```python
         def event_subscriber():
             subscriber = Subscriber(kube_add)
             cancel_token=ListenerCancellationToken()
@@ -432,7 +432,7 @@ First you should subscribe to Events:
 Events Store
 Sending Events Store
 Single Event to Store:
-```
+```python
         sender = Sender(kube_add)
         event = Event(
             metadata="EventMetaData",
@@ -448,7 +448,7 @@ Single Event to Store:
         sender.send_event(event)
 ```
 Stream Events Store:
-```
+```python
         sender = Sender(kube_add)
 
 
@@ -472,7 +472,7 @@ Stream Events Store:
 ```
 Receiving Events Store
 First you should subscribe to Events Store and get a channel:
-```
+```python
     subscriber = Subscriber(kube_add)
     cancel_token=ListenerCancellationToken()
     sub_req= SubscribeRequest(
@@ -512,7 +512,7 @@ The response can be successful or not. This is the responsibility of the respond
 
 Sending Command Requests:
 In this example, the responder should send his response withing one second. Otherwise, an error will be return as a timeout:
-```
+```python
     request = Request(
         body="Request".encode('UTF-8'),
         metadata="MyMetadata",
@@ -538,7 +538,7 @@ Queries implement synchronous messaging pattern which the sender send a request 
 The response must include metadata or body together with an indication of successful or not operation. This is the responsibility of the responder to return with the result of the query within the time the sender set in the request.
 
 Sending Query Requests:
-```
+```python
     request = Request(
         body="Request".encode('UTF-8'),
         metadata="MyMetadata",
@@ -558,7 +558,7 @@ Sending Query Requests:
 ```
 Receiving Query Requests and sending response
 First get a channel of queries:
-```
+```python
     responder = Responder(kube_add)
     cancel_token=ListenerCancellationToken()
     sub_req= SubscribeRequest(

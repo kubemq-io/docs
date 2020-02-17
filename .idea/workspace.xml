@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,13 +80,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563361583021</updated>
-    </task>
-    <task id="LOCAL-00016" summary="v1.2.12&#10;update to kubetools">
-      <created>1564326276588</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1564326276588</updated>
     </task>
     <task id="LOCAL-00017" summary="v1.2.13&#10;update to go sdk docs">
       <created>1564932815874</created>
@@ -428,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578325283962</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="update python">
+      <created>1581947409253</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1581947409253</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +470,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add animated gifs" />
     <MESSAGE value="fix pubsub" />
     <MESSAGE value="update port-forward" />
     <MESSAGE value="fix configuration entries" />
@@ -499,13 +494,14 @@
     <MESSAGE value="add offline mode&#10;add queue python code" />
     <MESSAGE value="update security alert" />
     <MESSAGE value="update get started examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="update get started examples" />
+    <MESSAGE value="update python" />
+    <option name="LAST_COMMIT_MESSAGE" value="update python" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1162" y="356" key="CommitChangelistDialog2" timestamp="1578325283276">
+    <state x="1162" y="356" key="CommitChangelistDialog2" timestamp="1581947408219">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="1162" y="356" key="CommitChangelistDialog2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578325283276" />
+    <state x="1162" y="356" key="CommitChangelistDialog2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1581947408219" />
     <state x="93" y="93" width="2886" height="1502" key="DiffContextDialog" timestamp="1575197382829">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -538,10 +534,10 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1315" y="474" key="RollbackChangesDialog/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575197360465" />
-    <state x="1129" y="577" key="Vcs.Push.Dialog.v2" timestamp="1578325288472">
+    <state x="1129" y="577" key="Vcs.Push.Dialog.v2" timestamp="1581947411330">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="1129" y="577" key="Vcs.Push.Dialog.v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578325288472" />
+    <state x="1129" y="577" key="Vcs.Push.Dialog.v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1581947411330" />
     <state x="1346" y="761" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578302101956">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
