@@ -105,34 +105,35 @@ Please visit [kubemqctl Installation](../kubemqctl/kubemqctl.md).
 
 ## Helm Chart
 
-Add KubeMQ Helm Repository:
+KubeMQ Helm charts required Helm v3. Please download/upgrade from [https://github.com/helm/helm](https://github.com/helm/helm)
 
-``` bash
-helm repo add kubemq-charts https://kubemq-io.github.io/charts
+Add KubeMQ Helm Repository:
+```
+$ helm repo add kubemq-charts  https://kubemq-io.github.io/charts
 ```
 
-Verify KubeMQ helm repository charts is correctly configured by:
-``` bash
-helm repo list
+Verify kubemq helm repository charts is properly configured by:
+
+```
+$ helm repo list
 ```
 
 Install KubeMQ Chart:
 
-``` bash
-helm install --name kubemq-cluster --set token=<YOUR_KUBEMQ_TOKEN> 
-kubemq-charts/kubemq
+```
+$ helm install kubemq-cluster --set token={your kubemq token} kubemq-charts/kubemq 
 ```
 
 
 ### Configuration
-
 The following table lists the configurable parameters of the KubeMQ chart and their default values.
 
 
-| Parameter                           | Default           | Description                                                                                 |
+| Parameter                          | Default           | Description                                                                                 |
 |:-----------------------------------|:------------------|:--------------------------------------------------------------------------------------------|
-| nameOverride                       | `kubemq-cluster`  | Sets deployment name                                                                        |
+| existingSecret                     | ``                | Defines the name of a secret created outside of this chart                                  |
 | token                              | ``                | Sets KubeMQ token                                                                           |
+| licenseData                        | ``                | Sets KubeMQ license data for offline validation (optional)                                  |
 | replicaCount                       | `3`               | Number of KubeMQ nodes                                                                      |
 | cluster.enable                     | `true`            | Enable/Disable cluster mode                                                                 |
 | image.repository                   | `kubemq/kubemq`   | KubeMQ image name                                                                           |
@@ -143,6 +144,11 @@ The following table lists the configurable parameters of the KubeMQ chart and th
 | service.restPort                   | `9090`            | Sets KubeMQ service Rest Port                                                               |
 | service.grpcPort                   | `5000`            | Sets KubeMQ service gRPC Port                                                               |
 | service.clusterPort                | `5228`            | Sets KubeMQ service Cluster Port                                                            |
+| env.apiPort                        | `8080`            | Sets KubeMQ Api Port                                                                        |
+| env.restPort                       | `9090`            | Sets KubeMQ Rest Port                                                                       |
+| env.grpcPort                       | `5000`            | Sets KubeMQ gRPC Port                                                                       |
+| env.clusterPort                    | `5228`            | Sets KubeMQ Cluster Port                                                                    |
+| env.extra_env_vars                 | `{}`              | Dictionary defining arbitrary environment variables.                                        |
 | livenessProbe.enabled              | `true`            | Enable/Disable liveness prob                                                                |
 | livenessProbe.initialDelaySeconds  | `4`               | Delay before liveness probe is initiated                                                    |
 | livenessProbe.periodSeconds        | `10`              | How often to perform the probe                                                              |
@@ -156,16 +162,21 @@ The following table lists the configurable parameters of the KubeMQ chart and th
 | readinessProbe.failureThreshold    | `6`               | Minimum consecutive failures for the probe to be considered failed after having succeeded   |
 | readinessProbe.successThreshold    | `1`               | Minimum consecutive successes for the probe to be considered successful after having failed |
 | statefulset.updateStrategy         | `RollingUpdate`   | Statefulsets Update strategy                                                                |
+| statefulset.annotations            | `{}`              | Statefulsets annotations                                                                    |
 | volume.enabled                     | `false`           | Enable/Disable Persistence Volume Claim template                                            |
 | volume.size                        | `1Gi`             | Set volume size                                                                             |
 | volume.mountPath                   | ` "/store" `      | Sets container mounting point                                                               |
 | volume.accessMode                  | `"ReadWriteOnce"` | Sets Persistence access mode                                                                |
+| affinity                           | `{}`              | Affinity settings for the statefulset                                                       |
+| nodeSelector                       | `{}`              | Node selector settings for the statefulset                                                  |
+| tolerations                        | `[]`              | Toleration settings for the statefulset                                                     |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to helm install. For example,
-``` bash
-helm install --name kubemq-release --set token={your kubemq token}, \
-nameOverride=my-kubemq-cluster kubemq-charts/kubemq 
 ```
+helm install --name kubemq-cluster --set token={your kubemq token},replicaCount=5 kubemq-charts/kubemq 
+```
+
+Will install KubeMQ cluster with 5 nodes replications.
 
 
 Use KubeCtl to forward KubeMQ cluster ports:

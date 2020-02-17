@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b7d5f7-63bd-4297-8021-40f05aeb3380" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/pubsub.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/pubsub.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/queue.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/queue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/get_started/rpc.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/get_started/rpc.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taskfile.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/python.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/installation/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation/kubernetes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +44,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/configuration/recipes/basic/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -83,20 +84,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563361583021</updated>
-    </task>
-    <task id="LOCAL-00014" summary="v1.2.8&#10;add seo plugin">
-      <created>1564044915065</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1564044915065</updated>
-    </task>
-    <task id="LOCAL-00015" summary="v1.2.10&#10;update get started">
-      <created>1564301834075</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1564301834075</updated>
     </task>
     <task id="LOCAL-00016" summary="v1.2.12&#10;update to kubetools">
       <created>1564326276588</created>
@@ -427,7 +414,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575628316563</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="update get started examples">
+      <created>1578302220355</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1578302220355</updated>
+    </task>
+    <task id="LOCAL-00064" summary="update get started examples">
+      <created>1578325283962</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1578325283962</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +474,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update drone" />
     <MESSAGE value="add animated gifs" />
     <MESSAGE value="fix pubsub" />
     <MESSAGE value="update port-forward" />
@@ -498,37 +498,38 @@
     <MESSAGE value="adding set pvc recepie" />
     <MESSAGE value="add offline mode&#10;add queue python code" />
     <MESSAGE value="update security alert" />
-    <option name="LAST_COMMIT_MESSAGE" value="update security alert" />
+    <MESSAGE value="update get started examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="update get started examples" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1162" y="356" key="CommitChangelistDialog2" timestamp="1578302135208">
+    <state x="1162" y="356" key="CommitChangelistDialog2" timestamp="1578325283276">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="1162" y="356" key="CommitChangelistDialog2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302135208" />
+    <state x="1162" y="356" key="CommitChangelistDialog2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578325283276" />
     <state x="93" y="93" width="2886" height="1502" key="DiffContextDialog" timestamp="1575197382829">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="93" y="93" width="2886" height="1502" key="DiffContextDialog/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575197382829" />
-    <state x="1317" y="599" key="FileChooserDialogImpl" timestamp="1575283547686">
+    <state x="1317" y="599" key="FileChooserDialogImpl" timestamp="1578817484483">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="1317" y="599" key="FileChooserDialogImpl/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575283547686" />
-    <state width="3029" height="476" key="GridCell.Tab.0.bottom" timestamp="1578302126020">
+    <state x="1317" y="599" key="FileChooserDialogImpl/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578817484483" />
+    <state width="3029" height="476" key="GridCell.Tab.0.bottom" timestamp="1578825822353">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="3029" height="476" key="GridCell.Tab.0.bottom/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302126020" />
-    <state width="3029" height="476" key="GridCell.Tab.0.center" timestamp="1578302126020">
+    <state width="3029" height="476" key="GridCell.Tab.0.bottom/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578825822353" />
+    <state width="3029" height="476" key="GridCell.Tab.0.center" timestamp="1578825822353">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="3029" height="476" key="GridCell.Tab.0.center/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302126020" />
-    <state width="3029" height="476" key="GridCell.Tab.0.left" timestamp="1578302126019">
+    <state width="3029" height="476" key="GridCell.Tab.0.center/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578825822353" />
+    <state width="3029" height="476" key="GridCell.Tab.0.left" timestamp="1578825822353">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="3029" height="476" key="GridCell.Tab.0.left/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302126019" />
-    <state width="3029" height="476" key="GridCell.Tab.0.right" timestamp="1578302126020">
+    <state width="3029" height="476" key="GridCell.Tab.0.left/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578825822353" />
+    <state width="3029" height="476" key="GridCell.Tab.0.right" timestamp="1578825822353">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="3029" height="476" key="GridCell.Tab.0.right/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302126020" />
+    <state width="3029" height="476" key="GridCell.Tab.0.right/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578825822353" />
     <state x="1292" y="624" key="MarkdownNavigator.LinkFormatDialog" timestamp="1575219283562">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -537,17 +538,17 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1315" y="474" key="RollbackChangesDialog/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575197360465" />
-    <state x="1129" y="577" key="Vcs.Push.Dialog.v2" timestamp="1575628318662">
+    <state x="1129" y="577" key="Vcs.Push.Dialog.v2" timestamp="1578325288472">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="1129" y="577" key="Vcs.Push.Dialog.v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1575628318662" />
+    <state x="1129" y="577" key="Vcs.Push.Dialog.v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578325288472" />
     <state x="1346" y="761" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578302101956">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1346" y="761" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302101956" />
-    <state x="797" y="212" width="1561" height="1026" key="find.popup" timestamp="1578302086606">
+    <state x="797" y="212" width="1561" height="1026" key="find.popup" timestamp="1578835604180">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="797" y="212" width="1561" height="1026" key="find.popup/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578302086606" />
+    <state x="797" y="212" width="1561" height="1026" key="find.popup/0.0.3072.1688/3840.0.2560.1400/-2560.0.2560.1400@0.0.3072.1688" timestamp="1578835604180" />
   </component>
 </project>

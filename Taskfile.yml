@@ -2,7 +2,7 @@
 version: '2'
 
 vars:
-  VERSION: v1.4.7
+  VERSION: v1.4.9
 
 
 tasks:
@@ -28,3 +28,4 @@ tasks:
       - task: push
       - git tag -a {{.VERSION}} -m {{.VERSION}}
       - git push origin master --tags
+
